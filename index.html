@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PidzStore - Premium SMM & Digital Tools</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans (Sangat Premium & Modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                        },
+                    },
+                    boxShadow: {
+                        'premium': '0 4px 25px -4px rgba(0, 0, 0, 0.04), 0 2px 10px -2px rgba(0, 0, 0, 0.02)',
+                        'hover-card': '0 15px 30px -10px rgba(14, 165, 233, 0.12), 0 2px 10px -1px rgba(0, 0, 0, 0.01)',
+                        'glow': '0 0 15px rgba(14, 165, 233, 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            scroll-behavior: smooth;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-b: 1px solid rgba(241, 245, 249, 0.8);
+        }
+        .active-tab {
+            background-color: #0ea5e9;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+        }
+        .platform-card.active {
+            border-color: #0ea5e9;
+            background-color: #f0f9ff;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.08);
+        }
+        .service-type-btn.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col text-sm selection:bg-primary-100 selection:text-primary-700">
+
+    <!-- Header Navbar -->
+    <header class="sticky top-0 z-40 w-full glass-effect transition-all duration-300">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex items-center justify-between h-14 sm:h-16">
+                <!-- Logo & Status -->
+                <div class="flex items-center gap-3">
+                    <div class="relative group">
+                        <img src="https://cdn.phototourl.com/member/2026-06-17-9c1db8cd-6c94-4da2-ad73-fdf973d54227.jpg" alt="PidzStore Logo" class="w-9 h-9 rounded-full object-cover border border-slate-200 shadow-sm transition-transform duration-300 group-hover:rotate-12">
+                        <div class="absolute inset-0 rounded-full border-2 border-primary-500 opacity-60 animate-pulse"></div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-base font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-primary-600 to-slate-950 bg-clip-text text-transparent">PidzStore</span>
+                            <span id="nav-server-status" class="flex h-2 w-2 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2"></span>
+                            </span>
+                        </div>
+                        <p class="text-[8px] text-slate-400 tracking-wider uppercase font-semibold">Premium SMM Panel</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600">
+                    <a href="#edukasi" class="hover:text-primary-500 transition-colors">Edukasi & FAQ</a>
+                    <a href="#kategori" class="hover:text-primary-500 transition-colors">Katalog Produk</a>
+                    <a href="#syarat" class="hover:text-primary-500 transition-colors">Ketentuan IG</a>
+                </nav>
+
+                <!-- Admin Contact Button -->
+                <div class="flex items-center gap-2">
+                    <a href="https://wa.me/6285816148963" target="_blank" class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 text-xs font-bold transition-all shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-sm text-emerald-400"></i>
+                        <span>Admin</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Top Banner Section -->
+    <div class="w-full bg-white border-b border-slate-100">
+        <div class="max-w-4xl mx-auto p-4 sm:p-5">
+            <div class="relative rounded-2xl overflow-hidden shadow-premium border border-slate-200/60 aspect-[16/6] sm:aspect-[21/7]">
+                <img src="https://cdn.phototourl.com/member/2026-06-17-e96f913c-52b8-4d88-964c-28c3ef683433.png" alt="PidzStore Banner" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-white pt-6 pb-8 text-center">
+        <div class="absolute inset-0 z-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px] opacity-40"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10">
+            <!-- Dynamic Server Status Badge -->
+            <div class="mb-3 inline-block">
+                <span id="hero-server-status-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                    <span id="hero-server-status-dot" class="w-1.5 h-1.5 rounded-full"></span>
+                    <span id="hero-server-status-text">Mengecek Server...</span>
+                </span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-950 mb-3 leading-tight">
+                Optimasi Game & Sosial Media Anda
+            </h1>
+            <p class="max-w-xl mx-auto text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">
+                Platform SMM dan software optimasi digital murni terpercaya dengan pelayanan terbaik dan pengerjaan kilat.
+            </p>
+            
+            <div class="flex items-center justify-center gap-2.5">
+                <a href="#kategori" class="px-5 py-2.5 rounded-lg bg-primary-500 text-white hover:bg-primary-600 font-bold text-xs tracking-wide shadow-md transition-all">
+                    Lihat Katalog
+                </a>
+                <a href="#edukasi" class="px-5 py-2.5 rounded-lg bg-slate-50 text-slate-600 hover:bg-slate-100 font-semibold border border-slate-200 text-xs transition-all">
+                    Edukasi / FAQ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-6 w-full">
+
+        <!-- Info / Pengumuman Banner -->
+        <div class="mb-8 bg-amber-50 border border-amber-200/50 rounded-xl p-4 flex items-start gap-3 shadow-sm">
+            <div class="w-7 h-7 rounded-md bg-amber-100 flex items-center justify-center text-amber-600 shrink-0">
+                <i class="fa-solid fa-bell text-xs"></i>
+            </div>
+            <div class="text-xs">
+                <h4 class="font-bold text-amber-900">Pemberitahuan Transaksi Penting!</h4>
+                <p class="text-amber-800 mt-0.5 leading-relaxed">
+                    Setiap transaksi pembelian produk akan diarahkan secara otomatis ke WhatsApp Admin <strong>085816148963</strong> untuk diproses secara manual dan instan.
+                </p>
+            </div>
+        </div>
+
+        <!-- PERTANYAAN UMUM / FAQ & MATERI BACAAN -->
+        <section id="edukasi" class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-slate-200 pb-8 scroll-mt-20">
+            
+            <!-- Accordion FAQ Area -->
+            <div>
+                <span class="text-xs font-bold text-primary-500 uppercase tracking-widest block mb-1">Informasi Wajib Baca</span>
+                <h2 class="text-lg font-extrabold text-slate-900 mb-4">FAQ & Pemahaman SMM</h2>
+                
+                <div class="space-y-3">
+                    <!-- FAQ 1 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button onclick="toggleFAQ(1)" class="w-full text-left px-4 py-3 flex items-center justify-between text-slate-900 font-bold hover:bg-slate-50 transition-colors text-xs">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-regular fa-circle-question text-primary-500 text-sm"></i>
+                                APAKAH PERMANEN GAK? (WAJIB TAHU)
+                            </span>
+                            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform text-[10px]"></i>
+                        </button>
+                        <div id="faq-content-1" class="hidden border-t border-slate-100 px-4 py-3 text-slate-600 text-xs leading-relaxed bg-slate-50/50">
+                            <p class="font-semibold text-slate-800 mb-2">Banyak yang sering tanya, "Ini beneran permanen gak?" atau "Kok masih turun padahal tulisannya No Drop?". Yuk, disimak bentar biar nggak salah paham sebelum order:</p>
+                            
+                            <p class="mb-2">
+                                <strong>Gak Ada yang 100% Abadi:</strong> Di dunia SMM, istilah "Permanen" atau "No Drop" itu sifatnya estimasi. Kenapa? Karena Instagram, TikTok, dan sosmed lainnya rutin melakukan pembersihan akun bot/fake secara otomatis.
+                            </p>
+                            
+                            <p>
+                                <strong>Pilihan di Tangan Anda:</strong> Kami gak mau kasih janji manis atau promosi jebakan. Kalau kamu ragu atau belum siap dengan risiko drop, sangat disarankan untuk tidak melakukan order. Kami lebih menghargai kejujuran di awal daripada komplain di akhir.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                        <button onclick="toggleFAQ(2)" class="w-full text-left px-4 py-3 flex items-center justify-between text-slate-900 font-bold hover:bg-slate-50 transition-colors text-xs">
+                            <span class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-wallet text-primary-500 text-sm"></i>
+                                Bagaimana sistem pembayarannya?
+                            </span>
+                            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform text-[10px]"></i>
+                        </button>
+                        <div id="faq-content-2" class="hidden border-t border-slate-100 px-4 py-3 text-slate-600 text-xs leading-relaxed bg-slate-50/50">
+                            Kami menyediakan pembayaran via QRIS murni (bisa scan semua e-wallet), DANA, OVO, GOPAY, ShopeePay, dan Transfer Bank. Pembayaran aman dan pesanan diproses langsung oleh admin yang bersiap di jam kerja aktif.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ketentuan Pembelian IG -->
+            <div id="syarat" class="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-5 text-white relative overflow-hidden shadow-sm scroll-mt-20">
+                <div class="relative z-10">
+                    <span class="inline-flex items-center gap-1 bg-red-500/15 text-red-400 px-2.5 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider mb-2.5">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Wajib Baca Sebelum Beli Followers IG
+                    </span>
+                    
+                    <h3 class="text-sm font-extrabold mb-1.5 text-white">
+                        Ketentuan Pemesanan Instagram
+                    </h3>
+                    <p class="text-slate-300 text-[11px] mb-3 leading-relaxed">
+                        Instruksi berikut harus diikuti secara ketat untuk mencegah penyaringan otomatis (Flag of Review / Spam) oleh Instagram:
+                    </p>
+
+                    <div class="space-y-1.5 text-[11px]">
+                        <div class="flex items-start gap-1.5">
+                            <span class="font-bold text-primary-400 shrink-0">1.</span>
+                            <p class="text-slate-300">Buka <strong class="text-white">Pengaturan/Setting</strong> akun Instagram profil Anda.</p>
+                        </div>
+                        <div class="flex items-start gap-1.5">
+                            <span class="font-bold text-primary-400 shrink-0">2.</span>
+                            <p class="text-slate-300">Pilih opsi <strong class="text-white">"Ikuti dan Undang Teman"</strong>.</p>
+                        </div>
+                        <div class="flex items-start gap-1.5">
+                            <span class="font-bold text-primary-400 shrink-0">3.</span>
+                            <p class="text-slate-300">Nonaktifkan fitur <strong class="text-rose-400">"Laporkan untuk Ditinjau"</strong> sebelum membuat pesanan agar proses suntik berjalan lancar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Category Selector Section -->
+        <div id="kategori" class="text-center mb-8 scroll-mt-20">
+            <!-- Filter Tabs -->
+            <div class="inline-flex p-1 bg-white border border-slate-200 rounded-xl shadow-sm">
+                <button onclick="switchCategory('all')" id="btn-all" class="px-4 py-2 rounded-lg text-xs font-bold transition-all active-tab">
+                    <i class="fa-solid fa-folder-open mr-1.5"></i> ALL FILE
+                </button>
+                <button onclick="switchCategory('suntik')" id="btn-suntik" class="px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-primary-500">
+                    <i class="fa-solid fa-share-nodes mr-1.5"></i> SUNTIK SOSMED
+                </button>
+            </div>
+        </div>
+
+        <!-- PRODUCTS: ALL FILE -->
+        <div id="section-all" class="grid grid-cols-1 md:grid-cols-2 gap-6 scroll-mt-20">
+            <!-- Product 1: SpxToolsV1 -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-premium hover:shadow-hover-card transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2 py-1 bg-primary-50 text-primary-600 rounded-md text-[10px] font-bold uppercase tracking-wider">Premium Tool</span>
+                        <div class="text-slate-400 group-hover:text-primary-500 transition-colors">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-slate-900 mb-1">SpxToolsV1</h3>
+                    <div class="flex items-baseline gap-1.5 mb-4">
+                        <span class="text-xl font-extrabold text-primary-500">Rp 25.000</span>
+                        <span class="text-slate-400 text-[10px] font-semibold bg-slate-100 px-1.5 py-0.5 rounded">Selama OB53 Free Fire</span>
+                    </div>
+                    
+                    <p class="text-slate-500 text-xs mb-4 leading-relaxed">
+                        Layanan software optimalisasi terkemuka yang dirancang khusus untuk meningkatkan sensitivitas gameplay, kenyamanan kontrol, serta performa kestabilan frame rate pada perangkat mobile Anda.
+                    </p>
+
+                    <div class="border-t border-slate-100 pt-4 mb-5">
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Fitur Utama Tersedia:</h4>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-slate-600">
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Easy to head</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Easy drag</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Screen response</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Smooth screen</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Clear cache</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Increase perf</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-emerald-500 text-[10px]"></i> Optimize FF</li>
+                        </ul>
+                    </div>
+                </div>
+                <button onclick="openModal('SpxToolsV1', 25000, 'all-file')" class="w-full py-2.5 bg-primary-500 hover:bg-primary-600 text-white font-bold text-xs rounded-xl transition-all shadow-sm hover:shadow-glow">
+                    <i class="fa-solid fa-basket-shopping mr-1.5"></i> Ambil SpxToolsV1
+                </button>
+            </div>
+
+            <!-- Product 2: AIM HEAD 90% -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-premium hover:shadow-hover-card transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-2 py-1 bg-rose-50 text-rose-600 rounded-md text-[10px] font-bold uppercase tracking-wider">AIM Optimizer</span>
+                        <div class="text-slate-400 group-hover:text-rose-500 transition-colors">
+                            <i class="fa-solid fa-crosshairs text-lg"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-slate-900 mb-1">AIM HEAD 90%</h3>
+                    <div class="flex items-baseline gap-1.5 mb-4">
+                        <span class="text-xl font-extrabold text-rose-500">Rp 25.000</span>
+                        <span class="text-slate-400 text-[10px] font-semibold bg-slate-100 px-1.5 py-0.5 rounded">Selama OB53 Free Fire</span>
+                    </div>
+
+                    <div class="bg-rose-50 border border-rose-100 rounded-xl p-3 mb-4">
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-rose-700 flex items-center gap-1 mb-1">
+                            <i class="fa-solid fa-shield-halved"></i> Disclaimer Penggunaan:
+                        </h4>
+                        <p class="text-rose-600 text-[11px] leading-relaxed">
+                            Bukan program ilegal/cheat auto headshot otomatis. Alat bantu ini bekerja 100% aman untuk memudahkan Anda dalam mengarahkan bidikan (aim) ke arah kepala secara natural tanpa resiko banned.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-4 mb-5">
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">Kelebihan Tools:</h4>
+                        <ul class="space-y-1.5 text-xs text-slate-600">
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> Memperluas area sensitivitas layar</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> Memperkecil sebaran peluru saat menembak</li>
+                            <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-emerald-500 text-[10px]"></i> 100% Anti-Banned & Aman Akun Utama</li>
+                        </ul>
+                    </div>
+                </div>
+                <button onclick="openModal('AIM HEAD 90%', 25000, 'all-file')" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition-all">
+                    <i class="fa-solid fa-basket-shopping mr-1.5"></i> Ambil AIM HEAD 90%
+                </button>
+            </div>
+        </div>
+
+        <!-- PRODUCTS: SUNTIK SOSMED (REBUILT ALUR BARU) -->
+        <div id="section-suntik" class="hidden space-y-6 scroll-mt-20">
+            
+            <!-- LANGKAH 1: PILIH SOSIAL MEDIA -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Langkah 1: Pilih Media Sosial</h3>
+                <div class="grid grid-cols-3 gap-3">
+                    
+                    <!-- Platform TikTok -->
+                    <button onclick="selectPlatform('tiktok')" id="plat-tiktok" class="platform-card flex flex-col items-center justify-center p-4 border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 mb-2">
+                            <i class="fa-brands fa-tiktok text-lg"></i>
+                        </div>
+                        <span class="font-bold text-xs text-slate-800">TikTok</span>
+                    </button>
+
+                    <!-- Platform Instagram -->
+                    <button onclick="selectPlatform('instagram')" id="plat-instagram" class="platform-card flex flex-col items-center justify-center p-4 border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center text-pink-500 mb-2">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </div>
+                        <span class="font-bold text-xs text-slate-800">Instagram</span>
+                    </button>
+
+                    <!-- Platform WhatsApp -->
+                    <button onclick="selectPlatform('whatsapp')" id="plat-whatsapp" class="platform-card flex flex-col items-center justify-center p-4 border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-500 mb-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </div>
+                        <span class="font-bold text-xs text-slate-800">WhatsApp</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- LANGKAH 2: PILIH JENIS LAYANAN (DITAMPILKAN SETELAH PILIH PLATFORM) -->
+            <div id="container-service-types" class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hidden transition-all">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 text-center">Langkah 2: Pilih Kategori Layanan</h3>
+                <div id="service-types-list" class="flex flex-wrap justify-center gap-2">
+                    <!-- Dinamis Diisi JS -->
+                </div>
+            </div>
+
+            <!-- LANGKAH 3: PILIH PAKET (Berbaris 2-2 / Grid 2 Kolom) -->
+            <div id="container-packages" class="hidden space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-extrabold uppercase tracking-widest text-slate-400" id="packages-title">Paket Layanan Tersedia</h3>
+                    <span class="text-[10px] text-slate-400">Pilih salah satu paket</span>
+                </div>
+                
+                <!-- Package Cards Container (Grid 2 Kolom) -->
+                <div id="packages-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <!-- Dinamis Diisi JS -->
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Area -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-8 mt-16 text-xs">
+        <div class="max-w-5xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center justify-center sm:justify-start gap-2.5">
+                <img src="https://cdn.phototourl.com/member/2026-06-17-9c1db8cd-6c94-4da2-ad73-fdf973d54227.jpg" alt="PidzStore Logo Footer" class="w-6 h-6 rounded-full object-cover">
+                <div>
+                    <span class="text-sm font-extrabold text-white">PidzStore</span>
+                    <p class="text-[9px] text-slate-500">Premium Digital Tools & SMM Panel Services</p>
+                </div>
+            </div>
+            <span id="footer-server-time" class="text-slate-500 text-[10px]">Memuat jam operasional...</span>
+            <span>&copy; 2026 PidzStore SMM. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- MODAL DETIL PEMBELIAN (POPUP) -->
+    <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm hidden overflow-y-auto">
+        <div class="bg-white w-full max-w-sm rounded-2xl shadow-xl border border-slate-100 overflow-hidden transform scale-95 transition-all duration-200 my-8" id="modalContainer">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-4 relative">
+                <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-primary-500 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-cart-shopping text-xs"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-sm">Konfirmasi Pesanan</h3>
+                        <p class="text-slate-400 text-[10px]">PidzStore Pembayaran QRIS Instan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div class="p-5 max-h-[75vh] overflow-y-auto">
+                <!-- Target Input Area (Untuk SMM) -->
+                <div id="target-input-container" class="mb-4 hidden">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Input Target / Username Sosmed:</label>
+                    <input type="text" id="target-link" placeholder="Contoh: @username atau link target" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-500">
+                    <p class="text-[9px] text-slate-400 mt-1">Sertakan target yang valid agar tidak terjadi salah suntik!</p>
+                </div>
+
+                <!-- Custom Input Area untuk Tambahan Manual -->
+                <div id="custom-amount-container" class="mb-4 hidden">
+                    <label id="label-custom-amount" class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Jumlah Custom:</label>
+                    <input type="number" id="input-custom-amount" placeholder="Ketik jumlah pesanan kustom" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-lg px-3.5 py-2.5 text-xs focus:outline-none focus:border-primary-500">
+                    <p id="sub-custom-amount" class="text-[9px] text-slate-400 mt-1">Tanyakan tarif total pesanan kepada admin lewat chat</p>
+                </div>
+
+                <!-- INFO METODE PEMBAYARAN (QRIS ONLY) -->
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Metode Pembayaran:</label>
+                    <div class="flex items-center justify-between p-3 border-2 border-primary-500 bg-primary-50/50 rounded-xl">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-qrcode text-primary-500 text-lg"></i>
+                            <div>
+                                <p class="font-extrabold text-xs text-slate-900">QRIS Instan Otomatis</p>
+                                <p class="text-[9px] text-slate-400">Scan via GOPAY, OVO, DANA, dll</p>
+                            </div>
+                        </div>
+                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] font-bold rounded">Pilihan Utama</span>
+                    </div>
+                </div>
+
+                <!-- QRIS DISPLAY SECTION -->
+                <div id="qris-payment-section" class="mb-4 p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                    <div class="text-center">
+                        <p class="font-bold text-slate-800 text-xs">Pindai Kode QRIS Resmi PidzStore</p>
+                        
+                        <!-- QRIS Image -->
+                        <div class="my-3 mx-auto w-40 h-52 border-2 border-slate-200 rounded-xl overflow-hidden bg-white shadow-sm p-1.5">
+                            <img src="https://cdn.phototourl.com/member/2026-06-17-ea6e5ab1-a7ff-4105-9c0b-a2e9ec1b4e8a.jpg" alt="PidzStore QRIS" class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- Timer Mundur -->
+                        <div class="bg-rose-50 border border-rose-100 rounded-lg p-2 mb-2 text-center">
+                            <p class="text-[10px] text-rose-500 uppercase tracking-widest font-bold">Batas Waktu Pembayaran (2 Jam):</p>
+                            <p id="qris-timer" class="font-extrabold text-rose-600 text-sm mt-0.5">02:00:00</p>
+                            <p class="text-[8px] text-rose-400 mt-0.5">Transaksi hangus otomatis jika melebihi batas waktu.</p>
+                        </div>
+
+                        <div class="text-left text-[10px] text-slate-500 leading-relaxed bg-amber-50 border border-amber-200/50 p-2.5 rounded-lg">
+                            <p class="font-bold text-amber-900 mb-0.5"><i class="fa-solid fa-circle-info"></i> Langkah Verifikasi:</p>
+                            1. Selesaikan pembayaran dengan e-wallet/m-banking Anda.<br>
+                            2. <strong>Wajib screenshot bukti transfer sukses</strong>.<br>
+                            3. Kirimkan bukti ss tersebut dengan mengklik tombol WhatsApp di bawah agar admin memproses pesanan Anda langsung.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200/50 space-y-2 mb-4 text-xs">
+                    <div class="flex justify-between gap-4">
+                        <span class="text-slate-400 shrink-0">Nama Produk:</span>
+                        <span class="font-bold text-slate-900 text-right" id="modal-product-name">-</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-slate-400 shrink-0">Paket/Kuantitas:</span>
+                        <span class="font-bold text-slate-900 text-right" id="modal-product-pack">-</span>
+                    </div>
+                    <div class="flex justify-between gap-4">
+                        <span class="text-slate-400 shrink-0">Estimasi Biaya:</span>
+                        <span class="font-extrabold text-primary-500 text-right" id="modal-product-price">-</span>
+                    </div>
+                </div>
+
+                <!-- Instagram Pre-buy Note (Shown dynamically) -->
+                <div id="ig-warning-note" class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-[11px] text-amber-800 mb-4 hidden">
+                    Pastikan Anda telah menonaktifkan fitur <strong>"Laporkan untuk Ditinjau"</strong> pada menu privasi akun Instagram Anda.
+                </div>
+
+                <!-- Action Button -->
+                <button id="btn-submit-order" class="w-full py-3 bg-primary-500 hover:bg-primary-600 text-white font-bold rounded-xl text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm hover:shadow-glow">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Kirim ke WhatsApp &amp; Kirim Bukti Transfer</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UI TOAST NOTIFICATION (PENGGANTI ALERT BROWSER) -->
+    <div id="custom-toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2 text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300">
+        <i class="fa-solid fa-circle-info text-primary-400"></i>
+        <span id="toast-message">Pesan notifikasi</span>
+    </div>
+
+    <!-- REAL-TIME LIVE BUYERS POPUP (TOAST TRANSAKSI) -->
+    <div id="live-buyer-toast" class="fixed bottom-4 left-4 z-40 bg-white border border-slate-200 p-3 rounded-2xl shadow-xl flex items-center gap-3 w-72 transform -translate-x-[340px] transition-transform duration-500 pointer-events-none">
+        <div class="w-9 h-9 rounded-xl bg-primary-50 flex items-center justify-center text-primary-500 shrink-0 shadow-inner">
+            <i class="fa-solid fa-bag-shopping text-sm animate-bounce"></i>
+        </div>
+        <div class="text-[11px] overflow-hidden">
+            <p class="font-bold text-slate-900" id="live-buyer-title">Transaksi Berhasil</p>
+            <p class="text-slate-500 truncate" id="live-buyer-desc">Farel baru saja membeli AIM HEAD 90%</p>
+            <p class="text-[9px] text-primary-500 mt-0.5"><i class="fa-regular fa-clock"></i> <span id="live-buyer-time">Baru saja</span></p>
+        </div>
+    </div>
+
+    <!-- MAIN DATA & LOGIC JAVASCRIPT -->
+    <script>
+        // Database SMM
+        const sosmedData = {
+            tiktok: {
+                categories: {
+                    followers_id: {
+                        label: 'Followers Indonesia 🇮🇩',
+                        desc: 'Followers asli murni akun Indonesia',
+                        packages: [
+                            { qty: '50 Followers', price: 'Rp 5.130' },
+                            { qty: '100 Followers', price: 'Rp 10.260' },
+                            { qty: '150 Followers', price: 'Rp 13.389' },
+                            { qty: '200 Followers', price: 'Rp 15.519' },
+                            { qty: '250 Followers', price: 'Rp 19.649' },
+                            { qty: '300 Followers', price: 'Rp 22.779' },
+                            { qty: '350 Followers', price: 'Rp 24.908' },
+                            { qty: '400 Followers', price: 'Rp 28.038' },
+                            { qty: '450 Followers', price: 'Rp 32.168' },
+                            { qty: '500 Followers', price: 'Rp 35.298' },
+                            { qty: '550 Followers', price: 'Rp 38.427' },
+                            { qty: '600 Followers', price: 'Rp 41.557' },
+                            { qty: '650 Followers', price: 'Rp 44.687' },
+                            { qty: '700 Followers', price: 'Rp 47.817' },
+                            { qty: '750 Followers', price: 'Rp 50.945' },
+                            { qty: '800 Followers', price: 'Rp 54.076' },
+                            { qty: 'Kustom Lainnya', price: 'Tanya Admin', isCustom: true, labelMinMax: 'Jumlah Lain? Chat Admin (Bebas)' }
+                        ]
+                    },
+                    followers_global: {
+                        label: 'Followers Global 🌏',
+                        desc: 'Followers akun Worldwide internasional',
+                        packages: [
+                            { qty: '50 Followers', price: 'Rp 4.322' },
+                            { qty: '100 Followers', price: 'Rp 7.644' },
+                            { qty: '150 Followers', price: 'Rp 9.965' },
+                            { qty: '200 Followers', price: 'Rp 12.287' },
+                            { qty: '250 Followers', price: 'Rp 14.609' },
+                            { qty: '300 Followers', price: 'Rp 16.931' },
+                            { qty: '350 Followers', price: 'Rp 19.253' },
+                            { qty: '400 Followers', price: 'Rp 22.574' },
+                            { qty: '450 Followers', price: 'Rp 24.896' },
+                            { qty: '500 Followers', price: 'Rp 26.218' },
+                            { qty: '550 Followers', price: 'Rp 29.540' },
+                            { qty: '600 Followers', price: 'Rp 32.862' },
+                            { qty: '650 Followers', price: 'Rp 35.183' },
+                            { qty: '700 Followers', price: 'Rp 36.505' },
+                            { qty: '750 Followers', price: 'Rp 38.837' },
+                            { qty: '800 Followers', price: 'Rp 41.149' },
+                            { qty: '850 Followers', price: 'Rp 44.471' },
+                            { qty: '900 Followers', price: 'Rp 46.179' },
+                            { qty: '950 Followers', price: 'Rp 48.114' },
+                            { qty: '1000 Followers', price: 'Rp 51.436' },
+                            { qty: 'Kustom Lainnya', price: 'Tanya Admin', isCustom: true, labelMinMax: 'Jumlah Lain? Chat Admin (Bebas)' }
+                        ]
+                    },
+                    likes_id: {
+                        label: 'Likes Indonesia 🇮🇩',
+                        desc: 'Likes murni asal Indonesia',
+                        packages: [
+                            { qty: '100 Likes', price: 'Rp 5.510' },
+                            { qty: '150 Likes', price: 'Rp 6.265' },
+                            { qty: '200 Likes', price: 'Rp 9.020' },
+                            { qty: '250 Likes', price: 'Rp 11.755' },
+                            { qty: '300 Likes', price: 'Rp 13.530' },
+                            { qty: '350 Likes', price: 'Rp 15.285' },
+                            { qty: '400 Likes', price: 'Rp 17.040' },
+                            { qty: '450 Likes', price: 'Rp 18.759' },
+                            { qty: '500 Likes', price: 'Rp 20.550' },
+                            { qty: '550 Likes', price: 'Rp 22.305' },
+                            { qty: '600 Likes', price: 'Rp 24.060' },
+                            { qty: '650 Likes', price: 'Rp 26.815' },
+                            { qty: '700 Likes', price: 'Rp 28.570' },
+                            { qty: '750 Likes', price: 'Rp 30.325' },
+                            { qty: '800 Likes', price: 'Rp 32.080' },
+                            { qty: '850 Likes', price: 'Rp 34.835' },
+                            { qty: '900 Likes', price: 'Rp 36.590' },
+                            { qty: '950 Likes', price: 'Rp 38.345' },
+                            { qty: '1.000 Likes', price: 'Rp 40.100' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah like (Min 100 - Max 10.000)' }
+                        ]
+                    },
+                    likes_global: {
+                        label: 'Likes Global 🌏',
+                        desc: 'Sangat instan, murah, & stabil',
+                        packages: [
+                            { qty: '40 Likes', price: 'Rp 100 perak' },
+                            { qty: '50 Likes', price: 'Rp 135 perak' },
+                            { qty: '100 Likes', price: 'Rp 240 perak' },
+                            { qty: '150 Likes', price: 'Rp 345 perak' },
+                            { qty: '200 Likes', price: 'Rp 471 perak' },
+                            { qty: '250 Likes', price: 'Rp 555 perak' },
+                            { qty: '300 Likes', price: 'Rp 685 perak' },
+                            { qty: '350 Likes', price: 'Rp 770 perak' },
+                            { qty: '400 Likes', price: 'Rp 870 perak' },
+                            { qty: '450 Likes', price: 'Rp 1.100' },
+                            { qty: '500 Likes', price: 'Rp 1.400' },
+                            { qty: '550 Likes', price: 'Rp 2.000' },
+                            { qty: '600 Likes', price: 'Rp 2.500' },
+                            { qty: '650 Likes', price: 'Rp 3.000' },
+                            { qty: '700 Likes', price: 'Rp 3.500' },
+                            { qty: '750 Likes', price: 'Rp 4.000' },
+                            { qty: '800 Likes', price: 'Rp 4.577' },
+                            { qty: '850 Likes', price: 'Rp 4.682' },
+                            { qty: '900 Likes', price: 'Rp 5.000' },
+                            { qty: '950 Likes', price: 'Rp 5.500' },
+                            { qty: '1.000 Likes', price: 'Rp 5.800' },
+                            { qty: '2.000 Likes', price: 'Rp 6.000' },
+                            { qty: '3.000 Likes', price: 'Rp 7.000' },
+                            { qty: '4.000 Likes', price: 'Rp 10.412' },
+                            { qty: '5.000 Likes', price: 'Rp 14.515' },
+                            { qty: '6.000 Likes', price: 'Rp 16.618' },
+                            { qty: '7.000 Likes', price: 'Rp 18.000' },
+                            { qty: '8.000 Likes', price: 'Rp 20.000' },
+                            { qty: '9.000 Likes', price: 'Rp 22.000' },
+                            { qty: '10.000 Likes', price: 'Rp 24.000' },
+                            { qty: '11.000 Likes', price: 'Rp 26.000' },
+                            { qty: '12.000 Likes', price: 'Rp 28.000' },
+                            { qty: '13.000 Likes', price: 'Rp 31.000' },
+                            { qty: '14.000 Likes', price: 'Rp 33.000' },
+                            { qty: '15.000 Likes', price: 'Rp 35.000' },
+                            { qty: '16.000 Likes', price: 'Rp 37.000' },
+                            { qty: '17.000 Likes', price: 'Rp 39.000' },
+                            { qty: '18.000 Likes', price: 'Rp 42.000' },
+                            { qty: '19.000 Likes', price: 'Rp 44.000' },
+                            { qty: '20.000 Likes', price: 'Rp 46.000' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah (Min 10 - Max 1.000.000)' }
+                        ]
+                    },
+                    live_views: {
+                        label: 'Live Stream Views 🎥',
+                        desc: '100% Concurrent Live stream views',
+                        packages: [
+                            { qty: '100 Views', price: 'Rp 5.226' },
+                            { qty: '150 Views', price: 'Rp 7.000' },
+                            { qty: '200 Views', price: 'Rp 10.000' },
+                            { qty: '250 Views', price: 'Rp 12.000' },
+                            { qty: '300 Views', price: 'Rp 13.978' },
+                            { qty: '350 Views', price: 'Rp 14.291' },
+                            { qty: '400 Views', price: 'Rp 15.904' },
+                            { qty: '450 Views', price: 'Rp 17.517' },
+                            { qty: '500 Views', price: 'Rp 19.131' },
+                            { qty: '550 Views', price: 'Rp 22.744' },
+                            { qty: '600 Views', price: 'Rp 24.357' },
+                            { qty: '650 Views', price: 'Rp 25.970' },
+                            { qty: '700 Views', price: 'Rp 27.583' },
+                            { qty: '750 Views', price: 'Rp 29.196' },
+                            { qty: '800 Views', price: 'Rp 30.809' },
+                            { qty: '850 Views', price: 'Rp 32.422' },
+                            { qty: '900 Views', price: 'Rp 34.035' },
+                            { qty: '950 Views', price: 'Rp 35.648' },
+                            { qty: '1.000 Views', price: 'Rp 37.261' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah (Min 50 - Max 50.000)' }
+                        ]
+                    },
+                    likes_comm: {
+                        label: 'Likes Comments 💬',
+                        desc: 'Beri jempol di komentar video',
+                        packages: [
+                            { qty: '100 Likes', price: 'Rp 700 perak' },
+                            { qty: '150 Likes', price: 'Rp 1.000' },
+                            { qty: '200 Likes', price: 'Rp 1.500' },
+                            { qty: '250 Likes', price: 'Rp 2.000' },
+                            { qty: '300 Likes', price: 'Rp 2.500' },
+                            { qty: '350 Likes', price: 'Rp 3.000' },
+                            { qty: '400 Likes', price: 'Rp 3.500' },
+                            { qty: '450 Likes', price: 'Rp 4.000' },
+                            { qty: '500 Likes', price: 'Rp 4.500' },
+                            { qty: '550 Likes', price: 'Rp 5.000' },
+                            { qty: '600 Likes', price: 'Rp 5.500' },
+                            { qty: '650 Likes', price: 'Rp 6.000' },
+                            { qty: '700 Likes', price: 'Rp 6.500' },
+                            { qty: '750 Likes', price: 'Rp 7.000' },
+                            { qty: '800 Likes', price: 'Rp 7.500' },
+                            { qty: '850 Likes', price: 'Rp 8.000' },
+                            { qty: '900 Likes', price: 'Rp 8.500' },
+                            { qty: '950 Likes', price: 'Rp 9.000' },
+                            { qty: '1.000 Likes', price: 'Rp 9.500' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah (Min 100 - Max 100.000)' }
+                        ]
+                    }
+                }
+            },
+            instagram: {
+                categories: {
+                    followers_id: {
+                        label: 'Followers Indonesia 🇮🇩',
+                        desc: 'Followers akun beridentitas Indonesia asli',
+                        packages: [
+                            { qty: '100 Followers', price: 'Rp 7.716' },
+                            { qty: '150 Followers', price: 'Rp 9.000' },
+                            { qty: '200 Followers', price: 'Rp 14.000' },
+                            { qty: '250 Followers', price: 'Rp 18.000' },
+                            { qty: '300 Followers', price: 'Rp 22.149' },
+                            { qty: '350 Followers', price: 'Rp 25.000' },
+                            { qty: '400 Followers', price: 'Rp 27.000' },
+                            { qty: '450 Followers', price: 'Rp 30.000' },
+                            { qty: '500 Followers', price: 'Rp 33.000' },
+                            { qty: '550 Followers', price: 'Rp 37.000' },
+                            { qty: '600 Followers', price: 'Rp 41.000' },
+                            { qty: '650 Followers', price: 'Rp 43.000' },
+                            { qty: '700 Followers', price: 'Rp 45.000' },
+                            { qty: '750 Followers', price: 'Rp 48.000' },
+                            { qty: '800 Followers', price: 'Rp 52.000' },
+                            { qty: '850 Followers', price: 'Rp 55.000' },
+                            { qty: '900 Followers', price: 'Rp 58.000' },
+                            { qty: '950 Followers', price: 'Rp 62.000' },
+                            { qty: '1.000 Followers', price: 'Rp 65.000' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah (Min 100 - Max 10.000)' }
+                        ]
+                    },
+                    followers_global: {
+                        label: 'Followers Luar 🌏',
+                        desc: 'Followers global murni cepat & stabil',
+                        packages: [
+                            { qty: '100 Followers', price: 'Rp 1.000' },
+                            { qty: '150 Followers', price: 'Rp 1.500' },
+                            { qty: '200 Followers', price: 'Rp 2.000' },
+                            { qty: '250 Followers', price: 'Rp 2.500' },
+                            { qty: '300 Followers', price: 'Rp 3.000' },
+                            { qty: '350 Followers', price: 'Rp 3.500' },
+                            { qty: '400 Followers', price: 'Rp 4.000' },
+                            { qty: '450 Followers', price: 'Rp 4.500' },
+                            { qty: '500 Followers', price: 'Rp 5.000' },
+                            { qty: '550 Followers', price: 'Rp 5.000' },
+                            { qty: '600 Followers', price: 'Rp 6.000' },
+                            { qty: '650 Followers', price: 'Rp 6.500' },
+                            { qty: '700 Followers', price: 'Rp 7.000' },
+                            { qty: '750 Followers', price: 'Rp 7.500' },
+                            { qty: '800 Followers', price: 'Rp 8.000' },
+                            { qty: '850 Followers', price: 'Rp 8.500' },
+                            { qty: '900 Followers', price: 'Rp 9.000' },
+                            { qty: '950 Followers', price: 'Rp 9.500' },
+                            { qty: '1.000 Followers', price: 'Rp 10.000' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah (Min 100 - Max 5.000.000)' }
+                        ]
+                    },
+                    likes_custom: {
+                        label: 'Likes Custom Target 💖',
+                        desc: 'Isi jumlah like berapapun yang Anda mau',
+                        packages: [
+                            { qty: 'Input Sesuai Selera', price: 'Tanya Admin', isCustom: true, labelMinMax: 'Ketik jumlah like (Min 10 - Max 500.000)' }
+                        ]
+                    }
+                }
+            },
+            whatsapp: {
+                categories: {
+                    followers_global: {
+                        label: 'Pengikut WhatsApp Global 🌏',
+                        desc: 'Suntik pengikut Saluran / Channel WA',
+                        packages: [
+                            { qty: '50 Followers', price: 'Rp 6.000' },
+                            { qty: '100 Followers', price: 'Rp 10.000' },
+                            { qty: '150 Followers', price: 'Rp 14.000' },
+                            { qty: '200 Followers', price: 'Rp 19.000' },
+                            { qty: '250 Followers', price: 'Rp 24.000' },
+                            { qty: '300 Followers', price: 'Rp 28.000' },
+                            { qty: '350 Followers', price: 'Rp 33.000' },
+                            { qty: '400 Followers', price: 'Rp 35.000' },
+                            { qty: '450 Followers', price: 'Rp 36.000' },
+                            { qty: '500 Followers', price: 'Rp 41.000' },
+                            { qty: '550 Followers', price: 'Rp 46.000' },
+                            { qty: '600 Followers', price: 'Rp 48.000' },
+                            { qty: '650 Followers', price: 'Rp 52.000' },
+                            { qty: '700 Followers', price: 'Rp 56.000' },
+                            { qty: '750 Followers', price: 'Rp 61.000' },
+                            { qty: '800 Followers', price: 'Rp 66.000' },
+                            { qty: '850 Followers', price: 'Rp 71.000' },
+                            { qty: '900 Followers', price: 'Rp 77.000' },
+                            { qty: '950 Followers', price: 'Rp 78.000' },
+                            { qty: '1000 Followers', price: 'Rp 80.000' },
+                            { qty: 'Jumlah Lain?', price: 'Hubungi Admin', isCustom: true, labelMinMax: 'Ketik jumlah pengikut (Min 10 - Max 50.000)' }
+                        ]
+                    }
+                }
+            }
+        };
+
+        // State control
+        let activePlatform = '';
+        let activeCategoryKey = '';
+        let currentOrderType = 'all-file';
+        let currentProductName = '';
+        let currentProductPack = '';
+        let currentProductPrice = '';
+        let isInstagramFollower = false;
+        let isPackageCustom = false;
+        let countdownInterval = null;
+
+        // Custom Notification Toast Function
+        function showToast(message) {
+            const toast = document.getElementById('custom-toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0', 'pointer-events-none');
+            }, 3500);
+        }
+
+        // Live Server Status Checker
+        function updateServerStatus() {
+            const statusDotNav = document.querySelector('#nav-server-status .relative');
+            const statusPingNav = document.querySelector('#nav-server-status .animate-ping');
+            const statusBadgeHero = document.getElementById('hero-server-status-badge');
+            const statusDotHero = document.getElementById('hero-server-status-dot');
+            const statusTextHero = document.getElementById('hero-server-status-text');
+            const footerTime = document.getElementById('footer-server-time');
+
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${String(hours).padStart(2, '0')}:${minutes}`;
+
+            // Server Online jam 05.00 sampai 22.00 (Offline jam 23.00 keatas sampai sebelum jam 5 pagi)
+            const isOnline = (hours >= 5 && hours < 23);
+
+            if (isOnline) {
+                if(statusDotNav) statusDotNav.className = "relative inline-flex rounded-full h-2 w-2 bg-emerald-500";
+                if(statusPingNav) statusPingNav.className = "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-emerald-400";
+                
+                statusBadgeHero.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-600 border border-emerald-100";
+                statusDotHero.className = "w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse";
+                statusTextHero.textContent = `Server Online • CS Aktif (${timeString} WIB)`;
+                
+                footerTime.innerHTML = `<span class="text-emerald-500 font-bold">● Server Online</span> (Jam Kerja: 05:00 - 22:00 WIB)`;
+            } else {
+                if(statusDotNav) statusDotNav.className = "relative inline-flex rounded-full h-2 w-2 bg-rose-500";
+                if(statusPingNav) statusPingNav.className = "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-rose-400";
+                
+                statusBadgeHero.className = "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold bg-rose-50 text-rose-600 border border-rose-100";
+                statusDotHero.className = "w-1.5 h-1.5 rounded-full bg-rose-500";
+                statusTextHero.textContent = `Server Offline (Buka Jam 05.00 • ${timeString} WIB)`;
+                
+                footerTime.innerHTML = `<span class="text-rose-500 font-bold">● Server Offline</span> (Buka Jam 05:00 WIB)`;
+            }
+        }
+
+        // Live Transaction Notification Simulator (Selalu Teracak Anti Duplikat pada Startup)
+        const buyersList = ["Aris", "Farel", "Siti", "Hendra", "Budi", "Dewi", "Gilang", "Rizky", "Rian", "Putri", "Amelia", "Yusuf", "Lutfi", "Andi", "Indah", "Dimas", "Bintang", "Aditya", "Agung", "Chandra", "Ahmad", "Salsa", "Dinda", "Fitri", "Taufik", "Wahyu", "Robby", "Eko", "Yanto", "Lilis", "Tri", "Sri", "Bayu", "Dwi", "Guntur", "Santi", "Kevin", "Naufal", "Rangga", "Mega", "Joko", "Farhan", "Rara", "Dono", "Rudi", "Eka", "Siska", "Tari", "Maya", "Doni"];
+        const boughtItemsList = [
+            "AIM HEAD 90% (OB53 Free Fire)",
+            "SpxToolsV1 (OB53 Free Fire)",
+            "100 Followers TikTok Indo 🇮🇩",
+            "500 Followers Instagram Luar 🌏",
+            "200 Likes TikTok Indo 🇮🇩",
+            "1000 Likes TikTok Global 🌏",
+            "50 Followers WhatsApp Global 🌏",
+            "250 Followers TikTok Indo 🇮🇩",
+            "100 Followers Instagram Indo 🇮🇩",
+            "300 Views TikTok Live Stream 🎥",
+            "500 Likes Comments TikTok 💬",
+            "200 Followers WhatsApp Global 🌏"
+        ];
+        
+        let shuffledBuyers = [];
+        let shuffledItems = [];
+
+        function shuffleArray(array) {
+            let shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function getNextLiveBuyer() {
+            if (shuffledBuyers.length === 0) {
+                shuffledBuyers = shuffleArray(buyersList);
+            }
+            if (shuffledItems.length === 0) {
+                shuffledItems = shuffleArray(boughtItemsList);
+            }
+            return {
+                name: shuffledBuyers.pop(),
+                item: shuffledItems.pop()
+            };
+        }
+
+        function triggerLiveBuyerNotification() {
+            const toast = document.getElementById('live-buyer-toast');
+            const buyerDesc = document.getElementById('live-buyer-desc');
+            const buyerTime = document.getElementById('live-buyer-time');
+
+            const data = getNextLiveBuyer();
+
+            buyerDesc.innerHTML = `<strong class="text-slate-800">${data.name}</strong> baru saja membeli <strong class="text-primary-500">${data.item}</strong>`;
+            buyerTime.textContent = "Baru saja";
+
+            // Slide In
+            toast.className = "fixed bottom-4 left-4 z-40 bg-white border border-slate-200 p-3 rounded-2xl shadow-xl flex items-center gap-3 w-72 transform translate-x-0 transition-transform duration-500 pointer-events-none";
+
+            // Slide Out after 4.5 seconds
+            setTimeout(() => {
+                toast.className = "fixed bottom-4 left-4 z-40 bg-white border border-slate-200 p-3 rounded-2xl shadow-xl flex items-center gap-3 w-72 transform -translate-x-[340px] transition-transform duration-500 pointer-events-none";
+            }, 4500);
+        }
+
+        // Switch Main Categories (ALL FILE / SUNTIK SOSMED)
+        function switchCategory(category) {
+            const btnAll = document.getElementById('btn-all');
+            const btnSuntik = document.getElementById('btn-suntik');
+            const secAll = document.getElementById('section-all');
+            const secSuntik = document.getElementById('section-suntik');
+
+            if (category === 'all') {
+                btnAll.classList.add('active-tab');
+                btnAll.classList.remove('text-slate-600', 'hover:text-primary-500');
+                btnSuntik.classList.remove('active-tab');
+                btnSuntik.classList.add('text-slate-600', 'hover:text-primary-500');
+
+                secAll.classList.remove('hidden');
+                secSuntik.classList.add('hidden');
+            } else {
+                btnSuntik.classList.add('active-tab');
+                btnSuntik.classList.remove('text-slate-600', 'hover:text-primary-500');
+                btnAll.classList.remove('active-tab');
+                btnAll.classList.add('text-slate-600', 'hover:text-primary-500');
+
+                secSuntik.classList.remove('hidden');
+                secAll.classList.add('hidden');
+            }
+        }
+
+        // LANGKAH 1: Pilih Platform Sosmed
+        function selectPlatform(platform) {
+            activePlatform = platform;
+            document.querySelectorAll('.platform-card').forEach(card => card.classList.remove('active'));
+            document.getElementById(`plat-${platform}`).classList.add('active');
+            renderServiceTypes();
+            document.getElementById('container-packages').classList.add('hidden');
+        }
+
+        // LANGKAH 2: Render Kategori Layanan (Followers, Likes, dll)
+        function renderServiceTypes() {
+            const container = document.getElementById('container-service-types');
+            const listDiv = document.getElementById('service-types-list');
+            listDiv.innerHTML = '';
+
+            const categories = sosmedData[activePlatform].categories;
+            
+            Object.keys(categories).forEach(key => {
+                const cat = categories[key];
+                const btn = document.createElement('button');
+                btn.className = 'service-type-btn px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all';
+                btn.id = `btn-cat-${key}`;
+                btn.innerHTML = cat.label;
+                btn.onclick = () => selectCategoryService(key);
+                listDiv.appendChild(btn);
+            });
+
+            container.classList.remove('hidden');
+        }
+
+        // LANGKAH 3: Pilih Jenis Kategori & Render Paket (Grid 2-2)
+        function selectCategoryService(categoryKey) {
+            activeCategoryKey = categoryKey;
+            document.querySelectorAll('.service-type-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-cat-${categoryKey}`).classList.add('active');
+
+            const containerPackages = document.getElementById('container-packages');
+            const packagesGrid = document.getElementById('packages-grid');
+            const packagesTitle = document.getElementById('packages-title');
+
+            const categoryData = sosmedData[activePlatform].categories[categoryKey];
+            packagesTitle.textContent = `${sosmedData[activePlatform].categories[categoryKey].label} - Paket Pilihan`;
+
+            packagesGrid.innerHTML = '';
+
+            categoryData.packages.forEach(pack => {
+                const card = document.createElement('div');
+                card.className = 'bg-white border border-slate-200 hover:border-primary-500 rounded-xl p-3.5 flex flex-col justify-between shadow-sm hover:shadow transition-all';
+                
+                let detailsHtml = `
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-xs">${pack.qty}</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5">${categoryData.desc}</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="font-extrabold text-primary-500 text-xs">${pack.price}</span>
+                        <button onclick="handleSelectPack('${categoryData.label}', '${pack.qty}', '${pack.price}', ${!!pack.isCustom}, '${pack.labelMinMax || ''}')" class="px-3 py-1.5 bg-slate-900 text-white rounded-md text-[10px] font-bold hover:bg-slate-800 transition-all">
+                            Pilih
+                        </button>
+                    </div>
+                `;
+                
+                card.innerHTML = detailsHtml;
+                packagesGrid.appendChild(card);
+            });
+
+            containerPackages.classList.remove('hidden');
+            containerPackages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Buka Modal Detail Transaksi & Set Up defaultnya
+        function handleSelectPack(productName, packQty, price, isCustom, customLabel) {
+            currentProductName = productName;
+            currentProductPack = packQty;
+            currentProductPrice = price;
+            isPackageCustom = isCustom;
+            isInstagramFollower = (activePlatform === 'instagram' && activeCategoryKey.includes('followers'));
+
+            openModal(productName, price, 'smm', isInstagramFollower, isCustom, customLabel);
+        }
+
+        // Buka Popup Modal & Set Timer 2 Jam
+        function openModal(name, price, type, isIG = false, isCustom = false, customLabel = '') {
+            currentOrderType = type;
+            currentProductName = name;
+            currentProductPrice = price;
+
+            document.getElementById('modal-product-name').textContent = name;
+            document.getElementById('modal-product-pack').textContent = currentProductPack;
+            document.getElementById('modal-product-price').textContent = price;
+
+            const targetContainer = document.getElementById('target-input-container');
+            const customAmountContainer = document.getElementById('custom-amount-container');
+            const igWarning = document.getElementById('ig-warning-note');
+            
+            // Reset input target, custom amount, & start QRIS Timer
+            document.getElementById('target-link').value = '';
+            document.getElementById('input-custom-amount').value = '';
+            
+            startQrisTimer(7200); // 2 jam = 7200 detik
+
+            if (type === 'smm') {
+                targetContainer.classList.remove('hidden');
+                igWarning.classList.toggle('hidden', !isIG);
+                
+                if (isCustom) {
+                    customAmountContainer.classList.remove('hidden');
+                    document.getElementById('label-custom-amount').textContent = customLabel;
+                } else {
+                    customAmountContainer.classList.add('hidden');
+                }
+            } else {
+                targetContainer.classList.add('hidden');
+                customAmountContainer.classList.add('hidden');
+                igWarning.classList.add('hidden');
+            }
+
+            const modal = document.getElementById('orderModal');
+            const container = document.getElementById('modalContainer');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                container.classList.remove('scale-95');
+                container.classList.add('scale-100');
+            }, 10);
+        }
+
+        // Start QRIS Countdown Timer (2 jam)
+        function startQrisTimer(duration) {
+            stopQrisTimer(); // clear any existing interval
+            let timer = duration;
+            const display = document.getElementById('qris-timer');
+
+            function tick() {
+                let hours = parseInt(timer / 3600, 10);
+                let minutes = parseInt((timer % 3600) / 60, 10);
+                let seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + ":" + minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    display.textContent = "EXPIRED";
+                    stopQrisTimer();
+                }
+            }
+
+            tick();
+            countdownInterval = setInterval(tick, 1000);
+        }
+
+        function stopQrisTimer() {
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+        }
+
+        // Tutup Popup Modal
+        function closeModal() {
+            const modal = document.getElementById('orderModal');
+            const container = document.getElementById('modalContainer');
+            
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                stopQrisTimer();
+            }, 150);
+        }
+
+        // Toggle Accordion FAQ
+        function toggleFAQ(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Kirim Order via WhatsApp API
+        document.getElementById('btn-submit-order').addEventListener('click', function() {
+            const adminPhone = "6285816148963";
+            let message = "";
+
+            if (currentOrderType === 'smm') {
+                const targetVal = document.getElementById('target-link').value.trim();
+                if (!targetVal) {
+                    showToast('Harap isi Target atau Username Sosmed!');
+                    return;
+                }
+
+                let finalPack = currentProductPack;
+                let finalPrice = currentProductPrice;
+
+                if (isPackageCustom) {
+                    const customAmountVal = document.getElementById('input-custom-amount').value.trim();
+                    if (!customAmountVal) {
+                        showToast('Harap masukkan jumlah kuantitas pesanan kustom!');
+                        return;
+                    }
+                    finalPack = `${customAmountVal} unit (Jumlah Kustom)`;
+                    finalPrice = "Tanyakan harga ke admin";
+                }
+
+                message = `Halo Admin PidzStore,\n\nSaya ingin memesan Layanan Suntik Sosmed:\n`;
+                message += `*Platform:* ${activePlatform.toUpperCase()}\n`;
+                message += `*Kategori:* ${currentProductName}\n`;
+                message += `*Paket:* ${finalPack}\n`;
+                message += `*Target:* ${targetVal}\n`;
+                message += `*Metode Bayar:* QRIS Instan (Bukti transfer dilampirkan)\n`;
+                message += `*Estimasi Harga:* ${finalPrice}\n\n`;
+                
+                if (isInstagramFollower) {
+                    message += `_Catatan: Saya sudah mematikan fitur "Laporkan untuk Ditinjau" di akun Instagram saya._\n\n`;
+                }
+
+                message += `Saya melampirkan screenshot bukti transfer sukses QRIS bersama pesan ini. Mohon segera diproses!\n`;
+            } else {
+                // Untuk ALL FILE
+                message = `Halo Admin PidzStore,\n\nSaya ingin memesan Produk Digital:\n`;
+                message += `*Nama Produk:* ${currentProductName}\n`;
+                message += `*Durasi:* Selama OB53 Free Fire\n`;
+                message += `*Metode Bayar:* QRIS Instan (Bukti transfer dilampirkan)\n`;
+                message += `*Harga:* ${currentProductPrice}\n\n`;
+                message += `Saya melampirkan screenshot bukti transfer sukses QRIS bersama pesan ini. Mohon segera kirimkan file lisensi!\n`;
+            }
+
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${adminPhone}?text=${encodedMessage}`;
+            
+            window.open(waUrl, '_blank');
+            closeModal();
+        });
+
+        // Close modal when click outside of container
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // INIT SCRIPT ONLOAD
+        window.onload = function() {
+            // Update real-time server status initially & continuously
+            updateServerStatus();
+            setInterval(updateServerStatus, 15000);
+
+            // Shuffling buyers initially to ensure pure randomness on first load
+            shuffledBuyers = shuffleArray(buyersList);
+            shuffledItems = shuffleArray(boughtItemsList);
+
+            // Start Live Purchase Notification Simulator
+            setTimeout(triggerLiveBuyerNotification, 1500); // 1.5 seconds after load
+            setInterval(triggerLiveBuyerNotification, 11000); // Trigger every 11 seconds
+        };
+    </script>
+</body>
+</html>
