@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pidz UNBAND - SEMOGA JEBOL Y</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Comic-vibes and modern display fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Plus+Jakarta+Sans:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        comic: ['Bangers', 'cursive'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        comicYellow: '#FFE600',
+                        comicOrange: '#FF6B00',
+                        comicPink: '#FF007A',
+                        comicBlue: '#00F0FF',
+                        comicDark: '#121212',
+                        comicCream: '#F9F5EB', // Rich retro book paper color
+                        waGreen: '#25D366'
+                    },
+                    animation: {
+                        'spring-pop': 'springPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                        'smooth-fade': 'smoothFade 0.3s ease-out forwards',
+                        'laser-sweep': 'laserSweep 2s linear infinite',
+                        'radar-pulse': 'radarPulse 2s infinite',
+                        'subtle-float': 'subtleFloat 4s ease-in-out infinite',
+                        'jiggle-fast': 'jiggleFast 0.5s linear infinite',
+                    },
+                    keyframes: {
+                        springPop: {
+                            '0%': { transform: 'scale(0.92) translateY(15px)', opacity: '0' },
+                            '100%': { transform: 'scale(1) translateY(0)', opacity: '1' },
+                        },
+                        smoothFade: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        laserSweep: {
+                            '0%': { left: '-100%' },
+                            '100%': { left: '100%' },
+                        },
+                        radarPulse: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0.8' },
+                            '50%': { transform: 'scale(1.05)', opacity: '1' },
+                            '100%': { transform: 'scale(0.95)', opacity: '0.8' },
+                        },
+                        subtleFloat: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0.8deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(-0.8deg)' },
+                        },
+                        jiggleFast: {
+                            '0%, 100%': { transform: 'rotate(-0.8deg)' },
+                            '50%': { transform: 'rotate(0.8deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Immersive Vintage Comic Book Halftone Dots Pattern */
+        .bg-halftone-cream {
+            background-color: #F9F5EB;
+            background-image: radial-gradient(rgba(18, 18, 18, 0.08) 15%, transparent 16%),
+                              radial-gradient(rgba(18, 18, 18, 0.08) 15%, transparent 16%);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+        }
+
+        /* Bold Comic Outline Borders */
+        .comic-border {
+            border: 5px solid #000000;
+        }
+        
+        .comic-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+
+        .comic-shadow-md {
+            box-shadow: 10px 10px 0px 0px #000000;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .comic-shadow-md:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0px 0px #000000;
+        }
+
+        .comic-shadow-btn {
+            box-shadow: 8px 8px 0px 0px #000000;
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.15);
+        }
+
+        .comic-shadow-btn:active {
+            transform: translate(5px, 5px) !important;
+            box-shadow: 3px 3px 0px 0px #000000 !important;
+        }
+
+        /* Sweeping Scanning Laser Animation Effect */
+        .progress-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-shine::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            animation: shine 1.2s infinite;
+        }
+        @keyframes shine {
+            100% { left: 100%; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+            border-left: 3px solid #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFE600;
+            border: 3px solid #000000;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-halftone-cream text-comicDark font-sans min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-comicPink selection:text-white">
+
+    <!-- SCREEN 1: LOGIN KEY GATEKEEPER -->
+    <div id="screen-key" class="fixed inset-0 bg-halftone-cream z-40 flex flex-col justify-center items-center p-4 animate-smooth-fade">
+        <!-- Pulp Comic Page Markers in BG -->
+        <div class="absolute top-4 left-4 text-[10px] font-black text-black/30 tracking-widest uppercase">Created By Pidz Project</div>
+        <div class="absolute bottom-4 right-4 text-[10px] font-black text-black/30 tracking-widest uppercase">PIDZ GANTENG.</div>
+        
+        <div class="absolute w-64 h-64 rounded-full bg-comicPink/10 blur-3xl top-12 left-12 animate-radar-pulse"></div>
+        <div class="absolute w-72 h-72 rounded-full bg-comicBlue/10 blur-3xl bottom-12 right-12 animate-radar-pulse" style="animation-delay: 1s"></div>
+        
+        <div class="bg-white text-black comic-border comic-shadow-md p-6 max-w-md w-full relative transform animate-spring-pop">
+            <!-- Vintage Comic Book Badge Approved Stamp -->
+            <div class="absolute -top-7 -right-7 bg-comicPink text-white font-comic text-xs px-4 py-3 comic-border rotate-12 shadow-lg z-10 animate-subtle-float">
+                PROJECT BY<br>PIDZ
+            </div>
+
+            <!-- Lock Security Icon -->
+            <div class="absolute -top-6 -left-6 bg-comicYellow text-black font-comic text-2xl w-14 h-14 flex items-center justify-center rounded-full comic-border shadow-md">
+                <i class="fa-solid fa-key-skeleton"></i>
+            </div>
+            
+            <div class="text-center mb-6 pt-2">
+                <span class="inline-block bg-black text-comicYellow font-comic text-xs px-3.5 py-1 comic-border transform -rotate-1 tracking-widest uppercase mb-2.5">SECURITY VIP GATEWAY</span>
+                <h3 class="font-comic text-5xl uppercase tracking-wider text-black leading-none">PIDZ SYSTEM</h3>
+                <p class="text-xs font-black text-neutral-500 uppercase tracking-widest mt-1">Otentikasi Kunci Akses Terenkripsi</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-black uppercase tracking-wider mb-1.5 text-neutral-700">🔑 ENTER SECURITY LISENSI KEY</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-neutral-400">
+                            <i class="fa-solid fa-key text-sm"></i>
+                        </span>
+                        <input type="text" id="input-key-field" 
+                            class="w-full bg-neutral-50 text-black font-mono font-black text-center pl-11 pr-4 py-4 comic-border focus:outline-none focus:ring-4 focus:ring-comicYellow placeholder-neutral-400 text-sm tracking-widest transition-all duration-200" 
+                            placeholder="PIDZ-XXXX-XXXX">
+                    </div>
+                </div>
+
+                <button onclick="validateUserKey()" class="w-full bg-comicYellow hover:bg-yellow-400 text-black font-comic text-3xl py-4 uppercase tracking-widest comic-border comic-shadow-btn transition-all flex items-center justify-center gap-2">
+                     MASUK & UNBANNED <i class="fa-solid fa-chevron-right text-base"></i>
+                </button>
+
+                <div class="grid grid-cols-2 gap-3.5 pt-1">
+                    <button onclick="showGetKeyModal()" class="bg-comicBlue hover:bg-cyan-400 text-black font-comic text-xl py-3 uppercase comic-border comic-shadow-btn transition-all text-center">
+                        🎁 GET KEY (GRATIS)
+                    </button>
+                    <button onclick="showAdminLoginModal()" class="bg-neutral-900 hover:bg-neutral-800 text-white font-comic text-xl py-3 uppercase comic-border comic-shadow-btn transition-all text-center">
+                        👑 ADMIN PANEL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: GET KEY REQUIREMENTS -->
+    <div id="get-key-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden animate-smooth-fade">
+        <div class="bg-white text-black comic-border comic-shadow-md p-6 max-w-md w-full relative transform animate-spring-pop">
+            <h3 class="font-comic text-4xl uppercase text-comicPink border-b-4 border-black pb-2 mb-4">MISI VERIFIKASI KEY</h3>
+            <p class="text-xs sm:text-sm font-bold text-neutral-600 mb-4">Selesaikan 2 misi wajib untuk mendapatkan kode key secara gratis:</p>
+            
+            <div class="space-y-3.5 mb-5">
+                <!-- Task 1: Tiktok -->
+                <a href="https://www.tiktok.com/@bukaaannndapitt?_r=1&_t=ZS-97qmn2m8KCF" target="_blank" onclick="completeTask(1)" class="w-full bg-black text-white font-bold text-xs p-4 comic-border flex items-center justify-between hover:scale-[1.01] transition-transform duration-150">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-brands fa-tiktok text-lg text-comicBlue"></i> 1. FOLLOW TIKTOK @bukaaannndapitt
+                    </span>
+                    <span id="task1-status" class="bg-comicPink text-white font-black px-2.5 py-1 comic-border text-[8px] uppercase">BELUM</span>
+                </a>
+                <!-- Task 2: WhatsApp -->
+                <a href="https://whatsapp.com/channel/0029VbCXP5bDOQIb2oIvi62t" target="_blank" onclick="completeTask(2)" class="w-full bg-waGreen text-white font-bold text-xs p-4 comic-border flex items-center justify-between hover:scale-[1.01] transition-transform duration-150">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg animate-bounce"></i> 2. JOIN SALURAN WHATSAPP
+                    </span>
+                    <span id="task2-status" class="bg-comicPink text-white font-black px-2.5 py-1 comic-border text-[8px] uppercase">BELUM</span>
+                </a>
+            </div>
+
+            <div id="generated-key-container" class="hidden bg-neutral-50 p-4 comic-border border-dashed border-4 mb-4 text-center animate-smooth-fade">
+                <span class="block text-[10px] font-black text-neutral-400 uppercase mb-0.5">KODE AKSES KEY ANDA:</span>
+                <span id="txt-generated-key" class="font-mono font-black text-2xl text-comicOrange tracking-wider select-all"></span>
+                <p class="text-[9px] text-neutral-400 font-bold mt-1">Salin kode, lalu gunakan pada menu login portal depan.</p>
+            </div>
+
+            <div class="flex gap-2.5">
+                <button id="btn-claim-key" onclick="claimGeneratedKey()" disabled class="w-2/3 bg-neutral-200 text-neutral-400 font-comic text-2xl py-3.5 uppercase comic-border cursor-not-allowed transition-all">
+                    PROSES LOGIN KEY
+                </button>
+                <button onclick="closeGetKeyModal()" class="w-1/3 bg-neutral-100 hover:bg-neutral-200 font-bold text-xs py-3.5 comic-border uppercase">BATAL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: ADMIN LOGIN -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden animate-smooth-fade">
+        <div class="bg-white text-black comic-border comic-shadow-md p-5 max-w-xs w-full relative animate-spring-pop">
+            <h3 class="font-comic text-3xl uppercase text-neutral-900 border-b-2 border-black pb-1.5 mb-3">👑 PANEL LOGIN OWNER</h3>
+            <div class="space-y-2.5 mb-4">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase mb-1 text-neutral-600">Username</label>
+                    <input type="text" id="admin-usn" class="w-full bg-neutral-50 p-2.5 comic-border text-xs font-bold focus:outline-none focus:ring-2 focus:ring-comicYellow">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase mb-1 text-neutral-600">Password</label>
+                    <input type="password" id="admin-pw" class="w-full bg-neutral-50 p-2.5 comic-border text-xs font-bold focus:outline-none focus:ring-2 focus:ring-comicYellow">
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="submitAdminLogin()" class="w-1/2 bg-black text-white font-comic text-lg py-2 comic-border comic-shadow-btn">LOGIN</button>
+                <button onclick="closeAdminLoginModal()" class="w-1/2 bg-neutral-200 font-bold text-[10px] py-2.5 comic-border">BATAL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCREEN 2: ADMIN DASHBOARD PANEL -->
+    <div id="screen-admin" class="fixed inset-0 bg-halftone-cream z-50 p-4 overflow-y-auto hidden">
+        <div class="max-w-3xl mx-auto bg-white text-black comic-border comic-shadow p-5 space-y-5 mt-6">
+            <div class="flex justify-between items-center border-b-2 border-black pb-2">
+                <h2 class="font-comic text-3xl text-comicPink uppercase">DASHBOARD OWNER DAPIT</h2>
+                <button onclick="logoutAdmin()" class="bg-red-500 text-white font-bold text-[10px] px-3 py-1.5 comic-border uppercase">LOGOUT</button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-comicYellow/20 p-4 comic-border space-y-2.5">
+                    <h4 class="font-comic text-lg uppercase">GENERATE UNLIMITED KEY</h4>
+                    <p class="text-[10px] font-semibold text-neutral-600">Buat key bypass baru secara instan:</p>
+                    <button onclick="adminCreateKey()" class="w-full bg-comicYellow text-black font-comic text-base py-2 comic-border comic-shadow-btn">BUAT KODE KEY BARU</button>
+                    <div id="admin-key-output" class="hidden p-2 bg-black text-green-400 font-mono text-center text-xs comic-border font-bold"></div>
+                </div>
+                <div class="bg-neutral-50 p-4 comic-border space-y-2">
+                    <h4 class="font-comic text-lg uppercase">LOG DATABASE SYSTEM</h4>
+                    <p class="text-[10px] text-neutral-500 font-bold">Aktivitas server lokal di perangkat ini.</p>
+                    <button onclick="clearAllSystemData()" class="text-[10px] bg-black text-white px-3 py-1.5 comic-border uppercase font-bold">RESET SEMUA DATA CLIENT</button>
+                </div>
+            </div>
+            <div class="space-y-1.5">
+                <h4 class="font-comic text-lg uppercase">DAFTAR RIWAYAT ANTRIAN USER</h4>
+                <div id="admin-log-table" class="border-2 border-black overflow-x-auto text-[11px] font-mono"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP SCREEN (Halaman Utama Web - Rapi, Compact, Skala Rapi Desktop) -->
+    <div id="screen-main-app" class="w-full flex-grow flex flex-col justify-between hidden animate-smooth-fade">
+        
+        <!-- Header (Sleek layout) -->
+        <header class="bg-comicOrange text-white comic-border border-t-0 border-x-0 py-4 px-6 relative z-10 shadow-sm shrink-0">
+            <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-comicYellow text-black font-comic text-3xl sm:text-4xl px-4 py-1 comic-border comic-shadow-sm uppercase animate-jiggle-fast">
+                        PIDZ UNBAND
+                    </div>
+                </div>
+                <div class="bg-comicDark text-white font-semibold text-[10px] sm:text-xs px-3 py-1.5 comic-border flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-ping"></span>
+                    ONLINE 24/7 GUNAKAN JENGAN BIJAK!
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Grid (Fixed Stretch with explicit items-start align) -->
+        <main class="flex-grow w-full max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Column: Forms and core elements (7 Columns) -->
+            <section class="lg:col-span-7 space-y-8 flex flex-col h-auto">
+                
+                <!-- Hero Title Ribbon -->
+                <div class="bg-comicYellow text-black p-5 comic-border comic-shadow-md relative overflow-hidden transform -rotate-0.5 shrink-0">
+                    <h2 class="font-comic text-3xl md:text-5xl uppercase tracking-wider leading-none">
+                        PULIHKAN NOMORMU SEKARANG!
+                    </h2>
+                    <div class="mt-2.5 text-xs sm:text-sm font-black tracking-wide text-black/90 flex flex-wrap items-center gap-1.5">
+                        <i class="fa-solid fa-clock text-comicPink text-base mr-0.5 animate-radar-pulse"></i> 
+                        <span>ESTIMASI PENINJAUAN:</span> 
+                        <span class="bg-black text-comicBlue px-2 py-0.5 rounded text-[10px] sm:text-xs font-mono">Paling Cepat 24 Jam</span> 
+                        <span>s.d.</span> 
+                        <span class="bg-black text-comicPink px-2 py-0.5 rounded text-[10px] sm:text-xs font-mono text-white">Maksimal 7 Hari</span>
+                    </div>
+                </div>
+
+                <!-- Main Interactive Form Card -->
+                <div class="bg-white text-black comic-border comic-shadow-md p-6 relative shrink-0">
+                    <!-- Overlapping Pulp Badge -->
+                    <div class="absolute -top-5 right-6 bg-comicPink text-white font-comic text-sm px-4 py-1.5 comic-border tracking-wider uppercase transform rotate-3">
+                        LENGKAPI DATA DIBAWAH
+                    </div>
+
+                    <!-- FORM VIEW -->
+                    <div id="form-view" class="space-y-5">
+                        <form id="unbanForm" onsubmit="processForm(event)" class="space-y-4">
+                            
+                            <!-- Input Nama -->
+                            <div class="space-y-1.5">
+                                <label class="block text-xs sm:text-sm font-black tracking-wider uppercase text-black">
+                                    <i class="fa-solid fa-signature mr-2 text-comicOrange"></i>Nama Lengkap Anda
+                                </label>
+                                <input type="text" id="senderName" required
+                                    class="w-full bg-neutral-50 text-black font-extrabold px-4 py-3.5 comic-border focus:outline-none focus:ring-4 focus:ring-comicYellow placeholder-neutral-400 text-sm"
+                                    placeholder="Contoh: Dapit Ganteng Pake Banget">
+                            </div>
+
+                            <!-- Input Nomor HP -->
+                            <div class="space-y-1.5">
+                                <label class="block text-xs sm:text-sm font-black tracking-wider uppercase text-black">
+                                    <i class="fa-solid fa-mobile-screen-button mr-2 text-comicPink"></i>Nomor WhatsApp Terblokir
+                                </label>
+                                <div class="relative flex">
+                                    <span class="bg-black text-white font-black px-4.5 flex items-center comic-border border-r-0 text-sm">
+                                        +62
+                                    </span>
+                                    <input type="tel" id="phoneNumber" required
+                                        class="w-full bg-neutral-50 text-black font-extrabold px-4 py-3.5 comic-border focus:outline-none focus:ring-4 focus:ring-comicYellow placeholder-neutral-400 text-sm tracking-wider"
+                                        placeholder="8xxxxxxxxxx"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <span class="text-[10px] text-neutral-500 block mt-0.5">Jangan gunakan angka "0" atau "+62" di awal nomor.</span>
+                            </div>
+
+                            <!-- LOCKED HIGH-TECH CONFIGURATIONS PANEL -->
+                            <div class="grid grid-cols-2 gap-4 pt-1">
+                                <div class="bg-black text-white p-3 comic-border relative overflow-hidden group">
+                                    <div class="absolute -right-6 -bottom-6 text-comicBlue/15 text-5xl font-black">US</div>
+                                    <span class="block text-[9px] font-black uppercase text-comicBlue tracking-widest">GATEWAY PORT</span>
+                                    <span class="text-xs sm:text-sm font-mono font-black text-white flex items-center gap-1.5">
+                                        <span class="w-2 h-2 bg-comicBlue rounded-full animate-ping"></span>
+                                        US-SECURE (WASHINGTON)
+                                    </span>
+                                </div>
+                                <div class="bg-black text-white p-3 comic-border relative overflow-hidden group">
+                                    <div class="absolute -right-6 -bottom-6 text-comicYellow/15 text-5xl font-black">ZIP</div>
+                                    <span class="block text-[9px] font-black uppercase text-comicYellow tracking-widest">PIDZ PROJECT</span>
+                                    <span class="text-xs sm:text-sm font-mono font-black text-white flex items-center gap-1.5">
+                                        <span class="w-2 h-2 bg-comicYellow rounded-full animate-pulse"></span>
+                                        PIDZ SECURE INJECTOR
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Submit Action Button -->
+                            <button type="submit"
+                                class="w-full bg-comicYellow hover:bg-yellow-400 text-black font-comic text-3xl py-4.5 uppercase tracking-widest comic-border comic-shadow-btn transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                <span>EKSEKUSI BG PIDZ</span>
+                                <i class="fa-solid fa-bullseye animate-pulse text-2xl"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- LOADING VIEW WITH SHIELD DECODER AND MATRIX GRAPHICS -->
+                    <div id="loading-view" class="hidden py-8 text-center space-y-5 animate-smooth-fade">
+                        <div class="w-24 h-24 mx-auto relative flex items-center justify-center">
+                            <svg class="animate-spin absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="42" stroke="#00F0FF" stroke-width="6" stroke-linecap="round" stroke-dasharray="140 60" />
+                            </svg>
+                            <svg class="animate-spin absolute inset-1.5 w-5/6 h-5/6" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation-direction: reverse; animation-duration: 1.2s">
+                                <circle cx="50" cy="50" r="38" stroke="#FF007A" stroke-width="4" stroke-linecap="round" stroke-dasharray="80 80" />
+                            </svg>
+                            <div class="absolute inset-3 rounded-full bg-black comic-border flex items-center justify-center">
+                                <span class="font-comic text-xl text-comicYellow">PIDZ</span>
+                            </div>
+                        </div>
+
+                        <div class="inline-block bg-comicPink text-white font-comic text-3xl px-8 py-2 comic-border transform -rotate-1 shadow-sm">
+                            MENYIAPKAN BANDING...
+                        </div>
+                        
+                        <!-- Smooth Progress Bar -->
+                        <div class="relative max-w-sm mx-auto h-8 bg-black comic-border p-1 shadow-md">
+                            <div id="progress-bar" class="h-full bg-gradient-to-r from-comicBlue via-comicYellow to-waGreen progress-shine transition-all duration-150 ease-out" style="width: 0%"></div>
+                            <div id="progress-percent" class="absolute inset-0 flex items-center justify-center font-comic text-black mix-blend-difference text-base">0%</div>
+                        </div>
+
+                        <div class="space-y-1">
+                            <h4 id="loading-status" class="text-lg font-black text-black uppercase tracking-wider">Menghubungkan ke API...</h4>
+                            <p id="loading-substatus" class="text-xs text-neutral-500">Mempersiapkan jalur komunikasi bypass.</p>
+                        </div>
+
+                        <!-- Real-time Terminal Log Console -->
+                        <div class="bg-black comic-border p-4 text-left font-mono text-[11px] text-green-400 h-32 overflow-y-auto space-y-1 shadow-inner" id="log-box">
+                            <div class="text-neutral-500">[INITIALIZING] Pidz Unband Core v5.5 loaded.</div>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS & DISPATCH VIEW -->
+                    <div id="success-view" class="hidden space-y-5 animate-smooth-fade">
+                        <div class="bg-green-400 text-black p-4 comic-border text-center transform -rotate-0.5">
+                            <h3 class="font-comic text-3xl uppercase tracking-wider">BERKAS BANDING DIKONSEP!</h3>
+                            <p class="text-xs font-bold">Langkah terakhir: Klik tombol "KIRIM DONG BG PIDZ" di bawah untuk meluncurkan email Anda.</p>
+                        </div>
+
+                        <!-- Comic Panel Preview -->
+                        <div class="bg-neutral-50 comic-border p-4 relative">
+                            <div class="absolute -top-3.5 left-4 bg-comicOrange text-white font-comic text-xs px-3 py-0.5 comic-border">
+                                PREVIEW DRAF BANDING
+                            </div>
+                            <div class="flex justify-between items-center mb-3 mt-1 text-xs">
+                                <span class="text-black font-extrabold">Kirim Ke: support@support.whatsapp.com</span>
+                                <button onclick="copyDraftText()" class="bg-black hover:bg-neutral-800 text-comicYellow hover:text-white px-3 py-1 comic-border text-xs font-bold transition-all flex items-center gap-1.5">
+                                    <i id="copy-icon" class="far fa-copy"></i>
+                                    <span>Salin Teks</span>
+                                </button>
+                            </div>
+                            <div id="draft-preview" class="text-xs text-neutral-800 h-36 overflow-y-auto bg-white p-3 rounded border border-neutral-300 font-mono whitespace-pre-wrap leading-relaxed"></div>
+                        </div>
+
+                        <!-- IMPORTANT NOTIFICATION BOX -->
+                        <div class="bg-comicYellow text-black comic-border p-4.5 space-y-1.5 relative">
+                            <div class="absolute -top-3 right-4 bg-black text-white text-[9px] font-black uppercase px-2 py-0.5 comic-border transform rotate-1">
+                                PANTANGAN UTAMA!
+                            </div>
+                            <h4 class="font-comic text-lg uppercase tracking-wider flex items-center gap-1">
+                                <i class="fa-solid fa-triangle-exclamation text-comicPink text-base"></i> PERATURAN PASCA-UNBAN:
+                            </h4>
+                            <p class="text-xs font-extrabold leading-relaxed text-neutral-800">
+                                Silakan tunggu <span class="bg-black text-comicBlue px-1.5 rounded text-[11px] font-bold text-white font-mono">24 Jam - 7 Hari</span> peninjauan. <span class="underline">Apabila nomor Anda sudah berhasil terbuka (unban)</span>, <strong class="text-comicPink">JANGAN GUNAKAN WHATSAPP UNTUK KOMUNIKASI CHAT/TELEPON SELAMA 1 - 5 HARI</strong> agar status jaringan di server WhatsApp kembali steril dan aman dari ban ulang otomatis!
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="triggerEmailBypass()"
+                                class="bg-comicPink hover:bg-pink-600 text-white font-comic text-2xl py-3.5 uppercase tracking-wider comic-border comic-shadow-btn transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-paper-plane text-lg"></i>
+                                <span>KIRIM DONG BG PIDZ</span>
+                            </button>
+                            <button onclick="resetPortal()"
+                                class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold text-xs py-3.5 uppercase tracking-widest comic-border comic-shadow-btn transition-all flex items-center justify-center gap-1.5 transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-rotate-left"></i>
+                                <span>UNBAND NOMOR LAIN</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PANDUAN ANTI-KENON WHATSAPP - 10 INTRUKSI UTUH (Strict Height Limit) -->
+                <div class="bg-white text-black comic-border comic-shadow-md p-5 space-y-4 h-auto shrink-0 relative">
+                    <div class="absolute -top-3 -right-3 bg-comicPink text-white font-comic text-xs px-3 py-1 comic-border rotate-3 shadow-sm">
+                        INFO CEPAT!
+                    </div>
+                    
+                    <div class="flex items-center space-x-2.5 border-b-2 border-black pb-2">
+                        <div class="bg-comicPink text-white font-comic text-lg px-3 py-0.5 comic-border">
+                            PIDZ UNBANNED
+                        </div>
+                        <h3 class="font-comic text-xl sm:text-2xl uppercase tracking-wider">10 PANDUAN ANTI-KENON BY PIDZ</h3>
+                    </div>
+
+                    <!-- 10 Step Vertical Compact Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-[#FFFCEB] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-comicOrange">1. GUNAKAN APLIKASI RESMI</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Jangan gunakan WA GB, YoWA, atau modifikasi pihak ketiga.</p>
+                        </div>
+                        <div class="bg-[#F0FDFA] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-teal-600">2. JAGA JEDA WAKTU CHAT</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Jangan mengirim pesan massal beruntun tanpa jeda.</p>
+                        </div>
+                        <div class="bg-[#FFF1F2] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-comicPink">3. VERIFIKASI 2-LANGKAH</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Pasang PIN pengaman di setelan akun untuk memverifikasi reputasi.</p>
+                        </div>
+                        <div class="bg-[#EFF6FF] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-blue-600">4. INTERAKSI DUA ARAH</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Pastikan nomor baru membalas pesan Anda agar tidak terdeteksi bot spam.</p>
+                        </div>
+                        <div class="bg-[#FFF8E7] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-amber-600">5. HINDARI GRUP ILEGAL</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Jangan bergabung dalam grup yang terindikasi melanggar hukum.</p>
+                        </div>
+                        <div class="bg-[#EEF2F6] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-neutral-600">6. BATASI LINK BRUTAL</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Kurangi penyebaran link website yang sama ke puluhan nomor sekaligus.</p>
+                        </div>
+                        <div class="bg-[#F3E8FF] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-purple-600">7. ATUR PRIVASI PENGUNDANGAN</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Ubah opsi privasi grup agar tidak sembarang orang menambahkan Anda.</p>
+                        </div>
+                        <div class="bg-[#ECFDF5] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-emerald-600">8. JANGAN RE-REGISTRASI BERULANG</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Hindari mendaftarkan nomor berkali-kali dalam jeda waktu singkat.</p>
+                        </div>
+                        <div class="bg-[#FFF1F2] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-rose-600">9. BLOKIR PROFIL MENCURIGAKAN</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Segera lakukan pemblokiran mandiri pada nomor asing yang mengirim spam.</p>
+                        </div>
+                        <div class="bg-[#F0F9FF] p-3 comic-border flex flex-col justify-start">
+                            <span class="font-black text-sky-600">10. SIMPAN KONTAK MITRA</span>
+                            <p class="text-[10px] text-neutral-600 leading-tight font-bold">Simpan kontak rekan komunikasi terlebih dahulu sebelum dihubungi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Right Column: Info panels, history, logs (5 Columns) -->
+            <section class="lg:col-span-5 space-y-8 flex flex-col h-auto">
+                
+                <!-- Mascot Branding Card -->
+                <div class="bg-[#121212] text-white comic-border comic-shadow-sm p-5 relative overflow-hidden flex items-center gap-4 shrink-0">
+                    <div class="absolute -left-8 -top-8 w-24 h-24 bg-comicPink rounded-full blur-[40px] opacity-30"></div>
+                    
+                    <!-- SVG Shield Mascot -->
+                    <div class="w-16 h-16 shrink-0 relative z-10 animate-subtle-float">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="100,10 130,40 180,30 160,80 190,120 140,130 150,180 100,150 50,180 60,130 10,120 40,80 20,30 70,40" fill="#FFE600" stroke="black" stroke-width="8"/>
+                            <path d="M100 45 L145 65 V115 C145 150 100 170 100 170 C100 170 55 150 55 115 V65 L100 45 Z" fill="#FF007A" stroke="black" stroke-width="8"/>
+                            <path d="M100 45 V170" stroke="black" stroke-width="5"/>
+                        </svg>
+                    </div>
+
+                    <div class="relative z-10 text-left">
+                        <h3 class="font-comic text-2xl text-comicYellow uppercase tracking-wider leading-none">PIDZ GANTENG JEFRI NICOL MINGGRIR</h3>
+                        <p class="text-xs text-neutral-300 font-semibold mt-1">Noted:ini hanya alat bantu tidak bisa membuka akun anda 100%</p>
+                    </div>
+                </div>
+
+                <!-- Real-time Activity Log / History -->
+                <div class="bg-white text-black comic-border comic-shadow-sm p-5 relative shrink-0">
+                    <div class="absolute -top-4 left-4 bg-comicBlue text-black font-comic text-xs px-3 py-1 comic-border tracking-wider uppercase transform -rotate-1">
+                        RIWAYAT ANTRIAN
+                    </div>
+
+                    <div class="space-y-3 mt-1.5 text-left">
+                        <p class="text-[10px] text-neutral-400 font-black uppercase tracking-wider">Nomor terproses pada perangkat ini:</p>
+                        
+                        <div id="history-container" class="space-y-2.5 max-h-[140px] overflow-y-auto pr-1">
+                            <div id="empty-history" class="text-center py-6 border-2 border-dashed border-neutral-300 rounded text-xs text-neutral-400 font-bold">
+                                Belum ada riwayat target unband.
+                            </div>
+                        </div>
+
+                        <!-- Live Feed Ticker -->
+                        <div class="pt-3 border-t border-neutral-200">
+                            <div class="bg-neutral-50 p-2.5 rounded text-[10px] font-mono flex items-center justify-between text-neutral-600">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>
+                                    <span id="live-feed-number">+62 822-****-3312</span>
+                                </div>
+                                <span class="text-comicPink font-black" id="live-feed-status">DRAF TERKIRIM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOP BRIEFING CARD (7 Points Updated) -->
+                <div class="bg-comicPink text-white comic-border comic-shadow-sm p-5 relative overflow-hidden shrink-0">
+                    <h3 class="font-comic text-xl uppercase tracking-wider mb-2.5 border-b-2 border-black/20 pb-1.5">7 SOP PROSEDUR BANDING</h3>
+                    <ul class="space-y-2 text-xs font-bold leading-relaxed text-white/95 text-left">
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">1</span>
+                            <span>Dilarang mengubah struktur draf teks enkripsi yang telah dirumuskan demi mematuhi standar deteksi global.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">2</span>
+                            <span>Gunakan klien aplikasi email bawaan yang legal (Gmail / Mail) untuk menghindari blokir antrean server.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">3</span>
+                            <span>Pastikan koneksi internet dalam keadaan bersih dan tidak sedang menggunakan jaringan VPN publik.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">4</span>
+                            <span>Cukup kirimkan dokumen banding sebanyak 1 kali. Jangan mengirim spam pengajuan secara beruntun.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">5</span>
+                            <span>Tunggu masa pemrosesan antrean data regional paling cepat 24 jam hingga 7 hari kerja.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">6</span>
+                            <span>Jika pengajuan banding ditolak oleh tim WhatsApp, beri jeda waktu minimal 24 jam sebelum menembak ulang draf baru.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="bg-black text-white px-1.5 rounded text-[9px] mt-0.5">7</span>
+                            <span>Sesudah nomor terbuka (unband), wajib puasa chat/telepon nomor baru selama 1-5 hari agar reputasi server bersih total.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- Comic Panel Footer Bar (Registration Mark Decorative) -->
+        <footer class="bg-black text-white comic-border border-b-0 border-x-0 py-6 text-center text-xs mt-8 relative z-10 shrink-0">
+            <!-- Printing Registration Marks Deco in footer -->
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/20 pb-4 mb-4 text-[9px] font-mono tracking-widest text-white/40 uppercase">
+                <span>BANDING AKUN WHATSAPP</span>
+                <span class="hidden md:inline">----------------- PIDZ SYSTEM REGISTER CO. -----------------</span>
+                <span>PLATE CODE: US-WASHINGTON</span>
+            </div>
+            
+            <div class="max-w-6xl mx-auto px-4 space-y-2.5">
+                <p class="font-comic text-xl text-comicYellow tracking-wider">PIDZ UNBAND &copy; 2026. THE POWERFUL SYSTEM BYPASS.</p>
+                <p class="text-[11px] text-neutral-400 max-w-2xl mx-auto leading-relaxed font-bold">
+                    Website ini berfungsi sebagai alat bantu pengonsep draf surat banding digital formal dengan pengenalan bahasa Inggris tingkat lanjut yang dirancang khusus untuk memulihkan nomor WhatsApp yang dinonaktifkan (kenon) secara legal.
+                </p>
+                <p class="text-[9px] text-neutral-500 font-bold">
+                    Seluruh formulasi parameter teks dilindungi oleh algoritma bypass Pidz. Pengoperasian tautan email diarahkan secara aman menggunakan protokol lokal tanpa pemicu kegagalan sistem browser.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- WARNING DIALOG MODAL -->
+    <div id="warning-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden animate-smooth-fade">
+        <div class="bg-white text-black comic-border comic-shadow p-6 max-w-sm w-full relative transform -rotate-0.5 animate-spring-pop">
+            <div class="absolute -top-5 -left-5 bg-comicPink text-white font-comic text-xl w-11 h-11 flex items-center justify-center rounded-full comic-border shadow-md">
+                <i class="fa-solid fa-triangle-exclamation animate-bounce"></i>
+            </div>
+            <h3 class="font-comic text-3xl uppercase text-comicOrange border-b-2 border-black pb-1 mb-3">PENGINGAT PENTING!</h3>
+            <p class="text-xs sm:text-sm font-black leading-relaxed text-neutral-800 mb-4">
+                Akun anda sedang proses tinjau harap bersabar tidak ada yg instan karena ini hanya alat bantu bukan berarti akun anda bisa langsung jebol dalam hitungan menit/jam !!
+            </p>
+            <button onclick="closeWarningModal()" class="w-full bg-comicYellow hover:bg-yellow-400 text-black font-comic text-2xl py-3 uppercase comic-border comic-shadow-btn transition-all">
+                SAYA MENGERTI
+            </button>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-banner" class="fixed bottom-4 right-4 bg-comicYellow text-black font-bold comic-border comic-shadow-sm p-3 max-w-xs transform translate-y-32 opacity-0 transition-all duration-300 z-50 flex items-center gap-2.5 text-xs">
+        <div class="bg-black text-comicYellow p-1.5 rounded-full flex items-center justify-center w-6 h-6 comic-border">
+            <i class="fa-solid fa-volume-high text-[10px]"></i>
+        </div>
+        <div class="font-bold" id="toast-msg"></div>
+    </div>
+
+    <!-- CORE SCRIPTS -->
+    <script>
+        let currentTargetNumber = '';
+        let currentName = '';
+        let fullFormulatedMessage = '';
+        let task1Completed = false;
+        let task2Completed = false;
+        let activeGeneratedKey = '';
+
+        const supportEmail = 'support@support.whatsapp.com';
+
+        // Cek login key pada saat web pertama kali dijalankan
+        window.onload = function() {
+            const savedKey = localStorage.getItem('pidz_authenticated_key');
+            if (savedKey) {
+                document.getElementById('screen-key').classList.add('hidden');
+                document.getElementById('screen-main-app').classList.remove('hidden');
+                renderHistoryList();
+            }
+            startLiveFeedRotation();
+        };
+
+        // Otentikasi Key Masuk
+        function validateUserKey() {
+            const enteredKey = document.getElementById('input-key-field').value.trim().toUpperCase();
+            let validKeys = JSON.parse(localStorage.getItem('pidz_valid_keys_db')) || [];
+            
+            if (enteredKey === "") {
+                showComicToast("Masukkan kode key terlebih dahulu!");
+                return;
+            }
+
+            if (validKeys.includes(enteredKey) || enteredKey.startsWith("PIDZ-ADMIN-") || enteredKey === "PIDZ-BYPASS-TEST") {
+                localStorage.setItem('pidz_authenticated_key', enteredKey);
+                showComicToast("Akses Diterima! Memasuki Halaman Unbanned...");
+                setTimeout(() => {
+                    document.getElementById('screen-key').classList.add('hidden');
+                    document.getElementById('screen-main-app').classList.remove('hidden');
+                    renderHistoryList();
+                }, 800);
+            } else {
+                showComicToast("Key tidak valid! Selesaikan misi.");
+            }
+        }
+
+        // Ambil Key Modal
+        function showGetKeyModal() { document.getElementById('get-key-modal').classList.remove('hidden'); }
+        function closeGetKeyModal() { document.getElementById('get-key-modal').classList.add('hidden'); }
+
+        function completeTask(taskId) {
+            if (taskId === 1) {
+                task1Completed = true;
+                document.getElementById('task1-status').className = "bg-green-500 text-white font-black px-2 py-0.5 rounded text-[8px] comic-border";
+                document.getElementById('task1-status').innerText = "SELESAI";
+            } else if (taskId === 2) {
+                task2Completed = true;
+                document.getElementById('task2-status').className = "bg-green-500 text-white font-black px-2 py-0.5 rounded text-[8px] comic-border";
+                document.getElementById('task2-status').innerText = "SELESAI";
+            }
+
+            if (task1Completed && task2Completed) {
+                if(!activeGeneratedKey) {
+                    const randSegment = Math.floor(1000 + Math.random() * 9000);
+                    const randSegment2 = Math.floor(1000 + Math.random() * 9000);
+                    activeGeneratedKey = `PIDZ-${randSegment}-${randSegment2}`;
+                    
+                    let validKeys = JSON.parse(localStorage.getItem('pidz_valid_keys_db')) || [];
+                    validKeys.push(activeGeneratedKey);
+                    localStorage.setItem('pidz_valid_keys_db', JSON.stringify(validKeys));
+                }
+
+                document.getElementById('txt-generated-key').innerText = activeGeneratedKey;
+                document.getElementById('generated-key-container').classList.remove('hidden');
+
+                const claimBtn = document.getElementById('btn-claim-key');
+                claimBtn.disabled = false;
+                claimBtn.className = "w-2/3 bg-comicBlue hover:bg-cyan-400 text-black font-comic text-xl py-2.5 uppercase comic-border comic-shadow-btn cursor-pointer transition-all";
+                claimBtn.innerText = "SALIN & LOGIN";
+            }
+        }
+
+        function claimGeneratedKey() {
+            if (!activeGeneratedKey) return;
+            document.getElementById('input-key-field').value = activeGeneratedKey;
+            closeGetKeyModal();
+            validateUserKey();
+        }
+
+        // Login Dashboard Admin
+        function showAdminLoginModal() { document.getElementById('admin-login-modal').classList.remove('hidden'); }
+        function closeAdminLoginModal() { document.getElementById('admin-login-modal').classList.add('hidden'); }
+
+        function submitAdminLogin() {
+            const usn = document.getElementById('admin-usn').value;
+            const pw = document.getElementById('admin-pw').value;
+
+            if (usn === "dapit" && pw === "Dapit12345&") {
+                closeAdminLoginModal();
+                document.getElementById('screen-admin').classList.remove('hidden');
+                renderAdminLogs();
+            } else {
+                showComicToast("Kredensial Admin Salah!");
+            }
+        }
+
+        function logoutAdmin() { document.getElementById('screen-admin').classList.add('hidden'); }
+
+        function adminCreateKey() {
+            const keyRand = "PIDZ-ADMIN-" + Math.floor(100000 + Math.random() * 900000);
+            let validKeys = JSON.parse(localStorage.getItem('pidz_valid_keys_db')) || [];
+            validKeys.push(keyRand);
+            localStorage.setItem('pidz_valid_keys_db', JSON.stringify(validKeys));
+
+            const output = document.getElementById('admin-key-output');
+            output.innerText = keyRand;
+            output.classList.remove('hidden');
+            showComicToast("Key Sukses Terbuat!");
+        }
+
+        // Pengolahan data Unband Form
+        function processForm(event) {
+            event.preventDefault();
+            const name = document.getElementById('senderName').value.trim();
+            const rawPhone = document.getElementById('phoneNumber').value.trim();
+
+            if (!name || !rawPhone) return;
+
+            let cleanPhone = rawPhone;
+            if (cleanPhone.startsWith('0')) cleanPhone = cleanPhone.substring(1);
+            currentTargetNumber = `+62${cleanPhone}`;
+            currentName = name;
+
+            // Formulasi email draf bahasa inggris formal
+            fullFormulatedMessage = `Dear WhatsApp Support Team,
+
+I am writing this email with a heavy heart to sincerely apologize if my recent activities have inadvertently violated WhatsApp’s Terms of Service. I received a notification that my account +62${cleanPhone} has been permanently banned due to spam/policy violations.
+
+I deeply regret any actions that may have triggered your automated security system. If I sent too many messages or shared links that caused inconvenience to others, it was completely unintentional. I am a long-time, loyal user, and I never meant to abuse the platform or cause any spam.
+
+This WhatsApp account is incredibly vital to me. It is my main tool for communicating with my family, managing my daily work, and staying connected with urgent matters. Being locked out of this account has caused a major disruption in my daily life and livelihood.
+
+I promise to strictly adhere to all of WhatsApp’s guidelines in the future. I have already uninstalled any third-party applications and will ensure that my messaging behavior remains entirely compliant with your rules.
+
+Please kindly grant me one final opportunity and restore my account. I would be immensely grateful for your mercy and understanding.
+
+Thank you very much for your time and for reviewing my appeal.
+
+Sincerely,
+${currentName}
++62${cleanPhone}`;
+
+            document.getElementById('form-view').classList.add('hidden');
+            document.getElementById('loading-view').classList.remove('hidden');
+            runBypassLoading();
+        }
+
+        // Advanced Simulation Loading Algorithm
+        function runBypassLoading() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+            const statusText = document.getElementById('loading-status');
+            const substatusText = document.getElementById('loading-substatus');
+            const logBox = document.getElementById('log-box');
+
+            let progress = 0;
+            logBox.innerHTML = '<div class="text-comicBlue">[INIT] Menghubungkan modul enkripsi bypass...</div>';
+
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 12) + 4;
+                if (progress > 100) progress = 100;
+
+                progressBar.style.width = `${progress}%`;
+                progressPercent.innerText = `${progress}%`;
+
+                if(progress > 15 && progress <= 50) {
+                    statusText.innerText = "Mengompilasi Berkas Enkripsi...";
+                    substatusText.innerText = "Menyelaraskan kredensial local API WhatsApp...";
+                    if (!logBox.innerText.includes("[OK] Formulating secure draft code.")) {
+                        logBox.innerHTML += '<div class="text-comicYellow">[SUCCESS] Formulating secure draft code.</div>';
+                    }
+                } else if(progress > 50 && progress <= 85) {
+                    statusText.innerText = "Menyeimbangkan Jalur Perutean...";
+                    substatusText.innerText = "Memblokir pelacakan metadata spam regional...";
+                    if (!logBox.innerText.includes("[OK] Secure mail gateway ready.")) {
+                        logBox.innerHTML += '<div class="text-comicBlue">[SUCCESS] Secure mail gateway ready.</div>';
+                    }
+                } else if(progress > 85) {
+                    statusText.innerText = "Menyelesaikan Proses Banding...";
+                    substatusText.innerText = "Menyegel paket banding digital formal...";
+                }
+
+                logBox.scrollTop = logBox.scrollHeight;
+
+                if (progress === 100) {
+                    clearInterval(interval);
+                    saveSubmissionToHistory();
+                    setTimeout(() => {
+                        document.getElementById('loading-view').classList.add('hidden');
+                        document.getElementById('success-view').classList.remove('hidden');
+                        document.getElementById('draft-preview').innerText = fullFormulatedMessage;
+                    }, 2500); // Premium diagnostic delay
+                }
+            }, 120);
+        }
+
+        // Pengalihan Email Klien Aman
+        function triggerEmailBypass() {
+            const emailSubject = `Urgent Appeal: Sincere Apology & Request to Restore My Account - ${currentTargetNumber}`;
+            const mailtoUrl = `mailto:${supportEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(fullFormulatedMessage)}`;
+            
+            const a = document.createElement('a');
+            a.href = mailtoUrl;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Munculkan popup setelah aplikasi email dibuka
+            setTimeout(() => { 
+                document.getElementById('warning-modal').classList.remove('hidden'); 
+            }, 1200);
+        }
+
+        // Tutup Modal
+        function closeWarningModal() { document.getElementById('warning-modal').classList.add('hidden'); }
+
+        function copyDraftText() {
+            const el = document.createElement('textarea');
+            el.value = fullFormulatedMessage;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showComicToast("Teks draf berhasil disalin!");
+        }
+
+        // Local Storage / History Manager
+        function saveSubmissionToHistory() {
+            let data = JSON.parse(localStorage.getItem('pidz_unband_history')) || [];
+            data.unshift({
+                id: Date.now(), name: currentName, number: currentTargetNumber,
+                timestamp: new Date().toLocaleDateString('id-ID', {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}), 
+                status: 'Proses Tinjau'
+            });
+            localStorage.setItem('pidz_unband_history', JSON.stringify(data));
+            renderHistoryList();
+        }
+
+        function renderHistoryList() {
+            const container = document.getElementById('history-container');
+            const empty = document.getElementById('empty-history');
+            let data = JSON.parse(localStorage.getItem('pidz_unband_history')) || [];
+
+            const legacyCards = container.querySelectorAll('.history-card');
+            legacyCards.forEach(c => c.remove());
+
+            if (data.length === 0) { empty.classList.remove('hidden'); return; }
+            empty.classList.add('hidden');
+
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "history-card bg-neutral-50 text-black comic-border p-2.5 space-y-1 transform hover:rotate-0.5 hover:scale-[1.01] transition-transform duration-150";
+                card.innerHTML = `
+                    <div class="flex justify-between font-bold text-xs">
+                        <span>${item.number}</span>
+                        <span class="text-comicPink text-[9px] animate-pulse">PROSES TINJAU</span>
+                    </div>
+                    <div class="text-[9px] text-neutral-500 flex justify-between">
+                        <span>User: ${item.name}</span>
+                        <span>${item.timestamp}</span>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Live Feed Ticker Loop
+        const fakeFeeds = [
+            { num: "+62 813-****-4423", status: "DRAF TERKIRIM" },
+            { num: "+62 857-****-1109", status: "SEDANG TINJAU" },
+            { num: "+62 822-****-3312", status: "DRAF TERKIRIM" },
+            { num: "+62 895-****-9878", status: "SEDANG TINJAU" },
+            { num: "+62 812-****-5561", status: "DRAF TERKIRIM" }
+        ];
+
+        function startLiveFeedRotation() {
+            const feedNum = document.getElementById('live-feed-number');
+            const feedStatus = document.getElementById('live-feed-status');
+            
+            setInterval(() => {
+                const randomFeed = fakeFeeds[Math.floor(Math.random() * fakeFeeds.length)];
+                if(feedNum && feedStatus) {
+                    feedNum.innerText = randomFeed.num;
+                    feedStatus.innerText = randomFeed.status;
+                }
+            }, 6000);
+        }
+
+        function renderAdminLogs() {
+            const table = document.getElementById('admin-log-table');
+            let data = JSON.parse(localStorage.getItem('pidz_unband_history')) || [];
+            if(data.length === 0) { table.innerHTML = '<div class="p-3 text-center">Tidak ada log antrian user saat ini.</div>'; return; }
+            
+            let html = '<table class="w-full text-left border-collapse"><thead class="bg-black text-white"><tr><th class="p-2">Waktu</th><th class="p-2">Nama</th><th class="p-2">No WA</th></tr></thead><tbody>';
+            data.forEach(i => {
+                html += `<tr class="border-b border-black"><td class="p-2">${i.timestamp}</td><td class="p-2">${i.name}</td><td class="p-2">${i.number}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            table.innerHTML = html;
+        }
+
+        function clearAllSystemData() {
+            localStorage.removeItem('pidz_unband_history');
+            localStorage.removeItem('pidz_valid_keys_db');
+            showComicToast("Database server lokal berhasil dibersihkan!");
+            renderAdminLogs();
+        }
+
+        function showComicToast(text) {
+            const banner = document.getElementById('toast-banner');
+            document.getElementById('toast-msg').innerText = text;
+            banner.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => { banner.classList.add('translate-y-32', 'opacity-0'); }, 3000);
+        }
+
+        function resetPortal() {
+            document.getElementById('unbanForm').reset();
+            document.getElementById('success-view').classList.add('hidden');
+            document.getElementById('form-view').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
