@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PidzStore - Premium ID Cantik Free Fire</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                            950: '#052e16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(130% 130% at 50% 10%, #ffffff 50%, #f0fdf4 100%);
+            min-height: 100vh;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(22, 163, 74, 0.08);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+        .glass-modal {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+        }
+        .neon-shadow {
+            box-shadow: 0 10px 30px -10px rgba(22, 163, 74, 0.15);
+        }
+        .neon-shadow-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(22, 163, 74, 0.3);
+            transform: translateY(-4px);
+        }
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #15803d;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Firebase SDK (v10) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDocs, collection, onSnapshot, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // Firebase Config Anda
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRzddk3ad4zI93ji4pXQmLvWf_OnJmllw",
+            authDomain: "pidzzzuid.firebaseapp.com",
+            projectId: "pidzzzuid",
+            storageBucket: "pidzzzuid.firebasestorage.app",
+            messagingSenderId: "896536172233",
+            appId: "1:896536172233:web:a10c355e83fcebcc6d9f18",
+            measurementId: "G-YGV5S80EML"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // State global untuk data produk
+        let products = [];
+        const waNumber = "6285816148963";
+
+        // Data awal yang diminta jika Firestore kosong
+        const initialProducts = [
+            { id: "16439999966", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000084", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000099", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000054", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000095", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000103", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440444402", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440444447", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440600007", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16444000008", price: 5000, sold: false, isFreeInstallation: true },
+            { id: "16440000000", price: 5000, sold: false, isFreeInstallation: true }
+        ];
+
+        // Fungsi inisialisasi awal produk ke Firestore jika data masih kosong
+        async function checkAndInitializeDatabase() {
+            try {
+                const querySnapshot = await getDocs(collection(db, "products"));
+                if (querySnapshot.empty) {
+                    console.log("Inisialisasi database awal dengan default ID...");
+                    for (const prod of initialProducts) {
+                        await setDoc(doc(db, "products", prod.id), prod);
+                    }
+                }
+            } catch (error) {
+                console.error("Gagal melakukan inisialisasi DB: ", error);
+            }
+        }
+
+        // Listener Real-time
+        function listenToProducts() {
+            const q = collection(db, "products");
+            onSnapshot(q, (snapshot) => {
+                products = [];
+                snapshot.forEach((doc) => {
+                    products.push(doc.data());
+                });
+                
+                // Sorting agar ID yang paling cantik/urut tampil rapi
+                products.sort((a, b) => a.id.localeCompare(b.id));
+
+                renderProducts(products);
+                renderAdminProducts(products);
+                updateStats(products);
+            }, (error) => {
+                console.error("Kesalahan sinkronisasi real-time: ", error);
+            });
+        }
+
+        // Jalankan Inisialisasi & Listener
+        checkAndInitializeDatabase().then(() => {
+            listenToProducts();
+        });
+
+        // --- TOMBOL BELI & POPUP INFORMASI PEMBELIAN ---
+        window.buyNow = function(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            if (product.sold) {
+                showToast("Maaf, ID Cantik ini sudah laku terjual!", "error");
+                return;
+            }
+
+            // Set detail ke dalam Modal checkout
+            const formattedPrice = "Rp " + product.price.toLocaleString('id-ID');
+            document.getElementById('checkoutIdDisplay').innerText = product.id;
+            document.getElementById('checkoutPriceDisplay').innerText = formattedPrice;
+            document.getElementById('checkoutTotalDisplay').innerText = formattedPrice;
+            
+            // Simpan ID yang sedang diproses di element tersembunyi
+            document.getElementById('selectedProductId').value = product.id;
+
+            // Buka Modal Checkout
+            toggleCheckoutModal(true);
+        };
+
+        // Kirim konfirmasi pembayaran ke WA
+        window.confirmPaymentOnWA = function() {
+            const productId = document.getElementById('selectedProductId').value;
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const formattedPrice = "Rp " + product.price.toLocaleString('id-ID');
+            const message = `Halo PidzStore! Saya sudah melakukan transfer QRIS sebesar *${formattedPrice}* untuk pembelian ID Cantik Free Fire berikut:\n\n` +
+                            `• ID Pilihan: *${product.id}*\n` +
+                            `• Status Pembayaran: *Lunas (QRIS)*\n` +
+                            `• Bonus Layanan: *Free Pemasangan Sampai Bisa*\n\n` +
+                            `Mohon dibantu verifikasi dan proses pengiriman ID-nya ya, terima kasih!`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+            window.open(waUrl, '_blank');
+            toggleCheckoutModal(false);
+        };
+
+        // --- SISTEM ADMIN PANEL ---
+        const ADMIN_PASS = "Dapit12345&";
+
+        // Cek status login saat halaman dimuat
+        window.checkAdminSession = function() {
+            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn');
+            if (isLoggedIn === 'true') {
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('adminControlsSection').classList.remove('hidden');
+            } else {
+                document.getElementById('loginSection').classList.remove('hidden');
+                document.getElementById('adminControlsSection').classList.add('hidden');
+            }
+        };
+
+        window.tryLogin = function() {
+            const passwordInput = document.getElementById('adminPassword').value;
+            if (passwordInput === ADMIN_PASS) {
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('adminControlsSection').classList.remove('hidden');
+                showToast("Login Admin Berhasil!", "success");
+            } else {
+                showToast("Password Admin Salah!", "error");
+            }
+        };
+
+        window.logoutAdmin = function() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('adminControlsSection').classList.add('hidden');
+            showToast("Berhasil logout admin.", "success");
+        };
+
+        window.toggleAdminModal = function(show) {
+            const modal = document.getElementById('adminModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                checkAdminSession(); // Periksa session setiap kali modal dibuka
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        };
+
+        window.toggleProductSold = async function(productId, currentStatus) {
+            try {
+                const productRef = doc(db, "products", productId);
+                await updateDoc(productRef, {
+                    sold: !currentStatus
+                });
+                showToast(`Status ID ${productId} berhasil diubah!`, "success");
+            } catch (error) {
+                showToast("Gagal memperbarui status produk.", "error");
+            }
+        };
+
+        window.deleteProduct = async function(productId) {
+            if (confirm(`Apakah Anda yakin ingin menghapus ID ${productId} dari katalog PidzStore?`)) {
+                try {
+                    await deleteDoc(doc(db, "products", productId));
+                    showToast(`ID ${productId} berhasil dihapus!`, "success");
+                } catch (error) {
+                    showToast("Gagal menghapus produk.", "error");
+                }
+            }
+        };
+
+        window.addNewProduct = async function(event) {
+            event.preventDefault();
+            const newId = document.getElementById('newProdId').value.trim();
+            const newPrice = parseInt(document.getElementById('newProdPrice').value) || 5000;
+
+            if (!newId) {
+                showToast("ID tidak boleh kosong!", "error");
+                return;
+            }
+
+            if (products.some(p => p.id === newId)) {
+                showToast("ID ini sudah terdaftar di sistem!", "error");
+                return;
+            }
+
+            try {
+                await setDoc(doc(db, "products", newId), {
+                    id: newId,
+                    price: newPrice,
+                    sold: false,
+                    isFreeInstallation: true
+                });
+                showToast(`Berhasil menambahkan ID ${newId}!`, "success");
+                document.getElementById('newProdId').value = '';
+            } catch (error) {
+                showToast("Gagal menambahkan produk baru ke Firebase.", "error");
+            }
+        };
+
+    </script>
+
+    <!-- Top Flowing Glow Light -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[450px] bg-gradient-to-b from-emerald-100/40 via-emerald-50/10 to-transparent pointer-events-none -z-10 rounded-full blur-3xl"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 w-full glass-header py-3.5 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-green-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-emerald-500/20">
+                    P
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent hero-title">PidzStore</span>
+                    <span class="block text-[9px] text-slate-400 font-bold uppercase tracking-widest">Pidz Mode UID🥶</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#katalog" class="text-xs font-bold text-slate-500 hover:text-emerald-600 tracking-wide transition-colors hidden sm:inline-block">KATALOG</a>
+                <button onclick="toggleAdminModal(true)" class="px-3.5 py-2 rounded-xl text-[11px] font-bold text-emerald-800 bg-emerald-50/80 hover:bg-emerald-100/90 hover:scale-105 active:scale-95 transition-all duration-200 flex items-center space-x-2 border border-emerald-200/50">
+                    <i class="fa-solid fa-lock-open text-[9px]"></i>
+                    <span>ADMIN PANEL</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-12 text-center">
+        <!-- Floating Badge -->
+        <div class="inline-flex items-center space-x-2 bg-white/70 border border-emerald-200/50 px-3.5 py-1.5 rounded-2xl mb-6 shadow-sm">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-[10px] font-bold text-emerald-800 tracking-widest uppercase">ONLINE BOS</span>
+        </div>
+        
+        <!-- Main Premium Title -->
+        <h1 class="hero-title text-3xl sm:text-5xl font-black tracking-tight text-slate-900 max-w-3xl mx-auto leading-tight">
+            STOK <span class="bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent text-glow">UID Cantik</span> Pidzz
+        </h1>
+        
+        <p class="mt-4 text-xs sm:text-sm text-slate-400 max-w-xl mx-auto font-medium">
+            Semua Stok UID Cantik Free Fire. Pembayaran menggunakan QRIS instan, proses kilat langsung dibimbing via WhatsApp sampai terpasang!
+        </p>
+
+        <!-- Stats Counter Section -->
+        <div class="mt-6 flex justify-center items-center space-x-4 text-xs font-bold text-slate-500 bg-white/50 backdrop-blur-sm py-2 px-5 rounded-2xl w-fit mx-auto border border-emerald-100/40 shadow-sm">
+            <div class="flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Ready: <strong id="readyCount" class="text-emerald-600">0</strong></span>
+            </div>
+            <div class="w-px h-3.5 bg-slate-200"></div>
+            <div class="flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                <span>Sold: <strong id="soldCount" class="text-rose-600">0</strong></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="katalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <!-- Search & Info Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div class="text-center sm:text-left">
+                <h2 class="hero-title text-lg sm:text-xl font-bold text-slate-900 flex items-center justify-center sm:justify-start space-x-2">
+                    <i class="fa-solid fa-layer-group text-emerald-500 text-sm"></i>
+                    <span>Koleksi ID Terpilih</span>
+                </h2>
+                <p class="text-[11px] text-slate-400 mt-0.5">Seluruh stok bergaransi aman 100% dan bebas hackback</p>
+            </div>
+            
+            <!-- Sleek Search Bar -->
+            <div class="relative w-full sm:w-60">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-slate-400 text-[10px]"></i>
+                </span>
+                <input type="text" id="searchIdInput" oninput="filterProducts()" placeholder="Masukkan digit angka ID..." class="w-full pl-8 pr-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 bg-white/70 transition-all duration-200">
+            </div>
+        </div>
+
+        <!-- Catalog Grid (Sesuai Permintaan: 2 Kolom Kesamping di Mobile) -->
+        <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+            <!-- Loading Screen awal -->
+            <div class="col-span-full py-16 flex flex-col items-center justify-center text-slate-400">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 mb-3"></div>
+                <p class="text-xs font-semibold">Mengambil data dari PidzStore Server...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-12 pb-6 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-900">
+                <div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-green-400 flex items-center justify-center text-white font-extrabold text-sm">
+                            P
+                        </div>
+                        <span class="text-base font-bold tracking-tight text-white hero-title">PidzStore</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 leading-relaxed max-w-xs">
+                        Website penyedia ID Cantik Free Fire dengan pelayanan instan
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-[11px] font-bold uppercase tracking-widest text-emerald-400 mb-3">KELEBIHAN BELI DI SINI</h4>
+                    <ul class="space-y-1.5 text-[11px] text-slate-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-circle-check text-emerald-500"></i>
+                            <span>Admin fast-respon & amanah</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-circle-check text-emerald-500"></i>
+                            <span>Dipandu via Chat WA/Call sampai tuntas</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-regular fa-circle-check text-emerald-500"></i>
+                            <span>Pembayaran QRIS legal & bebas biaya admin</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-[11px] font-bold uppercase tracking-widest text-emerald-400 mb-3">HUBUNGI PENJUAL</h4>
+                    <ul class="space-y-1.5 text-[11px] text-slate-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-phone text-emerald-500"></i>
+                            <span>+62 858-1614-8963</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fa-solid fa-shield text-emerald-500"></i>
+                            <span>Admin: Pidz Ganteng</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[10px] text-slate-500">
+                <p>&copy; 2026 PidzStore. Seluruh sistem sinkronisas.</p>
+                <p class="mt-2 sm:mt-0">AYO DAPATKAN UID CANTIKMU</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ================= MODAL CHECKOUT / POPUP PEMBELIAN ================= -->
+    <div id="checkoutModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden items-center justify-center p-3 animate-fade-in">
+        <!-- Input Tersembunyi untuk Melacak ID yang Dipilih -->
+        <input type="hidden" id="selectedProductId" value="">
+        
+        <div class="bg-white rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl border border-slate-100 flex flex-col max-h-[92vh]">
+            <!-- Header Modal -->
+            <div class="px-5 py-4 bg-gradient-to-r from-emerald-800 to-slate-950 text-white flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-receipt text-emerald-400 text-sm"></i>
+                    <h3 class="font-bold text-xs tracking-wide uppercase hero-title">Konfirmasi Transaksi</h3>
+                </div>
+                <button onclick="toggleCheckoutModal(false)" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Content Modal -->
+            <div class="p-5 overflow-y-auto space-y-4 flex-1">
+                <!-- Info ID Cantik FF -->
+                <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/50 text-center">
+                    <span class="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">PRODUK YANG ANDA BELI</span>
+                    <h4 id="checkoutIdDisplay" class="text-xl font-extrabold text-slate-800 font-mono tracking-wider mt-2 bg-white border py-1.5 rounded-xl text-center shadow-inner">
+                        16439999966
+                    </h4>
+                    <p class="text-[10px] text-slate-400 mt-1.5"><i class="fa-solid fa-screwdriver-wrench text-emerald-500 mr-1"></i> Gratis biaya pemasangan hingga bisa dimainkan!</p>
+                </div>
+
+                <!-- Petunjuk QRIS -->
+                <div class="space-y-1.5">
+                    <span class="text-[10px] font-bold text-slate-400 tracking-wider uppercase block">Metode Pembayaran (QRIS Only)</span>
+                    <div class="bg-emerald-50/50 p-2 rounded-2xl border border-emerald-100/50 flex flex-col items-center">
+                        <!-- QRIS Image -->
+                        <div class="w-36 h-36 bg-white p-1 rounded-xl border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden">
+                            <img src="https://cdn.phototourl.com/free/2026-07-17-fa6a0658-18cb-4f5d-b5b0-7af468128863.jpg" 
+                                 alt="QRIS PidzStore" 
+                                 class="w-full h-full object-contain"
+                                 onerror="this.src='https://placehold.co/150?text=QRIS+ERROR'">
+                        </div>
+                        <span class="text-[9px] font-bold text-emerald-800 mt-1 bg-emerald-100/60 px-2 py-0.5 rounded-md uppercase">Pindai kode QR di atas</span>
+                    </div>
+                </div>
+
+                <!-- Rincian Biaya -->
+                <div class="space-y-1.5 border-t border-dashed border-slate-200 pt-3 text-[11px]">
+                    <div class="flex justify-between text-slate-500">
+                        <span>Harga ID</span>
+                        <span id="checkoutPriceDisplay" class="font-bold text-slate-800">Rp 5.000</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>Layanan Tambahan</span>
+                        <span class="font-bold text-emerald-600">FREE</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>Pemasangan FF ID</span>
+                        <span class="font-bold text-emerald-600">FREE (Bergaransi)</span>
+                    </div>
+                    <div class="flex justify-between text-slate-800 border-t border-slate-100 pt-1.5 font-bold text-xs">
+                        <span>Total Pembayaran</span>
+                        <span id="checkoutTotalDisplay" class="text-emerald-600 font-mono">Rp 5.000</span>
+                    </div>
+                </div>
+
+                <!-- Instruksi Singkat -->
+                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-[10px] text-slate-400 leading-snug">
+                    <p class="font-semibold text-slate-500">Langkah-langkah:</p>
+                    <ol class="list-decimal pl-3.5 space-y-0.5 mt-0.5">
+                        <li>Simpan/Screenshot gambar QRIS di atas.</li>
+                        <li>Scan & Bayar menggunakan e-wallet (Gopay, OVO, Dana) atau aplikasi M-Banking Anda.</li>
+                        <li>Klik tombol konfirmasi WhatsApp di bawah untuk klaim ID Anda!</li>
+                    </ol>
+                </div>
+
+                <!-- WhatsApp Confirmation Action Button -->
+                <button onclick="confirmPaymentOnWA()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-2xl flex items-center justify-center space-x-2 transition-all shadow-md shadow-emerald-600/15">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>SAYA SUDAH TRANSFER (KLAIM ID)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= ADMIN PANEL MODAL ================= -->
+    <div id="adminModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden items-center justify-center p-3">
+        <div class="bg-white rounded-3xl w-full max-w-lg max-h-[88vh] flex flex-col shadow-2xl border border-slate-100 overflow-hidden">
+            <!-- Modal Header -->
+            <div class="px-5 py-4 bg-gradient-to-r from-emerald-850 to-slate-950 text-white flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-gears text-emerald-400"></i>
+                    <div>
+                        <h3 class="font-bold text-xs uppercase tracking-wider hero-title">Admin Controller Panel</h3>
+                        <p class="text-[9px] text-emerald-300">Setiap perubahan langsung diperbarui secara realtime</p>
+                    </div>
+                </div>
+                <button onclick="toggleAdminModal(false)" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors text-white text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content Wrapper (Scrollable) -->
+            <div class="p-5 overflow-y-auto flex-1 space-y-5">
+                <!-- LOGIN SECTION -->
+                <div id="loginSection" class="space-y-4 py-4">
+                    <div class="text-center">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 mx-auto mb-2">
+                            <i class="fa-solid fa-shield-halved text-base"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-xs">Sistem Autentikasi Pemilik PidzStore</h4>
+                        <p class="text-[10px] text-slate-400 mt-0.5">Silakan masukkan password rahasia untuk membuka akses kontrol.</p>
+                    </div>
+                    
+                    <div class="max-w-xs mx-auto">
+                        <div class="relative">
+                            <input type="password" id="adminPassword" placeholder="Masukkan password..." class="w-full px-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-center">
+                        </div>
+                        <button onclick="tryLogin()" class="w-full mt-2 py-2 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-600 text-white text-[10px] font-bold rounded-xl transition-all shadow-md">
+                            Buka Kunci Akses
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTROLS SECTION (Sembunyikan dari luar, tampil setelah login) -->
+                <div id="adminControlsSection" class="hidden space-y-5">
+                    <!-- Dashboard Admin Header -->
+                    <div class="flex items-center justify-between bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                        <span class="text-[10px] text-slate-400 font-bold"><i class="fa-solid fa-circle-user text-emerald-500 mr-1"></i> LOGGED IN AS OWNER</span>
+                        <button onclick="logoutAdmin()" class="px-2 py-1 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-[9px] font-bold transition-colors">
+                            Logout
+                        </button>
+                    </div>
+
+                    <!-- Form Tambah ID Baru -->
+                    <form onsubmit="addNewProduct(event)" class="bg-slate-50 p-4 rounded-2xl border border-slate-200/40">
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-2.5 flex items-center"><i class="fa-solid fa-plus mr-1.5 text-emerald-500"></i> Tambah ID Baru</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-[9px] font-semibold text-slate-400 mb-1">Nomor ID FF</label>
+                                <input type="text" id="newProdId" required placeholder="Contoh: 16440000000" class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-[9px] font-semibold text-slate-400 mb-1">Harga ID (Rp)</label>
+                                <input type="number" id="newProdPrice" required value="5000" class="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 bg-white">
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full mt-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-[10px] font-bold rounded-lg transition-colors">
+                            Kirim ke Firebase
+                        </button>
+                    </form>
+
+                    <!-- List ID Saat Ini (Atur Sold & Hapus) -->
+                    <div>
+                        <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-600 mb-2"><i class="fa-solid fa-cubes mr-1 text-emerald-500"></i> Atur Stok & Status ID</h4>
+                        <div class="border border-slate-100 rounded-2xl overflow-hidden divide-y divide-slate-100 max-h-56 overflow-y-auto" id="adminProductList">
+                            <!-- Diisi oleh JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+
+    <!-- JS Render & Logic -->
+    <script>
+        // Fungsi pembuka/penutup Modal Checkout
+        window.toggleCheckoutModal = function(show) {
+            const modal = document.getElementById('checkoutModal');
+            if (show) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        };
+
+        // Fungsi Render list produk ke Pengunjung (2 Kolom Kesamping di Handphone)
+        function renderProducts(productList) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if (productList.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 flex flex-col items-center justify-center text-slate-400">
+                        <i class="fa-solid fa-box-open text-3xl mb-2 text-slate-300"></i>
+                        <p class="text-xs font-semibold">Tidak ada data ID yang tersedia saat ini.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            productList.forEach(prod => {
+                const isSold = prod.sold;
+                const formattedPrice = "Rp " + (prod.price || 5000).toLocaleString('id-ID');
+                
+                const card = document.createElement('div');
+                // Menggunakan layout flex-col-between untuk memastikan semua ukuran card presisi & konsisten
+                card.className = `glass-card rounded-2xl overflow-hidden p-3 sm:p-5 transition-all duration-300 relative group flex flex-col justify-between ${
+                    isSold ? 'opacity-65 grayscale border-slate-200' : 'neon-shadow-hover border-emerald-100'
+                }`;
+                
+                // Badge Status
+                const badge = isSold 
+                    ? `<span class="absolute top-2.5 right-2.5 bg-rose-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider">SOLD OUT</span>`
+                    : `<span class="absolute top-2.5 right-2.5 bg-emerald-500 text-white text-[8px] font-extrabold px-1.5 py-0.5 rounded-md uppercase tracking-wider">READY</span>`;
+
+                card.innerHTML = `
+                    ${badge}
+                    <div>
+                        <!-- Game Platform Badge -->
+                        <div class="flex items-center space-x-1.5 mb-2.5">
+                            <span class="text-[8px] font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded tracking-wider">ID FF</span>
+                            <span class="w-1.5 h-1.5 rounded-full ${isSold ? 'bg-rose-400' : 'bg-emerald-400 animate-pulse'}"></span>
+                        </div>
+
+                        <!-- ID Display -->
+                        <div class="mb-3">
+                            <h3 class="text-sm sm:text-lg font-bold tracking-tight text-slate-800 group-hover:text-emerald-600 transition-colors py-1.5 bg-slate-50 rounded-xl text-center select-all font-mono border border-dashed border-slate-200">
+                                ${prod.id}
+                            </h3>
+                        </div>
+
+                        <!-- Price & Free Tag -->
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[9px] text-slate-400 font-medium">Lengkap Pemasangan</span>
+                            <span class="text-xs sm:text-sm font-extrabold text-emerald-600 font-mono">${formattedPrice}</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Button (Sleek) -->
+                    <button onclick="${isSold ? '' : `buyNow('${prod.id}')`}" 
+                        class="w-full py-2 px-3 rounded-xl text-[9px] sm:text-xs font-bold tracking-wide uppercase transition-all flex items-center justify-center space-x-1.5 ${
+                            isSold 
+                            ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200' 
+                            : 'bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-600 text-white shadow-md shadow-emerald-500/5'
+                        }">
+                        <i class="${isSold ? 'fa-solid fa-lock' : 'fa-solid fa-cart-shopping'}"></i>
+                        <span>${isSold ? 'Sold' : 'Beli'}</span>
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Fungsi Render list kontrol di Admin Panel
+        function renderAdminProducts(productList) {
+            const list = document.getElementById('adminProductList');
+            if (!list) return;
+
+            list.innerHTML = '';
+            productList.forEach(prod => {
+                const item = document.createElement('div');
+                item.className = "flex items-center justify-between p-3 bg-white hover:bg-slate-50 transition-colors";
+                
+                item.innerHTML = `
+                    <div>
+                        <p class="text-xs font-bold text-slate-800 font-mono">${prod.id}</p>
+                        <p class="text-[9px] text-slate-400">Harga: Rp ${(prod.price || 5000).toLocaleString('id-ID')}</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <!-- Toggle Status Sold Out -->
+                        <button onclick="toggleProductSold('${prod.id}', ${prod.sold})" 
+                            class="px-2 py-1 rounded-lg text-[9px] font-bold tracking-wider uppercase transition-all ${
+                                prod.sold 
+                                ? 'bg-rose-50 text-rose-600 hover:bg-rose-100' 
+                                : 'bg-emerald-50 text-emerald-600 hover:bg-emerald-100'
+                            }">
+                            ${prod.sold ? 'READY-KAN' : 'SOLD-KAN'}
+                        </button>
+                        
+                        <!-- Delete Button -->
+                        <button onclick="deleteProduct('${prod.id}')" class="w-7 h-7 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-500 flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-trash-can text-[10px]"></i>
+                        </button>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        // Statistik
+        function updateStats(productList) {
+            const ready = productList.filter(p => !p.sold).length;
+            const sold = productList.filter(p => p.sold).length;
+            
+            document.getElementById('readyCount').innerText = ready;
+            document.getElementById('soldCount').innerText = sold;
+        }
+
+        // Filter / Pencarian ID
+        window.filterProducts = function() {
+            const query = document.getElementById('searchIdInput').value.trim().toLowerCase();
+            const filtered = products.filter(p => p.id.toLowerCase().includes(query));
+            renderProducts(filtered);
+        };
+
+        // Toast Notification System
+        function showToast(message, type = "success") {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `px-3.5 py-2.5 rounded-2xl text-[10px] font-bold text-white shadow-xl flex items-center space-x-2 transition-all duration-300 transform translate-y-2 opacity-0`;
+            
+            if (type === "success") {
+                toast.classList.add('bg-emerald-600');
+                toast.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${message}</span>`;
+            } else {
+                toast.classList.add('bg-rose-600');
+                toast.innerHTML = `<i class="fa-solid fa-circle-exclamation"></i> <span>${message}</span>`;
+            }
+
+            container.appendChild(toast);
+            
+            // Animasi masuk
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Hapus otomatis setelah 3 detik
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+
