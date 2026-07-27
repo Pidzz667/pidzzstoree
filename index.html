@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UID Cantik Stok - PIDZ STORE</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=Orbitron:wght@600;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Three.js for 3D Background Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            neon: '#00ff88',
+                            cyan: '#00f0ff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Styling Dasar */
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* 3D Canvas Background */
+        #canvas3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Card 3D */
+        .glass-card-3d {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Efek Neon Glowing */
+        .neon-border-glow {
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2), inset 0 0 15px rgba(0, 255, 136, 0.05);
+        }
+
+        .neon-border-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.15);
+            border-color: #00ff88;
+        }
+
+        .text-glow-title {
+            text-shadow: 0 0 20px rgba(34, 197, 94, 0.6), 0 0 40px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Hologram Kilau */
+        .hologram-shine {
+            position: relative;
+            overflow: hidden;
+        }
+        .hologram-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.4) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg) translateY(-100%);
+            transition: transform 0.8s ease-in-out;
+        }
+        .hologram-shine:hover::after {
+            transform: rotate(30deg) translateY(100%);
+        }
+
+        /* Animasi Scanner QRIS */
+        @keyframes scanLine {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        .scanner-line {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            box-shadow: 0 0 10px #00ff88;
+            animation: scanLine 2.5s infinite linear;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #22c55e, #00ff88);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased min-h-screen flex flex-col relative select-none">
+
+    <!-- Canvas 3D Three.js -->
+    <canvas id="canvas3d"></canvas>
+
+    <!-- Header Navbar -->
+    <header class="sticky top-0 z-40 bg-slate-900/70 backdrop-blur-xl border-b border-brand-500/30">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+            
+            <!-- Logo Toko -->
+            <div class="flex items-center gap-3">
+                <div class="relative w-10 h-10 bg-gradient-to-tr from-brand-600 via-brand-500 to-brand-neon rounded-2xl flex items-center justify-center text-slate-950 font-black text-xl shadow-[0_0_20px_rgba(0,255,136,0.6)] animate-pulse">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-orbitron font-black tracking-wider bg-gradient-to-r from-white via-brand-200 to-brand-neon bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(34,197,94,0.8)]">
+                        UID CANTIK
+                    </h1>
+                    <p class="text-[9px] text-brand-400 font-bold uppercase tracking-widest -mt-1">Pidz Store Stok UID</p>
+                </div>
+            </div>
+
+            <!-- Tombol CS WhatsApp -->
+            <a href="https://wa.me/6285141631493" target="_blank" class="relative group overflow-hidden rounded-xl p-[1px] focus:outline-none">
+                <span class="absolute inset-0 bg-gradient-to-r from-brand-neon via-brand-500 to-emerald-400 rounded-xl animate-spin transition-all duration-500"></span>
+                <span class="relative px-3.5 py-2 rounded-xl bg-slate-950 flex items-center gap-2 text-xs font-bold text-brand-neon group-hover:bg-brand-500 group-hover:text-slate-950 transition-all duration-300">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>CS Fast Response</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Title Section -->
+    <section class="relative z-10 pt-8 pb-4 px-4 text-center">
+        <div class="max-w-3xl mx-auto space-y-3">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/80 border border-brand-500/50 shadow-[0_0_15px_rgba(34,197,94,0.3)] backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-brand-neon animate-ping"></span>
+                <span class="text-[10px] font-black uppercase tracking-wider text-brand-neon">System Ready • Stok Real-time</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-5xl font-orbitron font-black text-white tracking-tight leading-tight text-glow-title">
+                STOK <span class="bg-gradient-to-r from-brand-400 via-brand-neon to-brand-cyan bg-clip-text text-transparent">UID CANTIK</span> Pidz
+            </h2>
+
+            <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto font-medium">
+                Pilihan ID Unik dengan Pembayaran QRIS Instant. Klik Beli & Langsung Bayar via QRIS.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Area Utama -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 py-4 flex-grow w-full">
+        
+        <!-- Filter & Search Panel -->
+        <div class="mb-6 bg-slate-900/80 backdrop-blur-xl p-3.5 rounded-2xl border border-brand-500/40 shadow-[0_0_25px_rgba(0,0,0,0.5)] flex flex-col sm:flex-row gap-3 items-center justify-between">
+            
+            <!-- Input Pencarian -->
+            <div class="relative w-full sm:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-400 text-xs"></i>
+                <input type="text" id="searchInput" oninput="filterUID()" placeholder="Cari susunan angka..." class="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-950/80 border border-brand-500/40 focus:border-brand-neon focus:ring-2 focus:ring-brand-neon/30 text-xs text-white placeholder-slate-500 focus:outline-none transition-all">
+            </div>
+
+            <!-- Tombol Filter -->
+            <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
+                <button onclick="setFilter('all', this)" class="filter-btn active bg-gradient-to-r from-brand-600 to-brand-500 text-slate-950 px-3.5 py-1.5 rounded-xl text-xs font-black whitespace-nowrap shadow-[0_0_10px_rgba(34,197,94,0.4)] transition-all">Semua (<span id="count-all">0</span>)</button>
+                <button onclick="setFilter('twin', this)" class="filter-btn bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">Kembar / Repeat</button>
+                <button onclick="setFilter('rare', this)" class="filter-btn bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap border border-slate-700 transition-all">VIP (≥ 10k)</button>
+            </div>
+        </div>
+
+        <!-- 2 BINGKAI KE SAMPING (GRID 2 KOLOM) -->
+        <div id="uidGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Kartu dinamis di-render via JavaScript -->
+        </div>
+
+        <!-- Tampilan Kosong jika UID tidak ketemu -->
+        <div id="emptyState" class="hidden text-center py-16 bg-slate-900/60 backdrop-blur-md rounded-3xl border border-dashed border-brand-500/30">
+            <i class="fa-solid fa-ghost text-4xl text-brand-400 mb-3 animate-bounce"></i>
+            <p class="text-sm font-bold text-slate-300">UID Tidak Ditemukan</p>
+            <p class="text-xs text-slate-500 mt-1">Coba masukkan kata kunci angka lain.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-slate-950/80 backdrop-blur-md border-t border-brand-500/20 py-6 mt-12 text-center space-y-1">
+        <p class="text-xs font-bold text-slate-400">UID Cantik Store &copy; 2026 • All Rights Reserved</p>
+        <p class="text-[10px] text-brand-400 font-medium">Metode Pembayaran Resmi QRIS - PIDZ NEED CUAN</p>
+    </footer>
+
+    <!-- POPUP SALURAN WHATSAPP (Awal Masuk Web) -->
+    <div id="channelModal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-xl z-50 flex items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+        <div class="bg-slate-900 rounded-3xl max-w-sm w-full p-6 shadow-[0_0_60px_rgba(0,255,136,0.35)] transform scale-90 transition-all duration-300 relative border-2 border-brand-400 text-center space-y-4">
+            
+            <!-- Tombol Tutup Modal Saluran -->
+            <button onclick="closeChannelModal()" class="absolute right-4 top-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-all text-xs border border-slate-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Badge Saluran -->
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/20 border border-brand-500/40 text-brand-neon text-[10px] font-black uppercase tracking-wider">
+                <i class="fa-brands fa-whatsapp text-xs"></i>
+                <span>Komunitas Official</span>
+            </div>
+
+            <!-- Ikon & Header -->
+            <div class="space-y-1.5">
+                <div class="w-16 h-16 bg-gradient-to-tr from-brand-600 to-brand-neon rounded-2xl mx-auto flex items-center justify-center text-slate-950 text-3xl shadow-[0_0_20px_rgba(0,255,136,0.6)] animate-bounce">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="text-lg font-orbitron font-black text-white">JOIN SALURAN WA!</h3>
+                <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                    Dapatkan update <span class="text-brand-neon font-bold">UID Gratis</span> secara berkala dan lihat ratusan <span class="text-brand-neon font-bold">Testimoni Pembelian</span> asli!
+                </p>
+            </div>
+
+            <!-- Fitur Benefit -->
+            <div class="bg-slate-950 p-3 rounded-2xl border border-brand-500/30 text-left space-y-2 text-[11px] text-slate-300">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-brand-neon"></i>
+                    <span>Sering bagi-bagi UID Cantik Gratis</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-brand-neon"></i>
+                    <span>Bukti & Testimoni Transaksi Asli</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-brand-neon"></i>
+                    <span>Info Stok Rare Tercepat</span>
+                </div>
+            </div>
+
+            <!-- Tombol Join Saluran WA -->
+            <button onclick="joinChannel()" class="w-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-neon hover:from-brand-500 hover:to-emerald-400 text-slate-950 font-orbitron font-black py-3.5 px-4 rounded-2xl shadow-[0_0_25px_rgba(0,255,136,0.5)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 text-xs">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>GABUNG SALURAN SEKARANG</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL PEMBAYARAN QRIS 3D -->
+    <div id="paymentModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-xl z-50 flex items-center justify-center p-3 hidden opacity-0 transition-all duration-300">
+        <div class="bg-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-[0_0_50px_rgba(0,255,136,0.3)] transform scale-90 transition-all duration-300 relative border-2 border-brand-400 max-h-[92vh] overflow-y-auto">
+            
+            <!-- Tombol Tutup -->
+            <button onclick="closePaymentModal()" class="absolute right-4 top-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center transition-all text-xs border border-slate-600">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Header Modal -->
+            <div class="text-center mb-4">
+                <span class="inline-block bg-brand-500/20 text-brand-neon text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest border border-brand-500/40 shadow-[0_0_10px_rgba(0,255,136,0.2)]">Cyber Payment Gate</span>
+                <h3 class="text-base font-orbitron font-black text-white mt-1.5">QRIS ALL PAYMENT ONLY</h3>
+            </div>
+
+            <!-- Detail Pesanan -->
+            <div class="bg-slate-950/90 p-3.5 rounded-2xl border border-brand-500/30 mb-4 flex items-center justify-between">
+                <div>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">UID PILIHAN</span>
+                    <span id="modalUidText" class="text-base font-mono font-black text-brand-neon tracking-wider">16454422888</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">TOTAL HARGA</span>
+                    <span id="modalPriceText" class="text-base font-black text-white">Rp 5.000</span>
+                </div>
+            </div>
+
+            <!-- Tampilan QRIS & Nama -->
+            <div class="bg-slate-950 p-3.5 rounded-2xl border border-brand-500/40 text-center space-y-2 mb-4 relative overflow-hidden">
+                
+                <div class="scanner-line"></div>
+
+                <div class="relative max-w-[190px] mx-auto bg-white p-2 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-slate-300">
+                    <img id="qrisImage" src="https://cdn.phototourl.com/member/2026-07-27-d05b1a73-d70f-494c-81ff-e4b51f035a2f.jpg" alt="QRIS PIDZ NEED CUAN" class="w-full h-auto rounded-lg object-cover">
+                </div>
+
+                <div class="bg-brand-500/10 p-2 rounded-xl border border-brand-500/30">
+                    <p class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">NAMA QRIS RESMI:</p>
+                    <p class="text-base font-black text-brand-neon uppercase tracking-wide font-orbitron">PIDZ NEED CUAN</p>
+                    <p class="text-[9px] text-emerald-400 font-extrabold flex items-center justify-center gap-1 mt-0.5">
+                        <i class="fa-solid fa-circle-check"></i> Bebas Biaya Admin • All Payment
+                    </p>
+                </div>
+            </div>
+
+            <!-- Petunjuk Bayar -->
+            <div class="bg-slate-950 border border-amber-500/40 p-2.5 rounded-xl text-[10px] text-amber-200 space-y-1 mb-4">
+                <p class="font-extrabold text-amber-400 flex items-center gap-1">
+                    <i class="fa-solid fa-circle-info"></i> Petunjuk Pembayaran:
+                </p>
+                <p class="leading-relaxed opacity-90">
+                    Scan/Upload QRIS di atas via e-Wallet/m-Banking -> Bayar sesuai nominal -> Klik tombol di bawah untuk konfirmasi otomatis ke WhatsApp.
+                </p>
+            </div>
+
+            <!-- Tombol Kirim ke WhatsApp -->
+            <button onclick="proceedToWhatsApp()" class="w-full bg-gradient-to-r from-brand-600 via-brand-500 to-brand-neon hover:from-brand-500 hover:to-emerald-400 text-slate-950 font-orbitron font-black py-3 px-4 rounded-2xl shadow-[0_0_25px_rgba(0,255,136,0.5)] flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95 text-xs">
+                <i class="fa-brands fa-whatsapp text-base"></i>
+                <span>KONFIRMASI BAYAR VIA WA</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900/90 text-brand-neon px-4 py-2.5 rounded-xl text-xs font-bold shadow-[0_0_20px_rgba(0,255,136,0.4)] border border-brand-500/50 flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50 backdrop-blur-md">
+        <i class="fa-solid fa-circle-check text-brand-400"></i>
+        <span id="toastText">Nomor UID berhasil disalin!</span>
+    </div>
+
+    <!-- JavaScript Engine -->
+    <script>
+        /**
+         * ==========================================
+         * DATABASE STOK UID & HARGA (KODE PENGATURAN)
+         * Anda dapat menambah, mengubah, atau menghapus UID di bawah ini:
+         * ==========================================
+         */
+        const uidData = [
+            { id: 1, uid: "16454422888", price: 5000, displayPrice: "5k", isHot: false },
+            { id: 2, uid: "16454421999", price: 5000, displayPrice: "5k", isHot: false },
+            { id: 3, uid: "16454413999", price: 5000, displayPrice: "5k", isHot: false },
+            { id: 4, uid: "16440444402", price: 10000, displayPrice: "10k", isHot: true },
+            { id: 5, uid: "16440444447", price: 15000, displayPrice: "15k", isHot: true },
+            { id: 6, uid: "16440600007", price: 13000, displayPrice: "13k", isHot: false },
+            { id: 7, uid: "16440180000", price: 15000, displayPrice: "15k", isHot: true },
+            { id: 8, uid: "16446666646", price: 13000, displayPrice: "13k", isHot: false },
+            { id: 9, uid: "16443700073", price: 7000, displayPrice: "7k", isHot: false },
+            { id: 10, uid: "16440222292", price: 5000, displayPrice: "5k", isHot: false },
+            { id: 11, uid: "16440500052", price: 8000, displayPrice: "8k", isHot: false },
+            { id: 12, uid: "16440719997", price: 9000, displayPrice: "9k", isHot: false },
+            { id: 13, uid: "16444009009", price: 15000, displayPrice: "15k", isHot: true },
+            { id: 14, uid: "16444040100", price: 14000, displayPrice: "14k", isHot: false },
+            { id: 15, uid: "16444044999", price: 12000, displayPrice: "12k", isHot: false },
+            { id: 16, uid: "16444112100", price: 5000, displayPrice: "5k", isHot: false },
+            { id: 17, uid: "16439969991", price: 7000, displayPrice: "7k", isHot: false },
+            { id: 18, uid: "16439995555", price: 8000, displayPrice: "8k", isHot: true },
+            { id: 19, uid: "16439999004", price: 10000, displayPrice: "10k", isHot: false },
+            { id: 20, uid: "16440111115", price: 10000, displayPrice: "10k", isHot: true }
+        ];
+
+        let activeFilter = 'all';
+        let selectedItem = null;
+        const targetWhatsapp = "6285141631493";
+        const channelWhatsappLink = "https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G";
+
+        function formatRupiah(num) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+        }
+
+        // RENDER GRID 2 BINGKAI KESAMPING
+        function renderGrid(data) {
+            const grid = document.getElementById('uidGrid');
+            const emptyState = document.getElementById('emptyState');
+            grid.innerHTML = '';
+
+            if (data.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            } else {
+                emptyState.classList.add('hidden');
+            }
+
+            data.forEach((item) => {
+                const card = document.createElement('div');
+                // Klik area mana saja langsung bayar (1x klik)
+                card.className = "glass-card-3d neon-border-glow hologram-shine rounded-2xl p-3.5 flex items-center justify-between gap-3 relative overflow-hidden group cursor-pointer";
+                card.onclick = function() { openPaymentModal(item.id); };
+
+                // Efek Parallax 3D
+                card.addEventListener('mousemove', handleCardTilt);
+                card.addEventListener('mouseleave', resetCardTilt);
+
+                const badge = item.isHot 
+                    ? `<span class="bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 text-[8px] font-black uppercase px-2 py-0.5 rounded-full shadow-[0_0_8px_rgba(245,158,11,0.5)] flex items-center gap-1">
+                        <i class="fa-solid fa-fire text-slate-950"></i> HOT ID
+                       </span>` 
+                    : `<span class="bg-brand-500/20 text-brand-600 text-[8px] font-extrabold uppercase px-2 py-0.5 rounded-full border border-brand-500/30">
+                        READY
+                       </span>`;
+
+                card.innerHTML = `
+                    <!-- Left: Number Info -->
+                    <div class="space-y-1 min-w-0 flex-1 pointer-events-none">
+                        <div class="flex items-center gap-2">
+                            ${badge}
+                            <span class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">100% GARANSI</span>
+                        </div>
+                        
+                        <div class="flex items-center gap-2">
+                            <span class="text-base sm:text-lg font-black text-slate-900 font-mono tracking-wider group-hover:text-brand-600 transition-colors truncate">
+                                ${item.uid}
+                            </span>
+                            <button onclick="event.stopPropagation(); copyToClipboard('${item.uid}')" title="Salin UID" class="text-slate-400 hover:text-brand-600 transition-colors p-1 text-xs pointer-events-auto">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-black text-slate-950 bg-brand-200 px-2.5 py-0.5 rounded-lg border border-brand-400">
+                                ${formatRupiah(item.price)}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Direct Buy Button -->
+                    <div class="shrink-0 pointer-events-auto">
+                        <button onclick="event.stopPropagation(); openPaymentModal(${item.id})" class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-neon hover:from-brand-500 hover:to-emerald-400 text-slate-950 font-orbitron font-black text-xs px-3.5 py-2.5 rounded-xl shadow-[0_0_12px_rgba(34,197,94,0.4)] flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95">
+                            <span>BELI</span>
+                            <i class="fa-solid fa-bolt text-[10px] text-slate-950"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            document.getElementById('count-all').innerText = uidData.length;
+        }
+
+        /* Physics Kartu 3D Tilt */
+        function handleCardTilt(e) {
+            const card = e.currentTarget;
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -12;
+            const rotateY = ((x - centerX) / centerX) * 12;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+        }
+
+        function resetCardTilt(e) {
+            const card = e.currentTarget;
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+        }
+
+        // Fungsi Salin
+        function copyToClipboard(text) {
+            const input = document.createElement("input");
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand("copy");
+            document.body.removeChild(input);
+
+            showToast(`UID ${text} berhasil disalin!`);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastText').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Filter Logic
+        function filterUID() {
+            const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
+            let filtered = uidData.filter(item => item.uid.includes(searchVal));
+
+            if (activeFilter === 'rare') {
+                filtered = filtered.filter(item => item.price >= 10000);
+            } else if (activeFilter === 'twin') {
+                filtered = filtered.filter(item => /(.)\1{2,}/.test(item.uid) || item.isHot);
+            }
+
+            renderGrid(filtered);
+        }
+
+        function setFilter(type, btn) {
+            activeFilter = type;
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(b => {
+                b.classList.remove('bg-gradient-to-r', 'from-brand-600', 'to-brand-500', 'text-slate-950', 'shadow-[0_0_10px_rgba(34,197,94,0.4)]');
+                b.classList.add('bg-slate-800/80', 'text-slate-300');
+            });
+
+            btn.classList.remove('bg-slate-800/80', 'text-slate-300');
+            btn.classList.add('bg-gradient-to-r', 'from-brand-600', 'to-brand-500', 'text-slate-950', 'shadow-[0_0_10px_rgba(34,197,94,0.4)]');
+
+            filterUID();
+        }
+
+        // Popup Saluran WhatsApp Logic
+        function showChannelModal() {
+            const modal = document.getElementById('channelModal');
+            modal.classList.remove('pointer-events-none');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-90');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 300);
+        }
+
+        function closeChannelModal() {
+            const modal = document.getElementById('channelModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-90');
+            setTimeout(() => {
+                modal.classList.add('pointer-events-none');
+            }, 300);
+        }
+
+        function joinChannel() {
+            window.open(channelWhatsappLink, '_blank');
+            closeChannelModal();
+        }
+
+        // Modal Bayar Logic
+        function openPaymentModal(id) {
+            selectedItem = uidData.find(item => item.id === id);
+            if(!selectedItem) return;
+
+            document.getElementById('modalUidText').innerText = selectedItem.uid;
+            document.getElementById('modalPriceText').innerText = formatRupiah(selectedItem.price);
+
+            const modal = document.getElementById('paymentModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.querySelector('div').classList.remove('scale-90');
+                modal.querySelector('div').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closePaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.classList.add('opacity-0');
+            modal.querySelector('div').classList.remove('scale-100');
+            modal.querySelector('div').classList.add('scale-90');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                selectedItem = null;
+            }, 250);
+        }
+
+        // Konfirmasi WhatsApp
+        function proceedToWhatsApp() {
+            if(!selectedItem) return;
+
+            const text = `Halo Admin, saya ingin konfirmasi pembayaran UID Cantik:%0A%0A` +
+                         `📌 *Detail Pesanan:*%0A` +
+                         `- *UID:* ${selectedItem.uid}%0A` +
+                         `- *Harga:* ${formatRupiah(selectedItem.price)} (${selectedItem.displayPrice})%0A` +
+                         `- *Metode:* QRIS (PIDZ NEED CUAN)%0A%0A` +
+                         `Berikut bukti transfer pembayaran saya. Mohon segera diproses ya. Terima kasih!`;
+
+            window.open(`https://wa.me/${targetWhatsapp}?text=${text}`, '_blank');
+        }
+
+        /**
+         * ==========================================
+         * THREE.JS 3D BACKGROUND ENGINE
+         * Partikel & Mesh Hijau Neon
+         * ==========================================
+         */
+        function init3DBackground() {
+            const canvas = document.getElementById('canvas3d');
+            const scene = new THREE.Scene();
+            
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 30;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            const particleCount = 180;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            for(let i = 0; i < particleCount * 3; i += 3) {
+                positions[i] = (Math.random() - 0.5) * 80;
+                positions[i+1] = (Math.random() - 0.5) * 80;
+                positions[i+2] = (Math.random() - 0.5) * 80;
+
+                colors[i] = 0.0;
+                colors[i+1] = 0.9 + Math.random() * 0.1;
+                colors[i+2] = 0.4 + Math.random() * 0.5;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.8,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            const gridGeo = new THREE.PlaneGeometry(120, 120, 20, 20);
+            const gridMat = new THREE.MeshBasicMaterial({
+                color: 0x00ff88,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.08
+            });
+            const gridMesh = new THREE.Mesh(gridGeo, gridMat);
+            gridMesh.rotation.x = -Math.PI / 2.5;
+            gridMesh.position.y = -20;
+            scene.add(gridMesh);
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 0.5;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 0.5;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                particles.rotation.y += 0.0015;
+                particles.rotation.x += 0.0008;
+
+                gridMesh.position.z += 0.05;
+                if(gridMesh.position.z > 10) gridMesh.position.z = 0;
+
+                camera.position.x += (mouseX * 10 - camera.position.x) * 0.05;
+                camera.position.y += (-mouseY * 10 - camera.position.y) * 0.05;
+                camera.lookAt(scene.position);
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Inisialisasi Saat Halaman Dimuat
+        window.onload = function() {
+            renderGrid(uidData);
+            init3DBackground();
+            // Otomatis menampilkan pop-up Saluran WA saat pertama masuk
+            showChannelModal();
+        };
+    </script>
+</body>
+</html>
