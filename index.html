@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIDZ STORE - Marketplace UID Cantik Free Fire</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#00ff66',
+                            brightgreen: '#39ff14',
+                            darkgreen: '#022c12',
+                            dark: '#030705',
+                            card: '#0a140f',
+                            accent: '#102419',
+                            red: '#ff2a5f',
+                            reddark: '#2a0810'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
+                        orbitron: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030604;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background Grid Dynamic */
+        .grid-bg {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 255, 102, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 255, 102, 0.04) 1px, transparent 1px);
+        }
+
+        /* Glowing Text & Border Effects */
+        .text-glow {
+            text-shadow: 0 0 12px rgba(0, 255, 102, 0.8), 0 0 25px rgba(0, 255, 102, 0.35);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 10px rgba(250, 204, 21, 0.75);
+        }
+        .glow-box-green {
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.25), inset 0 0 15px rgba(0, 255, 102, 0.15);
+        }
+
+        /* 3D Cyberpunk Buttons */
+        .btn-3d-green {
+            background: linear-gradient(135deg, #00ff66 0%, #00cc52 100%);
+            box-shadow: 0 4px 0 #008033, 0 0 18px rgba(0, 255, 102, 0.4);
+            transition: all 0.18s ease-out;
+            border: 1px solid #66ff99;
+        }
+        .btn-3d-green:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #008033, 0 0 25px rgba(0, 255, 102, 0.65);
+        }
+        .btn-3d-green:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #008033;
+        }
+
+        .btn-3d-dark {
+            background: linear-gradient(135deg, #0f2217 0%, #06100a 100%);
+            box-shadow: 0 4px 0 #020804, 0 0 10px rgba(0, 255, 102, 0.15);
+            transition: all 0.18s ease-out;
+            border: 1px solid rgba(0, 255, 102, 0.25);
+        }
+        .btn-3d-dark:hover {
+            transform: translateY(-2px);
+            border-color: rgba(0, 255, 102, 0.6);
+            box-shadow: 0 6px 0 #020804, 0 0 18px rgba(0, 255, 102, 0.35);
+            color: #00ff66;
+        }
+        .btn-3d-dark:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #020804;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-panel {
+            background: rgba(8, 16, 11, 0.88);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 255, 102, 0.18);
+        }
+
+        .glass-card {
+            background: linear-gradient(145deg, rgba(14, 26, 19, 0.75), rgba(6, 12, 8, 0.85));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 102, 0.16);
+            transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 255, 102, 0.55);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 8px 22px -3px rgba(0, 255, 102, 0.25);
+        }
+
+        /* Running Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 26s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        /* Smooth View Switching */
+        .page-view {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .page-enter {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            display: block;
+        }
+        .page-exit {
+            opacity: 0;
+            transform: scale(0.96) translateY(12px);
+            pointer-events: none;
+            display: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030604;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00ff66;
+            border-radius: 4px;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="grid-bg min-h-screen flex flex-col justify-between text-xs sm:text-sm antialiased">
+
+    <!-- Canvas Background Animation -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- RUNNING TICKER BROADCAST -->
+    <div class="bg-brand-dark/95 border-b border-brand-green/20 text-[11px] py-1.5 overflow-hidden relative z-50">
+        <div class="max-w-6xl mx-auto px-3 flex items-center gap-2">
+            <span class="bg-brand-green text-black font-extrabold px-2 py-0.5 rounded text-[9px] flex items-center gap-1 uppercase tracking-wider shrink-0 shadow-[0_0_10px_rgba(0,255,102,0.6)]">
+                <i class="fa-solid fa-bullhorn text-black animate-pulse"></i> INFO STORE
+            </span>
+            <div class="overflow-hidden w-full relative">
+                <div class="animate-ticker text-brand-green font-semibold tracking-wide" id="tickerContent">
+                    ✨ Ready all stok uid cantik pidz , proses cepat , aman , amanah anti hack balik , tinggal tunggu admin selesai proses ✨
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-brand-green/20 shadow-lg">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 h-14 sm:h-16 flex items-center justify-between">
+            <!-- Brand Logo Profile dengan Centang Biru -->
+            <div class="flex items-center space-x-2.5 cursor-pointer" onclick="showHomePage()">
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-green to-emerald-400 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                    <img src="https://cdn.phototourl.com/free/2026-08-07-b960970e-db86-42ea-bf0a-12d44cd25dec.jpg" 
+                         alt="PIDZ Store Logo" 
+                         onerror="this.src='https://via.placeholder.com/150/000000/00ff66?text=PIDZ'"
+                         class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-brand-green shadow-md">
+                </div>
+                <div>
+                    <h1 class="font-orbitron font-black text-sm sm:text-base text-white tracking-wider flex items-center gap-1.5">
+                        PIDZ <span class="text-brand-green text-glow">STORE</span>
+                        <!-- CENTANG BIRU TERVERIFIKASI -->
+                        <span class="inline-flex items-center justify-center text-blue-400 text-xs sm:text-sm" title="Verified Store">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Controls (Language Switcher & WA Channel Button) -->
+            <div class="flex items-center space-x-2">
+                <!-- Switcher Bahasa -->
+                <select id="langSwitcher" onchange="changeLanguage(this.value)" class="bg-brand-dark/90 text-brand-green text-[11px] font-bold border border-brand-green/40 rounded-lg px-2 py-1 cursor-pointer focus:outline-none hover:border-brand-green transition">
+                    <option value="id">🇮🇩 IND</option>
+                    <option value="en">🇬🇧 ENG</option>
+                </select>
+
+                <!-- Tombol Saluran WA -->
+                <a href="https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G" 
+                   target="_blank" 
+                   onclick="triggerTelegramTrack()" 
+                   class="btn-3d-green text-black font-extrabold text-[11px] sm:text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span data-i18n="joinChannel">Saluran WA</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-2.5 sm:px-4 py-4 sm:py-6 flex-grow w-full">
+
+        <!-- ================= PAGE 1: KATALOG BERANDA ================= -->
+        <div id="homePage" class="page-view page-enter space-y-5">
+
+            <!-- Hero Banner & Generator Slot -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-6 relative overflow-hidden border border-brand-green/30 shadow-[0_0_30px_rgba(0,255,102,0.12)]">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                    
+                    <!-- Hero Info Text -->
+                    <div class="lg:col-span-7 space-y-2.5">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-brand-green/15 border border-brand-green/30 text-brand-green text-[11px] font-bold">
+                            <i class="fa-solid fa-shield-check text-brand-green"></i>
+                            <span data-i18n="tagline">Stok UID Cantik FF Amanah & Fast Respon</span>
+                        </div>
+                        <h2 class="font-orbitron text-xl sm:text-3xl font-black text-white leading-tight">
+                            Beli <span class="text-brand-green text-glow">UID Cantik</span> Free Fire
+                        </h2>
+                        <p class="text-gray-300 text-xs sm:text-sm leading-relaxed" data-i18n="heroDesc">
+                            Koleksi ID rapi, berangka unik, dan sultan terurut rapi. Transaksi aman via QRIS All Payment!
+                        </p>
+                    </div>
+
+                    <!-- Lucky UID Generator Slot 3D -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-brand-dark/95 p-3.5 sm:p-4 rounded-2xl border-2 border-brand-green/35 text-center relative shadow-2xl">
+                            <div class="text-[10px] font-orbitron font-extrabold text-brand-green uppercase tracking-widest mb-1" data-i18n="genTitle">
+                                Generator UID Hoki 3D
+                            </div>
+                            
+                            <!-- Display Box -->
+                            <div class="py-2.5 px-2 bg-black/90 rounded-xl border border-brand-green/30 my-1.5 relative overflow-hidden shadow-inner">
+                                <div id="generatedUid" class="font-rajdhani font-black text-2xl text-brand-green text-glow tracking-widest">
+                                    16960000061
+                                </div>
+                                <div id="generatedPrice" class="font-bold text-xs text-yellow-400 mt-0.5">
+                                    Rp 50.000
+                                </div>
+                            </div>
+
+                            <div class="flex gap-2 mt-2">
+                                <button onclick="generateRandomUid()" class="flex-1 btn-3d-dark text-[11px] font-bold py-2 px-2 rounded-xl flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                    <span data-i18n="btnRandom">Acak UID</span>
+                                </button>
+                                <button onclick="buyGeneratedUid()" class="flex-1 btn-3d-green text-black font-extrabold text-[11px] py-2 px-2 rounded-xl flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span data-i18n="btnBuyGen">Beli Ini</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Header Filter & Search Box -->
+            <div class="space-y-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <h3 class="font-orbitron text-sm sm:text-base font-bold text-white flex items-center gap-1.5">
+                            <i class="fa-solid fa-fire text-brand-green"></i>
+                            <span data-i18n="catalogTitle">Daftar Stok (Termahal - Termurah)</span>
+                        </h3>
+                        <span id="stockCounter" class="bg-brand-green/15 text-brand-green border border-brand-green/30 px-2 py-0.5 rounded text-[10px] font-bold">
+                            0 ID
+                        </span>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full sm:w-44">
+                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-[10px] text-gray-400"></i>
+                        <input type="text" id="searchInput" oninput="searchUid(this.value)" placeholder="Cari UID..." 
+                               class="bg-brand-dark/90 text-xs text-white pl-7 pr-2 py-1 rounded-xl border border-brand-green/30 focus:outline-none focus:border-brand-green w-full">
+                    </div>
+                </div>
+
+                <!-- Price Category Filters (Termurah -> Termahal) -->
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none" id="categoryContainer">
+                    <!-- Dynamic Filter Buttons -->
+                </div>
+            </div>
+
+            <!-- STOCK GRID: 2 KOLOM RAPIH & JELAS PADA MOBILE -->
+            <div id="uidGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
+                <!-- Cards Injected by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-10 glass-panel rounded-2xl">
+                <i class="fa-solid fa-box-open text-3xl text-gray-600 mb-2"></i>
+                <p class="text-gray-400 text-xs font-semibold" data-i18n="noStock">Tidak ada UID dalam kategori ini.</p>
+            </div>
+
+        </div>
+
+        <!-- ================= PAGE 2: HALAMAN PEMBAYARAN QRIS ================= -->
+        <div id="paymentPage" class="page-view page-exit max-w-lg mx-auto py-1">
+            
+            <div class="glass-panel border-2 border-brand-green/40 rounded-2xl p-4 sm:p-6 relative shadow-[0_0_40px_rgba(0,255,102,0.25)]">
+                
+                <!-- Tombol Kembali -->
+                <button onclick="showHomePage()" class="mb-3.5 btn-3d-dark text-[11px] font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span data-i18n="btnBack">Kembali ke Beranda</span>
+                </button>
+
+                <!-- Header Pembayaran -->
+                <div class="text-center mb-4">
+                    <h3 class="font-orbitron text-lg sm:text-xl font-black text-white" data-i18n="payHeader">PEMBAYARAN QRIS</h3>
+                    <p class="text-[11px] text-brand-green font-semibold" data-i18n="paySubHeader">Scan via All E-Wallet & Mobile Banking</p>
+                </div>
+
+                <!-- Detail Produk Yang Dipilih -->
+                <div class="bg-brand-dark p-3.5 rounded-xl border border-brand-green/30 mb-4 text-center">
+                    <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider" data-i18n="payUidLabel">UID Pilihan Anda:</div>
+                    <div id="payPageUid" class="font-rajdhani font-black text-2xl sm:text-3xl text-brand-green text-glow my-0.5 tracking-wider">16960000061</div>
+                    <div id="payPagePrice" class="font-bold text-sm text-yellow-400">Rp 50.000</div>
+                </div>
+
+                <!-- QRIS Box dengan Bingkai Hijau Bercahaya -->
+                <div class="bg-white p-4 rounded-2xl text-center border-4 border-brand-green glow-box-green mb-4 max-w-[240px] mx-auto">
+                    <div class="bg-brand-red text-white text-[10px] font-orbitron font-extrabold py-0.5 px-3 rounded inline-block mb-2 uppercase tracking-wider shadow-md">
+                        PIDZ NEED CUAN
+                    </div>
+                    <img id="qrisImg" src="https://cdn.phototourl.com/free/2026-08-07-d4623fe4-cab9-44af-a2f8-aa9640f4254b.jpg" 
+                         alt="QRIS PIDZ NEED CUAN" 
+                         class="w-full max-w-[180px] mx-auto rounded border border-gray-200">
+                    
+                    <a href="https://cdn.phototourl.com/free/2026-08-07-d4623fe4-cab9-44af-a2f8-aa9640f4254b.jpg" 
+                       target="_blank" download="QRIS_PIDZ_STORE.jpg" 
+                       class="inline-flex items-center gap-1.5 text-[11px] text-gray-900 font-extrabold mt-2.5 hover:text-brand-green transition">
+                        <i class="fa-solid fa-download"></i> 
+                        <span data-i18n="dlQris">Download Gambar QRIS</span>
+                    </a>
+                </div>
+
+                <!-- Instruksi -->
+                <div class="bg-brand-dark/90 p-3 rounded-xl border border-brand-green/20 text-[11px] text-gray-300 text-center mb-4 leading-relaxed" data-i18n="payInstructions">
+                    Silakan scan QRIS di atas sesuai nominal. Setelah pembayaran berhasil, klik tombol di bawah untuk konfirmasi otomatis via WhatsApp Admin!
+                </div>
+
+                <!-- Tombol Konfirmasi WA -->
+                <button onclick="confirmOrderWhatsApp()" 
+                        class="w-full py-3 px-3 btn-3d-green text-black font-orbitron font-black text-xs rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span data-i18n="btnConfirmWa">KONFIRMASI PEMBAYARAN VIA WA</span>
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-brand-green/20 py-4 mt-6">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+            <div class="text-[11px] text-gray-400 flex items-center justify-center gap-1">
+                © 2026 <span class="text-brand-green font-bold">PIDZ STORE</span>. All Rights Reserved.
+                <i class="fa-solid fa-circle-check text-blue-400 text-xs"></i>
+            </div>
+            <div class="mt-2 sm:mt-0 flex justify-center space-x-4 text-xs text-gray-400">
+                <a href="https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G" target="_blank" onclick="triggerTelegramTrack()" class="hover:text-brand-green transition"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                <a href="https://wa.me/6285141631493" target="_blank" class="hover:text-brand-green transition"><i class="fa-solid fa-headset text-base"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- POPUP INFO SALURAN WA SUPER PREMIUM -->
+    <div id="infoModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/85 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-panel border-2 border-brand-green rounded-2xl max-w-sm w-full p-5 relative shadow-[0_0_50px_rgba(0,255,102,0.3)]">
+            
+            <button onclick="closeInfoModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-base w-7 h-7 rounded-full bg-brand-dark flex items-center justify-center border border-brand-green/30">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-3">
+                <div class="w-14 h-14 mx-auto mb-2 rounded-full bg-brand-green/20 border-2 border-brand-green flex items-center justify-center shadow-[0_0_20px_rgba(0,255,102,0.4)]">
+                    <i class="fa-brands fa-whatsapp text-3xl text-brand-green"></i>
+                </div>
+                <h3 class="font-orbitron text-base font-black text-white flex items-center justify-center gap-1.5" data-i18n="modalTitle">
+                    GABUNG SALURAN RESMI!
+                </h3>
+                <p class="text-[10px] text-brand-green font-extrabold uppercase tracking-widest mt-0.5" data-i18n="modalSubtitle">PIDZ STORE COMMUNITY</p>
+            </div>
+
+            <div class="space-y-2 text-xs text-gray-300">
+                <div class="bg-brand-dark/95 p-3 rounded-xl border border-brand-green/20">
+                    <p class="font-bold text-white mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-gift text-brand-green"></i>
+                        <span data-i18n="modalBonusHeader">Keuntungan Bergabung:</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-1 text-[11px] text-gray-300">
+                        <li data-i18n="modalB1">Bagi-bagi (Giveaway) UID Cantik FF Gratis!</li>
+                        <li data-i18n="modalB2">Lihat testimoni transaksi pembeli terpercaya</li>
+                        <li data-i18n="modalB3">Update stok UID terbatas lebih awal</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4 flex flex-col gap-2">
+                <a href="https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G" 
+                   target="_blank" 
+                   onclick="handleJoinChannelClick()" 
+                   class="w-full py-2.5 px-3 btn-3d-green text-black font-orbitron font-black text-xs rounded-xl flex items-center justify-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span data-i18n="btnJoinChannel">GABUNG SALURAN SEKARANG</span>
+                </a>
+                <button onclick="closeInfoModal()" class="w-full py-1.5 px-2 bg-transparent text-gray-400 hover:text-white font-semibold text-[11px] transition">
+                    <span data-i18n="btnLater">Nanti Saja / Lanjut Ke Web</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* =========================================================================
+           DATA STOK ID LENGKAP - 86 STOK TERBARU
+           ========================================================================= */
+        const rawStockData = [
+            { uid: "16956888826", price: 13, sold: false },
+            { uid: "16958111181", price: 10, sold: false },
+            { uid: "16958066668", price: 20, sold: false },
+            { uid: "16959333347", price: 6, sold: false },
+            { uid: "16960688881", price: 25, sold: false },
+            { uid: "16960670000", price: 35, sold: false },
+            { uid: "16960644448", price: 30, sold: false },
+            { uid: "16960555553", price: 40, sold: false },
+            { uid: "16960555548", price: 15, sold: false },
+            { uid: "16960178888", price: 10, sold: false },
+            { uid: "16960172222", price: 10, sold: false },
+            { uid: "16959999404", price: 25, sold: false },
+            { uid: "16959999035", price: 20, sold: false },
+            { uid: "16959554444", price: 25, sold: false },
+            { uid: "16959333390", price: 20, sold: false },
+            { uid: "16964444404", price: 40, sold: false },
+            { uid: "16965122223", price: 25, sold: false },
+            { uid: "16965111131", price: 30, sold: false },
+            { uid: "16965111115", price: 30, sold: false },
+            { uid: "16964007777", price: 8, sold: false },
+            { uid: "16963333010", price: 25, sold: false },
+            { uid: "16963111119", price: 25, sold: false },
+            { uid: "16963000004", price: 30, sold: false },
+            { uid: "16962222210", price: 20, sold: false },
+            { uid: "16962222922", price: 20, sold: false },
+            { uid: "16962111123", price: 10, sold: false },
+            { uid: "16961201111", price: 20, sold: false },
+            { uid: "16961122225", price: 25, sold: false },
+            { uid: "16961000062", price: 30, sold: false },
+            { uid: "16961000059", price: 30, sold: false },
+            { uid: "16938888868", price: 60, sold: false },
+            { uid: "16936606666", price: 40, sold: false },
+            { uid: "16932000080", price: 30, sold: false },
+            { uid: "16930555552", price: 25, sold: false },
+            { uid: "16930803333", price: 25, sold: false },
+            { uid: "16930888838", price: 25, sold: false },
+            { uid: "16931999995", price: 25, sold: false },
+            { uid: "16930555544", price: 20, sold: false },
+            { uid: "16930888885", price: 20, sold: false },
+            { uid: "16930888848", price: 20, sold: false },
+            { uid: "16934111112", price: 20, sold: false },
+            { uid: "16936688881", price: 20, sold: false },
+            { uid: "16716166660", price: 20, sold: false },
+            { uid: "16930553333", price: 15, sold: false },
+            { uid: "16930555504", price: 15, sold: false },
+            { uid: "16931333311", price: 15, sold: false },
+            { uid: "16930906666", price: 13, sold: false },
+            { uid: "16935555881", price: 13, sold: false },
+            { uid: "16931122224", price: 10, sold: false },
+            { uid: "16766055553", price: 10, sold: false },
+            { uid: "16932101111", price: 7, sold: false },
+            { uid: "16956066667", price: 30, sold: false },
+            { uid: "16956066661", price: 35, sold: false  },
+            { uid: "16955455554", price: 45, sold: false },
+            { uid: "16955266666", price: 25, sold: false },
+            { uid: "16955141111", price: 25, sold: false },
+            { uid: "16955088884", price: 30, sold: false },
+            { uid: "16955088888", price: 40, sold: false },
+            { uid: "16956000090", price: 30, sold: false },
+            { uid: "16956000063", price: 20, sold: false },
+            { uid: "16966669100", price: 25, sold: false },
+            { uid: "16966099993", price: 25, sold: false },
+            { uid: "16960999995", price: 30, sold: false },
+            { uid: "16960666617", price: 25, sold: false },
+            { uid: "16960666620", price: 20, sold: false },
+            { uid: "16960666616", price: 35, sold: false },
+            { uid: "16960666631", price: 20, sold: false },
+            { uid: "16960115555", price: 8, sold: false },
+            { uid: "16960020000", price: 45, sold: false },
+            { uid: "16960000129", price: 25, sold: false },
+            { uid: "16957411115", price: 5, sold: false },
+            { uid: "16980588885", price: 20, sold: false },
+            { uid: "16980335555", price: 30, sold: false },
+            { uid: "16980000155", price: 20, sold: false },
+            { uid: "16978888808", price: 35, sold: false },
+            { uid: "16976666651", price: 15, sold: false },
+            { uid: "16973000010", price: 25, sold: false },
+            { uid: "16972222121", price: 25, sold: false },
+            { uid: "16972202222", price: 25, sold: false },
+            { uid: "16972218888", price: 15, sold: false },
+            { uid: "16971666664", price: 10, sold: false },
+            { uid: "16971666608", price: 7, sold: false },
+            { uid: "16971666606", price: 10, sold: false },
+            { uid: "16971111232", price: 10, sold: false },
+            { uid: "16970064444", price: 10, sold: false },
+            { uid: "16966669971", price: 15, sold: false },
+            { uid: "16999909020", price: 25, sold: false },
+            { uid: "17000811111", price: 35, sold: false },
+            { uid: "17004000029", price: 30, sold: false },
+            { uid: "17007077776", price: 40, sold: false },
+            { uid: "17007076666", price: 40, sold: false },
+            { uid: "17009199998", price: 40, sold: false },
+            { uid: "17009555500", price: 25, sold: false },
+            { uid: "17010100004", price: 35, sold: false },
+            { uid: "17010505555", price: 40, sold: false },
+            { uid: "17011144445", price: 25, sold: false },
+            { uid: "17050199995", price: 15, sold: false },
+            { uid: "17049020000", price: 35, sold: false },
+            { uid: "17042000005", price: 35, sold: false },
+            { uid: "17041222211", price: 20, sold: false },
+            { uid: "17040100000", price: 40, sold: false },
+            { uid: "17039888888", price: 25, sold: false },
+            { uid: "17030088884", price: 13, sold: false },
+            { uid: "17027073333", price: 12, sold: false },
+            { uid: "17024808888", price: 10, sold: false },
+            { uid: "17023555505", price: 8, sold: false },
+            { uid: "17020000804", price: 25, sold: false },
+            { uid: "17020000887", price: 20, sold: false },
+            { uid: "17020110000", price: 35, sold: false },
+            { uid: "17014444441", price: 45, sold: false },
+            { uid: "17014111188", price: 20, sold: false },
+            { uid: "17129999001", price: 45, sold: false },
+            { uid: "17130888868", price: 45, sold: false },
+            { uid: "17149999001", price: 35, sold: false },
+            { uid: "17150898888", price: 30, sold: false },
+            { uid: "17155411111", price: 30,sold: false },
+            { uid: "17160000020", price: 40, sold: false },
+            { uid: "17160000960", price: 25, sold: false },
+            { uid: "17160555525", price: 20, sold: false },
+            { uid: "17161000062", price: 20, sold: false },
+            { uid: "17162900006", price: 10, sold: false },
+            { uid: "17164444445", price: 30, sold: false },
+            { uid: "17164444555", price: 25, sold: false },
+            { uid: "17164444499", price: 25, sold: false },
+            { uid: "17165555541", price: 20, sold: false },
+            { uid: "17166000009", price: 20, sold: false },
+            { uid: "17166088889", price: 20, sold: false },
+            { uid: "17166088882", price: 20, sold: false },
+            { uid: "17166099998", price: 20, sold: false },
+            { uid: "17166122222", price: 35, sold: false },
+            { uid: "17166333350", price: 15, sold: false },
+            { uid: "17166336666", price: 25, sold: false },
+            { uid: "17166555525", price: 15, sold: false },
+            { uid: "17166763333", price: 10, sold: false },
+            { uid: "17166888862", price: 10, sold: false },
+            { uid: "17166888886", price: 15, sold: false },
+            { uid: "17108888018", price: 25, sold: false },
+            { uid: "17108888081", price: 25, sold: false },
+            { uid: "17108888101", price: 15, sold: false },
+            { uid: "17109999313", price: 8, sold: false },
+            { uid: "17110355555", price: 8, sold: false },
+            { uid: "17110500007", price: 10, sold: false },
+            { uid: "17111100018", price: 20, sold: false },
+            { uid: "17111100500", price: 35, sold: false },
+            { uid: "17111140100", price: 35, sold: false },
+            { uid: "17112050000", price: 10, sold: false },
+            { uid: "17119900001", price: 8, sold: false },
+            { uid: "17120550000", price: 10, sold: false },
+            { uid: "17122114444", price: 15, sold: false },
+            { uid: "17122222203", price: 15, sold: false },
+            { uid: "17123355553", price: 8, sold: false },
+            { uid: "17124000090", price: 10, sold: false },
+            { uid: "17129121111", price: 5, sold: false },
+            { uid: "17129999887", price: 10, sold: false },
+            { uid: "17130666616", price: 20, sold: false },
+            { uid: "17130888848", price: 25, sold: false },
+            { uid: "17131500009", price: 8, sold: false },
+            { uid: "17131555595", price: 8, sold: false },
+            { uid: "17131866668", price: 5, sold: false },
+            { uid: "17133111198", price: 5, sold: false },
+            { uid: "17133188882", price: 9, sold: false },
+            { uid: "17133335533", price: 15, sold: false },
+            { uid: "17133335533", price: 20, sold: false },
+            { uid: "17139999800", price: 15, sold: false },
+            { uid: "17140060000", price: 25, sold: false },
+            { uid: "17150077774", price: 8, sold: false },
+            { uid: "17150444446", price: 25, sold: false },
+            { uid: "17150559999", price: 15, sold: false },
+            { uid: "17151155556", price: 20, sold: false },
+            { uid: "17160500005", price: 20, sold: false },
+            { uid: "17161000011", price: 15, sold: false },
+            { uid: "17161888800", price: 15, sold: false },
+            { uid: "17164444010", price: 10, sold: false },
+            { uid: "17166044448", price: 10, sold: false },
+            { uid: "17166167777", price: 15, sold: false },
+            { uid: "17166444499", price: 10, sold: false },
+            { uid: "17166466660", price: 25, sold: false },
+            { uid: "17166555556", price: 30, sold: false },
+            { uid: "17166666617", price: 30, sold: false },
+            { uid: "17166666688", price: 30, sold: false },
+            { uid: "17105555441", price: 30, sold: false },
+            { uid: "17105555500", price: 20, sold: false },
+            { uid: "17105555016", price: 10, sold: false },
+            { uid: "17107000010", price: 35, sold: false },
+            { uid: "17108800001", price: 35, sold: false },
+            { uid: "17109044444", price: 8, sold: false },
+            { uid: "17108888900", price: 8, sold: false },
+            { uid: "17111104155", price: 9, sold: false },
+            { uid: "17111107051", price: 9, sold: false },
+            { uid: "17111160007", price: 10, sold: false },
+            { uid: "17114990000", price: 10, sold: false },
+            { uid: "17114421111", price: 8, sold: false },
+            { uid: "17120000300", price: 15, sold: false },
+            { uid: "17122222282", price: 50, sold: false },
+            { uid: "17122222188", price: 20, sold: false },
+            { uid: "17122222511", price: 15, sold: false },
+            { uid: "17128888877", price: 15, sold: false },
+            { uid: "17129999000", price: 20, sold: false },
+            { uid: "17129999004", price: 15, sold: false },
+            { uid: "17129999099", price: 15, sold: false },
+            { uid: "1712999980", price: 8, sold: false },
+            { uid: "17087577770", price: 9, sold: false },
+            { uid: "17087888895", price: 8, sold: false },
+            { uid: "17087559999", price: 8, sold: false },
+            { uid: "17088844445", price: 15, sold: false },
+            { uid: "17088880060", price: 25, sold: false },
+            { uid: "17088888955", price: 20, sold: false },
+            { uid: "17091060000", price: 25, sold: false },
+            { uid: "17091711111", price: 8, sold: false },
+            { uid: "17093999900", price: 8, sold: false },
+            { uid: "17100009009", price: 30, sold: false },
+            { uid: "17100009008", price: 30, sold: false },
+            { uid: "17101021111", price: 25, sold: false },
+            { uid: "17101111006", price: 25, sold: false },
+            { uid: "17105555154", price: 20, sold: false },
+            { uid: "17105555145", price: 20, sold: false },
+            { uid: "17188888887", price: 85, sold: false },
+            { uid: "17188889889", price: 85, sold: false },
+            { uid: "17188222227", price: 45, sold: false },
+            { uid: "17203818888", price: 35, sold: false },
+            { uid: "17197313333", price: 15, sold: false },
+            { uid: "17196000080", price: 35, sold: false },
+            { uid: "17195000064", price: 10, sold: false },
+            { uid: "17195000060", price: 10, sold: false },
+            { uid: "17193933333", price: 13, sold: false },
+            { uid: "17191444442", price: 8, sold: false },
+            { uid: "17192111145", price: 8, sold: false },
+            { uid: "17190888883", price: 20, sold: false },
+            { uid: "17189888836", price: 13, sold: false },
+            { uid: "17189888810", price: 13, sold: false },
+            { uid: "17188990000", price: 45, sold: false },
+            { uid: "17188881234", price: 35, sold: false },
+            { uid: "17188880882", price: 40, sold: false },
+            { uid: "17188880580", price: 25, sold: false },
+            { uid: "17188666638", price: 15, sold: false },
+            { uid: "17188222227", price: 15, sold: false },
+            { uid: "17188100000", price: 35, sold: false },
+            { uid: "17186683333", price: 15, sold: false },
+            { uid: "17187000088", price: 15, sold: false },
+            { uid: "17205555006", price: 15, sold: false },
+            { uid: "17205555553", price: 10, sold: false },
+        ];
+
+        // Generator tag otomatis berdasarkan harga
+        function getTagForPrice(price) {
+            if (price >= 50) return "ULTIMATE SULTAN";
+            if (price >= 35) return "SUPER SULTAN";
+            if (price >= 30) return "SULTAN";
+            if (price >= 20) return "HOT";
+            if (price >= 13) return "RARE";
+            if (price >= 8)  return "POPULAR";
+            return "HEMAT";
+        }
+
+        // Lengkapi data stok dengan tag otomatis & urutkan dari TERMAHAL ke TERMURAH
+        let stockData = rawStockData.map(item => ({
+            ...item,
+            tag: getTagForPrice(item.price)
+        })).sort((a, b) => b.price - a.price);
+
+        // Telegram Bot Specs
+        const TELEGRAM_TOKEN = "8635117565:AAH5Q5u43eYMffshkFvkSX2xUBN6qA2hGhs";
+        const TELEGRAM_CHAT_ID = "7844940537";
+
+        // Global State
+        let currentLang = 'id';
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let selectedProduct = null;
+
+        // Translation Dictionary
+        const translations = {
+            id: {
+                joinChannel: "Saluran WA",
+                tagline: "Stok UID Cantik FF Amanah & Fast Respon",
+                heroDesc: "Koleksi ID rapi, berangka unik, dan sultan terurut rapi. Transaksi otomatis 100% aman via QRIS All Payment!",
+                feat1: "Proses Instan",
+                feat2: "QRIS All E-Wallet",
+                feat3: "Aman & Terpercaya",
+                genTitle: "Generator UID Hoki 3D",
+                btnRandom: "Acak UID",
+                btnBuyGen: "Beli Ini",
+                catalogTitle: "Daftar Stok (Termahal - Termurah)",
+                noStock: "Tidak ada UID dalam kategori ini.",
+                modalTitle: "GABUNG SALURAN RESMI!",
+                modalSubtitle: "PIDZ STORE COMMUNITY",
+                modalBonusHeader: "Keuntungan Bergabung:",
+                modalB1: "Bagi-bagi (Giveaway) UID Cantik FF Gratis!",
+                modalB2: "Lihat testimoni transaksi pembeli terpercaya",
+                modalB3: "Update stok UID terbatas lebih awal",
+                btnJoinChannel: "GABUNG SALURAN SEKARANG",
+                btnLater: "Nanti Saja / Lanjut Ke Web",
+                payHeader: "PEMBAYARAN QRIS",
+                paySubHeader: "Scan via All E-Wallet & Mobile Banking",
+                payUidLabel: "UID Pilihan Anda:",
+                dlQris: "Download Gambar QRIS",
+                payInstructions: "Silakan scan QRIS di atas sesuai nominal. Setelah pembayaran berhasil, klik tombol di bawah untuk konfirmasi otomatis via WhatsApp Admin!",
+                btnConfirmWa: "KONFIRMASI PEMBAYARAN VIA WA",
+                btnBuyNow: "Beli",
+                btnSoldOut: "Terjual",
+                btnBack: "Kembali ke Beranda",
+                allCat: "Semua"
+            },
+            en: {
+                joinChannel: "WA Channel",
+                tagline: "Trusted FF Beautiful UID Stocks & Fast Response",
+                heroDesc: "Neat, unique, and sultan ID collection sorted cleanly. 100% automatic safe transactions via QRIS All Payment!",
+                feat1: "Instant Process",
+                feat2: "QRIS All E-Wallet",
+                feat3: "Safe & Trusted",
+                genTitle: "3D Lucky UID Generator",
+                btnRandom: "Random UID",
+                btnBuyGen: "Buy This",
+                catalogTitle: "Stock List (Highest - Lowest Price)",
+                noStock: "No UIDs found in this category.",
+                modalTitle: "JOIN OFFICIAL CHANNEL!",
+                modalSubtitle: "PIDZ STORE COMMUNITY",
+                modalBonusHeader: "Membership Benefits:",
+                modalB1: "Regular Free FF UID Giveaways!",
+                modalB2: "View trusted buyer testimonials",
+                modalB3: "Get early access to limited stock updates",
+                btnJoinChannel: "JOIN CHANNEL NOW",
+                btnLater: "Maybe Later / Continue to Site",
+                payHeader: "QRIS PAYMENT",
+                paySubHeader: "Scan via All E-Wallets & Mobile Banking",
+                payUidLabel: "Your Selected UID:",
+                dlQris: "Download QRIS Image",
+                payInstructions: "Please scan the QRIS above for the exact amount. After payment succeeds, click the button below to confirm automatically via Admin WhatsApp!",
+                btnConfirmWa: "CONFIRM PAYMENT VIA WA",
+                btnBuyNow: "Buy",
+                btnSoldOut: "Sold Out",
+                btnBack: "Back to Home",
+                allCat: "All"
+            }
+        };
+
+        // Initialize Application
+        window.addEventListener('DOMContentLoaded', () => {
+            initCategories();
+            renderCatalog();
+            init3dCanvas();
+            generateRandomUid(false);
+        });
+
+        function formatRupiah(kAmount) {
+            return 'Rp ' + (kAmount * 1000).toLocaleString('id-ID');
+        }
+
+        // Render Tombol Filter Kategori Harga (TERURUT DARI TERMURAH KE TERMAHAL)
+        function initCategories() {
+            const container = document.getElementById('categoryContainer');
+            // Ambil semua harga unik dan urutkan dari yang TERMURAH ke TERMAHAL
+            const prices = [...new Set(stockData.map(item => item.price))].sort((a, b) => a - b);
+            
+            let html = `
+                <button onclick="filterCategory('all')" id="cat-all" 
+                        class="cat-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition border border-brand-green/40 bg-brand-green text-black shadow-[0_0_10px_rgba(0,255,102,0.4)]">
+                    ${translations[currentLang].allCat}
+                </button>
+            `;
+
+            prices.forEach(p => {
+                html += `
+                    <button onclick="filterCategory(${p})" id="cat-${p}" 
+                            class="cat-btn px-2.5 py-1 rounded-lg font-bold text-[11px] transition border border-brand-green/20 bg-brand-dark/80 text-gray-300 hover:text-brand-green hover:border-brand-green/40 whitespace-nowrap">
+                        ${p}k
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-green', 'text-black', 'shadow-[0_0_10px_rgba(0,255,102,0.4)]');
+                btn.classList.add('bg-brand-dark/80', 'text-gray-300');
+            });
+
+            const activeBtn = document.getElementById(`cat-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-brand-dark/80', 'text-gray-300');
+                activeBtn.classList.add('bg-brand-green', 'text-black', 'shadow-[0_0_10px_rgba(0,255,102,0.4)]');
+            }
+
+            renderCatalog();
+        }
+
+        function searchUid(query) {
+            searchQuery = query.trim().toLowerCase();
+            renderCatalog();
+        }
+
+        // Render Kartu Katalog UID (TERURUT DARI TERMAHAL KE TERMURAH)
+        function renderCatalog() {
+            const grid = document.getElementById('uidGrid');
+            const emptyState = document.getElementById('emptyState');
+            const counter = document.getElementById('stockCounter');
+
+            const activeStockCount = stockData.filter(i => !i.sold).length;
+            counter.innerText = `${activeStockCount} ID`;
+            
+            let filtered = stockData;
+            
+            if (currentCategory !== 'all') {
+                filtered = filtered.filter(item => item.price === currentCategory);
+            }
+
+            if (searchQuery !== '') {
+                filtered = filtered.filter(item => item.uid.includes(searchQuery));
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            let html = '';
+            filtered.forEach(item => {
+                const isSold = item.sold;
+
+                html += `
+                    <div class="glass-card rounded-xl p-3 sm:p-4 flex flex-col justify-between relative overflow-hidden group ${isSold ? 'opacity-40 grayscale' : ''}">
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-[8px] sm:text-[9px] font-orbitron font-extrabold px-1.5 py-0.5 rounded ${isSold ? 'bg-brand-reddark text-brand-red border border-brand-red/30' : 'bg-brand-green/20 text-brand-green border border-brand-green/30'}">
+                                    ${isSold ? 'SOLD' : item.tag}
+                                </span>
+                                <span class="font-bold text-xs sm:text-sm text-yellow-400 text-glow-gold">
+                                    ${formatRupiah(item.price)}
+                                </span>
+                            </div>
+
+                            <div class="my-1.5">
+                                <div class="font-rajdhani font-black text-lg sm:text-xl ${isSold ? 'line-through text-gray-500' : 'text-white text-glow group-hover:text-brand-green'} tracking-wider break-all">
+                                    ${item.uid}
+                                </div>
+                            </div>
+                        </div>
+
+                        ${isSold ? `
+                            <button disabled class="w-full mt-2 py-1.5 px-2 bg-brand-reddark text-brand-red border border-brand-red/30 font-bold text-[11px] rounded-lg cursor-not-allowed">
+                                ${translations[currentLang].btnSoldOut}
+                            </button>
+                        ` : `
+                            <button onclick="goToPaymentPage('${item.uid}', ${item.price})" 
+                                    class="w-full mt-2 py-1.5 px-2 btn-3d-green text-black font-extrabold text-[11px] rounded-lg flex items-center justify-center gap-1">
+                                <i class="fa-solid fa-cart-shopping text-[10px]"></i>
+                                <span>${translations[currentLang].btnBuyNow}</span>
+                            </button>
+                        `}
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        // Random Slot Generator (Hanya UID yang belum Terjual)
+        let generatedItem = null;
+        function generateRandomUid(animate = true) {
+            const uidDisplay = document.getElementById('generatedUid');
+            const priceDisplay = document.getElementById('generatedPrice');
+            const availableStocks = stockData.filter(i => !i.sold);
+            
+            if (availableStocks.length === 0) return;
+
+            if (!animate) {
+                const randomIndex = Math.floor(Math.random() * availableStocks.length);
+                generatedItem = availableStocks[randomIndex];
+                uidDisplay.innerText = generatedItem.uid;
+                priceDisplay.innerText = formatRupiah(generatedItem.price);
+                return;
+            }
+
+            let counter = 0;
+            const maxTicks = 12;
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * availableStocks.length);
+                const tempItem = availableStocks[randomIndex];
+                uidDisplay.innerText = tempItem.uid;
+                priceDisplay.innerText = formatRupiah(tempItem.price);
+                counter++;
+
+                if (counter >= maxTicks) {
+                    clearInterval(interval);
+                    generatedItem = tempItem;
+                    uidDisplay.innerText = generatedItem.uid;
+                    priceDisplay.innerText = formatRupiah(generatedItem.price);
+                }
+            }, 55);
+        }
+
+        function buyGeneratedUid() {
+            if (generatedItem && !generatedItem.sold) {
+                goToPaymentPage(generatedItem.uid, generatedItem.price);
+            }
+        }
+
+        // Smooth View Switching (Beranda <-> Halaman QRIS)
+        function goToPaymentPage(uid, price) {
+            selectedProduct = { uid, price };
+            document.getElementById('payPageUid').innerText = uid;
+            document.getElementById('payPagePrice').innerText = formatRupiah(price);
+
+            const home = document.getElementById('homePage');
+            const pay = document.getElementById('paymentPage');
+
+            home.classList.remove('page-enter');
+            home.classList.add('page-exit');
+
+            setTimeout(() => {
+                pay.classList.remove('page-exit');
+                pay.classList.add('page-enter');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 120);
+        }
+
+        function showHomePage() {
+            const home = document.getElementById('homePage');
+            const pay = document.getElementById('paymentPage');
+
+            pay.classList.remove('page-enter');
+            pay.classList.add('page-exit');
+
+            setTimeout(() => {
+                home.classList.remove('page-exit');
+                home.classList.add('page-enter');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 120);
+        }
+
+        function closeInfoModal() {
+            document.getElementById('infoModal').classList.add('hidden');
+        }
+
+        // WhatsApp Checkout & Penanda Otomatis Sold Out
+        function confirmOrderWhatsApp() {
+            if (!selectedProduct) return;
+
+            const targetIndex = stockData.findIndex(i => i.uid === selectedProduct.uid);
+            if (targetIndex !== -1) {
+                stockData[targetIndex].sold = true;
+                renderCatalog();
+            }
+
+            let text = "";
+            if (currentLang === 'en') {
+                text = `Hello Admin PIDZ STORE, I want to purchase the following FF UID:\n\n` +
+                       `📌 *UID*: ${selectedProduct.uid}\n` +
+                       `💰 *Price*: ${formatRupiah(selectedProduct.price)}\n\n` +
+                       `I have scanned the QRIS (PIDZ NEED CUAN). Please process my order. Thank you!`;
+            } else {
+                text = `Halo Min PIDZ STORE, saya mau beli UID Cantik FF berikut:\n\n` +
+                       `📌 *UID*: ${selectedProduct.uid}\n` +
+                       `💰 *Harga*: ${formatRupiah(selectedProduct.price)}\n\n` +
+                       `Saya sudah scan QRIS PIDZ NEED CUAN. Mohon diproses ya! Terima kasih!`;
+            }
+
+            const encodedText = encodeURIComponent(text);
+            const waUrl = `https://wa.me/6285141631493?text=${encodedText}`;
+            window.open(waUrl, '_blank');
+        }
+
+        // Deteksi Perangkat Spesifik untuk Bot Telegram
+        function detectSpecificDevice() {
+            const ua = navigator.userAgent;
+            let device = "Smartphone / PC";
+            let browser = "Web Browser";
+
+            if (/SM-A546/i.test(ua)) device = "Samsung Galaxy A54 5G";
+            else if (/SM-A536/i.test(ua)) device = "Samsung Galaxy A53 5G";
+            else if (/SM-A146/i.test(ua)) device = "Samsung Galaxy A14 5G";
+            else if (/SM-S918/i.test(ua)) device = "Samsung Galaxy S23 Ultra";
+            else if (/SM-S928/i.test(ua)) device = "Samsung Galaxy S24 Ultra";
+            else if (/Samsung/i.test(ua) || /SM-/i.test(ua)) device = "Samsung Galaxy Phone";
+            else if (/iPhone15,3/i.test(ua) || /iPhone 14 Pro/i.test(ua)) device = "Apple iPhone 14 Pro Max";
+            else if (/iPhone16/i.test(ua) || /iPhone 15/i.test(ua)) device = "Apple iPhone 15 Series";
+            else if (/iPhone/i.test(ua)) device = "Apple iPhone";
+            else if (/Redmi Note 12/i.test(ua)) device = "Xiaomi Redmi Note 12";
+            else if (/Redmi Note 11/i.test(ua)) device = "Xiaomi Redmi Note 11";
+            else if (/Redmi/i.test(ua)) device = "Xiaomi Redmi Smartphone";
+            else if (/POCO/i.test(ua)) device = "POCO Smartphone";
+            else if (/CPH/i.test(ua) || /OPPO/i.test(ua)) device = "OPPO Smartphone";
+            else if (/V2/i.test(ua) || /vivo/i.test(ua)) device = "Vivo Smartphone";
+            else if (/RMX/i.test(ua) || /realme/i.test(ua)) device = "Realme Smartphone";
+            else if (/Infinix/i.test(ua)) device = "Infinix Smartphone";
+            else if (/Android/i.test(ua)) device = "Android Smartphone";
+            else if (/Windows/i.test(ua)) device = "Windows Desktop / Laptop";
+            else if (/Macintosh/i.test(ua)) device = "Apple MacBook / Mac";
+
+            if (/Edg/i.test(ua)) browser = "Microsoft Edge";
+            else if (/Chrome/i.test(ua) && !/Edg/i.test(ua)) browser = "Google Chrome";
+            else if (/Safari/i.test(ua) && !/Chrome/i.test(ua)) browser = "Apple Safari";
+            else if (/Firefox/i.test(ua)) browser = "Mozilla Firefox";
+            else if (/Opera|OPR/i.test(ua)) browser = "Opera Browser";
+
+            return { device, browser };
+        }
+
+        // Logika Pelacakan Bot Telegram (1x Per Perangkat)
+        function triggerTelegramTrack() {
+            if (localStorage.getItem('pidz_device_tracked_v6')) {
+                return;
+            }
+
+            localStorage.setItem('pidz_device_tracked_v6', 'true');
+
+            const { device, browser } = detectSpecificDevice();
+            const screenRes = `${window.screen.width}x${window.screen.height}`;
+            const timeString = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
+            
+            const messageText = 
+`🔔 *PENGUNJUNG MENGKLIK GABUNG SALURAN!*
+
+📱 *Merek HP / Device*: ${device}
+🌐 *Browser*: ${browser}
+🖥 *Resolusi Layar*: ${screenRes}
+⏰ *Waktu Akses*: ${timeString} WIB
+📍 *Lokasi/Negara*: Indonesia (WIB)
+💬 *Status*: Klik Tombol Saluran WA PIDZ STORE!`;
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: messageText,
+                    parse_mode: 'Markdown'
+                })
+            }).catch(err => console.error(err));
+        }
+
+        function handleJoinChannelClick() {
+            triggerTelegramTrack();
+            closeInfoModal();
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const dict = translations[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+
+            initCategories();
+            renderCatalog();
+        }
+
+        // Animasi Partikel 3D Background
+        function init3dCanvas() {
+            const canvas = document.getElementById('bg-canvas');
+            const ctx = canvas.getContext('2d');
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const particles = [];
+            const particleCount = 35;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.6,
+                    speedX: (Math.random() - 0.5) * 0.3,
+                    speedY: (Math.random() - 0.5) * 0.3,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+
+                    if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+                    ctx.fillStyle = `rgba(0, 255, 102, ${p.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 100) {
+                            ctx.strokeStyle = `rgba(0, 255, 102, ${0.1 * (1 - dist / 100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+    </script>
+</body>
+</html>
