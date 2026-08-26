@@ -1,0 +1,2675 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIDZ STORE - PUSAT UID CANTIK FREE FIRE</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            pidz: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc7fb',
+              400: '#36a9f7',
+              500: '#0c8de9',
+              600: '#006ed7',
+              700: '#0058b0',
+              800: '#054a91',
+              900: '#0a3e78',
+            }
+          },
+          boxShadow: {
+            'hd-card': '0 4px 20px -2px rgba(0, 110, 215, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
+            'hd-hover': '0 12px 28px -4px rgba(0, 110, 215, 0.22), 0 6px 12px -2px rgba(0, 0, 0, 0.04)',
+            'glow-blue': '0 0 20px -3px rgba(12, 141, 233, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #f6f9fc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Stable HD Card Hover */
+    .card-hd-item {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+      will-change: transform, box-shadow;
+      transform: translateZ(0); /* Force GPU Rendering */
+    }
+    
+    .card-hd-item:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Shiny Light Badge Animation */
+    .shiny-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .shiny-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.7) 50%,
+        transparent 70%
+      );
+      transform: rotate(30deg);
+      animation: shineLoop 4s infinite;
+    }
+
+    @keyframes shineLoop {
+      0% { transform: translateX(-100%) rotate(30deg); }
+      25% { transform: translateX(100%) rotate(30deg); }
+      100% { transform: translateX(100%) rotate(30deg); }
+    }
+
+    /* Custom HD Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #006ed7;
+      border-radius: 99px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #054a91;
+    }
+
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col selection:bg-pidz-500 selection:text-white pb-16">
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      
+      <!-- Brand Logo, Verified Tick & Partner Logos Dibawah "PUSAT UID CANTIK" -->
+      <div class="flex items-center gap-3 cursor-pointer select-none" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <div class="relative group shrink-0">
+          <img src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg" 
+               alt="PidzStore Logo" 
+               class="w-11 h-11 rounded-full object-cover border-2 border-pidz-500 shadow-md transform group-hover:scale-105 transition-transform"
+               onerror="this.src='https://via.placeholder.com/150/006ed7/ffffff?text=PIDZ'">
+          <!-- Verified Tick Icon -->
+          <span class="absolute -bottom-0.5 -right-0.5 bg-blue-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] border-2 border-white shadow-sm">
+            <i class="fa-solid fa-check"></i>
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 leading-none">
+              PIDZ STORE
+            </h1>
+            <!-- Centang Biru Resmi -->
+            <span class="inline-flex items-center justify-center bg-blue-500 text-white rounded-full w-4 h-4 text-[10px] shadow-sm" title="Terverifikasi Resmi">
+              <i class="fa-solid fa-check"></i>
+            </span>
+          </div>
+          <p class="text-[10px] font-bold text-pidz-600 tracking-wider uppercase mt-0.5">PUSAT UID CANTIK</p>
+          
+          <!-- LOGO FREE FIRE & GARENA DIBAWAH PUSAT UID CANTIK -->
+          <div class="flex items-center gap-2 mt-1">
+            <img src="https://cdn.phototourl.com/free/2026-08-26-66cb6645-1174-4cbd-8f2b-b1effdf2250c.png" 
+                 alt="Free Fire Logo" 
+                 class="h-4 sm:h-5 w-auto object-contain filter drop-shadow-sm" 
+                 title="Free Fire Official">
+            <span class="text-slate-300 text-[10px]">|</span>
+            <img src="https://cdn.phototourl.com/free/2026-08-26-d795094d-3abc-4d0f-b2e2-b5ee2d68aefc.png" 
+                 alt="Garena Logo" 
+                 class="h-4 sm:h-5 w-auto object-contain filter drop-shadow-sm" 
+                 title="Garena Official">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <!-- Riwayat Button -->
+        <button onclick="openHistoryModal()" class="relative bg-slate-100 hover:bg-pidz-50 text-slate-700 hover:text-pidz-600 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border border-slate-200/80 active:scale-95">
+          <i class="fa-solid fa-clock-rotate-left text-pidz-600"></i>
+          <span class="hidden sm:inline">Riwayat</span>
+          <span id="history-badge" class="hidden absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center border border-white">0</span>
+        </button>
+
+        <!-- Channel Komunitas Button -->
+        <button onclick="openWelcomeModal()" class="bg-pidz-50 hover:bg-pidz-100 text-pidz-700 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 border border-pidz-200/80 active:scale-95">
+          <i class="fa-brands fa-whatsapp text-emerald-500 text-base"></i>
+          <span class="hidden sm:inline">Komunitas</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="max-w-6xl mx-auto px-4 pt-4 flex-grow w-full">
+
+    <!-- 16:9 BANNER SECTION -->
+    <div class="relative w-full rounded-3xl overflow-hidden shadow-hd-card border border-slate-200/60 mb-6 group bg-slate-900 aspect-[16/9]">
+      <img src="https://cdn.phototourl.com/free/2026-08-26-f62b4b8b-1223-47e1-8c09-82db1aa08b38.jpg" 
+           alt="PIDZ STORE Banner" 
+           class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90"
+           onerror="this.src='https://via.placeholder.com/1200x675/006ed7/ffffff?text=PIDZ+STORE+UID+CANTIK'">
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-4 sm:p-8">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="bg-blue-600 text-white text-[10px] sm:text-xs font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shiny-effect shadow-sm">
+            Official Store
+          </span>
+          <span class="text-xs text-blue-200 flex items-center gap-1 font-semibold">
+            <i class="fa-solid fa-shield-halved text-emerald-400"></i> Garansi 100% Safe
+          </span>
+        </div>
+        <h2 class="text-white text-xl sm:text-3xl font-extrabold flex items-center gap-2 tracking-tight">
+          PIDZ STORE 
+          <span class="inline-flex items-center justify-center bg-blue-500 text-white rounded-full w-5 h-5 text-xs shadow-md">
+            <i class="fa-solid fa-check"></i>
+          </span>
+        </h2>
+        <p class="text-blue-100 text-xs sm:text-sm max-w-xl mt-1 leading-relaxed">
+          Koleksi UID Cantik, Super Rapi & Sultan Termurah. Fast respond langsung via WhatsApp Admin!
+        </p>
+      </div>
+    </div>
+
+    <!-- PROMO VOUCHER BANNER (Hanya Muncul Jika `active: true` di Kode JS) -->
+    <div id="voucher-banner-display" class="hidden mb-6 bg-gradient-to-r from-pidz-700 via-pidz-600 to-indigo-600 text-white p-4 sm:p-5 rounded-2xl shadow-hd-hover relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-blue-400/40">
+      <div class="flex items-center gap-3.5 z-10">
+        <div class="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center shrink-0 border border-white/20 shadow-inner">
+          <i class="fa-solid fa-ticket-simple text-amber-300 text-2xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-sm sm:text-base tracking-wide">PROMO DISKON SPESIAL</span>
+            <span class="bg-amber-400 text-slate-950 font-extrabold text-[10px] px-2 py-0.5 rounded-md uppercase shadow-sm" id="voucher-discount-badge">0% OFF</span>
+          </div>
+          <p class="text-xs text-blue-100 mt-0.5">
+            Berlaku untuk harga Rp 12k s/d 100k. Gunakan kode: <b class="text-amber-200 tracking-widest font-mono text-sm underline" id="voucher-code-text">-</b>
+          </p>
+        </div>
+      </div>
+      
+      <!-- Countdown timer -->
+      <div class="z-10 flex items-center gap-2.5 bg-slate-950/40 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 self-stretch sm:self-auto justify-between sm:justify-start">
+        <span class="text-[11px] text-blue-200 font-medium">Berakhir dalam:</span>
+        <span id="voucher-timer-display" class="font-mono font-bold text-xs text-amber-300">00h : 00m : 00s</span>
+      </div>
+    </div>
+
+    <!-- SEARCH & DYNAMIC CATEGORY BAR -->
+    <div class="bg-white rounded-2xl p-4 shadow-hd-card border border-slate-200/80 mb-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Search Field -->
+        <div class="relative flex-grow">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input type="text" 
+                 id="search-input" 
+                 placeholder="Cari nomor UID impianmu (cth: 125267, 888)..." 
+                 oninput="filterProducts()"
+                 class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200/80 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-pidz-500 focus:bg-white focus:ring-2 focus:ring-pidz-500/20 transition-all font-medium">
+        </div>
+
+        <!-- Order Sort Option -->
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="text-xs font-bold text-slate-500"><i class="fa-solid fa-arrow-down-short-wide text-pidz-600"></i> Urutan:</span>
+          <select id="sort-select" onchange="filterProducts()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-700 focus:outline-none focus:border-pidz-500 cursor-pointer">
+            <option value="high-low">Harga: Mahal &rarr; Murah</option>
+            <option value="low-high">Harga: Murah &rarr; Mahal</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Kategori Harga Dinamis -->
+      <div class="mt-4 pt-3.5 border-t border-slate-100">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-extrabold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-tags text-pidz-600"></i> Kategori Harga:
+          </span>
+          <span id="product-count" class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+            0 UID Dimuat
+          </span>
+        </div>
+        
+        <!-- Category Buttons Container -->
+        <div id="category-container" class="flex items-center gap-2 overflow-x-auto pb-1.5 scrollbar-none">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PRODUCT GRID (2 BARIS KE KANAN / 2 COLUMNS STABIL) ================= -->
+    <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-5 mb-12">
+      <!-- Dynamic Products -->
+    </div>
+
+    <!-- Empty State Result -->
+    <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300 mb-12 shadow-sm">
+      <div class="w-16 h-16 bg-pidz-50 text-pidz-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+        <i class="fa-solid fa-folder-open"></i>
+      </div>
+      <h3 class="font-extrabold text-slate-800 text-base">Tidak Ada UID Ditemukan</h3>
+      <p class="text-slate-500 text-xs mt-1">Coba kata kunci pencarian lain atau pilih kategori harga yang berbeda.</p>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-white border-t border-slate-200/80 py-6 mt-auto">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      
+      <!-- Corner Logos di Footer -->
+      <div class="flex items-center justify-center gap-3 mb-3">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-66cb6645-1174-4cbd-8f2b-b1effdf2250c.png" alt="Free Fire Logo" class="h-5 opacity-80 object-contain">
+        <span class="text-slate-300 text-xs">|</span>
+        <img src="https://cdn.phototourl.com/free/2026-08-26-d795094d-3abc-4d0f-b2e2-b5ee2d68aefc.png" alt="Garena Logo" class="h-5 opacity-80 object-contain">
+      </div>
+
+      <div class="flex items-center justify-center gap-2 mb-2">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg" alt="Logo" class="w-6 h-6 rounded-full border border-pidz-500">
+        <span class="font-extrabold text-sm text-slate-800">PIDZ STORE</span>
+        <span class="inline-flex items-center justify-center bg-blue-500 text-white rounded-full w-3.5 h-3.5 text-[9px]">
+          <i class="fa-solid fa-check"></i>
+        </span>
+      </div>
+      <p class="text-xs text-slate-500 font-medium">Pusat Transaksi UID Cantik & Sultan Aman, Cepat, Terpercaya.</p>
+      <p class="text-[11px] text-slate-400 mt-2">&copy; 2026 PIDZ STORE. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ================= MODAL 1: WELCOME & KOMUNITAS POPUP ================= -->
+  <div id="welcome-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 hidden">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl border border-slate-100 transform transition-all duration-300 scale-95 opacity-0 relative" id="welcome-content">
+      
+      <!-- LOGO FREE FIRE & GARENA POJOK POPUP -->
+      <div class="absolute top-4 right-4 flex items-center gap-1.5 opacity-80">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-66cb6645-1174-4cbd-8f2b-b1effdf2250c.png" alt="FF" class="h-4 w-auto">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-d795094d-3abc-4d0f-b2e2-b5ee2d68aefc.png" alt="Garena" class="h-4 w-auto">
+      </div>
+
+      <div class="relative w-16 h-16 mx-auto mb-3">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg" alt="Logo" class="w-full h-full rounded-2xl object-cover shadow-lg border-2 border-pidz-500">
+        <span class="absolute -bottom-1 -right-1 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs border-2 border-white">
+          <i class="fa-solid fa-check"></i>
+        </span>
+      </div>
+
+      <h3 class="font-extrabold text-lg text-slate-900 flex items-center justify-center gap-1.5">
+        PIDZ STORE 
+        <span class="inline-flex items-center justify-center bg-blue-500 text-white rounded-full w-4 h-4 text-[10px]">
+          <i class="fa-solid fa-check"></i>
+        </span>
+      </h3>
+      <p class="text-xs text-slate-500 mt-1 mb-5 leading-relaxed font-medium">
+        Gabung komunitas resmi kami untuk info restok UID Cantik terbaru & event giveaway gratisan!
+      </p>
+
+      <div class="space-y-3 mb-6">
+        <a href="https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G" 
+           target="_blank" 
+           onclick="logTelegramAction('Klik Saluran WA'); closeWelcomeModal();"
+           class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-md shadow-emerald-500/25 group">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>Saluran Bagi2 UID & Testimoni</span>
+          <i class="fa-solid fa-arrow-right text-xs opacity-70 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+
+        <a href="https://chat.whatsapp.com/K6KAC9R46ZoElU5IKp54i4" 
+           target="_blank" 
+           onclick="logTelegramAction('Klik Grup WA'); closeWelcomeModal();"
+           class="w-full bg-pidz-600 hover:bg-pidz-700 text-white font-bold py-3.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2.5 transition shadow-md shadow-pidz-600/25 group">
+          <i class="fa-solid fa-users text-sm"></i>
+          <span>Grup Terbuka Pidz UID Cantik</span>
+          <i class="fa-solid fa-arrow-right text-xs opacity-70 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+      <button onclick="closeWelcomeModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl text-xs transition">
+        Lanjut Masuk Ke Store &rarr;
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL 2: CHECKOUT & QRIS PAYMENT ================= -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl border border-slate-100 max-h-[92vh] overflow-y-auto relative">
+      
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 bg-slate-100 hover:bg-slate-200 text-slate-500 w-8 h-8 rounded-full flex items-center justify-center text-sm transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-4">
+        <span class="bg-pidz-100 text-pidz-700 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+          Pembayaran QRIS Instant
+        </span>
+        <h3 class="font-extrabold text-xl text-slate-900 mt-2">Detail Pesanan UID</h3>
+      </div>
+
+      <!-- Card Informasi UID -->
+      <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-3.5 mb-4 flex items-center gap-3.5 shadow-sm">
+        <img src="https://cdn.phototourl.com/free/2026-08-26-f5d5149f-a152-45cb-9cfd-3cf599e320b9.jpg" 
+             alt="UID Product Image" 
+             class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0">
+        <div class="flex-grow">
+          <span class="text-[10px] font-bold text-pidz-600 tracking-wider uppercase">Item Dipesan:</span>
+          <h4 class="font-mono font-extrabold text-base sm:text-lg text-slate-900 leading-tight" id="modal-uid-text">UID : -</h4>
+          <div class="flex items-center justify-between mt-0.5">
+            <span class="text-xs text-slate-500 font-medium">Harga Normal:</span>
+            <span class="text-xs font-extrabold text-slate-800" id="modal-normal-price">Rp 0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VOUCHER INPUT BOX -->
+      <div class="mb-4">
+        <label class="block text-xs font-bold text-slate-700 mb-1">
+          <i class="fa-solid fa-ticket-simple text-pidz-600"></i> Kode Voucher Diskon (Jika Ada):
+        </label>
+        <div class="flex gap-2">
+          <input type="text" 
+                 id="voucher-input" 
+                 placeholder="Masukkan kode voucher..." 
+                 class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs uppercase tracking-wider font-mono font-bold focus:outline-none focus:border-pidz-500">
+          <button onclick="applyVoucher()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2 rounded-xl transition active:scale-95">
+            Gunakan
+          </button>
+        </div>
+        <p id="voucher-message" class="text-[11px] mt-1 font-bold hidden"></p>
+      </div>
+
+      <!-- PRICE BREAKDOWN -->
+      <div class="bg-pidz-50/80 border border-pidz-100 rounded-2xl p-3.5 mb-4 space-y-1.5 text-xs">
+        <div class="flex justify-between text-slate-600">
+          <span>Subtotal Item</span>
+          <span class="font-bold text-slate-800" id="breakdown-subtotal">Rp 0</span>
+        </div>
+        <div class="flex justify-between text-emerald-600 font-bold" id="breakdown-discount-row">
+          <span>Diskon Promo</span>
+          <span id="breakdown-discount">- Rp 0</span>
+        </div>
+        <div class="pt-2 border-t border-pidz-200/80 flex justify-between items-center text-sm font-extrabold">
+          <span class="text-slate-900">Total Pembayaran:</span>
+          <span class="text-pidz-700 text-base font-mono" id="breakdown-total">Rp 0</span>
+        </div>
+      </div>
+
+      <!-- QRIS IMAGE DISPLAY -->
+      <div class="text-center border-t border-slate-100 pt-4 mb-4">
+        <p class="text-xs font-bold text-slate-700 mb-2">Scan QRIS dibawah untuk menyelesaikan pembayaran:</p>
+        <div class="bg-white border-2 border-pidz-400 p-2 rounded-2xl inline-block shadow-md max-w-[210px] mx-auto">
+          <img src="https://cdn.phototourl.com/free/2026-08-24-d32b4785-cf17-4b66-ad24-8a358b173d4e.jpg" 
+               alt="QRIS Payment PIDZ STORE" 
+               class="w-full h-auto rounded-xl object-contain mx-auto"
+               onerror="this.src='https://via.placeholder.com/300x300/006ed7/ffffff?text=QRIS+PIDZ+STORE'">
+        </div>
+        <p class="text-[11px] text-slate-500 mt-2 font-medium">Support: Dana, OVO, GoPay, ShopeePay, BCA, Mandiri, BRI & Semua E-Wallet/Bank.</p>
+      </div>
+
+      <!-- CONFIRM WHATSAPP BUTTON -->
+      <button onclick="confirmToWhatsApp()" 
+              class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold py-3.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/25 active:scale-95">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>Konfirmasi via WhatsApp Admin</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL 3: RIWAYAT PEMBELIAN ================= -->
+  <div id="history-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 hidden">
+    <div class="bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl border border-slate-100 max-h-[85vh] flex flex-col relative">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-pidz-100 text-pidz-600 flex items-center justify-center">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3 class="font-extrabold text-lg text-slate-900">Riwayat Pembelian</h3>
+        </div>
+        <button onclick="closeHistoryModal()" class="text-slate-400 hover:text-slate-600 p-1 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Content Container -->
+      <div class="overflow-y-auto flex-grow my-4 space-y-3 pr-1" id="history-list-container">
+        <!-- Will display "Belum Ada Riwayat Pembelian" when empty -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs">
+        <span class="text-slate-400 font-medium">Tersimpan di perangkat Anda</span>
+        <button onclick="clearHistory()" class="text-red-500 hover:underline font-bold text-[11px]">
+          Hapus Riwayat
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    /* =========================================================================
+       1. DATA LIST STOK UID CANTIK
+       ========================================================================= */
+    const productsList = [
+         { uid: "17289444404", price: 6, sold: false, isUtama: false },
+            { uid: "17289555563", price: 6, sold: false, isUtama: false },
+            { uid: "17290061111", price: 10, sold: false, isUtama: false },
+            { uid: "17290550000", price: 15, sold: false, isUtama: false },
+            { uid: "17290555505", price: 20, sold: false, isUtama: false },
+            { uid: "17290608888", price: 15, sold: false, isUtama: false },
+            { uid: "17291111008", price: 8, sold: false, isUtama: false },
+            { uid: "17293331111", price: 8, sold: false, isUtama: false },
+            { uid: "17294131111", price: 2, sold: false, isUtama: false },
+            { uid: "17295031111", price: 2, sold: false, isUtama: false },
+            { uid: "17295555255", price: 20, sold: false, isUtama: false },
+            { uid: "17295888858", price: 20, sold: false, isUtama: false },
+            { uid: "17295888800", price: 15, sold: false, isUtama: false },
+            { uid: "17296666460", price: 10, sold: false, isUtama: false },
+            { uid: "17296666608", price: 8, sold: false, isUtama: false },
+            { uid: "17296666500", price: 8, sold: false, isUtama: false },
+            { uid: "17297000066", price: 3, sold: false, isUtama: false },
+            { uid: "17298444448", price: 3, sold: false, isUtama: false },
+            { uid: "17299990041", price: 10, sold: false, isUtama: false },
+            { uid: "17299990444", price: 14, sold: false, isUtama: false },
+            { uid: "17299991188", price: 15, sold: false, isUtama: false },
+            { uid: "17300201111", price: 10, sold: false, isUtama: false },
+            { uid: "17300111112", price: 10, sold: false, isUtama: false },
+            { uid: "17300111103", price: 7, sold: false, isUtama: false },
+            { uid: "17305000088", price: 13, sold: false, isUtama: false },
+            { uid: "17305000084", price: 13, sold: false, isUtama: false },
+            { uid: "17305045555", price: 10, sold: false, isUtama: false },
+            { uid: "17305111115", price: 6, sold: false, isUtama: false },
+            { uid: "17305570000", price: 13, sold: false, isUtama: false },
+            { uid: "17305444489", price: 3, sold: false, isUtama: false },
+            { uid: "17305888848", price: 20, sold: false, isUtama: false },
+            { uid: "17305833333", price: 5, sold: false, isUtama: false },
+            { uid: "17306448888", price: 6, sold: false, isUtama: false },
+            { uid: "17306631111", price: 4, sold: false, isUtama: false },
+            { uid: "17306966666", price: 8, sold: false, isUtama: false },
+            { uid: "17307000093", price: 6, sold: false, isUtama: false },
+            { uid: "17308400007", price: 6, sold: false, isUtama: false },
+            { uid: "17308222271", price: 3, sold: false, isUtama: false },
+            { uid: "17290100009", price: 5, sold: false, isUtama: false },
+            { uid: "17289668888", price: 6, sold: false, isUtama: false },
+            { uid: "17290300007", price: 6, sold: false, isUtama: false },
+            { uid: "17290407777", price: 3, sold: false, isUtama: false },
+            { uid: "17290555514", price: 4, sold: false, isUtama: false },
+            { uid: "17290555515", price: 10, sold: false, isUtama: false },
+            { uid: "17290888861", price: 4, sold: false, isUtama: false },
+            { uid: "17296666124", price: 3, sold: false, isUtama: false },
+            { uid: "17296666057", price: 5, sold: false, isUtama: false },
+            { uid: "17296666122", price: 9, sold: false, isUtama: false },
+            { uid: "17292222666", price: 8, sold: false, isUtama: false },
+            { uid: "17292222100", price: 10, sold: false, isUtama: false },
+            { uid: "17293333818", price: 9, sold: false, isUtama: false },
+            { uid: "17299991817", price: 4, sold: false, isUtama: false },
+            { uid: "16956888826", price: 13, sold: false },
+            { uid: "16958111181", price: 10, sold: false },
+            { uid: "16958066668", price: 20, sold: false },
+            { uid: "16959333347", price: 6, sold: false },
+            { uid: "16960688881", price: 25, sold: false },
+            { uid: "16960670000", price: 35, sold: false },
+            { uid: "16960644448", price: 30, sold: false },
+            { uid: "16960555553", price: 40, sold: false },
+            { uid: "16960555548", price: 15, sold: false },
+            { uid: "16960178888", price: 10, sold: false },
+            { uid: "16960172222", price: 10, sold: false },
+            { uid: "16959999404", price: 25, sold: false },
+            { uid: "16959999035", price: 20, sold: false },
+            { uid: "16959554444", price: 25, sold: false },
+            { uid: "16959333390", price: 20, sold: false },
+            { uid: "16964444404", price: 40, sold: false },
+            { uid: "16965122223", price: 25, sold: false },
+            { uid: "16965111131", price: 30, sold: false },
+            { uid: "16965111115", price: 30, sold: false },
+            { uid: "16964007777", price: 8, sold: false },
+            { uid: "16963333010", price: 25, sold: false },
+            { uid: "16963111119", price: 25, sold: false },
+            { uid: "16963000004", price: 30, sold: false },
+            { uid: "16962222210", price: 20, sold: false },
+            { uid: "16962111123", price: 10, sold: false },
+            { uid: "16961201111", price: 20, sold: false },
+            { uid: "16961122225", price: 25, sold: false },
+            { uid: "16961000062", price: 30, sold: false },
+            { uid: "16961000059", price: 30, sold: false },
+            { uid: "16938888868", price: 60, sold: false },
+            { uid: "16936606666", price: 40, sold: false },
+            { uid: "16932000080", price: 30, sold: false },
+            { uid: "16930803333", price: 25, sold: false },
+            { uid: "16930888838", price: 25, sold: false },
+            { uid: "16931999995", price: 25, sold: false },
+            { uid: "16930555544", price: 20, sold: false },
+            { uid: "16930888885", price: 20, sold: false },
+            { uid: "16930888848", price: 20, sold: false },
+            { uid: "16934111112", price: 20, sold: false },
+            { uid: "16936688881", price: 20, sold: false },
+            { uid: "16716166660", price: 20, sold: false },
+            { uid: "16930553333", price: 15, sold: false },
+            { uid: "16930555504", price: 15, sold: false },
+            { uid: "16931333311", price: 15, sold: false },
+            { uid: "16930906666", price: 13, sold: false },
+            { uid: "16935555881", price: 13, sold: false },
+            { uid: "16931122224", price: 10, sold: false },
+            { uid: "16766055553", price: 10, sold: false },
+            { uid: "16932101111", price: 7, sold: false },
+            { uid: "16956066667", price: 30, sold: false },
+            { uid: "16956066661", price: 35, sold: false },
+            { uid: "16955455554", price: 45, sold: false },
+            { uid: "16955266666", price: 25, sold: false },
+            { uid: "16955141111", price: 25, sold: false },
+            { uid: "16955088884", price: 30, sold: false },
+            { uid: "16955088888", price: 40, sold: false },
+            { uid: "16956000090", price: 30, sold: false },
+            { uid: "16956000063", price: 20, sold: false },
+            { uid: "16966669100", price: 25, sold: false },
+            { uid: "16966099993", price: 25, sold: false },
+            { uid: "16960999995", price: 30, sold: false },
+            { uid: "16960666617", price: 25, sold: false },
+            { uid: "16960666620", price: 20, sold: false },
+            { uid: "16960666616", price: 35, sold: false },
+            { uid: "16960666631", price: 20, sold: false },
+            { uid: "16960115555", price: 8, sold: false },
+            { uid: "16960020000", price: 45, sold: false },
+            { uid: "16960000129", price: 25, sold: false },
+            { uid: "16980588885", price: 20, sold: false },
+            { uid: "16980335555", price: 30, sold: false },
+            { uid: "16980000155", price: 20, sold: false },
+            { uid: "16978888808", price: 35, sold: false },
+            { uid: "16976666651", price: 15, sold: false },
+            { uid: "16973000010", price: 25, sold: false },
+            { uid: "16972222121", price: 25, sold: false },
+            { uid: "16972202222", price: 25, sold: false },
+            { uid: "16972218888", price: 15, sold: false },
+            { uid: "16971666664", price: 10, sold: false },
+            { uid: "16971666608", price: 7, sold: false },
+            { uid: "16971666606", price: 10, sold: false },
+            { uid: "16971111232", price: 10, sold: false },
+            { uid: "16970064444", price: 10, sold: false },
+            { uid: "16966669971", price: 15, sold: false },
+            { uid: "16999909020", price: 25, sold: false },
+            { uid: "17000811111", price: 35, sold: false },
+            { uid: "17004000029", price: 30, sold: false },
+            { uid: "17007077776", price: 40, sold: false },
+            { uid: "17007076666", price: 40, sold: false },
+            { uid: "17009199998", price: 40, sold: false },
+            { uid: "17009555500", price: 25, sold: false },
+            { uid: "17010100004", price: 35, sold: false },
+            { uid: "17010505555", price: 40, sold: false },
+            { uid: "17011144445", price: 25, sold: false },
+            { uid: "17050199995", price: 15, sold: false },
+            { uid: "17049020000", price: 35, sold: false },
+            { uid: "17042000005", price: 35, sold: false },
+            { uid: "17041222211", price: 20, sold: false },
+            { uid: "17040100000", price: 40, sold: false },
+            { uid: "17039888888", price: 25, sold: false },
+            { uid: "17030088884", price: 13, sold: false },
+            { uid: "17027073333", price: 12, sold: false },
+            { uid: "17024808888", price: 10, sold: false },
+            { uid: "17023555505", price: 8, sold: false },
+            { uid: "17020000804", price: 25, sold: false },
+            { uid: "17020000887", price: 20, sold: false },
+            { uid: "17020110000", price: 35, sold: false },
+            { uid: "17014444441", price: 45, sold: false },
+            { uid: "17014111188", price: 20, sold: false },
+            { uid: "17129999001", price: 45, sold: false },
+            { uid: "17130888868", price: 45, sold: false },
+            { uid: "17149999001", price: 35, sold: false },
+            { uid: "17150898888", price: 30, sold: false },
+            { uid: "17155411111", price: 30, sold: false },
+            { uid: "17160000020", price: 40, sold: false },
+            { uid: "17160000960", price: 25, sold: false },
+            { uid: "17160555525", price: 20, sold: false },
+            { uid: "17161000062", price: 20, sold: false },
+            { uid: "17162900006", price: 10, sold: false },
+            { uid: "17164444445", price: 30, sold: false },
+            { uid: "17164444555", price: 25, sold: false },
+            { uid: "17164444499", price: 25, sold: false },
+            { uid: "17165555541", price: 20, sold: false },
+            { uid: "17166000009", price: 20, sold: false },
+            { uid: "17166088889", price: 20, sold: false },
+            { uid: "17166088882", price: 20, sold: false },
+            { uid: "17166099998", price: 20, sold: false },
+            { uid: "17166122222", price: 35, sold: false },
+            { uid: "17166333350", price: 15, sold: false },
+            { uid: "17166336666", price: 25, sold: false },
+            { uid: "17166763333", price: 10, sold: false },
+            { uid: "17166888862", price: 10, sold: false },
+            { uid: "17166888886", price: 15, sold: false },
+            { uid: "17108888018", price: 25, sold: false },
+            { uid: "17108888081", price: 25, sold: false },
+            { uid: "17108888101", price: 15, sold: false },
+            { uid: "17109999313", price: 8, sold: false },
+            { uid: "17110500007", price: 10, sold: false },
+            { uid: "17111100018", price: 20, sold: false },
+            { uid: "17111100500", price: 35, sold: false },
+            { uid: "17111140100", price: 35, sold: false },
+            { uid: "17112050000", price: 10, sold: false },
+            { uid: "17122114444", price: 15, sold: false },
+            { uid: "17123355553", price: 8, sold: false },
+            { uid: "17124000090", price: 10, sold: false },
+            { uid: "17129121111", price: 5, sold: false },
+            { uid: "17129999887", price: 10, sold: false },
+            { uid: "17130666616", price: 20, sold: false },
+            { uid: "17130888848", price: 25, sold: false },
+            { uid: "17133111198", price: 5, sold: false },
+            { uid: "17133188882", price: 9, sold: false },
+            { uid: "17133335533", price: 15, sold: false },
+            { uid: "17133335533", price: 20, sold: false },
+            { uid: "17139999800", price: 15, sold: false },
+            { uid: "17140060000", price: 25, sold: false },
+            { uid: "17150077774", price: 8, sold: false },
+            { uid: "17150444446", price: 25, sold: false },
+            { uid: "17150559999", price: 15, sold: false },
+            { uid: "17151155556", price: 20, sold: false },
+            { uid: "17160500005", price: 20, sold: false },
+            { uid: "17161000011", price: 15, sold: false },
+            { uid: "17161888800", price: 15, sold: false },
+            { uid: "17164444010", price: 10, sold: false },
+            { uid: "17166044448", price: 10, sold: false },
+            { uid: "17166167777", price: 15, sold: false },
+            { uid: "17166444499", price: 10, sold: false },
+            { uid: "17166466660", price: 25, sold: false },
+            { uid: "17166555556", price: 30, sold: false },
+            { uid: "17166666688", price: 30, sold: false },
+            { uid: "17105555441", price: 30, sold: false },
+            { uid: "17105555500", price: 20, sold: false },
+            { uid: "17107000010", price: 35, sold: false },
+            { uid: "17108800001", price: 35, sold: false },
+            { uid: "17109044444", price: 8, sold: false },
+            { uid: "17108888900", price: 8, sold: false },
+            { uid: "17111104155", price: 9, sold: false },
+            { uid: "17111107051", price: 9, sold: false },
+            { uid: "17122222282", price: 50, sold: false },
+            { uid: "17122222188", price: 20, sold: false },
+            { uid: "17122222511", price: 15, sold: false },
+            { uid: "17128888877", price: 15, sold: false },
+            { uid: "17129999000", price: 20, sold: false },
+            { uid: "17129999004", price: 15, sold: false },
+            { uid: "1712999980", price: 8, sold: false },
+            { uid: "17087577770", price: 9, sold: false },
+            { uid: "17087888895", price: 8, sold: false },
+            { uid: "17087559999", price: 8, sold: false },
+            { uid: "17088844445", price: 15, sold: false },
+            { uid: "17088880060", price: 25, sold: false },
+            { uid: "17088888955", price: 20, sold: false },
+            { uid: "17091060000", price: 25, sold: false },
+            { uid: "17100009009", price: 30, sold: false },
+            { uid: "17100009008", price: 30, sold: false },
+            { uid: "17101021111", price: 25, sold: false },
+            { uid: "17101111006", price: 25, sold: false },
+            { uid: "17105555154", price: 20, sold: false },
+            { uid: "17105555145", price: 20, sold: false },
+            { uid: "17188889889", price: 85, sold: false },
+            { uid: "17188222227", price: 45, sold: false },
+            { uid: "17203818888", price: 35, sold: false },
+            { uid: "17197313333", price: 15, sold: false },
+            { uid: "17196000080", price: 35, sold: false },
+            { uid: "17195000064", price: 10, sold: false },
+            { uid: "17193933333", price: 13, sold: false },
+            { uid: "17191444442", price: 8, sold: false },
+            { uid: "17192111145", price: 8, sold: false },
+            { uid: "17190888883", price: 20, sold: false },
+            { uid: "17189888836", price: 13, sold: false },
+            { uid: "17189888810", price: 13, sold: false },
+            { uid: "17188990000", price: 45, sold: false },
+            { uid: "17188881234", price: 35, sold: false },
+            { uid: "17188880882", price: 40, sold: false },
+            { uid: "17188880580", price: 25, sold: false },
+            { uid: "17188666638", price: 15, sold: false },
+            { uid: "17188222227", price: 15, sold: false },
+            { uid: "17186683333", price: 15, sold: false },
+            { uid: "17187000088", price: 15, sold: false },
+            { uid: "17205555006", price: 15, sold: false },
+            { uid: "17214400006", price: 30, sold: false },
+            { uid: "17214080000", price: 35, sold: false },
+            { uid: "17213333443", price: 25, sold: false },
+            { uid: "17213133334", price: 35, sold: false },
+            { uid: "17213000010", price: 25, sold: false },
+            { uid: "17213000004", price: 25, sold: false },
+            { uid: "17212555551", price: 20, sold: false },
+            { uid: "17212555555", price: 30, sold: false },
+            { uid: "17212222311", price: 25, sold: false },
+            { uid: "17212200000", price: 85, sold: false },
+            { uid: "17212000018", price: 45, sold: false },
+            { uid: "17211555576", price: 14, sold: false },
+            { uid: "17211044442", price: 15, sold: false },
+            { uid: "17210444470", price: 10, sold: false },
+            { uid: "17210011119", price: 25, sold: false },
+            { uid: "17209988884", price: 30, sold: false },
+            { uid: "17209888881", price: 30, sold: false },
+            { uid: "17209333341", price: 5, sold: false },
+            { uid: "17209111105", price: 5, sold: false },
+            { uid: "17208999910", price: 10, sold: false },
+            { uid: "17209000006", price: 20, sold: false },
+            { uid: "17208211114", price: 5, sold: false },
+            { uid: "17208188888", price: 25, sold: false },
+            { uid: "17245909999", price: 8, sold: false },
+            { uid: "17245888899", price: 10, sold: false },
+            { uid: "17243000043", price: 25, sold: false },
+            { uid: "17240048888", price: 25, sold: false },
+            { uid: "17240000141", price: 30, sold: false },
+            { uid: "17239988881", price: 15, sold: false },
+            { uid: "17239000018", price: 15, sold: false },
+            { uid: "17239000092", price: 10, sold: false },
+            { uid: "17238988888", price: 35, sold: false },
+            { uid: "17238888996", price: 25, sold: false },
+            { uid: "17237088888", price: 20, sold: false },
+            { uid: "17235565555", price: 30, sold: false },
+            { uid: "17232120000", price: 30, sold: false },
+            { uid: "17231999987", price: 15, sold: false },
+            { uid: "17228088886", price: 30, sold: false },
+            { uid: "17223355557", price: 40, sold: false },
+            { uid: "17222888804", price: 40, sold: false },
+            { uid: "17222565555", price: 35, sold: false },
+            { uid: "17222288909", price: 45, sold: false },
+            { uid: "17222288000", price: 50, sold: false },
+            { uid: "17222044447", price: 50, sold: false },
+            { uid: "17221234444", price: 45, sold: false },
+            { uid: "17219404444", price: 20, sold: false },
+            { uid: "17218070000", price: 30, sold: false },
+            { uid: "17232223333", price: 45, sold: false },
+            { uid: "17231000020", price: 15, sold: false },
+            { uid: "17228000080", price: 25, sold: false },
+            { uid: "17228000020", price: 25, sold: false },
+            { uid: "17225808888", price: 25, sold: false },
+            { uid: "17225555006", price: 30, sold: false },
+            { uid: "17223222220", price: 45, sold: false },
+            { uid: "17222884444", price: 45, sold: false },
+            { uid: "17222777774", price: 50, sold: false },
+            { uid: "17222689999", price: 25, sold: false },
+            { uid: "17222288188", price: 45, sold: false },
+            { uid: "17218000018", price: 45, sold: false },
+            { uid: "17217770000", price: 40, sold: false },
+            { uid: "17215580000", price: 25, sold: false },
+            { uid: "17215333313", price: 10, sold: false },
+            { uid: "17215188880", price: 25, sold: false },
+            { uid: "17214490000", price: 30, sold: false },
+            { uid: "17212999999", price: 45, sold: false },
+            { uid: "17211122225", price: 35, sold: false },
+            { uid: "17210600002", price: 15, sold: false },
+            { uid: "17210444411", price: 35, sold: false },
+            { uid: "17210333322", price: 20, sold: false },
+            { uid: "17210332222", price: 10, sold: false },
+            { uid: "17206766667", price: 25, sold: false },
+            { uid: "17242222272", price: 40, sold: false },
+            { uid: "17241444451", price: 20, sold: false },
+            { uid: "17241444415", price: 20, sold: false },
+            { uid: "17240955555", price: 13, sold: false },
+            { uid: "17239000012", price: 13, sold: false },
+            { uid: "17239000013", price: 13, sold: false },
+            { uid: "17238188888", price: 35, sold: false },
+            { uid: "17236888816", price: 10, sold: false },
+            { uid: "17236888886", price: 20, sold: false },
+            { uid: "17236000018", price: 7, sold: false },
+            { uid: "17236000003", price: 8, sold: false },
+            { uid: "17235555558", price: 30, sold: false },
+            { uid: "17233330050", price: 40, sold: false },
+            { uid: "17233330305", price: 35, sold: false },
+            { uid: "17233000031", price: 35, sold: false },
+            { uid: "17375061111", price: 2000, sold: false },
+            { uid: "17375093333", price: 2000, sold: false },
+            { uid: "17375222249", price: 2000, sold: false },
+        { uid: "17375222243", price: 2000, sold: false },
+        { uid: "17375377776", price: 2000, sold: false },
+        { uid: "17375433339", price: 3000, sold: false },
+        { uid: "17375555301", price: 3000, sold: false },
+        { uid: "17375555624", price: 3000, sold: false },
+        { uid: "17375555913", price: 2000, sold: false },
+        { uid: "17375613333", price: 2000, sold: false },
+        { uid: "17375710000", price: 3000, sold: false },
+        { uid: "17375770000", price: 3000, sold: false },
+        { uid: "17375855556", price: 4000, sold: false },
+        { uid: "17375877772", price: 2000, sold: false },
+        { uid: "17375876666", price: 2000, sold: false },
+        { uid: "17376155559", price: 3000, sold: false },
+        { uid: "17376159999", price: 3000, sold: false },
+        { uid: "17376164444", price: 4000, sold: false },
+        { uid: "17376225555", price: 4000, sold: false },
+        { uid: "17376444475", price: 4000, sold: false },
+        { uid: "17376733338", price: 2000, sold: false },
+        { uid: "17376800003", price: 4000, sold: false },
+        { uid: "17377000046", price: 3000, sold: false },
+        { uid: "17377000096", price: 3000, sold: false },
+        { uid: "17377454444", price: 4000, sold: false },
+        { uid: "17377555536", price: 4000, sold: false },
+        { uid: "17377666676", price: 5000, sold: false },
+        { uid: "17377770038", price: 5000, sold: false },
+        { uid: "17377772336", price: 5000, sold: false },
+        { uid: "17377770097", price: 5000, sold: false },
+        { uid: "17377771080", price: 4000, sold: false },
+        { uid: "17377772988", price: 2000, sold: false },
+        { uid: "17377774254", price: 2000, sold: false },
+        { uid: "17377774813", price: 2000, sold: false },
+        { uid: "17377775328", price: 2000, sold: false },
+        { uid: "17377775364", price: 2000, sold: false },
+        { uid: "17377775139", price: 2000, sold: false },
+        { uid: "17377775112", price: 3000, sold: false },
+        { uid: "17377775392", price: 2000, sold: false },
+        { uid: "17377775902", price: 2000, sold: false },
+        { uid: "17377775693", price: 2000, sold: false },
+        { uid: "17377775810", price: 2000, sold: false },
+        { uid: "17377776858", price: 4000, sold: false },
+        { uid: "17377778143", price: 2000, sold: false },
+        { uid: "17377778377", price: 2000, sold: false },
+        { uid: "17377778594", price: 2000, sold: false },
+        { uid: "17377778956", price: 2000, sold: false },
+        { uid: "17377778756", price: 2000, sold: false },
+        { uid: "17377779120", price: 2000, sold: false },
+        { uid: "17377778918", price: 2000, sold: false },
+        { uid: "17377779332", price: 3000, sold: false },
+        { uid: "17377779362", price: 2000, sold: false },
+        { uid: "17377779304", price: 2000, sold: false },
+        { uid: "17377779072", price: 2000, sold: false },
+        { uid: "17377778925", price: 2000, sold: false },
+        { uid: "17377779914", price: 4000, sold: false },
+        { uid: "17377779615", price: 2000, sold: false },
+        { uid: "17377779412", price: 2000, sold: false },
+        { uid: "17377779816", price: 2000, sold: false },
+        { uid: "17377811114", price: 3000, sold: false },
+        { uid: "17377836666", price: 5000, sold: false },
+        { uid: "17377888846", price: 3000, sold: false },
+        { uid: "17377888871", price: 4000, sold: false },
+        { uid: "17378018888", price: 8000, sold: false },
+        { uid: "17378133334", price: 4000, sold: false },
+        { uid: "17378388880", price: 5000, sold: false },
+        { uid: "17378499993", price: 3000, sold: false },
+        { uid: "17378600006", price: 4000, sold: false },
+        { uid: "17378899994", price: 7000, sold: false },
+        { uid: "17379000061", price: 4000, sold: false },
+        { uid: "17379222266", price: 4000, sold: false },
+        { uid: "17379222225", price: 4000, sold: false },
+        { uid: "17379500002", price: 3000, sold: false },
+        { uid: "17379733336", price: 2000, sold: false },
+        { uid: "17379804444", price: 3000, sold: false },
+        { uid: "17379858888", price: 5000, sold: false },
+        { uid: "17379894444", price: 5000, sold: false },
+        { uid: "17379900004", price: 5000, sold: false },
+        { uid: "17379999415", price: 3000, sold: false },
+        { uid: "17379999317", price: 3000, sold: false },
+        { uid: "17379999154", price: 4000, sold: false },
+        { uid: "17379999627", price: 2000, sold: false },
+        { uid: "17380000025", price: 7000, sold: false },
+        { uid: "17379999774", price: 5000, sold: false },
+        { uid: "17379999884", price: 10000, sold: false },
+        { uid: "17379999949", price: 30000, sold: false },
+        { uid: "17380000140", price: 15000, sold: false },
+        { uid: "17380000256", price: 8000, sold: false },
+        { uid: "17380000229", price: 8000, sold: false },
+        { uid: "17380000400", price: 25000, sold: false },
+        { uid: "17380000260", price: 8000, sold: false },
+        { uid: "17380000402", price: 8000, sold: false },
+        { uid: "17380000394", price: 8000, sold: false },
+        { uid: "17380000405", price: 8000, sold: false },
+        { uid: "17380000548", price: 8000, sold: false },
+        { uid: "17380000553", price: 13000, sold: false },
+        { uid: "17380000910", price: 13000, sold: false },
+        { uid: "17380000590", price: 8000, sold: false },
+        { uid: "17380000839", price: 8000, sold: false },
+        { uid: "17380000722", price: 10000, sold: false },
+        { uid: "17380000923", price: 8000, sold: false },
+        { uid: "17380000655", price: 11000, sold: false },
+        { uid: "17380083333", price: 13000, sold: false },
+        { uid: "17380162222", price: 6000, sold: false },
+        { uid: "17380222250", price: 4000, sold: false },
+        { uid: "17380222285", price: 4000, sold: false },
+        { uid: "17380249999", price: 5000, sold: false },
+        { uid: "17380555525", price: 10000, sold: false },
+        { uid: "17380563333", price: 3000, sold: false },
+        { uid: "17380888886", price: 35000, sold: false },
+        { uid: "17380963333", price: 3000, sold: false },
+        { uid: "17381111093", price: 2000, sold: false },
+        { uid: "17381111822", price: 2000, sold: false },
+        { uid: "17381111552", price: 2000, sold: false },
+        { uid: "17381111484", price: 2000, sold: false },
+        { uid: "17381111111", price: 65000, sold: false },
+        { uid: "17381111773", price: 10000, sold: false },
+        { uid: "17381111770", price: 10000, sold: false },
+        { uid: "17381111820", price: 3000, sold: false },
+        { uid: "17381142222", price: 10000, sold: false },
+        { uid: "17381234444", price: 10000, sold: false },
+        { uid: "17381512222", price: 10000, sold: false },
+        { uid: "17381599992", price: 5000, sold: false },
+        { uid: "17381603333", price: 3000, sold: false },
+        { uid: "17381665555", price: 10000, sold: false },
+        { uid: "17381666669", price: 15000, sold: false },
+        { uid: "17381866669", price: 13000, sold: false },
+        { uid: "17382122229", price: 13000, sold: false },
+        { uid: "17382300007", price: 5000, sold: false },
+        { uid: "17382333359", price: 3000, sold: false },
+        { uid: "17382333350", price: 5000, sold: false },
+        { uid: "17382335555", price: 10000, sold: false },
+        { uid: "17382466660", price: 10000, sold: false },
+        { uid: "17382666662", price: 10000, sold: false },
+        { uid: "17382788880", price: 7000, sold: false },
+        { uid: "17382851111", price: 3000, sold: false },
+        { uid: "17382999927", price: 4000, sold: false },
+        { uid: "17383146666", price: 4000, sold: false },
+        { uid: "17383311110", price: 10000, sold: false },
+        { uid: "17383322225", price: 20000, sold: false },
+        { uid: "17383346666", price: 10000, sold: false },
+        { uid: "17383433331", price: 10000, sold: false },
+        { uid: "17383466662", price: 4000, sold: false },
+        { uid: "17383672222", price: 2000, sold: false },
+        { uid: "17383737777", price: 2000, sold: false },
+        { uid: "17383888826", price: 13000, sold: false },
+        { uid: "17384773333", price: 10000, sold: false },
+        { uid: "17384888833", price: 8000, sold: false },
+        { uid: "17384888883", price: 8000, sold: false },
+        { uid: "17384888870", price: 6000, sold: false },
+        { uid: "17384999966", price: 10000, sold: false },
+        { uid: "17385000078", price: 8000, sold: false },
+        { uid: "17385006666", price: 15000, sold: false },
+        { uid: "17385084444", price: 5000, sold: false },
+        { uid: "17385111162", price: 4000, sold: false },
+        { uid: "17385444479", price: 2000, sold: false },
+        { uid: "17385444476", price: 2000, sold: false },
+        { uid: "17385444459", price: 2000, sold: false },
+        { uid: "17385444478", price: 2000, sold: false },
+        { uid: "17385555024", price: 3000, sold: false },
+        { uid: "17385555141", price: 10000, sold: false },
+        { uid: "17385555116", price: 8000, sold: false },
+        { uid: "17385555090", price: 15000, sold: false },
+        { uid: "17385555205", price: 13000, sold: false },
+        { uid: "17385555188", price: 30000, sold: false },
+        { uid: "17385555266", price: 7000, sold: false },
+        { uid: "17385555240", price: 7000, sold: false },
+        { uid: "17385555232", price: 7000, sold: false },
+        { uid: "17385555373", price: 7000, sold: false },
+        { uid: "17385555243", price: 7000, sold: false },
+        { uid: "17385555309", price: 7000, sold: false },
+        { uid: "17385555381", price: 7000, sold: false },
+        { uid: "17385555317", price: 7000, sold: false },
+        { uid: "17385555334", price: 10000, sold: false },
+        { uid: "17385555345", price: 7000, sold: false },
+        { uid: "17385555544", price: 25000, sold: false },
+        { uid: "17385555453", price: 7000, sold: false },
+        { uid: "17385555399", price: 7000, sold: false },
+        { uid: "17385555422", price: 7000, sold: false },
+        { uid: "17385555723", price: 7000, sold: false },
+        { uid: "17385555844", price: 10000, sold: false },
+        { uid: "17385555558", price: 75000, sold: false },
+        { uid: "17385555614", price: 8000, sold: false },
+        { uid: "17385555706", price: 7000, sold: false },
+        { uid: "17385762222", price: 2000, sold: false },
+        { uid: "17385855554", price: 4000, sold: false },
+        { uid: "17385900009", price: 8000, sold: false },
+        { uid: "17385999964", price: 4000, sold: false },
+        { uid: "17386000034", price: 5000, sold: false },
+        { uid: "17386000033", price: 5000, sold: false },
+        { uid: "17386111156", price: 2000, sold: false },
+        { uid: "17386311110", price: 6000, sold: false },
+        { uid: "17386651111", price: 6000, sold: false },
+        { uid: "17386803333", price: 2000, sold: false },
+        { uid: "17386807777", price: 2000, sold: false },
+        { uid: "17386911112", price: 2000, sold: false },
+        { uid: "17386999992", price: 5000, sold: false },
+        { uid: "17387111138", price: 2000, sold: false },
+        { uid: "17387144444", price: 8000, sold: false },
+        { uid: "17387199991", price: 7000, sold: false },
+        { uid: "17387199993", price: 7000, sold: false },
+        { uid: "17387224444", price: 8000, sold: false },
+        { uid: "17387333325", price: 2000, sold: false },
+        { uid: "17387401111", price: 3000, sold: false },
+        { uid: "17387555554", price: 7000, sold: false },
+        { uid: "17387555538", price: 7000, sold: false },
+        { uid: "17387666606", price: 10000, sold: false },
+        { uid: "17387666692", price: 4000, sold: false },
+        { uid: "17387777381", price: 3000, sold: false },
+        { uid: "17387777166", price: 3000, sold: false },
+        { uid: "17387777815", price: 3000, sold: false },
+        { uid: "17387833330", price: 7000, sold: false },
+        { uid: "17387888849", price: 3000, sold: false },
+        { uid: "17387913333", price: 3000, sold: false },
+        { uid: "17387950000", price: 3000, sold: false },
+        { uid: "17388000094", price: 10000, sold: false },
+        { uid: "17388000091", price: 10000, sold: false },
+        { uid: "17388022229", price: 14000, sold: false },
+        { uid: "17388022227", price: 14000, sold: false },
+        { uid: "17388022221", price: 14000, sold: false },
+        { uid: "17388030000", price: 20000, sold: false },
+        { uid: "17388107777", price: 20000, sold: false },
+        { uid: "17388111119", price: 25000, sold: false },
+        { uid: "17388199995", price: 15000, sold: false },
+        { uid: "17388215555", price: 10000, sold: false },
+        { uid: "17388444432", price: 10000, sold: false },
+        { uid: "17388666610", price: 10000, sold: false },
+        { uid: "17388880156", price: 9000, sold: false },
+        { uid: "17388880351", price: 9000, sold: false },
+        { uid: "17388880349", price: 9000, sold: false },
+        { uid: "17388880595", price: 9000, sold: false },
+        { uid: "17388881236", price: 9000, sold: false },
+        { uid: "17388881105", price: 9000, sold: false },
+        { uid: "17388881143", price: 8000, sold: false },
+        { uid: "17388881201", price: 9000, sold: false },
+        { uid: "17388881342", price: 7000, sold: false },
+        { uid: "17388881583", price: 6000, sold: false },
+        { uid: "17388881902", price: 6000, sold: false },
+        { uid: "17388881966", price: 8000, sold: false },
+        { uid: "17388881555", price: 10000, sold: false },
+        { uid: "17388881917", price: 5000, sold: false },
+        { uid: "17388882185", price: 5000, sold: false },
+        { uid: "17388882204", price: 10000, sold: false },
+        { uid: "17388882691", price: 5000, sold: false },
+        { uid: "17388882756", price: 4000, sold: false },
+        { uid: "17388882930", price: 4000, sold: false },
+        { uid: "17388883009", price: 8000, sold: false },
+        { uid: "17388883218", price: 4000, sold: false },
+        { uid: "17388883368", price: 10000, sold: false },
+        { uid: "17388883331", price: 15000, sold: false },
+        { uid: "17388883677", price: 7000, sold: false },
+        { uid: "17388883817", price: 10000, sold: false },
+        { uid: "17388883788", price: 15000, sold: false },
+        { uid: "17388883922", price: 8000, sold: false },
+        { uid: "17388883879", price: 8000, sold: false },
+        { uid: "17388883989", price: 10000, sold: false },
+        { uid: "17388884009", price: 14000, sold: false },
+        { uid: "17388999960", price: 15000, sold: false },
+        { uid: "17389011118", price: 4000, sold: false },
+        { uid: "17389111111", price: 10000, sold: false },
+        { uid: "17389222257", price: 4000, sold: false },
+        { uid: "17389222297", price: 4000, sold: false },
+        { uid: "17389322223", price: 4000, sold: false },
+        { uid: "17389433333", price: 4000, sold: false },
+        { uid: "17389477774", price: 4000, sold: false },
+        { uid: "17389855553", price: 4000, sold: false },
+        { uid: "17389899992", price: 7000, sold: false },
+        { uid: "17389936666", price: 10000, sold: false },
+        { uid: "17390063333", price: 10000, sold: false },
+        { uid: "17390111127", price: 8000, sold: false },
+        { uid: "17390111115", price: 15000, sold: false },
+        { uid: "17390200008", price: 10000, sold: false },
+        { uid: "17390208888", price: 7000, sold: false },
+        { uid: "17390344446", price: 5000, sold: false },
+        { uid: "17390437777", price: 4000, sold: false },
+        { uid: "17390555507", price: 8000, sold: false },
+        { uid: "17390700003", price: 6000, sold: false },
+        { uid: "17390740000", price: 8000, sold: false },
+        { uid: "17390894444", price: 4000, sold: false },
+        { uid: "17391133337", price: 10000, sold: false },
+        { uid: "17391188888", price: 15000, sold: false },
+        { uid: "17391221111", price: 15000, sold: false },
+        { uid: "17391270000", price: 8000, sold: false },
+        { uid: "17391299990", price: 8000, sold: false },
+        { uid: "17391392222", price: 4000, sold: false },
+        { uid: "17391533338", price: 4000, sold: false },
+        { uid: "17391588883", price: 4000, sold: false },
+        { uid: "17391605555", price: 4000, sold: false },
+        { uid: "17391799993", price: 4000, sold: false },
+        { uid: "17391999916", price: 9000, sold: false },
+        { uid: "17391999976", price: 9000, sold: false },
+        { uid: "17392222148", price: 4000, sold: false },
+        { uid: "17392222300", price: 15000, sold: false },
+        { uid: "17392444474", price: 9000, sold: false },
+        { uid: "17392577779", price: 3000, sold: false },
+        { uid: "17392588885", price: 3000, sold: false },
+        { uid: "17392666699", price: 4000, sold: false },
+        { uid: "17392722224", price: 3000, sold: false },
+        { uid: "17392900004", price: 3000, sold: false },
+        { uid: "17392948888", price: 3000, sold: false },
+        { uid: "17392999928", price: 3000, sold: false },
+        { uid: "17393000009", price: 4000, sold: false },
+        { uid: "17393042222", price: 2000, sold: false },
+        { uid: "17393271111", price: 2000, sold: false },
+        { uid: "17393482222", price: 2000, sold: false },
+        { uid: "17393666699", price: 9000, sold: false },
+        { uid: "17393716666", price: 2000, sold: false },
+        { uid: "17393744441", price: 3000, sold: false },
+        { uid: "17393888835", price: 4000, sold: false },
+        { uid: "17393888873", price: 3000, sold: false },
+        { uid: "17393888871", price: 3000, sold: false },
+        { uid: "17394019999", price: 5000, sold: false },
+        { uid: "17394043333", price: 10000, sold: false },
+        { uid: "17394044443", price: 10000, sold: false },
+        { uid: "17394111173", price: 4000, sold: false },
+        { uid: "17394111109", price: 4000, sold: false },
+        { uid: "17394322220", price: 3000, sold: false },
+        { uid: "17394657777", price: 2000, sold: false },
+        { uid: "17394888820", price: 4000, sold: false },
+        { uid: "17394977777", price: 4000, sold: false },
+        { uid: "17395083333", price: 2000, sold: false },
+        { uid: "17395093333", price: 2000, sold: false },
+        { uid: "17395098888", price: 2000, sold: false },
+        { uid: "17395311119", price: 2000, sold: false },
+        { uid: "17395333326", price: 2000, sold: false },
+        { uid: "17395411111", price: 3000, sold: false },
+        { uid: "17395455559", price: 2000, sold: false },
+        { uid: "17395455558", price: 2000, sold: false },
+        { uid: "17395480000", price: 3000, sold: false },
+        { uid: "17395555382", price: 2000, sold: false },
+        { uid: "17395591111", price: 4000, sold: false },
+        { uid: "17395666658", price: 5000, sold: false },
+        { uid: "17395887777", price: 3000, sold: false },
+        { uid: "17395943333", price: 3000, sold: false },
+        { uid: "17395988889", price: 2000, sold: false },
+        { uid: "17396133330", price: 3000, sold: false },
+        { uid: "17396192222", price: 4000, sold: false },
+        { uid: "17396300000", price: 10000, sold: false },
+        { uid: "17396377776", price: 2000, sold: false },
+        { uid: "17396444493", price: 2000, sold: false },
+        { uid: "17396541111", price: 2000, sold: false },
+        { uid: "17396555521", price: 2000, sold: false },
+        { uid: "17396666644", price: 10000, sold: false },
+        { uid: "17396666837", price: 3000, sold: false },
+        { uid: "17396666832", price: 2000, sold: false },
+        { uid: "17396777722", price: 4000, sold: false },
+        { uid: "17396888856", price: 4000, sold: false },
+        { uid: "17396922229", price: 2000, sold: false },
+        { uid: "17396922224", price: 3000, sold: false },
+        { uid: "17397000073", price: 4000, sold: false },
+        { uid: "17397000049", price: 4000, sold: false },
+        { uid: "17397000079", price: 4000, sold: false },
+        { uid: "17397377777", price: 10000, sold: false },
+        { uid: "17397410000", price: 4000, sold: false },
+        { uid: "17397477776", price: 3000, sold: false },
+        { uid: "17397519999", price: 3000, sold: false },
+        { uid: "17397865555", price: 3000, sold: false },
+        { uid: "17398122220", price: 5000, sold: false },
+        { uid: "17398180000", price: 5000, sold: false },
+        { uid: "17398284444", price: 5000, sold: false },
+        { uid: "17398311119", price: 2000, sold: false },
+        { uid: "17398320000", price: 4000, sold: false },
+        { uid: "17398377775", price: 2000, sold: false },
+        { uid: "17398433330", price: 3000, sold: false },
+        { uid: "17398488881", price: 5000, sold: false },
+        { uid: "17398674444", price: 2000, sold: false },
+        { uid: "17398702222", price: 2000, sold: false },
+        { uid: "17398785555", price: 3000, sold: false },
+        { uid: "17398911118", price: 2000, sold: false },
+        { uid: "17399000095", price: 4000, sold: false },
+        { uid: "17398999905", price: 10000, sold: false },
+        { uid: "17398999983", price: 5000, sold: false },
+        { uid: "17399000085", price: 10000, sold: false },
+        { uid: "17399333338", price: 10000, sold: false },
+        { uid: "17399777711", price: 20000, sold: false },
+        { uid: "17399840000", price: 20000, sold: false },
+        { uid: "17399992403", price: 3000, sold: false },
+        { uid: "17399992882", price: 8000, sold: false },
+        { uid: "17399993072", price: 6000, sold: false },
+        { uid: "17399993085", price: 5000, sold: false },
+        { uid: "17399992786", price: 5000, sold: false },
+        { uid: "17399993086", price: 5000, sold: false },
+        { uid: "17399993188", price: 8000, sold: false },
+        { uid: "17399993521", price: 4000, sold: false },
+        { uid: "17399993105", price: 3000, sold: false },
+        { uid: "17399993576", price: 3000, sold: false },
+        { uid: "17399993547", price: 3000, sold: false },
+        { uid: "17399993213", price: 3000, sold: false },
+        { uid: "17399993725", price: 3000, sold: false },
+        { uid: "17399993734", price: 3000, sold: false },
+        { uid: "17399993779", price: 3000, sold: false },
+        { uid: "17399993631", price: 3000, sold: false },
+        { uid: "17399993766", price: 4000, sold: false },
+        { uid: "17399994201", price: 4000, sold: false },
+        { uid: "173999937833", price: 2000, sold: false },
+        { uid: "17399994292", price: 4000, sold: false },
+        { uid: "17399995042", price: 4000, sold: false },
+        { uid: "17399994918", price: 3000, sold: false },
+        { uid: "17399994269", price: 3000, sold: false },
+        { uid: "17399995691", price: 3000, sold: false },
+        { uid: "17399995867", price: 3000, sold: false },
+        { uid: "17399996578", price: 3000, sold: false },
+        { uid: "17399997329", price: 3000, sold: false },
+        { uid: "17399996159", price: 3000, sold: false },
+        { uid: "17399996361", price: 3000, sold: false },
+        { uid: "17399997346", price: 3000, sold: false },
+        { uid: "17399997465", price: 3000, sold: false },
+        { uid: "17399997570", price: 3000, sold: false },
+        { uid: "17399997893", price: 3000, sold: false },
+        { uid: "17399997922", price: 3000, sold: false },
+        { uid: "17400001215", price: 8000, sold: false },
+        { uid: "17400001410", price: 9000, sold: false },
+        { uid: "17400001217", price: 7000, sold: false },
+        { uid: "17400001213", price: 7000, sold: false },
+        { uid: "17400001445", price: 10000, sold: false },
+        { uid: "17400001489", price: 5000, sold: false },
+        { uid: "17400001609", price: 4000, sold: false },
+        { uid: "17400001771", price: 10000, sold: false },
+        { uid: "17400001690", price: 3000, sold: false },
+        { uid: "17400001767", price: 10000, sold: false },
+        { uid: "17400001715", price: 9000, sold: false },
+        { uid: "17400001931", price: 3000, sold: false },
+        { uid: "17400001672", price: 3000, sold: false },
+        { uid: "17400002179", price: 3000, sold: false },
+        { uid: "17400001990", price: 10000, sold: false },
+        { uid: "17400001841", price: 4000, sold: false },
+        { uid: "17400002322", price: 10000, sold: false },
+        { uid: "17400002426", price: 9000, sold: false },
+        { uid: "17400002958", price: 7000, sold: false },
+        { uid: "17400002517", price: 3000, sold: false },
+        { uid: "17400002771", price: 10000, sold: false },
+        { uid: "17400002773", price: 10000, sold: false },
+        { uid: "17400003625", price: 3000, sold: false },
+        { uid: "17400004788", price: 4000, sold: false },
+        { uid: "17400004944", price: 9000, sold: false },
+        { uid: "17400004830", price: 4000, sold: false },
+        { uid: "17400005112", price: 9000, sold: false },
+        { uid: "17400004926", price: 3000, sold: false },
+        { uid: "17400005340", price: 3000, sold: false },
+        { uid: "17400005344", price: 4000, sold: false },
+        { uid: "17400005167", price: 3000, sold: false },
+        { uid: "17400005593", price: 4000, sold: false },
+        { uid: "17400006095", price: 7000, sold: false },
+        { uid: "17400006299", price: 4000, sold: false },
+        { uid: "17400006330", price: 9000, sold: false },
+        { uid: "17400006590", price: 4000, sold: false },
+        { uid: "17400006546", price: 5000, sold: false },
+        { uid: "17400006679", price: 4000, sold: false },
+        { uid: "17400006800", price: 9000, sold: false },
+        { uid: "17400006881", price: 10000, sold: false },
+        { uid: "17400006964", price: 4000, sold: false },
+        { uid: "17400006932", price: 4000, sold: false },
+        { uid: "17400006989", price: 4000, sold: false },
+        { uid: "17400007024", price: 9000, sold: false },
+        { uid: "17400007422", price: 3000, sold: false },
+        { uid: "17400007257", price: 3000, sold: false },
+        { uid: "17400007433", price: 3000, sold: false },
+        { uid: "17400008026", price: 8000, sold: false },
+        { uid: "17400008170", price: 10000, sold: false },
+        { uid: "17400008137", price: 4000, sold: false },
+        { uid: "17400008171", price: 13000, sold: false },
+        { uid: "17400008228", price: 11000, sold: false },
+        { uid: "17400008450", price: 3000, sold: false },
+        { uid: "17400008298", price: 3000, sold: false },
+        { uid: "17400008449", price: 6000, sold: false },
+        { uid: "17400008650", price: 4000, sold: false },
+        { uid: "17400008606", price: 8000, sold: false },
+        { uid: "17400008763", price: 4000, sold: false },
+        { uid: "17400008900", price: 15000, sold: false },
+        { uid: "17400009004", price: 20000, sold: false },
+        { uid: "17400009217", price: 4000, sold: false },
+        { uid: "17400009301", price: 4000, sold: false },
+        { uid: "17400009293", price: 4000, sold: false },
+        { uid: "17400009633", price: 5000, sold: false },
+        { uid: "17400009671", price: 3000, sold: false },
+        { uid: "17400009866", price: 4000, sold: false },
+        { uid: "17400066668", price: 25000, sold: false },
+        { uid: "17400066669", price: 25000, sold: false },
+        { uid: "17400111160", price: 15000, sold: false },
+        { uid: "17400111163", price: 13000, sold: false },
+        { uid: "17400118888", price: 30000, sold: false },
+        { uid: "17400199995", price: 25000, sold: false },
+        { uid: "17400200008", price: 35000, sold: false },
+        { uid: "17400328888", price: 13000, sold: false },
+        { uid: "17400333319", price: 14000, sold: false },
+        { uid: "17400444431", price: 14000, sold: false },
+        { uid: "17400555528", price: 13000, sold: false },
+        { uid: "17400733336", price: 5000, sold: false },
+        { uid: "17400733333", price: 10000, sold: false },
+        { uid: "17400757777", price: 10000, sold: false },
+        { uid: "17400868888", price: 13000, sold: false },
+        { uid: "17400920000", price: 15000, sold: false },
+        { uid: "17400999939", price: 40000, sold: false },
+        { uid: "17400999966", price: 45000, sold: false },
+        { uid: "17401000003", price: 45000, sold: false },
+        { uid: "17401081111", price: 30000, sold: false },
+        { uid: "17401111203", price: 15000, sold: false },
+        { uid: "17401111220", price: 20000, sold: false },
+        { uid: "17401111172", price: 20000, sold: false },
+        { uid: "17401111216", price: 20000, sold: false },
+        { uid: "17401111636", price: 13000, sold: false },
+        { uid: "17401111340", price: 4000, sold: false },
+        { uid: "17401111512", price: 4000, sold: false },
+        { uid: "17401111614", price: 4000, sold: false },
+        { uid: "17401111576", price: 4000, sold: false },
+        { uid: "17401111733", price: 8000, sold: false },
+        { uid: "17401111566", price: 8000, sold: false },
+        { uid: "17401111881", price: 20000, sold: false },
+        { uid: "17401111976", price: 4000, sold: false },
+        { uid: "17401111977", price: 8000, sold: false },
+        { uid: "17401111792", price: 4000, sold: false },
+        { uid: "17401111982", price: 4000, sold: false },
+        { uid: "17401111970", price: 5000, sold: false },
+        { uid: "17401544447", price: 6000, sold: false },
+        { uid: "17401636666", price: 6000, sold: false },
+        { uid: "17401800006", price: 8000, sold: false },
+        { uid: "17401803333", price: 6000, sold: false },
+        { uid: "17401999970", price: 8000, sold: false },
+        { uid: "17402000025", price: 10000, sold: false },
+        { uid: "17402077775", price: 8000, sold: false },
+        { uid: "17402222098", price: 6000, sold: false },
+        { uid: "17402222486", price: 3000, sold: false },
+        { uid: "17402222257", price: 3000, sold: false },
+        { uid: "17402222813", price: 3000, sold: false },
+        { uid: "17402222676", price: 3000, sold: false },
+        { uid: "17402222585", price: 3000, sold: false },
+        { uid: "17402222904", price: 3000, sold: false },
+        { uid: "17402222935", price: 3000, sold: false },
+        { uid: "17402222788", price: 6000, sold: false },
+        { uid: "17402222831", price: 4000, sold: false },
+        { uid: "17402311114", price: 3000, sold: false },
+        { uid: "17402322225", price: 5000, sold: false },
+        { uid: "17402352222", price: 5000, sold: false },
+        { uid: "17402588887", price: 4000, sold: false },
+        { uid: "17402672222", price: 5000, sold: false },
+        { uid: "17402744447", price: 5000, sold: false },
+        { uid: "17402800000", price: 9000, sold: false },
+        { uid: "17402856666", price: 5000, sold: false },
+        { uid: "17403077777", price: 5000, sold: false },
+        { uid: "17403099990", price: 9000, sold: false },
+        { uid: "17403133330", price: 4000, sold: false },
+        { uid: "17403262222", price: 8000, sold: false },
+        { uid: "17403300005", price: 10000, sold: false },
+        { uid: "17403533333", price: 10000, sold: false },
+        { uid: "17403533335", price: 10000, sold: false },
+        { uid: "17403594444", price: 4000, sold: false },
+        { uid: "17403653333", price: 4000, sold: false },
+        { uid: "17403777788", price: 10000, sold: false },
+        { uid: "17403777770", price: 14000, sold: false },
+        { uid: "17403777782", price: 4000, sold: false },
+        { uid: "17403888873", price: 7000, sold: false },
+        { uid: "17403905555", price: 7000, sold: false },
+        { uid: "17403908888", price: 7000, sold: false },
+        { uid: "17403966669", price: 4000, sold: false },
+        { uid: "17404041111", price: 15000, sold: false },
+        { uid: "17404333393", price: 13000, sold: false },
+        { uid: "17404444324", price: 13000, sold: false },
+        { uid: "17404444464", price: 40000, sold: false },
+        { uid: "17404444585", price: 5000, sold: false },
+        { uid: "17404444414", price: 85000, sold: false },
+        { uid: "17404444248", price: 6000, sold: false },
+        { uid: "17404444581", price: 6000, sold: false },
+        { uid: "17404444469", price: 8000, sold: false },
+        { uid: "17404444431", price: 8000, sold: false },
+        { uid: "17404444763", price: 6000, sold: false },
+        { uid: "17404444679", price: 6000, sold: false },
+        { uid: "17404444587", price: 6000, sold: false },
+        { uid: "17404444693", price: 6000, sold: false },
+        { uid: "17404444682", price: 6000, sold: false },
+        { uid: "17404444724", price: 6000, sold: false },
+        { uid: "17404444666", price: 15000, sold: false },
+        { uid: "17404444782", price: 4000, sold: false },
+        { uid: "17404444750", price: 3000, sold: false },
+        { uid: "17404444808", price: 10000, sold: false },
+        { uid: "17404444970", price: 4000, sold: false },
+        { uid: "17404444967", price: 3000, sold: false },
+        { uid: "17404444965", price: 3000, sold: false },
+        { uid: "17404444759", price: 4000, sold: false },
+        { uid: "17404644447", price: 10000, sold: false },
+        { uid: "17404666612", price: 10000, sold: false },
+        { uid: "17404666666", price: 35000, sold: false },
+        { uid: "17404804444", price: 15000, sold: false },
+        { uid: "17404911116", price: 5000, sold: false },
+        { uid: "17404911110", price: 5000, sold: false },
+        { uid: "17405134444", price: 5000, sold: false },
+        { uid: "17405328888", price: 4000, sold: false },
+        { uid: "17405419999", price: 3000, sold: false },
+        { uid: "17405422224", price: 3000, sold: false },
+        { uid: "17405535555", price: 45000, sold: false },
+        { uid: "17405611114", price: 5000, sold: false },
+        { uid: "17405916666", price: 5000, sold: false },
+        { uid: "17406222287", price: 4000, sold: false },
+        { uid: "17406255558", price: 3000, sold: false },
+        { uid: "17406777707", price: 8000, sold: false },
+        { uid: "17406877775", price: 4000, sold: false },
+        { uid: "17406922221", price: 4000, sold: false },
+        { uid: "17407141111", price: 4000, sold: false },
+        { uid: "17407329999", price: 3000, sold: false },
+        { uid: "17407387777", price: 4000, sold: false },
+        { uid: "17407444456", price: 5000, sold: false },
+        { uid: "17407666698", price: 4000, sold: false },
+        { uid: "17407777875", price: 5000, sold: false },
+        { uid: "17413516666", price: 3000, sold: false },
+        { uid: "17413555548", price: 3000, sold: false },
+        { uid: "17413627777", price: 3000, sold: false },
+        { uid: "17413647777", price: 3000, sold: false },
+        { uid: "17413766668", price: 3000, sold: false },
+        { uid: "17413855557", price: 6000, sold: false },
+        { uid: "17413867777", price: 6000, sold: false },
+        { uid: "17413888880", price: 30000, sold: false },
+        { uid: "17413888885", price: 30000, sold: false },
+        { uid: "17413922229", price: 9000, sold: false },
+        { uid: "17413999937", price: 8000, sold: false },
+        { uid: "17413999970", price: 6000, sold: false },
+        { uid: "17414233336", price: 4000, sold: false },
+        { uid: "17414233338", price: 4000, sold: false },
+        { uid: "17414352222", price: 3000, sold: false },
+        { uid: "17414444000", price: 65000, sold: false },
+        { uid: "17414444080", price: 35000, sold: false },
+        { uid: "17414444785", price: 4000, sold: false },
+        { uid: "17414444735", price: 5000, sold: false },
+        { uid: "17414888877", price: 10000, sold: false },
+        { uid: "17414888818", price: 15000, sold: false },
+        { uid: "17414888886", price: 13000, sold: false },
+        { uid: "17415095555", price: 6000, sold: false },
+        { uid: "17415199993", price: 4000, sold: false },
+        { uid: "17415222283", price: 4000, sold: false },
+        { uid: "17415299998", price: 4000, sold: false },
+        { uid: "17415366661", price: 4000, sold: false },
+        { uid: "17415433339", price: 3000, sold: false },
+        { uid: "17415433334", price: 3000, sold: false },
+        { uid: "17415433338", price: 3000, sold: false },
+        { uid: "17415533331", price: 7000, sold: false },
+        { uid: "17415555189", price: 5000, sold: false },
+        { uid: "17416077770", price: 10000, sold: false },
+        { uid: "17416111162", price: 4000, sold: false },
+        { uid: "17416182222", price: 4000, sold: false },
+        { uid: "17416362222", price: 4000, sold: false },
+        { uid: "17416366664", price: 4000, sold: false },
+        { uid: "17416863333", price: 4000, sold: false },
+        { uid: "17417114444", price: 10000, sold: false },
+        { uid: "17417233331", price: 4000, sold: false },
+        { uid: "17417313333", price: 8000, sold: false },
+        { uid: "17417800001", price: 6000, sold: false },
+        { uid: "17418233337", price: 4000, sold: false },
+        { uid: "17418266665", price: 4000, sold: false },
+        { uid: "17418430000", price: 4000, sold: false },
+        { uid: "17418488880", price: 25000, sold: false },
+        { uid: "17418535555", price: 25000, sold: false },
+        { uid: "17418711111", price: 20000, sold: false },
+        { uid: "17418888521", price: 8000, sold: false },
+        { uid: "17418955553", price: 5000, sold: false },
+        { uid: "17419222252", price: 5000, sold: false },
+        { uid: "17419333378", price: 4000, sold: false },
+        { uid: "17419977775", price: 8000, sold: false },
+        { uid: "17420769999", price: 4000, sold: false },
+        { uid: "17420834444", price: 5000, sold: false },
+        { uid: "17420922223", price: 5000, sold: false },
+        { uid: "17420955556", price: 4000, sold: false },
+        { uid: "17375000057", price: 7000, sold: false },
+        { uid: "17375221111", price: 8000, sold: false },
+        { uid: "17375306666", price: 4000, sold: false },
+        { uid: "17375367777", price: 4000, sold: false },
+        { uid: "17375377777", price: 5000, sold: false },
+        { uid: "17375411112", price: 4000, sold: false },
+        { uid: "17375434444", price: 5000, sold: false },
+        { uid: "17375555031", price: 5000, sold: false },
+        { uid: "17375555289", price: 4000, sold: false },
+        { uid: "17375555213", price: 4000, sold: false },
+        { uid: "17375555352", price: 4000, sold: false },
+        { uid: "17375555355", price: 45000, sold: false },
+        { uid: "17375555567", price: 15000, sold: false },
+        { uid: "17375555497", price: 13000, sold: false },
+        { uid: "17375555423", price: 8000, sold: false },
+        { uid: "17375555584", price: 13000, sold: false },
+        { uid: "17375555985", price: 12000, sold: false },
+        { uid: "17375975555", price: 5000, sold: false },
+        { uid: "17376088881", price: 5000, sold: false },
+        { uid: "17376133331", price: 5000, sold: false },
+        { uid: "17376133334", price: 5000, sold: false },
+        { uid: "17376222286", price: 4000, sold: false },
+        { uid: "17376222206", price: 9000, sold: false },
+        { uid: "17376222290", price: 5000, sold: false },
+        { uid: "17376222240", price: 5000, sold: false },
+        { uid: "17376447777", price: 9000, sold: false },
+        { uid: "17376576666", price: 4000, sold: false },
+        { uid: "17376666351", price: 4000, sold: false },
+        { uid: "17376666477", price: 10000, sold: false },
+        { uid: "17376726666", price: 4000, sold: false },
+        { uid: "17377555513", price: 4000, sold: false },
+        { uid: "17377555557", price: 10000, sold: false },
+        { uid: "17377555504", price: 10000, sold: false },
+        { uid: "17377744441", price: 25000, sold: false },
+        { uid: "17377744446", price: 25000, sold: false },
+        { uid: "17377745555", price: 40000, sold: false },
+        { uid: "17377770943", price: 10000, sold: false },
+        { uid: "17377770250", price: 13000, sold: false },
+        { uid: "17377771755", price: 13000, sold: false },
+        { uid: "17377771745", price: 12000, sold: false },
+        { uid: "17377771592", price: 8000, sold: false },
+        { uid: "17377771718", price: 10000, sold: false },
+        { uid: "17377771129", price: 12000, sold: false },
+        { uid: "17377773805", price: 8000, sold: false },
+        { uid: "17377773424", price: 8000, sold: false },
+        { uid: "17377775143", price: 5000, sold: false },
+        { uid: "17377773277", price: 5000, sold: false },
+        { uid: "17377776338", price: 10000, sold: false },
+        { uid: "17377776803", price: 5000, sold: false },
+        { uid: "17377777127", price: 15000, sold: false },
+        { uid: "17377777641", price: 8000, sold: false },
+        { uid: "17377777848", price: 25000, sold: false },
+        { uid: "17377777584", price: 20000, sold: false },
+        { uid: "17377777519", price: 8000, sold: false },
+        { uid: "17377777984", price: 8000, sold: false },
+        { uid: "17377778609", price: 4000, sold: false },
+        { uid: "17377778402", price: 4000, sold: false },
+        { uid: "17377778853", price: 7000, sold: false },
+        { uid: "17377779046", price: 4000, sold: false },
+        { uid: "17377779068", price: 5000, sold: false },
+        { uid: "17377778378", price: 4000, sold: false },
+        { uid: "17377779561", price: 4000, sold: false },
+        { uid: "17377779367", price: 4000, sold: false },
+        { uid: "17377888805", price: 10000, sold: false },
+        { uid: "17378406666", price: 9000, sold: false },
+        { uid: "17378581111", price: 4000, sold: false },
+        { uid: "17378633331", price: 4000, sold: false },
+        { uid: "17378709999", price: 4000, sold: false },
+        { uid: "17378777770", price: 15000, sold: false },
+        { uid: "17378777766", price: 15000, sold: false },
+        { uid: "17378796666", price: 3000, sold: false },
+        { uid: "17379000035", price: 6000, sold: false },
+        { uid: "17379158888", price: 5000, sold: false },
+        { uid: "17379199997", price: 8000, sold: false },
+        { uid: "17379550000", price: 15000, sold: false },
+        { uid: "17379611119", price: 4000, sold: false },
+        { uid: "17379676666", price: 5000, sold: false },
+        { uid: "17379999400", price: 10000, sold: false },
+        { uid: "17379999568", price: 4000, sold: false },
+        { uid: "17379999772", price: 10000, sold: false },
+        { uid: "17380000103", price: 10000, sold: false },
+        { uid: "17380000626", price: 4000, sold: false },
+        { uid: "17380000473", price: 4000, sold: false },
+        { uid: "17380000526", price: 4000, sold: false },
+        { uid: "17380000884", price: 10000, sold: false },
+        { uid: "17380000982", price: 5000, sold: false },
+        { uid: "17380028888", price: 15000, sold: false },
+        { uid: "17380222226", price: 15000, sold: false },
+        { uid: "17380222278", price: 15000, sold: false },
+        { uid: "17380256666", price: 10000, sold: false },
+        { uid: "17380288888", price: 15000, sold: false },
+        { uid: "17380288881", price: 15000, sold: false },
+        { uid: "17380555534", price: 14000, sold: false },
+        { uid: "17380555589", price: 14000, sold: false },
+        { uid: "17380589999", price: 10000, sold: false },
+        { uid: "17380617777", price: 8000, sold: false },
+        { uid: "17380711117", price: 10000, sold: false },
+        { uid: "17380777718", price: 10000, sold: false },
+        { uid: "17380777726", price: 8000, sold: false },
+        { uid: "17380777782", price: 8000, sold: false },
+        { uid: "17380833333", price: 25000, sold: false },
+        { uid: "17380888893", price: 20000, sold: false },
+        { uid: "17380952222", price: 7000, sold: false },
+        { uid: "17381055554", price: 10000, sold: false },
+        { uid: "17381111230", price: 13000, sold: false },
+        { uid: "17381171111", price: 13000, sold: false },
+        { uid: "17381211113", price: 11000, sold: false },
+        { uid: "17381443333", price: 20000, sold: false },
+        { uid: "17381515555", price: 25000, sold: false },
+        { uid: "17381630000", price: 9000, sold: false },
+        { uid: "17381750000", price: 10000, sold: false },
+        { uid: "17381996666", price: 20000, sold: false },
+        { uid: "17382060000", price: 25000, sold: false },
+        { uid: "17382333319", price: 12000, sold: false },
+        { uid: "17382333345", price: 12000, sold: false },
+        { uid: "17382333325", price: 12000, sold: false },
+        { uid: "17382333357", price: 10000, sold: false },
+        { uid: "17382555587", price: 10000, sold: false },
+        { uid: "17382644445", price: 4000, sold: false },
+        { uid: "17382733337", price: 4000, sold: false },
+        { uid: "17382888893", price: 5000, sold: false },
+        { uid: "17382888817", price: 7000, sold: false },
+        { uid: "17382888861", price: 7000, sold: false },
+        { uid: "17382999918", price: 6000, sold: false },
+        { uid: "17383000009", price: 10000, sold: false },
+        { uid: "17383111196", price: 5000, sold: false },
+        { uid: "17383322221", price: 20000, sold: false },
+        { uid: "17383555581", price: 15000, sold: false },
+        { uid: "17383555578", price: 5000, sold: false },
+        { uid: "17383722227", price: 5000, sold: false },
+        { uid: "17383830000", price: 10000, sold: false },
+        { uid: "17383888823", price: 9000, sold: false },
+        { uid: "17383967777", price: 4000, sold: false },
+        { uid: "17384122220", price: 5000, sold: false },
+        { uid: "17384255555", price: 5000, sold: false },
+        { uid: "17384341111", price: 3000, sold: false },
+        { uid: "17384588882", price: 4000, sold: false },
+        { uid: "17384821111", price: 4000, sold: false },
+        { uid: "17384922227", price: 3000, sold: false },
+        { uid: "17385137777", price: 5000, sold: false },
+        { uid: "17385699998", price: 4000, sold: false },
+        { uid: "17385791111", price: 3000, sold: false },
+        { uid: "17385999941", price: 4000, sold: false },
+        { uid: "17386000049", price: 10000, sold: false },
+        { uid: "17386043333", price: 10000, sold: false },
+        { uid: "17386055555", price: 15000, sold: false },
+        { uid: "17386111122", price: 15000, sold: false },
+        { uid: "17386111133", price: 15000, sold: false },
+        { uid: "17386111141", price: 20000, sold: false },
+        { uid: "17386111127", price: 10000, sold: false },
+        { uid: "17386138888", price: 9000, sold: false },
+        { uid: "17386222235", price: 4000, sold: false },
+        { uid: "17386222233", price: 15000, sold: false },
+        { uid: "17386222279", price: 8000, sold: false },
+        { uid: "17386237777", price: 5000, sold: false },
+        { uid: "17386399996", price: 5000, sold: false },
+        { uid: "17386430000", price: 5000, sold: false },
+        { uid: "17386463333", price: 5000, sold: false },
+        { uid: "17386473333", price: 4000, sold: false },
+        { uid: "17386677775", price: 5000, sold: false },
+        { uid: "17386906666", price: 9000, sold: false },
+        { uid: "17386938888", price: 7000, sold: false },
+        { uid: "17386966668", price: 10000, sold: false },
+        { uid: "17386999947", price: 10000, sold: false },
+        { uid: "17387333322", price: 10000, sold: false },
+        { uid: "17387333375", price: 10000, sold: false },
+        { uid: "17387333398", price: 5000, sold: false },
+        { uid: "17387519999", price: 5000, sold: false },
+        { uid: "17387555560", price: 10000, sold: false },
+        { uid: "17387600001", price: 4000, sold: false },
+        { uid: "17387777030", price: 10000, sold: false },
+        { uid: "17387777289", price: 7000, sold: false },
+        { uid: "17387777242", price: 8000, sold: false },
+        { uid: "17387777495", price: 6000, sold: false },
+        { uid: "17387777493", price: 6000, sold: false },
+        { uid: "17387777492", price: 6000, sold: false },
+        { uid: "17387888881", price: 15000, sold: false },
+        { uid: "17387888885", price: 15000, sold: false },
+        { uid: "17387999965", price: 7000, sold: false },
+        { uid: "17388196666", price: 10000, sold: false },
+        { uid: "17388222204", price: 14000, sold: false },
+        { uid: "17388300008", price: 15000, sold: false },
+        { uid: "17388474444", price: 14000, sold: false },
+        { uid: "17388600003", price: 10000, sold: false },
+        { uid: "17388633336", price: 15000, sold: false },
+        { uid: "17388844441", price: 45000, sold: false },
+        { uid: "17388877772", price: 40000, sold: false },
+        { uid: "17388880218", price: 8000, sold: false },
+        { uid: "17388880147", price: 8000, sold: false },
+        { uid: "17388880461", price: 8000, sold: false },
+        { uid: "17388880422", price: 8000, sold: false },
+        { uid: "17388880338", price: 10000, sold: false },
+        { uid: "17388880618", price: 14000, sold: false },
+        { uid: "17388880505", price: 20000, sold: false },
+        { uid: "17388881016", price: 11000, sold: false },
+        { uid: "17388881277", price: 10000, sold: false },
+        { uid: "17388881300", price: 20000, sold: false },
+        { uid: "17388881231", price: 20000, sold: false },
+        { uid: "17388881624", price: 6000, sold: false },
+        { uid: "17388881733", price: 6000, sold: false },
+        { uid: "17388882167", price: 5000, sold: false },
+        { uid: "17388882358", price: 4000, sold: false },
+        { uid: "17388882397", price: 4000, sold: false },
+        { uid: "17388882570", price: 4000, sold: false },
+        { uid: "17388882698", price: 4000, sold: false },
+        { uid: "17388882693", price: 4000, sold: false },
+        { uid: "17388882609", price: 4000, sold: false },
+        { uid: "17388882947", price: 4000, sold: false },
+        { uid: "17388882997", price: 10000, sold: false },
+        { uid: "17388883007", price: 25000, sold: false },
+        { uid: "17388883430", price: 13000, sold: false },
+        { uid: "17388883534", price: 15000, sold: false },
+        { uid: "17388883695", price: 8000, sold: false },
+        { uid: "17388883848", price: 9000, sold: false },
+        { uid: "17388883841", price: 7000, sold: false },
+        { uid: "17388884046", price: 10000, sold: false },
+        { uid: "17388884064", price: 10000, sold: false },
+        { uid: "17388884153", price: 8000, sold: false },
+        { uid: "17389111193", price: 7000, sold: false },
+        { uid: "17389111116", price: 10000, sold: false },
+        { uid: "17389200006", price: 6000, sold: false },
+        { uid: "17389444464", price: 10000, sold: false },
+        { uid: "17389544440", price: 9000, sold: false },
+        { uid: "17389553333", price: 15000, sold: false },
+        { uid: "17389588884", price: 5000, sold: false },
+        { uid: "17390100000", price: 30000, sold: false },
+        { uid: "17390110000", price: 30000, sold: false },
+        { uid: "17390136666", price: 9000, sold: false },
+        { uid: "17390180000", price: 14000, sold: false },
+        { uid: "17390222290", price: 10000, sold: false },
+        { uid: "17390573333", price: 8000, sold: false },
+        { uid: "17390578888", price: 6000, sold: false },
+        { uid: "17390665555", price: 15000, sold: false },
+        { uid: "17390700005", price: 10000, sold: false },
+        { uid: "17390699996", price: 10000, sold: false },
+        { uid: "17390700004", price: 10000, sold: false },
+        { uid: "17390733335", price: 10000, sold: false },
+        { uid: "17390739999", price: 10000, sold: false },
+        { uid: "17390834444", price: 8000, sold: false },
+        { uid: "17390900002", price: 10000, sold: false },
+        { uid: "17391051111", price: 10000, sold: false },
+        { uid: "17391133331", price: 15000, sold: false },
+        { uid: "17391299995", price: 5000, sold: false },
+        { uid: "17391411114", price: 20000, sold: false },
+        { uid: "17391611110", price: 20000, sold: false },
+        { uid: "17391844449", price: 5000, sold: false },
+        { uid: "17391923333", price: 5000, sold: false },
+        { uid: "17391999959", price: 20000, sold: false },
+        { uid: "17391999983", price: 13000, sold: false },
+        { uid: "17392128888", price: 9000, sold: false },
+        { uid: "17392222004", price: 25000, sold: false },
+        { uid: "17392222125", price: 14000, sold: false },
+        { uid: "17392222254", price: 12000, sold: false },
+        { uid: "17392222303", price: 15000, sold: false },
+        { uid: "17392222306", price: 11000, sold: false },
+        { uid: "17392222349", price: 7000, sold: false },
+        { uid: "17392222482", price: 7000, sold: false },
+        { uid: "17392222294", price: 7000, sold: false },
+        { uid: "17392222633", price: 9000, sold: false },
+        { uid: "17392222596", price: 7000, sold: false },
+        { uid: "17392222594", price: 5000, sold: false },
+        { uid: "17392222893", price: 5000, sold: false },
+        { uid: "17392222820", price: 5000, sold: false },
+        { uid: "17392222911", price: 6000, sold: false },
+        { uid: "17392222937", price: 4000, sold: false },
+        { uid: "17392349999", price: 5000, sold: false },
+        { uid: "17392535555", price: 6000, sold: false },
+        { uid: "17392722226", price: 8000, sold: false },
+        { uid: "17392873333", price: 5000, sold: false },
+        { uid: "17392888839", price: 4000, sold: false },
+        { uid: "17392999996", price: 10000, sold: false },
+        { uid: "17393122225", price: 9000, sold: false },
+        { uid: "17393200000", price: 9000, sold: false },
+        { uid: "17393530000", price: 7000, sold: false },
+        { uid: "17393711119", price: 5000, sold: false },
+        { uid: "17393790000", price: 5000, sold: false },
+        { uid: "17394164444", price: 5000, sold: false },
+        { uid: "17394222272", price: 10000, sold: false },
+        { uid: "17394355555", price: 10000, sold: false },
+        { uid: "17394411116", price: 15000, sold: false },
+        { uid: "17394430000", price: 10000, sold: false },
+        { uid: "17394474444", price: 35000, sold: false },
+        { uid: "17394488881", price: 30000, sold: false },
+        { uid: "17394555530", price: 10000, sold: false },
+        { uid: "17394578888", price: 4000, sold: false },
+        { uid: "17394642222", price: 4000, sold: false },
+        { uid: "17394666630", price: 5000, sold: false },
+        { uid: "17394811116", price: 5000, sold: false },
+        { uid: "17395000067", price: 7000, sold: false },
+        { uid: "17395000031", price: 7000, sold: false },
+        { uid: "17395179999", price: 7000, sold: false },
+        { uid: "17395277777", price: 7000, sold: false },
+        { uid: "17395289999", price: 6000, sold: false },
+        { uid: "17395333386", price: 4000, sold: false },
+        { uid: "17395333396", price: 4000, sold: false },
+        { uid: "17395382222", price: 4000, sold: false },
+        { uid: "17395555341", price: 4000, sold: false },
+        { uid: "17395555349", price: 4000, sold: false },
+        { uid: "17395555296", price: 4000, sold: false },
+        { uid: "17395555388", price: 5000, sold: false },
+        { uid: "17395555595", price: 15000, sold: false },
+        { uid: "17395722228", price: 5000, sold: false },
+        { uid: "17395722223", price: 5000, sold: false },
+        { uid: "17395815555", price: 10000, sold: false },
+        { uid: "17395888898", price: 15000, sold: false },
+        { uid: "17396122222", price: 14000, sold: false },
+        { uid: "17396123333", price: 14000, sold: false },
+        { uid: "17396327777", price: 10000, sold: false },
+        { uid: "17396430000", price: 15000, sold: false },
+        { uid: "17396444480", price: 15000, sold: false },
+        { uid: "17396555556", price: 20000, sold: false },
+        { uid: "17396555504", price: 20000, sold: false },
+        { uid: "17396555598", price: 8000, sold: false },
+        { uid: "17396666006", price: 45000, sold: false },
+        { uid: "17396666170", price: 8000, sold: false },
+        { uid: "17396666142", price: 8000, sold: false },
+        { uid: "17396666641", price: 10000, sold: false },
+        { uid: "17396666047", price: 10000, sold: false },
+        { uid: "17396666624", price: 10000, sold: false },
+        { uid: "17396666755", price: 9000, sold: false },
+        { uid: "17396666461", price: 6000, sold: false },
+        { uid: "17396666618", price: 10000, sold: false },
+        { uid: "17396666983", price: 5000, sold: false },
+        { uid: "17396888800", price: 15000, sold: false },
+        { uid: "17396888896", price: 10000, sold: false },
+        { uid: "17397000032", price: 10000, sold: false },
+        { uid: "17397000064", price: 10000, sold: false },
+        { uid: "17397000038", price: 10000, sold: false },
+        { uid: "17397000093", price: 10000, sold: false },
+        { uid: "17397255551", price: 6000, sold: false },
+        { uid: "17397710000", price: 6000, sold: false },
+        { uid: "17397933338", price: 5000, sold: false },
+        { uid: "17398067777", price: 4000, sold: false },
+        { uid: "17398204444", price: 4000, sold: false },
+        { uid: "17398255551", price: 4000, sold: false },
+        { uid: "17398377774", price: 4000, sold: false },
+        { uid: "17398677776", price: 4000, sold: false },
+        { uid: "17398766663", price: 5000, sold: false },
+        { uid: "17398904444", price: 7000, sold: false },
+        { uid: "17398999940", price: 9000, sold: false },
+        { uid: "17398999941", price: 8000, sold: false },
+        { uid: "17399000092", price: 10000, sold: false },
+        { uid: "17399000089", price: 10000, sold: false },
+        { uid: "17399000094", price: 13000, sold: false },
+        { uid: "17399000086", price: 13000, sold: false },
+        { uid: "17399144440", price: 13000, sold: false },
+        { uid: "17399200002", price: 13000, sold: false },
+        { uid: "17399333306", price: 12000, sold: false },
+        { uid: "17399333396", price: 9000, sold: false },
+        { uid: "17399344443", price: 10000, sold: false },
+        { uid: "17399655557", price: 10000, sold: false },
+        { uid: "17399666622", price: 15000, sold: false },
+        { uid: "17399688888", price: 20000, sold: false },
+        { uid: "17399777724", price: 15000, sold: false },
+        { uid: "17399990628", price: 9000, sold: false },
+        { uid: "17399990630", price: 10000, sold: false },
+        { uid: "17399990832", price: 8000, sold: false },
+        { uid: "17399990864", price: 8000, sold: false },
+        { uid: "17399991085", price: 8000, sold: false },
+        { uid: "17399993522", price: 4000, sold: false },
+        { uid: "17399994272", price: 4000, sold: false },
+        { uid: "17399994277", price: 4000, sold: false },
+        { uid: "17399994450", price: 9000, sold: false },
+        { uid: "17399994932", price: 5000, sold: false },
+        { uid: "17399994923", price: 5000, sold: false },
+        { uid: "17399994928", price: 4000, sold: false },
+        { uid: "17399995361", price: 4000, sold: false },
+        { uid: "17399994916", price: 4000, sold: false },
+        { uid: "17399995173", price: 4000, sold: false },
+        { uid: "17399994921", price: 4000, sold: false },
+        { uid: "17399995434", price: 4000, sold: false },
+        { uid: "17399995730", price: 4000, sold: false },
+        { uid: "17399995695", price: 4000, sold: false },
+        { uid: "17399995745", price: 4000, sold: false },
+        { uid: "17399995863", price: 4000, sold: false },
+        { uid: "17399996004", price: 10000, sold: false },
+        { uid: "17399995930", price: 6000, sold: false },
+        { uid: "17399996582", price: 6000, sold: false },
+        { uid: "17399996145", price: 8000, sold: false },
+        { uid: "17399996370", price: 6000, sold: false },
+        { uid: "17399997100", price: 8000, sold: false },
+        { uid: "17400000376", price: 8000, sold: false },
+        { uid: "17400001263", price: 6000, sold: false },
+        { uid: "17400001044", price: 8000, sold: false },
+        { uid: "17400001239", price: 7000, sold: false },
+        { uid: "17400001048", price: 5000, sold: false },
+        { uid: "17400001339", price: 6000, sold: false },
+        { uid: "17400001444", price: 60000, sold: false },
+        { uid: "17400001503", price: 5000, sold: false },
+        { uid: "17400001394", price: 5000, sold: false },
+        { uid: "17400001874", price: 5000, sold: false },
+        { uid: "17400001862", price: 5000, sold: false },
+        { uid: "17400002023", price: 10000, sold: false },
+        { uid: "17400002335", price: 6000, sold: false },
+        { uid: "17400002129", price: 6000, sold: false },
+        { uid: "17400002789", price: 6000, sold: false },
+        { uid: "17400002769", price: 6000, sold: false },
+        { uid: "17400003028", price: 6000, sold: false },
+        { uid: "17400003298", price: 6000, sold: false },
+        { uid: "17400003160", price: 6000, sold: false },
+        { uid: "17400003051", price: 6000, sold: false },
+        { uid: "17400003809", price: 6000, sold: false },
+        { uid: "17400004286", price: 6000, sold: false },
+        { uid: "17400004584", price: 6000, sold: false },
+        { uid: "17400005080", price: 10000, sold: false },
+        { uid: "17400005111", price: 10000, sold: false },
+        { uid: "17400005499", price: 5000, sold: false },
+        { uid: "17400005712", price: 5000, sold: false },
+        { uid: "17400005725", price: 5000, sold: false },
+        { uid: "17400005717", price: 5000, sold: false },
+        { uid: "17400005816", price: 7000, sold: false },
+        { uid: "17400005818", price: 9000, sold: false },
+        { uid: "17400005909", price: 10000, sold: false },
+        { uid: "17400006018", price: 9000, sold: false },
+        { uid: "17400005893", price: 7000, sold: false },
+        { uid: "17400006066", price: 15000, sold: false },
+        { uid: "17400005951", price: 7000, sold: false },
+        { uid: "17400006071", price: 6000, sold: false },
+        { uid: "17400006015", price: 10000, sold: false },
+        { uid: "17400006872", price: 4000, sold: false },
+        { uid: "17400006729", price: 4000, sold: false },
+        { uid: "17400007002", price: 9000, sold: false },
+        { uid: "17400007120", price: 5000, sold: false },
+        { uid: "17400007373", price: 8000, sold: false },
+        { uid: "17400007542", price: 5000, sold: false },
+        { uid: "17400007884", price: 8000, sold: false },
+        { uid: "17400007990", price: 8000, sold: false },
+        { uid: "17400007896", price: 5000, sold: false },
+        { uid: "17400007883", price: 5000, sold: false },
+        { uid: "17400008243", price: 4000, sold: false },
+        { uid: "17400008305", price: 4000, sold: false },
+        { uid: "17400008444", price: 14000, sold: false },
+        { uid: "17400008446", price: 10000, sold: false },
+        { uid: "17400008769", price: 7000, sold: false },
+        { uid: "17400008718", price: 6000, sold: false },
+        { uid: "17400008886", price: 15000, sold: false },
+        { uid: "17400008869", price: 12000, sold: false },
+        { uid: "17400008778", price: 13000, sold: false },
+        { uid: "17400008897", price: 13000, sold: false },
+        { uid: "17400009144", price: 12000, sold: false },
+        { uid: "17400009425", price: 9000, sold: false },
+        { uid: "17400009444", price: 15000, sold: false },
+        { uid: "17400009443", price: 14000, sold: false },
+        { uid: "17400009800", price: 15000, sold: false },
+        { uid: "17400111157", price: 10000, sold: false },
+        { uid: "17400204444", price: 7000, sold: false },
+        { uid: "17400333392", price: 8000, sold: false },
+        { uid: "17400333355", price: 10000, sold: false },
+        { uid: "17400333397", price: 6000, sold: false },
+        { uid: "17400405555", price: 45000, sold: false },
+        { uid: "17400444474", price: 40000, sold: false },
+        { uid: "17400444480", price: 15000, sold: false },
+        { uid: "17400444475", price: 9000, sold: false },
+        { uid: "17400466667", price: 10000, sold: false },
+        { uid: "17400777721", price: 6000, sold: false },
+        { uid: "17400999995", price: 45000, sold: false },
+        { uid: "17401000053", price: 9000, sold: false },
+        { uid: "17401111974", price: 6000, sold: false },
+        { uid: "17401125555", price: 10000, sold: false },
+        { uid: "17401133334", price: 10000, sold: false },
+        { uid: "17401455554", price: 10000, sold: false },
+        { uid: "17401488883", price: 10000, sold: false },
+        { uid: "17401566664", price: 13000, sold: false },
+        { uid: "17401566666", price: 15000, sold: false },
+        { uid: "17401888878", price: 14000, sold: false },
+        { uid: "17401888877", price: 15000, sold: false },
+        { uid: "17402222364", price: 6000, sold: false },
+        { uid: "17402222435", price: 7000, sold: false },
+        { uid: "17402222655", price: 9000, sold: false },
+        { uid: "17402222771", price: 10000, sold: false },
+        { uid: "17402222801", price: 6000, sold: false },
+        { uid: "17402222576", price: 4000, sold: false },
+        { uid: "17402222960", price: 4000, sold: false },
+        { uid: "17402322224", price: 5000, sold: false },
+        { uid: "17402600001", price: 5000, sold: false },
+        { uid: "17402788886", price: 6000, sold: false },
+        { uid: "17402800002", price: 6000, sold: false },
+        { uid: "17402799997", price: 7000, sold: false },
+        { uid: "17402800009", price: 6000, sold: false },
+        { uid: "17402800004", price: 6000, sold: false },
+        { uid: "17402800005", price: 6000, sold: false },
+        { uid: "17403024444", price: 3000, sold: false },
+        { uid: "17403211118", price: 4000, sold: false },
+        { uid: "17403211117", price: 4000, sold: false },
+        { uid: "17403211116", price: 4000, sold: false },
+        { uid: "17403555549", price: 5000, sold: false },
+        { uid: "17403612222", price: 5000, sold: false },
+        { uid: "17403696666", price: 8000, sold: false },
+        { uid: "17403699996", price: 8000, sold: false },
+        { uid: "17403750000", price: 5000, sold: false },
+        { uid: "17404114444", price: 45000, sold: false },
+        { uid: "17404141111", price: 45000, sold: false },
+        { uid: "17404200006", price: 8000, sold: false },
+        { uid: "17404211112", price: 8000, sold: false },
+        { uid: "17404230000", price: 8000, sold: false },
+        { uid: "17404276666", price: 7000, sold: false },
+        { uid: "17404333390", price: 13000, sold: false },
+        { uid: "17404336666", price: 15000, sold: false },
+        { uid: "17404444118", price: 15000, sold: false },
+        { uid: "17404444116", price: 10000, sold: false },
+        { uid: "17404444342", price: 4000, sold: false },
+        { uid: "17404444467", price: 5000, sold: false },
+        { uid: "17404444311", price: 8000, sold: false },
+        { uid: "17404444593", price: 4000, sold: false },
+        { uid: "17404444219", price: 4000, sold: false },
+        { uid: "17404444512", price: 4000, sold: false },
+        { uid: "17404444317", price: 4000, sold: false },
+        { uid: "17404444426", price: 5000, sold: false },
+        { uid: "17404444428", price: 5000, sold: false },
+        { uid: "17404444357", price: 4000, sold: false },
+        { uid: "17404444584", price: 5000, sold: false },
+        { uid: "17404444427", price: 4000, sold: false },
+        { uid: "17404444517", price: 4000, sold: false },
+        { uid: "17404444081", price: 9000, sold: false },
+        { uid: "17404444977", price: 6000, sold: false },
+        { uid: "17404444423", price: 7000, sold: false },
+        { uid: "17404444621", price: 4000, sold: false },
+        { uid: "17404444505", price: 9000, sold: false },
+        { uid: "17404444690", price: 5000, sold: false },
+        { uid: "17404444907", price: 8000, sold: false },
+        { uid: "17404444485", price: 8000, sold: false },
+        { uid: "17404444838", price: 6000, sold: false },
+        { uid: "17404497777", price: 5000, sold: false },
+        { uid: "17404838888", price: 7000, sold: false },
+        { uid: "17404903333", price: 4000, sold: false },
+        { uid: "17404954444", price: 5000, sold: false },
+        { uid: "17405111162", price: 4000, sold: false },
+        { uid: "17405198888", price: 9000, sold: false },
+        { uid: "17405227777", price: 5000, sold: false },
+        { uid: "17405255556", price: 4000, sold: false },
+        { uid: "17405422221", price: 4000, sold: false },
+        { uid: "17405444478", price: 4000, sold: false },
+        { uid: "17405444476", price: 5000, sold: false },
+        { uid: "17405467777", price: 4000, sold: false },
+        { uid: "17405499998", price: 5000, sold: false },
+        { uid: "17405666602", price: 4000, sold: false },
+        { uid: "17405761111", price: 4000, sold: false },
+        { uid: "17405809999", price: 5000, sold: false },
+        { uid: "17405811117", price: 5000, sold: false },
+        { uid: "17405943333", price: 6000, sold: false },
+        { uid: "17405999960", price: 10000, sold: false },
+        { uid: "17405999972", price: 9000, sold: false },
+        { uid: "17406000055", price: 20000, sold: false },
+        { uid: "17406000041", price: 14000, sold: false },
+        { uid: "17406126666", price: 4000, sold: false },
+        { uid: "17406388881", price: 5000, sold: false },
+        { uid: "17406455555", price: 5000, sold: false },
+        { uid: "17406461111", price: 4000, sold: false },
+        { uid: "17406533338", price: 4000, sold: false },
+        { uid: "17406719999", price: 5000, sold: false },
+        { uid: "17406722226", price: 4000, sold: false },
+        { uid: "17406744441", price: 7000, sold: false },
+        { uid: "17406777711", price: 9000, sold: false },
+        { uid: "17406777712", price: 9000, sold: false },
+        { uid: "17406777701", price: 9000, sold: false },
+        { uid: "17407022225", price: 5000, sold: false },
+        { uid: "17407022229", price: 5000, sold: false },
+        { uid: "17407055551", price: 8000, sold: false },
+        { uid: "17407171111", price: 8000, sold: false },
+        { uid: "17407222212", price: 9000, sold: false },
+        { uid: "17407277775", price: 5000, sold: false },
+        { uid: "17407777064", price: 7000, sold: false },
+        { uid: "17407777109", price: 7000, sold: false },
+        { uid: "17407777729", price: 8000, sold: false },
+        { uid: "17407777597", price: 8000, sold: false },
+        { uid: "17407777995", price: 8000, sold: false },
+        { uid: "17407783333", price: 9000, sold: false },
+        { uid: "17413866669", price: 3000, sold: false },
+        { uid: "17413926666", price: 4000, sold: false },
+        { uid: "17413944444", price: 8000, sold: false },
+        { uid: "17414033336", price: 5000, sold: false },
+        { uid: "17414244442", price: 5000, sold: false },
+        { uid: "17414444216", price: 4000, sold: false },
+        { uid: "17414444291", price: 4000, sold: false },
+        { uid: "17414444196", price: 4000, sold: false },
+        { uid: "17414444278", price: 4000, sold: false },
+        { uid: "17414444815", price: 4000, sold: false },
+        { uid: "17414444864", price: 4000, sold: false },
+        { uid: "17414444811", price: 10000, sold: false },
+        { uid: "17414533337", price: 4000, sold: false },
+        { uid: "17414888852", price: 5000, sold: false },
+        { uid: "17414888859", price: 5000, sold: false },
+        { uid: "17414888880", price: 8000, sold: false },
+        { uid: "17414888864", price: 5000, sold: false },
+        { uid: "17414888834", price: 4000, sold: false },
+        { uid: "17415200001", price: 4000, sold: false },
+        { uid: "17415299993", price: 4000, sold: false },
+        { uid: "17415333379", price: 4000, sold: false },
+        { uid: "17415555221", price: 5000, sold: false },
+        { uid: "17415555148", price: 9000, sold: false },
+        { uid: "17415555050", price: 20000, sold: false },
+        { uid: "17415555816", price: 9000, sold: false },
+        { uid: "17415555330", price: 10000, sold: false },
+        { uid: "17415555212", price: 10000, sold: false },
+        { uid: "17415555830", price: 5000, sold: false },
+        { uid: "17415555855", price: 15000, sold: false },
+        { uid: "17415555336", price: 7000, sold: false },
+        { uid: "17415555368", price: 6000, sold: false },
+        { uid: "17415555980", price: 4000, sold: false },
+        { uid: "17415653333", price: 10000, sold: false },
+        { uid: "17415666664", price: 10000, sold: false },
+        { uid: "17415799998", price: 8000, sold: false },
+        { uid: "17415799990", price: 8000, sold: false },
+        { uid: "17415999934", price: 6000, sold: false },
+        { uid: "17415999935", price: 6000, sold: false },
+        { uid: "17415999947", price: 9000, sold: false },
+        { uid: "17416000043", price: 10000, sold: false },
+        { uid: "17415999977", price: 10000, sold: false },
+        { uid: "17416000034", price: 9000, sold: false },
+        { uid: "17415999959", price: 25000, sold: false },
+        { uid: "17416000005", price: 15000, sold: false },
+        { uid: "17415999919", price: 10000, sold: false },
+        { uid: "17416111129", price: 4000, sold: false },
+        { uid: "17416222259", price: 3000, sold: false },
+        { uid: "17417200003", price: 5000, sold: false },
+        { uid: "17417265555", price: 4000, sold: false },
+        { uid: "17417600009", price: 5000, sold: false },
+        { uid: "17417799992", price: 9000, sold: false },
+        { uid: "17417863333", price: 4000, sold: false },
+        { uid: "17418185555", price: 15000, sold: false },
+        { uid: "17418333308", price: 9000, sold: false },
+        { uid: "17418566668", price: 8000, sold: false },
+        { uid: "17418888027", price: 6000, sold: false },
+        { uid: "17418888970", price: 6000, sold: false },
+        { uid: "17419059999", price: 5000, sold: false },
+        { uid: "17419111106", price: 5000, sold: false },
+        { uid: "17419144443", price: 4000, sold: false },
+        { uid: "17419288882", price: 3000, sold: false },
+        { uid: "17419333326", price: 4000, sold: false },
+        { uid: "17419333391", price: 5000, sold: false },
+        { uid: "17419399997", price: 5000, sold: false },
+        { uid: "17419400006", price: 10000, sold: false },
+        { uid: "17419511110", price: 9000, sold: false },
+        { uid: "17419972222", price: 10000, sold: false },
+        { uid: "17420077773", price: 9000, sold: false },
+        { uid: "17420077770", price: 10000, sold: false },
+        { uid: "17420189999", price: 4000, sold: false },
+        { uid: "17420222208", price: 5000, sold: false },
+        { uid: "17420855553", price: 5000, sold: false },
+        { uid: "17421195555", price: 5000, sold: false },
+        { uid: "17421365555", price: 6000, sold: false },
+        { uid: "17421393333", price: 9000, sold: false }
+    ];
+
+    /* =========================================================================
+       2. PENGATURAN DISKON & VOUCHER (UBAH DI SINI)
+       ========================================================================= */
+    const VOUCHER_CONFIG = {
+      active: false,        
+      code: "PIDZPROMO",    
+      discountPercent: 10,  
+      expiresAtString: "2026-12-31T23:59:59" 
+    };
+
+    // Bot Config & Image Assets
+    const TELEGRAM_BOT_TOKEN = "8635117565:AAH5Q5u43eYMffshkFvkSX2xUBN6qA2hGhs";
+    const TELEGRAM_CHAT_ID   = "7844940537";
+    const ADMIN_WA_NUMBER    = "6285141631493";
+    const CARD_PRODUCT_IMAGE = "https://cdn.phototourl.com/free/2026-08-26-f5d5149f-a152-45cb-9cfd-3cf599e320b9.jpg";
+
+    // Application Variables
+    let selectedCategory = "ALL";
+    let activeCheckoutItem = null;
+    let appliedDiscountPercent = 0;
+    let voucherExpirationTimestamp = VOUCHER_CONFIG.expiresAtString ? new Date(VOUCHER_CONFIG.expiresAtString).getTime() : null;
+
+    /* =========================================================================
+       3. HELPER UTILS: NORMALISASI HARGA (2 -> 2000)
+       ========================================================================= */
+    function normalizePrice(p) {
+      if (p < 1000) {
+        return p * 1000;
+      }
+      return p;
+    }
+
+    function formatKPrice(price) {
+      const actual = normalizePrice(price);
+      return (actual / 1000) + 'k';
+    }
+
+    function formatRupiah(number) {
+      const actual = normalizePrice(number);
+      return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(actual);
+    }
+
+    /* =========================================================================
+       4. PAGE INITIALIZATION
+       ========================================================================= */
+    window.addEventListener("DOMContentLoaded", () => {
+      trackFirstVisitTelegram();
+      renderCategories();
+      filterProducts();
+      updateHistoryBadge();
+      initVoucherBanner();
+
+      // Popup Komunitas dipanggil SELALU muncul setiap kali web dibuka/di-refresh
+      setTimeout(() => openWelcomeModal(), 500);
+    });
+
+    /* =========================================================================
+       5. TELEGRAM BOT NOTIFICATIONS
+       ========================================================================= */
+    function sendTelegramNotification(message) {
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: message, parse_mode: "HTML" })
+      }).catch(err => console.log("Telegram notification sent."));
+    }
+
+    // Hanya kirim notifikasi 1x seumur hidup perangkat agar bot tidak spam
+    function trackFirstVisitTelegram() {
+      if (!localStorage.getItem("pidz_tg_visited")) {
+        const message = `🔔 <b>PIDZ STORE - PENGUNJUNG BARU!</b>\n\nSeseorang baru saja membuka website PIDZ STORE.\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
+        sendTelegramNotification(message);
+        localStorage.setItem("pidz_tg_visited", "true");
+      }
+    }
+
+    function logTelegramAction(actionName) {
+      const trackingKey = `pidz_tg_click_${actionName.replace(/\s+/g, '_')}`;
+      if (!localStorage.getItem(trackingKey)) {
+        const message = `👉 <b>PIDZ STORE - USER ACTION</b>\n\nPengunjung menekan: <b>${actionName}</b>\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
+        sendTelegramNotification(message);
+        localStorage.setItem(trackingKey, "true");
+      }
+    }
+
+    /* =========================================================================
+       6. DYNAMIC CATEGORY SYSTEM
+       ========================================================================= */
+    function renderCategories() {
+      const container = document.getElementById("category-container");
+      const uniquePrices = [...new Set(productsList.map(p => normalizePrice(p.price)))].sort((a, b) => a - b);
+
+      let html = `
+        <button onclick="setCategory('ALL')" 
+                id="cat-btn-ALL"
+                class="category-btn shrink-0 text-xs font-extrabold px-3.5 py-1.5 rounded-xl transition border shadow-sm ${selectedCategory === 'ALL' ? 'bg-pidz-600 text-white border-pidz-600' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'}">
+          Semua
+        </button>
+      `;
+
+      uniquePrices.forEach(actualPrice => {
+        const formattedPrice = (actualPrice / 1000) + 'k';
+        const catId = `PRICE_${actualPrice}`;
+        const isSelected = selectedCategory === catId;
+        
+        html += `
+          <button onclick="setCategory('${catId}')" 
+                  id="cat-btn-${catId}"
+                  class="category-btn shrink-0 text-xs font-extrabold px-3.5 py-1.5 rounded-xl transition border shadow-sm ${isSelected ? 'bg-pidz-600 text-white border-pidz-600' : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'}">
+            ${formattedPrice}
+          </button>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function setCategory(catId) {
+      selectedCategory = catId;
+      document.querySelectorAll(".category-btn").forEach(btn => {
+        btn.classList.remove("bg-pidz-600", "text-white", "border-pidz-600");
+        btn.classList.add("bg-slate-100", "text-slate-700", "border-slate-200");
+      });
+
+      const activeBtn = document.getElementById(`cat-btn-${catId}`);
+      if (activeBtn) {
+        activeBtn.classList.remove("bg-slate-100", "text-slate-700", "border-slate-200");
+        activeBtn.classList.add("bg-pidz-600", "text-white", "border-pidz-600");
+      }
+
+      filterProducts();
+    }
+
+    /* =========================================================================
+       7. PRODUCTS RENDERER
+       ========================================================================= */
+    function filterProducts() {
+      const searchKeyword = document.getElementById("search-input").value.trim().toLowerCase();
+      const sortValue = document.getElementById("sort-select").value;
+
+      let filtered = [...productsList];
+
+      if (searchKeyword) {
+        filtered = filtered.filter(p => p.uid.toLowerCase().includes(searchKeyword));
+      }
+
+      if (selectedCategory !== "ALL") {
+        const targetPrice = parseInt(selectedCategory.replace("PRICE_", ""));
+        filtered = filtered.filter(p => normalizePrice(p.price) === targetPrice);
+      }
+
+      if (sortValue === "high-low") {
+        filtered.sort((a, b) => normalizePrice(b.price) - normalizePrice(a.price));
+      } else {
+        filtered.sort((a, b) => normalizePrice(a.price) - normalizePrice(b.price));
+      }
+
+      renderProductsGrid(filtered);
+    }
+
+    function renderProductsGrid(items) {
+      const grid = document.getElementById("product-grid");
+      const emptyState = document.getElementById("empty-state");
+      const countDisplay = document.getElementById("product-count");
+
+      countDisplay.innerText = `${items.length} UID Dimuat`;
+
+      if (items.length === 0) {
+        grid.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        return;
+      } else {
+        emptyState.classList.add("hidden");
+      }
+
+      let html = "";
+      items.forEach((item) => {
+        const isSold = item.sold;
+        
+        html += `
+          <div class="card-hd-item bg-white rounded-2xl border border-slate-200/90 p-3 sm:p-3.5 flex flex-col justify-between shadow-hd-card hover:shadow-hd-hover hover:border-pidz-400 relative overflow-hidden group">
+            
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-md ${isSold ? 'bg-red-100 text-red-600' : 'bg-emerald-100 text-emerald-700'} uppercase tracking-wider">
+                ${isSold ? 'Terjual' : 'Tersedia'}
+              </span>
+              <span class="text-[10px] font-bold text-slate-400 font-mono">PIDZ STORE</span>
+            </div>
+
+            <!-- Product Image Badge -->
+            <div class="relative aspect-video w-full bg-slate-900 rounded-xl overflow-hidden mb-2.5 border border-slate-100 shrink-0">
+              <img src="${CARD_PRODUCT_IMAGE}" 
+                   alt="UID Product Image" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 block"
+                   onerror="this.src='https://via.placeholder.com/300x150/006ed7/ffffff?text=UID+CANTIK'">
+              
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-2 pointer-events-none">
+                <span class="text-white font-mono font-extrabold text-xs sm:text-sm tracking-wider drop-shadow-md truncate">
+                  UID : ${item.uid}
+                </span>
+              </div>
+            </div>
+
+            <div class="mt-0.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] text-slate-500 font-semibold">Harga:</span>
+                <span class="font-extrabold text-xs sm:text-sm text-pidz-700 font-mono">
+                  ${formatRupiah(item.price)}
+                </span>
+              </div>
+            </div>
+
+            <button onclick="handleBuyClick('${item.uid}', ${item.price}, ${isSold})" 
+                    ${isSold ? 'disabled' : ''}
+                    class="mt-3 w-full py-2.5 px-3 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 shadow-sm 
+                    ${isSold 
+                      ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200' 
+                      : 'bg-pidz-600 hover:bg-pidz-700 active:scale-95 text-white shadow-pidz-600/20'}">
+              <i class="fa-solid ${isSold ? 'fa-lock' : 'fa-cart-shopping'} text-xs"></i>
+              <span>${isSold ? 'Sudah Laku' : 'Beli Sekarang'}</span>
+            </button>
+
+          </div>
+        `;
+      });
+
+      grid.innerHTML = html;
+    }
+
+    /* =========================================================================
+       8. CHECKOUT & VOUCHER LOGIC
+       ========================================================================= */
+    function handleBuyClick(uid, price, isSold) {
+      if (isSold) return;
+
+      activeCheckoutItem = { uid, price };
+      appliedDiscountPercent = 0;
+
+      document.getElementById("voucher-input").value = "";
+      document.getElementById("voucher-message").classList.add("hidden");
+
+      document.getElementById("modal-uid-text").innerText = `UID : ${uid}`;
+      document.getElementById("modal-normal-price").innerText = formatRupiah(price);
+      
+      calculateCheckoutTotal();
+
+      const tgMsg = `🛒 <b>PIDZ STORE - KLIK BELI SEKARANG!</b>\n\nNomor UID: <b>${uid}</b>\nHarga: <b>${formatRupiah(price)}</b>\n⏰ Waktu: ${new Date().toLocaleString('id-ID')}`;
+      sendTelegramNotification(tgMsg);
+
+      openCheckoutModal();
+    }
+
+    function applyVoucher() {
+      const inputCode = document.getElementById("voucher-input").value.trim().toUpperCase();
+      const vMsg = document.getElementById("voucher-message");
+      vMsg.classList.remove("hidden", "text-emerald-600", "text-red-500");
+
+      if (!activeCheckoutItem) return;
+
+      if (!VOUCHER_CONFIG.active) {
+        vMsg.innerText = "❌ Promo voucher diskon belum diaktifkan oleh admin.";
+        vMsg.classList.add("text-red-500");
+        appliedDiscountPercent = 0;
+        calculateCheckoutTotal();
+        return;
+      }
+
+      if (voucherExpirationTimestamp && Date.now() > voucherExpirationTimestamp) {
+        vMsg.innerText = "❌ Maaf, waktu promo diskon voucher ini sudah hangus.";
+        vMsg.classList.add("text-red-500");
+        appliedDiscountPercent = 0;
+        calculateCheckoutTotal();
+        return;
+      }
+
+      if (inputCode !== VOUCHER_CONFIG.code.toUpperCase()) {
+        vMsg.innerText = "❌ Kode voucher tidak valid.";
+        vMsg.classList.add("text-red-500");
+        appliedDiscountPercent = 0;
+        calculateCheckoutTotal();
+        return;
+      }
+
+      const actualPrice = normalizePrice(activeCheckoutItem.price);
+      if (actualPrice < 12000 || actualPrice > 100000) {
+        vMsg.innerText = "⚠️ Diskon ini HANYA berlaku untuk UID seharga Rp 12.000 s/d Rp 100.000!";
+        vMsg.classList.add("text-red-500");
+        appliedDiscountPercent = 0;
+        calculateCheckoutTotal();
+        return;
+      }
+
+      appliedDiscountPercent = VOUCHER_CONFIG.discountPercent;
+      vMsg.innerText = `🎉 Berhasil! Diskon ${appliedDiscountPercent}% diterapkan.`;
+      vMsg.classList.add("text-emerald-600");
+      calculateCheckoutTotal();
+    }
+
+    function calculateCheckoutTotal() {
+      if (!activeCheckoutItem) return;
+      
+      const subtotal = normalizePrice(activeCheckoutItem.price);
+      let discountAmount = 0;
+
+      if (appliedDiscountPercent > 0) {
+        discountAmount = Math.round((subtotal * appliedDiscountPercent) / 100);
+      }
+
+      const total = Math.max(0, subtotal - discountAmount);
+
+      document.getElementById("breakdown-subtotal").innerText = formatRupiah(subtotal);
+      document.getElementById("breakdown-discount").innerText = `- ${formatRupiah(discountAmount)}`;
+      document.getElementById("breakdown-total").innerText = formatRupiah(total);
+    }
+
+    /* =========================================================================
+       9. WHATSAPP CONFIRMATION & SAVE HISTORY
+       ========================================================================= */
+    function confirmToWhatsApp() {
+      if (!activeCheckoutItem) return;
+
+      const subtotal = normalizePrice(activeCheckoutItem.price);
+      let discountAmount = 0;
+      if (appliedDiscountPercent > 0) {
+        discountAmount = Math.round((subtotal * appliedDiscountPercent) / 100);
+      }
+      const total = subtotal - discountAmount;
+
+      const message = 
+`Halo Admin PIDZ STORE ✔️,
+Saya mau konfirmasi pembelian UID Cantik berikut:
+
+📌 *Detail Pesanan:*
+- Item UID: *${activeCheckoutItem.uid}*
+- Harga Normal: *${formatRupiah(subtotal)}*
+${appliedDiscountPercent > 0 ? `- Diskon (${appliedDiscountPercent}%): *- ${formatRupiah(discountAmount)}*\n` : ''}- Total Pembayaran: *${formatRupiah(total)}*
+- Metode Pembayaran: *QRIS All Payment*
+
+Saya sudah melakukan pembayaran via Scan QRIS. Mohon diproses pesanan saya, Terima Kasih!`;
+
+      savePurchaseToHistory({
+        id: "INV-" + Math.floor(100000 + Math.random() * 900000),
+        uid: activeCheckoutItem.uid,
+        total: total,
+        date: new Date().toLocaleDateString("id-ID", { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+      });
+
+      const waUrl = `https://wa.me/${ADMIN_WA_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+
+      closeCheckoutModal();
+    }
+
+    /* =========================================================================
+       10. RIWAYAT PEMBELIAN
+       ========================================================================= */
+    function savePurchaseToHistory(item) {
+      let history = JSON.parse(localStorage.getItem("pidz_history")) || [];
+      history.unshift(item);
+      localStorage.setItem("pidz_history", JSON.stringify(history));
+      updateHistoryBadge();
+    }
+
+    function updateHistoryBadge() {
+      let history = JSON.parse(localStorage.getItem("pidz_history")) || [];
+      const badge = document.getElementById("history-badge");
+      if (history.length > 0) {
+        badge.innerText = history.length;
+        badge.classList.remove("hidden");
+      } else {
+        badge.classList.add("hidden");
+      }
+    }
+
+    function renderHistoryList() {
+      const container = document.getElementById("history-list-container");
+      let history = JSON.parse(localStorage.getItem("pidz_history")) || [];
+
+      if (history.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3 text-slate-400">
+              <i class="fa-solid fa-receipt text-xl"></i>
+            </div>
+            <h5 class="font-extrabold text-slate-700 text-sm">Belum Ada Riwayat Pembelian</h5>
+            <p class="text-[11px] text-slate-400 mt-1">Transaksi UID yang kamu beli akan tersimpan di sini.</p>
+          </div>
+        `;
+        return;
+      }
+
+      let html = "";
+      history.forEach((h) => {
+        html += `
+          <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono font-bold text-xs text-pidz-700">${h.id}</span>
+                <span class="bg-emerald-100 text-emerald-700 font-bold text-[9px] px-1.5 py-0.5 rounded">Diproses</span>
+              </div>
+              <h5 class="font-mono font-extrabold text-sm text-slate-900 mt-0.5">UID : ${h.uid}</h5>
+              <p class="text-[10px] text-slate-400 mt-0.5 font-medium">${h.date}</p>
+            </div>
+            <div class="text-right">
+              <span class="font-extrabold text-xs text-slate-800 font-mono block">${formatRupiah(h.total)}</span>
+              <button onclick="copyToClipboard('${h.uid}')" class="text-[10px] font-bold text-pidz-600 hover:underline mt-1 inline-flex items-center gap-1">
+                <i class="fa-regular fa-copy"></i> Salin
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function clearHistory() {
+      let history = JSON.parse(localStorage.getItem("pidz_history")) || [];
+      if (history.length === 0) return;
+      
+      if (confirm("Apakah Anda yakin ingin menghapus seluruh riwayat transaksi di HP ini?")) {
+        localStorage.removeItem("pidz_history");
+        updateHistoryBadge();
+        renderHistoryList();
+      }
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      alert(`UID ${text} berhasil disalin!`);
+    }
+
+    /* =========================================================================
+       11. VOUCHER BANNER
+       ========================================================================= */
+    function initVoucherBanner() {
+      const banner = document.getElementById("voucher-banner-display");
+      
+      if (!VOUCHER_CONFIG.active || (voucherExpirationTimestamp && Date.now() > voucherExpirationTimestamp)) {
+        banner.classList.add("hidden");
+        return;
+      }
+
+      banner.classList.remove("hidden");
+      document.getElementById("voucher-discount-badge").innerText = `${VOUCHER_CONFIG.discountPercent}% OFF`;
+      document.getElementById("voucher-code-text").innerText = VOUCHER_CONFIG.code;
+
+      startVoucherCountdown();
+    }
+
+    let timerInterval = null;
+    function startVoucherCountdown() {
+      if (timerInterval) clearInterval(timerInterval);
+
+      timerInterval = setInterval(() => {
+        if (!voucherExpirationTimestamp) {
+          document.getElementById("voucher-timer-display").innerText = "Promo Aktif";
+          return;
+        }
+
+        const distance = voucherExpirationTimestamp - Date.now();
+        if (distance < 0) {
+          clearInterval(timerInterval);
+          document.getElementById("voucher-timer-display").innerText = "Telah Hangus";
+          document.getElementById("voucher-banner-display").classList.add("hidden");
+          return;
+        }
+
+        const hours = Math.floor(distance / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("voucher-timer-display").innerText = 
+          `${String(hours).padStart(2, '0')}h : ${String(minutes).padStart(2, '0')}m : ${String(seconds).padStart(2, '0')}s`;
+      }, 1000);
+    }
+
+    /* =========================================================================
+       12. MODAL CONTROLLERS
+       ========================================================================= */
+    function openWelcomeModal() {
+      const modal = document.getElementById("welcome-modal");
+      const content = document.getElementById("welcome-content");
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        content.classList.remove("scale-95", "opacity-0");
+        content.classList.add("scale-100", "opacity-100");
+      }, 10);
+    }
+
+    function closeWelcomeModal() {
+      const modal = document.getElementById("welcome-modal");
+      const content = document.getElementById("welcome-content");
+      content.classList.remove("scale-100", "opacity-100");
+      content.classList.add("scale-95", "opacity-0");
+      setTimeout(() => modal.classList.add("hidden"), 300);
+    }
+
+    function openCheckoutModal() {
+      document.getElementById("checkout-modal").classList.remove("hidden");
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById("checkout-modal").classList.add("hidden");
+    }
+
+    function openHistoryModal() {
+      renderHistoryList();
+      document.getElementById("history-modal").classList.remove("hidden");
+    }
+
+    function closeHistoryModal() {
+      document.getElementById("history-modal").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
