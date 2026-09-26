@@ -1,0 +1,3642 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#02050c">
+<title>PIDZ STORE — STORE UID CANTIK</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#02050c;
+  --bg2:#050b16;
+  --card:rgba(10,19,35,.72);
+  --card2:rgba(14,28,51,.65);
+  --line:rgba(255,255,255,.09);
+  --white:#f7fbff;
+  --muted:#7d8da7;
+  --blue:#1587ff;
+  --cyan:#00d9ff;
+  --purple:#6d5cff;
+  --green:#27e39a;
+  --shadow:0 30px 90px rgba(0,0,0,.45);
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 15% -10%,rgba(21,135,255,.20),transparent 31%),
+    radial-gradient(circle at 90% 18%,rgba(0,217,255,.09),transparent 28%),
+    linear-gradient(145deg,#02050c,#050b17 52%,#02050b);
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* ================================
+   GLOBAL AURORA
+================================ */
+
+.aurora{
+  position:fixed;
+  inset:0;
+  z-index:-20;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.aurora span{
+  position:absolute;
+  display:block;
+  border-radius:50%;
+  filter:blur(100px);
+  opacity:.22;
+  animation:floatAurora 12s ease-in-out infinite alternate;
+}
+
+.aurora .a{
+  width:420px;
+  height:420px;
+  left:-220px;
+  top:8%;
+  background:#086cff;
+}
+
+.aurora .b{
+  width:360px;
+  height:360px;
+  right:-190px;
+  top:35%;
+  background:#00d9ff;
+  animation-delay:-3s;
+}
+
+.aurora .c{
+  width:300px;
+  height:300px;
+  left:35%;
+  bottom:-180px;
+  background:#704dff;
+  animation-delay:-7s;
+}
+
+@keyframes floatAurora{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(40px,-35px,0) scale(1.12)}
+}
+
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-19;
+  pointer-events:none;
+  opacity:.10;
+  background-image:
+    linear-gradient(rgba(120,190,255,.13) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(120,190,255,.13) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,#000,transparent 85%);
+}
+
+/* ================================
+   INTRO
+================================ */
+
+#intro{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(0,130,255,.18),transparent 30%),
+    #02050b;
+  transition:opacity .9s ease,visibility .9s ease;
+}
+
+#intro.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-glow{
+  position:absolute;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  background:#087dff;
+  filter:blur(150px);
+  opacity:.15;
+  animation:introGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes introGlow{
+  to{
+    transform:scale(1.4);
+    opacity:.25;
+  }
+}
+
+.particles{
+  position:absolute;
+  inset:0;
+}
+
+.particle{
+  position:absolute;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:#58bdff;
+  box-shadow:0 0 14px #1687ff;
+  animation:particle linear infinite;
+  opacity:0;
+}
+
+@keyframes particle{
+  0%{
+    transform:translateY(30px);
+    opacity:0;
+  }
+  15%{opacity:.8}
+  80%{opacity:.3}
+  100%{
+    transform:translateY(-100vh);
+    opacity:0;
+  }
+}
+
+.intro-center{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  width:min(92%,760px);
+}
+
+.intro-logo-wrap{
+  width:115px;
+  height:115px;
+  margin:auto auto 27px;
+  padding:4px;
+  border-radius:34px;
+  background:conic-gradient(
+    from 0deg,
+    transparent,
+    #1687ff,
+    #00e0ff,
+    #735bff,
+    transparent
+  );
+  animation:rotate 3.2s linear infinite;
+  box-shadow:
+    0 0 40px rgba(0,120,255,.22),
+    0 0 100px rgba(0,120,255,.10);
+}
+
+@keyframes rotate{
+  to{transform:rotate(360deg)}
+}
+
+.intro-logo{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:5px solid #02050b;
+  border-radius:30px;
+  animation:logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoPulse{
+  50%{
+    box-shadow:0 0 38px rgba(0,145,255,.4);
+  }
+}
+
+.intro-mini{
+  color:#4caeff;
+  font-size:9px;
+  letter-spacing:5px;
+  font-weight:900;
+  margin-bottom:14px;
+  animation:up .7s .1s both;
+}
+
+.intro-title{
+  font-size:clamp(29px,7vw,68px);
+  line-height:1;
+  letter-spacing:-3.5px;
+  font-weight:900;
+  background:
+    linear-gradient(
+      100deg,
+      #fff 10%,
+      #62c5ff 38%,
+      #fff 55%,
+      #00d9ff 75%,
+      #fff 90%
+    );
+  background-size:260%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:
+    up .8s .25s both,
+    shine 4s linear infinite;
+}
+
+.intro-sub{
+  color:#70829f;
+  font-size:11px;
+  margin-top:16px;
+  animation:up .8s .45s both;
+}
+
+.intro-loader{
+  width:200px;
+  height:3px;
+  margin:31px auto 0;
+  overflow:hidden;
+  border-radius:99px;
+  background:rgba(255,255,255,.07);
+  animation:up .8s .6s both;
+}
+
+.intro-loader span{
+  display:block;
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,#1687ff,#00d9ff,#735bff);
+  box-shadow:0 0 18px #1687ff;
+  animation:loading 2.4s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+@keyframes loading{
+  to{width:100%}
+}
+
+.intro-status{
+  margin-top:12px;
+  color:#49627f;
+  font-size:8px;
+  letter-spacing:2px;
+  animation:up .7s .7s both;
+}
+
+@keyframes up{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@keyframes shine{
+  to{background-position:260% center}
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:74px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(2,6,14,.68);
+  backdrop-filter:blur(25px) saturate(150%);
+  -webkit-backdrop-filter:blur(25px) saturate(150%);
+}
+
+.header::after{
+  content:"";
+  position:absolute;
+  left:10%;
+  right:10%;
+  bottom:-1px;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,180,255,.5),
+    transparent
+  );
+  opacity:.5;
+}
+
+.header-inner{
+  width:min(1260px,calc(100% - 28px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-logo{
+  width:43px;
+  height:43px;
+  border-radius:14px;
+  object-fit:cover;
+  box-shadow:
+    0 0 28px rgba(0,130,255,.25),
+    inset 0 0 15px rgba(255,255,255,.12);
+}
+
+.brand-name{
+  font-size:17px;
+  font-weight:900;
+  letter-spacing:-.8px;
+}
+
+.verify{
+  display:inline-flex;
+  width:17px;
+  height:17px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:linear-gradient(145deg,#1a96ff,#0666d6);
+  color:#fff;
+  font-size:9px;
+  box-shadow:0 0 13px rgba(21,135,255,.55);
+}
+
+.brand-sub{
+  margin-top:2px;
+  color:#5d7597;
+  font-size:7px;
+  letter-spacing:1.5px;
+  font-weight:800;
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  position:relative;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  color:#b7ccec;
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.015)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 10px 25px rgba(0,0,0,.12);
+  transition:.25s;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(44,164,255,.45);
+  color:#fff;
+  box-shadow:
+    0 12px 30px rgba(0,90,220,.16),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.badge{
+  position:absolute;
+  top:-5px;
+  right:-4px;
+  min-width:17px;
+  height:17px;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:0 4px;
+  border-radius:99px;
+  background:#1687ff;
+  color:#fff;
+  font-size:8px;
+  font-weight:900;
+}
+
+/* ================================
+   MAIN
+================================ */
+
+.container{
+  width:min(1260px,calc(100% - 28px));
+  margin:auto;
+}
+
+.hero{
+  padding:24px 0 5px;
+}
+
+.banner-wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:29px;
+  border:1px solid rgba(130,200,255,.14);
+  box-shadow:
+    0 35px 100px rgba(0,30,100,.3),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.banner-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.11),
+      transparent 22%,
+      transparent 68%,
+      rgba(0,170,255,.12)
+    );
+}
+
+.banner-wrap::after{
+  content:"";
+  position:absolute;
+  z-index:3;
+  top:-30%;
+  left:-35%;
+  width:25%;
+  height:160%;
+  transform:rotate(25deg);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.17),
+    transparent
+  );
+  filter:blur(8px);
+  animation:sweep 7s ease-in-out infinite;
+}
+
+@keyframes sweep{
+  0%,35%{left:-35%}
+  70%,100%{left:125%}
+}
+
+.banner{
+  width:100%;
+  display:block;
+  aspect-ratio:16/7;
+  object-fit:cover;
+  transform:scale(1.01);
+}
+
+.hero-content{
+  padding:30px 5px 21px;
+}
+
+.hero-kicker{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:#59b9ff;
+  font-size:8px;
+  letter-spacing:2px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.hero-kicker i{
+  width:25px;
+  height:1px;
+  background:#1687ff;
+  box-shadow:0 0 10px #1687ff;
+}
+
+.hero-title{
+  font-size:clamp(34px,6.5vw,66px);
+  line-height:.95;
+  letter-spacing:-4px;
+  font-weight:900;
+}
+
+.gradient{
+  background:
+    linear-gradient(
+      100deg,
+      #fff,
+      #6cc8ff,
+      #00d9ff,
+      #fff
+    );
+  background-size:220%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:shine 4s linear infinite;
+}
+
+.hero-desc{
+  max-width:700px;
+  margin-top:15px;
+  color:#7487a5;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.status-pill{
+  width:max-content;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:17px;
+  padding:9px 13px;
+  border:1px solid rgba(39,227,154,.16);
+  border-radius:99px;
+  background:rgba(39,227,154,.045);
+  color:#71e9b6;
+  font-size:8px;
+  font-weight:900;
+}
+
+.status-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#27e39a;
+  box-shadow:0 0 12px #27e39a;
+}
+
+/* ================================
+   TOOLBAR
+================================ */
+
+.toolbar{
+  position:sticky;
+  top:74px;
+  z-index:500;
+  padding:10px 0 15px;
+  background:linear-gradient(
+    to bottom,
+    rgba(2,5,12,.96),
+    rgba(2,5,12,.78),
+    transparent
+  );
+  backdrop-filter:blur(7px);
+}
+
+.tool-row{
+  display:flex;
+  gap:9px;
+}
+
+.search{
+  position:relative;
+  flex:1;
+}
+
+.search svg{
+  position:absolute;
+  top:50%;
+  left:15px;
+  transform:translateY(-50%);
+  color:#597493;
+}
+
+.search input{
+  width:100%;
+  height:49px;
+  padding:0 15px 0 43px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  outline:none;
+  color:#fff;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(14,30,53,.82),
+      rgba(7,17,33,.72)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 30px rgba(0,0,0,.12);
+  transition:.25s;
+}
+
+.search input:focus{
+  border-color:rgba(21,135,255,.5);
+  box-shadow:
+    0 0 0 4px rgba(21,135,255,.06),
+    0 15px 40px rgba(0,60,160,.13);
+}
+
+.sort{
+  height:49px;
+  padding:0 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:15px;
+  color:#a9c0df;
+  background:rgba(10,22,40,.78);
+  font-size:8px;
+  font-weight:900;
+}
+
+/* ================================
+   CATEGORIES
+================================ */
+
+.categories{
+  display:flex;
+  gap:7px;
+  padding:1px 0 18px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+  display:none;
+}
+
+.category{
+  position:relative;
+  flex:none;
+  padding:9px 13px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  color:#657d9e;
+  background:rgba(8,20,37,.7);
+  font-size:8px;
+  font-weight:900;
+  transition:.25s;
+  overflow:hidden;
+}
+
+.category::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:50%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transform:skewX(-20deg);
+  transition:.5s;
+}
+
+.category:hover::after,
+.category.active::after{
+  left:150%;
+}
+
+.category.active{
+  color:#fff;
+  border-color:rgba(48,166,255,.4);
+  background:linear-gradient(135deg,#127ff0,#0756b9);
+  box-shadow:0 8px 27px rgba(0,100,255,.2);
+}
+
+/* ================================
+   SECTION
+================================ */
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+.section-title{
+  font-size:17px;
+  font-weight:900;
+  letter-spacing:-.5px;
+}
+
+.section-sub{
+  margin-top:4px;
+  color:#4f6685;
+  font-size:8px;
+}
+
+.count{
+  color:#5c789e;
+  font-size:8px;
+  font-weight:800;
+}
+
+/* ================================
+   PRODUCT GRID
+================================ */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:11px;
+  padding-bottom:60px;
+}
+
+.product{
+  position:relative;
+  overflow:hidden;
+  padding:9px;
+  border:1px solid rgba(130,190,255,.095);
+  border-radius:20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(15,35,62,.83),
+      rgba(5,14,27,.85)
+    );
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.045);
+  animation:productIn .5s both;
+  transition:
+    transform .3s,
+    border-color .3s,
+    box-shadow .3s;
+}
+
+.product::before{
+  content:"";
+  position:absolute;
+  top:-100%;
+  left:-40%;
+  width:50%;
+  height:300%;
+  transform:rotate(25deg);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.055),
+    transparent
+  );
+  transition:.7s;
+  pointer-events:none;
+}
+
+.product:hover::before{
+  left:125%;
+}
+
+.product:hover{
+  transform:translateY(-6px);
+  border-color:rgba(60,175,255,.33);
+  box-shadow:
+    0 28px 70px rgba(0,50,160,.24),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+@keyframes productIn{
+  from{
+    opacity:0;
+    transform:translateY(18px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.product-image{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:1.45;
+  border-radius:14px;
+  background:#06142a;
+}
+
+.product-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      140deg,
+      rgba(255,255,255,.12),
+      transparent 25%,
+      transparent 75%,
+      rgba(0,160,255,.1)
+    );
+  pointer-events:none;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:.55s;
+}
+
+.product:hover .product-image img{
+  transform:scale(1.07);
+}
+
+.product-info{
+  padding:11px 2px 2px;
+}
+
+.uid-label{
+  color:#5f81aa;
+  font-size:7px;
+  letter-spacing:1.2px;
+  font-weight:900;
+}
+
+.uid{
+  margin-top:4px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:-.3px;
+}
+
+.product-bottom{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:5px;
+  margin-top:12px;
+}
+
+.price{
+  font-size:16px;
+  font-weight:900;
+}
+
+.price-label{
+  display:block;
+  color:#516c91;
+  margin-top:3px;
+  font-size:7px;
+}
+
+.buy{
+  height:36px;
+  padding:0 11px;
+  border:0;
+  border-radius:11px;
+  color:#fff;
+  background:
+    linear-gradient(
+      135deg,
+      #188dff,
+      #0754c4
+    );
+  font-size:8px;
+  font-weight:900;
+  box-shadow:
+    0 9px 25px rgba(0,95,255,.22),
+    inset 0 1px 0 rgba(255,255,255,.16);
+  transition:.22s;
+}
+
+.buy:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 13px 35px rgba(0,105,255,.36),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.empty{
+  grid-column:1/-1;
+  padding:70px 20px;
+  text-align:center;
+  color:#5e7697;
+}
+
+.empty strong{
+  display:block;
+  color:#adc3e0;
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.empty-icon{
+  font-size:36px;
+  margin-bottom:10px;
+}
+
+/* ================================
+   MODAL BASE
+================================ */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  background:rgba(0,2,8,.78);
+  backdrop-filter:blur(20px) saturate(130%);
+  -webkit-backdrop-filter:blur(20px);
+}
+
+.modal.show{
+  display:flex;
+  animation:fade .25s ease;
+}
+
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+.modal-box{
+  position:relative;
+  width:min(530px,100%);
+  max-height:94vh;
+  overflow:auto;
+  border:1px solid rgba(130,205,255,.16);
+  border-radius:28px;
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      rgba(0,150,255,.16),
+      transparent 32%
+    ),
+    linear-gradient(145deg,#0a1930,#040d1b);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.62),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  animation:modalIn .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal-box::before{
+  content:"";
+  position:absolute;
+  left:10%;
+  right:10%;
+  top:0;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(90,190,255,.65),
+    transparent
+  );
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.modal-head{
+  height:62px;
+  padding:0 19px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.modal-head h3{
+  font-size:14px;
+  font-weight:900;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:11px;
+  color:#91a9c9;
+  background:rgba(255,255,255,.035);
+  font-size:18px;
+}
+
+.modal-body{
+  padding:19px;
+}
+
+/* ================================
+   PREMIUM PAYMENT
+================================ */
+
+.checkout-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:13px;
+}
+
+.checkout-label{
+  color:#5c82ad;
+  font-size:7px;
+  letter-spacing:1.5px;
+  font-weight:900;
+}
+
+.secure{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  color:#58e8b0;
+  font-size:7px;
+  font-weight:900;
+}
+
+.secure-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#27e39a;
+  box-shadow:0 0 9px #27e39a;
+}
+
+.order-card{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:11px;
+  border:1px solid rgba(95,180,255,.12);
+  border-radius:17px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(25,54,91,.55),
+      rgba(5,17,34,.7)
+    );
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.order-card::after{
+  content:"";
+  position:absolute;
+  top:-70%;
+  right:-20%;
+  width:130px;
+  height:220px;
+  transform:rotate(28deg);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.06),
+    transparent
+  );
+}
+
+.order-img{
+  width:64px;
+  height:64px;
+  flex:none;
+  object-fit:cover;
+  border-radius:13px;
+}
+
+.order-info{
+  min-width:0;
+  flex:1;
+}
+
+.order-info strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:13px;
+}
+
+.order-info span{
+  display:block;
+  margin-top:5px;
+  color:#6883a8;
+  font-size:8px;
+}
+
+.order-price{
+  text-align:right;
+}
+
+.order-price small{
+  display:block;
+  color:#5d789c;
+  font-size:7px;
+}
+
+.order-price strong{
+  display:block;
+  margin-top:3px;
+  font-size:16px;
+}
+
+/* payment title */
+
+.payment-title{
+  margin:18px 0 10px;
+  font-size:10px;
+  font-weight:900;
+}
+
+.payment-title span{
+  display:block;
+  margin-top:3px;
+  color:#536f94;
+  font-size:7px;
+  font-weight:500;
+}
+
+/* QR */
+
+.qris-card{
+  position:relative;
+  overflow:hidden;
+  padding:13px;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:21px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.075),
+      rgba(255,255,255,.025)
+    );
+}
+
+.qris-card::before{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:conic-gradient(
+    from 180deg,
+    transparent,
+    rgba(0,185,255,.13),
+    transparent,
+    rgba(115,90,255,.10),
+    transparent
+  );
+  animation:spinBg 8s linear infinite;
+}
+
+@keyframes spinBg{
+  to{transform:rotate(360deg)}
+}
+
+.qris-inner{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.qris-tag{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-bottom:10px;
+  color:#8db8e9;
+  font-size:7px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.qris-tag b{
+  color:#fff;
+}
+
+.qris-image{
+  width:min(245px,78vw);
+  padding:10px;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.35),
+    0 0 35px rgba(0,150,255,.10);
+}
+
+.qris-image img{
+  display:block;
+  width:100%;
+  border-radius:9px;
+}
+
+.qris-caption{
+  margin-top:10px;
+  color:#718caf;
+  font-size:7px;
+  text-align:center;
+}
+
+/* all payment */
+
+.payment-support{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:11px;
+  padding:11px 13px;
+  border:1px solid rgba(0,210,255,.11);
+  border-radius:14px;
+  background:rgba(0,180,255,.035);
+}
+
+.support-text strong{
+  display:block;
+  font-size:8px;
+}
+
+.support-text span{
+  display:block;
+  margin-top:3px;
+  color:#557294;
+  font-size:7px;
+}
+
+.payment-icons{
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.payment-icons i{
+  min-width:29px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 5px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:6px;
+  color:#a9c7e8;
+  background:rgba(255,255,255,.04);
+  font-style:normal;
+  font-size:6px;
+  font-weight:900;
+}
+
+/* steps */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:11px;
+}
+
+.step{
+  padding:10px 8px;
+  border:1px solid rgba(255,255,255,.065);
+  border-radius:13px;
+  background:rgba(255,255,255,.025);
+}
+
+.step-num{
+  width:20px;
+  height:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:7px;
+  color:#8bcaff;
+  background:rgba(22,135,255,.1);
+  font-size:7px;
+  font-weight:900;
+}
+
+.step strong{
+  display:block;
+  margin-top:7px;
+  font-size:7px;
+}
+
+.step span{
+  display:block;
+  margin-top:3px;
+  color:#526d91;
+  font-size:6px;
+  line-height:1.45;
+}
+
+/* voucher */
+
+.voucher{
+  margin-top:12px;
+}
+
+.voucher-row{
+  display:flex;
+  gap:7px;
+}
+
+.voucher-row input{
+  flex:1;
+  min-width:0;
+  height:42px;
+  padding:0 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:11px;
+  outline:none;
+  color:#fff;
+  background:rgba(255,255,255,.035);
+  font-size:9px;
+  text-transform:uppercase;
+}
+
+.voucher-row button{
+  height:42px;
+  padding:0 14px;
+  border:0;
+  border-radius:11px;
+  color:#fff;
+  background:#106fd7;
+  font-size:8px;
+  font-weight:900;
+}
+
+.voucher-result{
+  min-height:16px;
+  padding-top:5px;
+  font-size:7px;
+}
+
+.good{color:#40e8a5}
+.bad{color:#ff6684}
+
+/* total */
+
+.total{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding:14px 0;
+  border-top:1px solid rgba(255,255,255,.07);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.total span{
+  color:#5f7b9e;
+  font-size:7px;
+  font-weight:800;
+}
+
+.total strong{
+  font-size:21px;
+  font-weight:900;
+}
+
+/* confirm */
+
+.confirm{
+  position:relative;
+  width:100%;
+  height:49px;
+  overflow:hidden;
+  margin-top:13px;
+  border:0;
+  border-radius:14px;
+  color:#fff;
+  background:linear-gradient(135deg,#1bcf80,#078e50);
+  font-size:8px;
+  font-weight:900;
+  box-shadow:
+    0 12px 35px rgba(15,190,110,.2),
+    inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.confirm::after{
+  content:"";
+  position:absolute;
+  top:-80%;
+  left:-25%;
+  width:20%;
+  height:250%;
+  transform:rotate(25deg);
+  background:rgba(255,255,255,.22);
+  animation:buttonSweep 4s ease-in-out infinite;
+}
+
+@keyframes buttonSweep{
+  0%,50%{left:-25%}
+  75%,100%{left:130%}
+}
+
+.note{
+  margin-top:9px;
+  color:#4d6688;
+  font-size:6px;
+  line-height:1.7;
+  text-align:center;
+}
+
+/* ================================
+   JOIN
+================================ */
+
+.join{
+  text-align:center;
+}
+
+.join-logo{
+  width:76px;
+  height:76px;
+  object-fit:cover;
+  border-radius:23px;
+  box-shadow:0 0 40px rgba(0,130,255,.28);
+  margin-bottom:15px;
+}
+
+.join h2{
+  font-size:22px;
+}
+
+.join p{
+  max-width:390px;
+  margin:9px auto 19px;
+  color:#7086a6;
+  font-size:9px;
+  line-height:1.8;
+}
+
+.join-link{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:8px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:15px;
+  background:rgba(255,255,255,.025);
+  transition:.2s;
+}
+
+.join-link:hover{
+  transform:translateY(-2px);
+  border-color:rgba(30,160,255,.35);
+}
+
+.join-icon{
+  width:39px;
+  height:39px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:11px;
+  background:rgba(20,140,255,.08);
+  color:#62bbff;
+}
+
+.join-text{
+  flex:1;
+  text-align:left;
+}
+
+.join-text strong{
+  display:block;
+  font-size:9px;
+}
+
+.join-text span{
+  display:block;
+  margin-top:3px;
+  color:#587395;
+  font-size:7px;
+}
+
+.arrow{
+  color:#6783a8;
+}
+
+.skip{
+  margin-top:6px;
+  border:0;
+  color:#5f7899;
+  background:none;
+  font-size:8px;
+}
+
+/* ================================
+   HISTORY
+================================ */
+
+.history-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.history-item img{
+  width:47px;
+  height:47px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+.history-info{
+  min-width:0;
+  flex:1;
+}
+
+.history-info strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:10px;
+}
+
+.history-info span{
+  display:block;
+  margin-top:4px;
+  color:#5b7597;
+  font-size:7px;
+}
+
+.history-price{
+  font-size:10px;
+  font-weight:900;
+}
+
+.history-empty{
+  padding:55px 10px;
+  text-align:center;
+  color:#5d7596;
+  font-size:9px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer{
+  padding:25px 0 35px;
+  border-top:1px solid rgba(255,255,255,.055);
+  color:#4e6686;
+  text-align:center;
+  font-size:8px;
+}
+
+.footer b{
+  color:#72bfff;
+}
+
+/* ================================
+   TOAST
+================================ */
+
+.toast-wrap{
+  position:fixed;
+  right:15px;
+  bottom:15px;
+  z-index:9000;
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.toast{
+  width:min(320px,calc(100vw - 30px));
+  padding:12px 14px;
+  border:1px solid rgba(60,170,255,.18);
+  border-radius:13px;
+  color:#dcecff;
+  background:#091c39;
+  box-shadow:0 20px 55px rgba(0,0,0,.45);
+  font-size:9px;
+  animation:toastIn .3s ease;
+}
+
+@keyframes toastIn{
+  from{
+    opacity:0;
+    transform:translateX(20px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(min-width:700px){
+  .products{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:15px;
+  }
+
+  .product{
+    padding:11px;
+  }
+}
+
+@media(min-width:1050px){
+  .products{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}
+
+@media(max-width:600px){
+
+  .header{
+    height:67px;
+  }
+
+  .toolbar{
+    top:67px;
+  }
+
+  .brand-logo{
+    width:39px;
+    height:39px;
+  }
+
+  .brand-name{
+    font-size:15px;
+  }
+
+  .hero{
+    padding-top:16px;
+  }
+
+  .banner-wrap{
+    border-radius:21px;
+  }
+
+  .banner{
+    aspect-ratio:16/9;
+  }
+
+  .hero-title{
+    letter-spacing:-2.5px;
+  }
+
+  .hero-desc{
+    font-size:10px;
+  }
+
+  .products{
+    gap:9px;
+  }
+
+  .product{
+    border-radius:17px;
+    padding:8px;
+  }
+
+  .uid{
+    font-size:12px;
+  }
+
+  .price{
+    font-size:14px;
+  }
+
+  .buy{
+    height:34px;
+    padding:0 8px;
+    font-size:7px;
+  }
+
+  .modal{
+    align-items:flex-end;
+    padding:7px;
+  }
+
+  .modal-box{
+    border-radius:25px 25px 17px 17px;
+  }
+
+  .steps{
+    gap:5px;
+  }
+
+  .step{
+    padding:8px 6px;
+  }
+
+  .step strong{
+    font-size:6px;
+  }
+
+  .step span{
+    font-size:5.5px;
+  }
+
+}
+
+@media(max-width:350px){
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="aurora">
+  <span class="a"></span>
+  <span class="b"></span>
+  <span class="c"></span>
+</div>
+
+<div class="grid"></div>
+
+
+<!-- =========================================
+     PREMIUM INTRO
+========================================= -->
+
+<div id="intro">
+
+  <div class="intro-glow"></div>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="intro-center">
+
+    <div class="intro-logo-wrap">
+      <img
+        class="intro-logo"
+        src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg"
+        alt="PidzStore"
+      >
+    </div>
+
+    <div class="intro-mini">
+      OFFICIAL UID STORE
+    </div>
+
+    <div class="intro-title">
+      Selamat Datang<br>
+      Diwebsite PIDZ STORE
+    </div>
+
+    <div class="intro-sub">
+      Ready Stock• Fast Process • Secure Payment
+    </div>
+
+    <div class="intro-loader">
+      <span></span>
+    </div>
+
+    <div class="intro-status">
+      PREPARING STORE EXPERIENCE...
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header class="header">
+
+  <div class="header-inner">
+
+    <div class="brand">
+
+      <img
+        class="brand-logo"
+        src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg"
+        alt="PidzStore"
+      >
+
+      <div>
+
+        <div class="brand-name">
+          PidzStore
+          <span class="verify">✓</span>
+        </div>
+
+        <div class="brand-sub">
+           UID CANTIK STORE
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="header-actions">
+
+      <button
+        class="icon-btn"
+        onclick="openHistory()"
+        title="Riwayat"
+      >
+
+        ◷
+
+        <span
+          class="badge"
+          id="historyBadge"
+        >
+          0
+        </span>
+
+      </button>
+
+
+      <button
+        class="icon-btn"
+        onclick="openVoucherInfo()"
+        title="Voucher"
+      >
+        ◈
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<main class="container">
+
+  <section class="hero">
+
+    <div class="banner-wrap">
+
+      <img
+        class="banner"
+        src="https://cdn.phototourl.com/free/2026-08-26-f62b4b8b-1223-47e1-8c09-82db1aa08b38.jpg"
+        alt="PIDZ STORE"
+      >
+
+    </div>
+
+
+    <div class="hero-content">
+
+      <div class="hero-kicker">
+        <i></i>
+        UID COLLECTION FREE FIRE
+      </div>
+
+      <div class="hero-title">
+        <span class="gradient">
+          UID Cantik.
+        </span>
+        <br>
+        Pilihanmu.
+      </div>
+
+      <p class="hero-desc">
+        Koleksi UID pilihan.
+        Pilih UID yang kamu suka, bayar melalui QRIS,
+        lalu konfirmasi pesanan langsung ke admin.
+      </p>
+
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        STORE ONLINE • READY TO ORDER
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TOOLBAR -->
+
+  <section class="toolbar">
+
+    <div class="tool-row">
+
+      <div class="search">
+
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+          <circle
+            cx="11"
+            cy="11"
+            r="7"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <path
+            d="m20 20-4-4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <input
+          id="search"
+          type="search"
+          autocomplete="off"
+          placeholder="Cari UID cantik..."
+        >
+
+      </div>
+
+      <button
+        class="sort"
+        id="sortButton"
+        onclick="toggleSort()"
+      >
+        MAHAL → MURAH
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORY -->
+
+  <div
+    class="categories"
+    id="categories"
+  ></div>
+
+
+  <!-- PRODUCT -->
+
+  <section>
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="section-title">
+          UID COLLECTION
+        </div>
+
+        <div class="section-sub">
+          Temukan UID yang paling cocok untukmu
+        </div>
+
+      </div>
+
+      <div
+        class="count"
+        id="count"
+      >
+        0 UID
+      </div>
+
+    </div>
+
+
+    <div
+      class="products"
+      id="products"
+    ></div>
+
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  © 2026 <b>PidzStore ✓</b> —  UID Cantik Store
+</footer>
+
+
+<!-- =========================================
+     PAYMENT MODAL
+========================================= -->
+
+<div
+  class="modal"
+  id="paymentModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        Checkout UID
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeModal('paymentModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+      <div class="checkout-top">
+
+        <div class="checkout-label">
+          ORDER SUMMARY
+        </div>
+
+        <div class="secure">
+          <span class="secure-dot"></span>
+          SECURE CHECKOUT
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT -->
+
+      <div class="order-card">
+
+        <img
+          class="order-img"
+          id="paymentImage"
+          src=""
+          alt=""
+        >
+
+        <div class="order-info">
+
+          <strong id="paymentUID">
+            UID
+          </strong>
+
+          <span>
+            PIDZ STORE ✓
+          </span>
+
+        </div>
+
+        <div class="order-price">
+
+          <small>
+            TOTAL
+          </small>
+
+          <strong id="paymentOriginal">
+            Rp0K
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- PAYMENT -->
+
+      <div class="payment-title">
+
+        CARA PEMBAYARAN
+
+        <span>
+          Scan QRIS menggunakan aplikasi pembayaran favoritmu.
+        </span>
+
+      </div>
+
+
+      <div class="qris-card">
+
+        <div class="qris-inner">
+
+          <div class="qris-tag">
+            <b>QRIS</b>
+            • ALL PAYMENT
+          </div>
+
+          <div class="qris-image">
+
+            <img
+              src="https://cdn.phototourl.com/free/2026-08-24-d32b4785-cf17-4b66-ad24-8a358b173d4e.jpg"
+              alt="QRIS PIDZ STORE"
+            >
+
+          </div>
+
+          <div class="qris-caption">
+            Scan kode QR di atas untuk melakukan pembayaran
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUPPORT PAYMENT -->
+
+      <div class="payment-support">
+
+        <div class="support-text">
+
+          <strong>
+            SUPPORT ALL PAYMENT
+          </strong>
+
+          <span>
+            Gunakan aplikasi pembayaran yang mendukung QRIS.
+          </span>
+
+        </div>
+
+        <div class="payment-icons">
+
+          <i>QRIS</i>
+          <i>DANA</i>
+          <i>OVO</i>
+          <i>GOPAY</i>
+          <i>LINK</i>
+
+        </div>
+
+      </div>
+
+
+      <!-- STEPS -->
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-num">
+            01
+          </div>
+
+          <strong>
+            SCAN QR
+          </strong>
+
+          <span>
+            Scan QRIS di atas.
+          </span>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-num">
+            02
+          </div>
+
+          <strong>
+            BAYAR
+          </strong>
+
+          <span>
+            Selesaikan pembayaran.
+          </span>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-num">
+            03
+          </div>
+
+          <strong>
+            KONFIRMASI
+          </strong>
+
+          <span>
+            Kirim bukti ke admin.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- VOUCHER -->
+
+      <div
+        class="voucher"
+        id="voucherSection"
+      >
+
+        <div class="voucher-row">
+
+          <input
+            id="voucherInput"
+            placeholder="KODE VOUCHER"
+            maxlength="30"
+          >
+
+          <button onclick="applyVoucher()">
+            GUNAKAN
+          </button>
+
+        </div>
+
+        <div
+          class="voucher-result"
+          id="voucherResult"
+        ></div>
+
+      </div>
+
+
+      <!-- TOTAL -->
+
+      <div class="total">
+
+        <span>
+          TOTAL PEMBAYARAN
+        </span>
+
+        <strong id="totalPrice">
+          Rp0K
+        </strong>
+
+      </div>
+
+
+      <!-- CONFIRM -->
+
+      <button
+        class="confirm"
+        onclick="confirmPayment()"
+      >
+        ✓ SUDAH BAYAR — KONFIRMASI VIA WHATSAPP
+      </button>
+
+
+      <div class="note">
+        Pastikan nominal pembayaran sesuai total.
+        Setelah pembayaran berhasil, klik tombol konfirmasi
+        untuk mengirim detail order ke admin PIDZ STORE.
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     HISTORY
+========================================= -->
+
+<div
+  class="modal"
+  id="historyModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        Riwayat Pembelian
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeModal('historyModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="modal-body"
+      id="historyContent"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     VOUCHER
+========================================= -->
+
+<div
+  class="modal"
+  id="voucherModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        Voucher & Promo
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeModal('voucherModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      class="modal-body"
+      id="voucherContent"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================
+     JOIN
+========================================= -->
+
+<div
+  class="modal"
+  id="joinModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-body join">
+
+      <img
+        class="join-logo"
+        src="https://cdn.phototourl.com/free/2026-08-26-ca2b2e6f-1bbf-46c7-8c9f-bcce1e97ab4c.jpg"
+        alt="PidzStore"
+      >
+
+      <h2>
+        PidzStore
+        <span class="verify">✓</span>
+      </h2>
+
+      <p>
+        Join komunitas PIDZ untuk mendapatkan update UID,
+        stok terbaru, giveaway dan informasi promo.
+      </p>
+
+
+      <a
+        class="join-link"
+        href="https://whatsapp.com/channel/0029Vb8WZbAH5JLwJzymm90G"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="join-icon">
+          ◉
+        </div>
+
+        <div class="join-text">
+
+          <strong>
+            Saluran Bagi2 UID Cantik
+          </strong>
+
+          <span>
+            Update UID & testimoni
+          </span>
+
+        </div>
+
+        <div class="arrow">
+          ›
+        </div>
+
+      </a>
+
+
+      <a
+        class="join-link"
+        href="https://chat.whatsapp.com/K6KAC9R46ZoElU5IKp54i4"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="join-icon">
+          ◉
+        </div>
+
+        <div class="join-text">
+
+          <strong>
+            Grup Terbuka PIDZ UID CANTIK
+          </strong>
+
+          <span>
+            Komunitas PIDZ
+          </span>
+
+        </div>
+
+        <div class="arrow">
+          ›
+        </div>
+
+      </a>
+
+
+      <button
+        class="skip"
+        onclick="closeModal('joinModal')"
+      >
+        Lanjut ke Store
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast-wrap"
+  id="toastWrap"
+></div>
+
+
+<script>
+
+/* =====================================================
+   UID DATABASE
+   FORMAT:
+   { uid:"", price:2, sold:false }
+===================================================== */
+
+const PRODUCTS = [
+  
+ { uid: "18255541555", price: 5, sold: false },
+{ uid: "18255555905", price: 5, sold: false },
+{ uid: "18255555915", price: 5, sold: false },
+{ uid: "18255555957", price: 5, sold: false },
+{ uid: "18255556558", price: 5, sold: false },
+{ uid: "18255556545", price: 7, sold: false },
+{ uid: "18255556535", price: 4, sold: false },
+{ uid: "18258484888", price: 4, sold: false },
+{ uid: "18258555455", price: 5, sold: false },
+{ uid: "18258555525", price: 8, sold: false },
+{ uid: "18258555557", price: 10, sold: false },
+{ uid: "18266604666", price: 10, sold: false },
+{ uid: "18266657666", price: 6, sold: false },
+{ uid: "18269666661", price: 13, sold: false },
+{ uid: "18280863888", price: 3, sold: false },
+{ uid: "18281888989", price: 10, sold: false },
+{ uid: "18281888981", price: 4, sold: false },
+{ uid: "18281888985", price: 4, sold: false },
+{ uid: "18281888968", price: 3, sold: false },
+{ uid: "18281889088", price: 3, sold: false },
+{ uid: "18281889188", price: 3, sold: false },
+{ uid: "18281898882", price: 3, sold: false },
+{ uid: "18282220522", price: 4, sold: false },
+{ uid: "18282235222", price: 4, sold: false },
+{ uid: "18282282022", price: 4, sold: false },
+{ uid: "18283884988", price: 3, sold: false },
+{ uid: "18284881288", price: 2, sold: false },
+{ uid: "18284888826", price: 3, sold: false },
+{ uid: "18284888816", price: 5, sold: false },
+{ uid: "18284888821", price: 5, sold: false },
+{ uid: "18284888860", price: 5, sold: false },
+{ uid: "18284888817", price: 4, sold: false },
+{ uid: "18284888891", price: 5, sold: false },
+{ uid: "18284888867", price: 4, sold: false },
+{ uid: "18284888879", price: 2, sold: false },
+{ uid: "18284888877", price: 4, sold: false },
+{ uid: "18285388838", price: 3, sold: false },
+{ uid: "18285388898", price: 3, sold: false },
+{ uid: "18285388988", price: 3, sold: false },
+{ uid: "18286821888", price: 2, sold: false },
+{ uid: "18286832888", price: 2, sold: false },
+{ uid: "18288078588", price: 2, sold: false },
+{ uid: "18288187828", price: 2, sold: false },
+{ uid: "18288187889", price: 2, sold: false },
+{ uid: "18288288238", price: 2, sold: false },
+{ uid: "18288288382", price: 2, sold: false },
+{ uid: "18288318818", price: 3, sold: false },
+{ uid: "18288318848", price: 3, sold: false },
+{ uid: "18288318838", price: 2, sold: false },
+{ uid: "18289816888", price: 2, sold: false },
+{ uid: "18291211111", price: 7, sold: false },
+{ uid: "18284888884", price: 15, sold: false },
+{ uid: "18284888880", price: 20, sold: false },
+{ uid: "18284888818", price: 15, sold: false },
+{ uid: "18284888878", price: 10, sold: false },
+{ uid: "18291111122", price: 10, sold: false },
+{ uid: "18291211211", price: 10, sold: false },
+{ uid: "18285005000", price: 13, sold: false },
+{ uid: "18280088668", price: 13, sold: false },
+{ uid: "18280088086", price: 10, sold: false },
+{ uid: "18280088085", price: 10, sold: false },
+{ uid: "18270701000", price: 13, sold: false },
+{ uid: "18270700900", price: 10, sold: false },
+{ uid: "18270070007", price: 15, sold: false },
+{ uid: "18269666611", price: 5, sold: false },
+{ uid: "18269666609", price: 6, sold: false },
+{ uid: "18266777177", price: 10, sold: false },
+{ uid: "18266766886", price: 8, sold: false },
+{ uid: "18256661166", price: 8, sold: false },
+{ uid: "18255555947", price: 5, sold: false },
+{ uid: "18255555944", price: 7, sold: false },
+{ uid: "18255252505", price: 4, sold: false },
+{ uid: "18253595565", price: 2, sold: false },
+{ uid: "18253595556", price: 2, sold: false },
+{ uid: "18252004222", price: 3, sold: false },
+{ uid: "18313733333", price: 14, sold: false },
+{ uid: "18308811888", price: 15, sold: false },
+{ uid: "18308888368", price: 8, sold: false },
+{ uid: "18308888587", price: 7, sold: false },
+{ uid: "18308888585", price: 10, sold: false },
+{ uid: "18308888658", price: 9, sold: false },
+{ uid: "18308888817", price: 14, sold: false },
+{ uid: "18308888859", price: 13, sold: false },
+{ uid: "18308888864", price: 9, sold: false },
+{ uid: "18308888863", price: 9, sold: false },
+{ uid: "18308888869", price: 8, sold: false },
+{ uid: "18309000080", price: 10, sold: false },
+{ uid: "18311333363", price: 9, sold: false },
+{ uid: "18312933333", price: 8, sold: false },
+{ uid: "18313337133", price: 8, sold: false },
+{ uid: "18314444944", price: 8, sold: false },
+{ uid: "18316656666", price: 10, sold: false },
+{ uid: "18318882898", price: 9, sold: false },
+{ uid: "18322322722", price: 9, sold: false },
+{ uid: "18322923222", price: 6, sold: false },
+{ uid: "18323888688", price: 6, sold: false },
+{ uid: "18323888882", price: 5, sold: false },
+{ uid: "18324886888", price: 5, sold: false },
+{ uid: "18311900000", price:  20, sold: false },
+{ uid: "18312008888", price:  15, sold: false },
+{ uid: "18312442444", price:  10, sold: false },
+{ uid: "18312449444", price:  8, sold: false },
+{ uid: "18312822229", price:  10, sold: false },
+{ uid: "18310463333", price:  2, sold: false },
+{ uid: "18310471111", price:  2, sold: false },
+{ uid: "18311333347", price:  5, sold: false },
+{ uid: "18311333367", price:  4, sold: false },
+{ uid: "18311333370", price:  5, sold: false },
+{ uid: "18311333365", price:  5, sold: false },
+{ uid: "18311333376", price:  5, sold: false },
+{ uid: "18313733302", price:  5, sold: false },
+{ uid: "18313733315", price:  4, sold: false },
+{ uid: "18313733312", price:  3, sold: false },
+{ uid: "18313733327", price:  4, sold: false },
+{ uid: "18313733320", price:  5, sold: false },
+{ uid: "18313733329", price:  2, sold: false },
+{ uid: "18313733347", price:  4, sold: false },
+{ uid: "18313733377", price:  5, sold: false },
+{ uid: "18314303335", price:  5, sold: false },
+{ uid: "18314303336", price:  2, sold: false },
+{ uid: "18314303383", price:  3, sold: false },
+{ uid: "18314344744", price:  3, sold: false },
+{ uid: "18314366333", price:  4, sold: false },
+{ uid: "18314386888", price:  3, sold: false },
+{ uid: "18314433339", price:  10, sold: false },
+{ uid: "18314433336", price:  10, sold: false },
+{ uid: "18314433334", price:  10, sold: false },
+{ uid: "18314433338", price:  8, sold: false },
+{ uid: "18314444942", price:  6, sold: false },
+{ uid: "18314999099", price:  8, sold: false },
+{ uid: "18314999299", price:  8, sold: false },
+{ uid: "18315555059", price:  8, sold: false },
+{ uid: "18315668888", price:  10, sold: false },
+{ uid: "18315688889", price:  7, sold: false },
+{ uid: "18315688882", price:  2, sold: false },
+{ uid: "18316656606", price:  4, sold: false },
+{ uid: "18316656646", price:  5, sold: false },
+{ uid: "18316656667", price:  7, sold: false },
+{ uid: "18316656663", price:  5, sold: false },
+{ uid: "18319488882", price:  3, sold: false },
+{ uid: "18320022122", price:  15, sold: false },
+{ uid: "18320198888", price:  3, sold: false },
+{ uid: "18320848889", price:  5, sold: false },
+{ uid: "18320848886", price:  5, sold: false },
+{ uid: "18321555554", price:  5, sold: false },
+{ uid: "18321622122", price:  4, sold: false },
+{ uid: "18322322720", price:  4, sold: false },
+{ uid: "18322322725", price:  4, sold: false },
+{ uid: "18322334343", price:  2,sold: false },
+{ uid: "18323322233", price:  10, sold: false },
+{ uid: "18323322323", price:  6, sold: false },
+{ uid: "18323322322", price:  8, sold: false },
+{ uid: "18323772777", price:  9, sold: false },
+{ uid: "18323888835", price:  4, sold: false },
+{ uid: "18323888873", price:  3, sold: false },
+{ uid: "18323888865", price:  3, sold: false },
+{ uid: "18323888893", price:  2, sold: false },
+{ uid: "18323888895", price:  3, sold: false },
+{ uid: "18323888894", price:  3, sold: false },
+{ uid: "18323888896", price:  2, sold: false },
+{ uid: "18324208222", price:  2, sold: false },
+{ uid: "18324224122", price:  2, sold: false },
+{ uid: "18324224228", price:  2, sold: false },
+{ uid: "18324224272", price:  2, sold: false },
+{ uid: "18324232242", price:  2, sold: false },
+{ uid: "18324264444", price:  2, sold: false },
+{ uid: "18324886848", price:  2, sold: false },
+{ uid: "18324886885", price:  2, sold: false },
+{ uid: "18324886880", price:  2, sold: false },
+{ uid: "18324886898", price:  2, sold: false },
+{ uid: "18324999499", price:  5, sold: false },
+{ uid: "18325315555", price:  3, sold: false },
+{ uid: "18325343323", price:  2, sold: false },
+{ uid: "18325343383", price:  2, sold: false },
+{ uid: "18325343833", price:  3, sold: false },
+{ uid: "18325398333", price:  2, sold: false },
+{ uid: "18325668888", price:  6, sold: false },
+{ uid: "18325881889", price:  4, sold: false },
+{ uid: "18326339393", price:  3, sold: false },
+{ uid: "18326358888", price:  2, sold: false },
+{ uid: "18326766606", price:  3, sold: false },
+{ uid: "18326766676", price:  3, sold: false },
+{ uid: "18327770717", price:  5, sold: false },
+{ uid: "18327791777", price:  4, sold: false },
+{ uid: "18327992222", price:  6, sold: false },
+{ uid: "18328088080", price:  9, sold: false },
+{ uid: "18328268848", price:  2, sold: false },
+{ uid: "18328281288", price:  3, sold: false },
+{ uid: "18328281388", price:  2, sold: false },
+{ uid: "18328292922", price:  3, sold: false },
+
+];
+
+
+/* =====================================================
+   VOUCHER CONFIG
+===================================================== */
+
+const VOUCHER_CONFIG = {
+
+  enabled:false,
+
+  code:"PIDZ10",
+
+  type:"percent",
+
+  value:10,
+
+  minPrice:12,
+
+  maxPrice:100,
+
+  expiresAt:"2026-10-01T23:59:59"
+
+};
+
+
+/* =====================================================
+   STORE CONFIG
+===================================================== */
+
+const CONFIG = {
+
+  admin:"6285141631493",
+
+  productImage:
+    "https://cdn.phototourl.com/free/2026-08-26-f5d5149f-a152-45cb-9cfd-3cf599e320b9.jpg"
+
+};
+
+
+let selectedProduct=null;
+let selectedVoucher=null;
+let selectedCategory="all";
+let highToLow=true;
+let currentRenderedProducts=[];
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function priceText(value){
+  return "Rp"+Number(value).toLocaleString("id-ID")+"K";
+}
+
+function escapeHTML(value){
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+function createParticles(){
+
+  const box=$("particles");
+  if(!box)return;
+
+  for(let i=0;i<35;i++){
+
+    const p=document.createElement("span");
+
+    p.className="particle";
+
+    p.style.left=Math.random()*100+"%";
+    p.style.top=(70+Math.random()*35)+"%";
+    p.style.animationDuration=(4+Math.random()*7)+"s";
+    p.style.animationDelay=(Math.random()*3)+"s";
+
+    box.appendChild(p);
+  }
+}
+
+
+/* =====================================================
+   CATEGORIES
+===================================================== */
+
+function renderCategories(){
+
+  const box=$("categories");
+
+  const prices=[
+    ...new Set(
+      PRODUCTS
+      .filter(p=>!p.sold)
+      .map(p=>Number(p.price))
+      .filter(Number.isFinite)
+    )
+  ].sort((a,b)=>a-b);
+
+  box.innerHTML=`
+    <button
+      class="category ${selectedCategory==="all"?"active":""}"
+      onclick="chooseCategory('all')"
+    >
+      SEMUA UID
+    </button>
+  `;
+
+  prices.forEach(price=>{
+
+    box.insertAdjacentHTML(
+      "beforeend",
+      `
+      <button
+        class="category ${selectedCategory===String(price)?"active":""}"
+        onclick="chooseCategory('${price}')"
+      >
+        ${priceText(price)}
+      </button>
+      `
+    );
+
+  });
+}
+
+
+function chooseCategory(value){
+
+  selectedCategory=value;
+
+  renderCategories();
+  renderProducts();
+}
+
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+  const box=$("products");
+
+  let list=PRODUCTS.filter(p=>!p.sold);
+
+  if(selectedCategory!=="all"){
+
+    list=list.filter(
+      p=>String(p.price)===selectedCategory
+    );
+
+  }
+
+  const search=($("search").value||"")
+    .trim()
+    .toLowerCase();
+
+  if(search){
+
+    list=list.filter(
+      p=>String(p.uid)
+        .toLowerCase()
+        .includes(search)
+    );
+
+  }
+
+  list.sort(
+    (a,b)=>
+      highToLow
+      ? Number(b.price)-Number(a.price)
+      : Number(a.price)-Number(b.price)
+  );
+
+  currentRenderedProducts=list;
+
+  $("count").textContent=list.length+" UID";
+
+  if(!list.length){
+
+    box.innerHTML=`
+      <div class="empty">
+        <div class="empty-icon">⌕</div>
+        <strong>UID tidak ditemukan</strong>
+        Coba gunakan kata pencarian lain.
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML=list.map((p,i)=>`
+
+    <article
+      class="product"
+      style="animation-delay:${Math.min(i*30,300)}ms"
+    >
+
+      <div class="product-image">
+
+        <img
+          src="${CONFIG.productImage}"
+          alt="UID ${escapeHTML(p.uid)}"
+          loading="lazy"
+        >
+
+      </div>
+
+      <div class="product-info">
+
+        <div class="uid-label">
+          UID CANTIK
+        </div>
+
+        <div class="uid">
+          ${escapeHTML(p.uid)}
+        </div>
+
+        <div class="product-bottom">
+
+          <div>
+
+            <div class="price">
+              ${priceText(p.price)}
+            </div>
+
+            <span class="price-label">
+              READY STOCK
+            </span>
+
+          </div>
+
+          <button
+            class="buy"
+            onclick="openPayment(${i})"
+          >
+            BELI SEKARANG
+          </button>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `).join("");
+}
+
+
+function toggleSort(){
+
+  highToLow=!highToLow;
+
+  $("sortButton").textContent=
+    highToLow
+    ? "MAHAL → MURAH"
+    : "MURAH → MAHAL";
+
+  renderProducts();
+}
+
+
+/* =====================================================
+   PAYMENT
+===================================================== */
+
+function openPayment(index){
+
+  selectedProduct=currentRenderedProducts[index];
+
+  if(!selectedProduct)return;
+
+  selectedVoucher=null;
+
+  $("paymentImage").src=CONFIG.productImage;
+
+  $("paymentUID").textContent=
+    "UID "+selectedProduct.uid;
+
+  $("paymentOriginal").textContent=
+    priceText(selectedProduct.price);
+
+  $("voucherInput").value="";
+  $("voucherResult").textContent="";
+
+  updatePayment();
+
+  openModal("paymentModal");
+}
+
+
+function voucherActive(){
+
+  if(!VOUCHER_CONFIG.enabled)
+    return false;
+
+  if(VOUCHER_CONFIG.expiresAt){
+
+    const expiry=
+      new Date(VOUCHER_CONFIG.expiresAt).getTime();
+
+    if(
+      Number.isFinite(expiry) &&
+      Date.now()>=expiry
+    )
+      return false;
+  }
+
+  return true;
+}
+
+
+function discountedPrice(price){
+
+  if(!selectedVoucher)
+    return Number(price);
+
+  if(
+    price<VOUCHER_CONFIG.minPrice ||
+    price>VOUCHER_CONFIG.maxPrice
+  )
+    return Number(price);
+
+  let result=Number(price);
+
+  if(VOUCHER_CONFIG.type==="percent"){
+
+    result=
+      price-
+      price*
+      Number(VOUCHER_CONFIG.value)/
+      100;
+
+  }else{
+
+    result=
+      price-
+      Number(VOUCHER_CONFIG.value);
+
+  }
+
+  return Math.max(
+    0,
+    Math.round(result*100)/100
+  );
+}
+
+
+function applyVoucher(){
+
+  const result=$("voucherResult");
+
+  selectedVoucher=null;
+
+  const code=
+    $("voucherInput")
+    .value
+    .trim()
+    .toUpperCase();
+
+  if(!voucherActive()){
+
+    result.textContent=
+      "Belum ada voucher aktif.";
+
+    result.className="voucher-result bad";
+
+    updatePayment();
+
+    return;
+  }
+
+  if(
+    code!==
+    String(VOUCHER_CONFIG.code).toUpperCase()
+  ){
+
+    result.textContent=
+      "Kode voucher tidak valid.";
+
+    result.className="voucher-result bad";
+
+    updatePayment();
+
+    return;
+  }
+
+  if(
+    selectedProduct.price<VOUCHER_CONFIG.minPrice ||
+    selectedProduct.price>VOUCHER_CONFIG.maxPrice
+  ){
+
+    result.textContent=
+      "Voucher berlaku untuk UID "+
+      priceText(VOUCHER_CONFIG.minPrice)+
+      " sampai "+
+      priceText(VOUCHER_CONFIG.maxPrice)+".";
+
+    result.className="voucher-result bad";
+
+    updatePayment();
+
+    return;
+  }
+
+  selectedVoucher={code};
+
+  result.textContent=
+    "✓ Voucher berhasil digunakan.";
+
+  result.className="voucher-result good";
+
+  updatePayment();
+}
+
+
+function updatePayment(){
+
+  if(!selectedProduct)return;
+
+  const total=
+    discountedPrice(selectedProduct.price);
+
+  $("totalPrice").textContent=
+    priceText(total);
+
+  if(total<selectedProduct.price){
+
+    $("paymentOriginal").innerHTML=`
+      <del style="color:#58708e;font-size:9px">
+        ${priceText(selectedProduct.price)}
+      </del>
+      <br>
+      ${priceText(total)}
+    `;
+
+  }else{
+
+    $("paymentOriginal").textContent=
+      priceText(selectedProduct.price);
+
+  }
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function confirmPayment(){
+
+  if(!selectedProduct)return;
+
+  const total=
+    discountedPrice(selectedProduct.price);
+
+  const voucher=
+    selectedVoucher
+    ? selectedVoucher.code
+    : "-";
+
+  const message=
+`Halo Admin PidzStore ✓
+
+Saya ingin membeli UID:
+
+UID: ${selectedProduct.uid}
+Harga: ${priceText(selectedProduct.price)}
+Voucher: ${voucher}
+Total: ${priceText(total)}
+
+Saya sudah melakukan pembayaran melalui QRIS.
+Mohon diproses.
+
+Terima kasih.`;
+
+  saveHistory({
+
+    uid:selectedProduct.uid,
+    price:total,
+    originalPrice:selectedProduct.price,
+    voucher:voucher,
+    date:new Date().toISOString(),
+    image:CONFIG.productImage
+
+  });
+
+  window.open(
+    "https://wa.me/"+
+    CONFIG.admin+
+    "?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+  closeModal("paymentModal");
+
+  toast("Order tersimpan di riwayat.");
+}
+
+
+/* =====================================================
+   HISTORY
+===================================================== */
+
+function getHistory(){
+
+  try{
+
+    const data=
+      localStorage.getItem(
+        "PIDZ_PREMIUM_HISTORY"
+      );
+
+    if(!data)return[];
+
+    const parsed=JSON.parse(data);
+
+    return Array.isArray(parsed)
+      ? parsed
+      : [];
+
+  }catch(e){
+
+    return[];
+  }
+}
+
+
+function saveHistory(item){
+
+  try{
+
+    const history=getHistory();
+
+    history.unshift(item);
+
+    localStorage.setItem(
+      "PIDZ_PREMIUM_HISTORY",
+      JSON.stringify(history.slice(0,100))
+    );
+
+  }catch(e){}
+
+  updateBadge();
+}
+
+
+function updateBadge(){
+
+  const count=getHistory().length;
+
+  $("historyBadge").textContent=
+    count>99?"99+":count;
+
+  $("historyBadge").style.display=
+    count?"flex":"none";
+}
+
+
+function openHistory(){
+
+  const history=getHistory();
+
+  if(!history.length){
+
+    $("historyContent").innerHTML=`
+      <div class="history-empty">
+        Belum ada riwayat pembelian.
+      </div>
+    `;
+
+  }else{
+
+    $("historyContent").innerHTML=
+      history.map(item=>{
+
+        const date=
+          new Date(item.date);
+
+        return`
+          <div class="history-item">
+
+            <img
+              src="${escapeHTML(item.image||CONFIG.productImage)}"
+              alt=""
+            >
+
+            <div class="history-info">
+
+              <strong>
+                UID ${escapeHTML(item.uid)}
+              </strong>
+
+              <span>
+                ${date.toLocaleDateString("id-ID")}
+                • ${escapeHTML(item.voucher||"-")}
+              </span>
+
+            </div>
+
+            <div class="history-price">
+              ${priceText(item.price)}
+            </div>
+
+          </div>
+        `;
+
+      }).join("");
+
+  }
+
+  openModal("historyModal");
+}
+
+
+/* =====================================================
+   VOUCHER INFO
+===================================================== */
+
+function openVoucherInfo(){
+
+  if(!voucherActive()){
+
+    $("voucherContent").innerHTML=`
+
+      <div class="history-empty">
+
+        <div style="font-size:36px;margin-bottom:10px">
+          ◈
+        </div>
+
+        <strong
+          style="
+            display:block;
+            color:#aec4e3;
+            margin-bottom:6px;
+          "
+        >
+          Belum ada promo aktif
+        </strong>
+
+        Voucher akan muncul di sini
+        jika sedang tersedia.
+
+      </div>
+
+    `;
+
+  }else{
+
+    const discount=
+      VOUCHER_CONFIG.type==="percent"
+      ? VOUCHER_CONFIG.value+"% OFF"
+      : priceText(VOUCHER_CONFIG.value)+" OFF";
+
+    $("voucherContent").innerHTML=`
+
+      <div style="
+        padding:22px;
+        border-radius:21px;
+        background:
+          linear-gradient(
+            135deg,
+            #0d55b8,
+            #07357e
+          );
+        box-shadow:
+          0 25px 65px rgba(0,80,220,.2);
+      ">
+
+        <div style="
+          color:#9bd8ff;
+          font-size:7px;
+          letter-spacing:2px;
+          font-weight:900;
+        ">
+          PREMIUM PROMO
+        </div>
+
+        <div style="
+          margin-top:7px;
+          font-size:27px;
+          font-weight:900;
+        ">
+          ${escapeHTML(VOUCHER_CONFIG.code)}
+        </div>
+
+        <div style="
+          margin-top:5px;
+          color:#a9ddff;
+          font-size:12px;
+          font-weight:900;
+        ">
+          ${discount}
+        </div>
+
+        <div style="
+          margin-top:15px;
+          color:#a9c8ea;
+          font-size:8px;
+          line-height:1.7;
+        ">
+          Berlaku untuk UID
+          ${priceText(VOUCHER_CONFIG.minPrice)}
+          -
+          ${priceText(VOUCHER_CONFIG.maxPrice)}.
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+  openModal("voucherModal");
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+function openModal(id){
+
+  const modal=$(id);
+
+  if(!modal)return;
+
+  modal.classList.add("show");
+
+  document.body.style.overflow="hidden";
+}
+
+
+function closeModal(id){
+
+  const modal=$(id);
+
+  if(!modal)return;
+
+  modal.classList.remove("show");
+
+  if(!document.querySelector(".modal.show"))
+    document.body.style.overflow="";
+}
+
+
+document.addEventListener(
+  "click",
+  e=>{
+
+    if(e.target.classList.contains("modal"))
+      closeModal(e.target.id);
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key==="Escape"){
+
+      document
+        .querySelectorAll(".modal.show")
+        .forEach(m=>closeModal(m.id));
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function toast(message){
+
+  const wrap=$("toastWrap");
+
+  const item=document.createElement("div");
+
+  item.className="toast";
+  item.textContent=message;
+
+  wrap.appendChild(item);
+
+  setTimeout(()=>{
+
+    item.style.opacity="0";
+    item.style.transform="translateX(20px)";
+    item.style.transition=".3s";
+
+    setTimeout(
+      ()=>item.remove(),
+      300
+    );
+
+  },2600);
+}
+
+
+/* =====================================================
+   JOIN
+===================================================== */
+
+function showJoin(){
+
+  let seen=false;
+
+  try{
+
+    seen=
+      sessionStorage.getItem(
+        "PIDZ_JOIN_PREMIUM"
+      )==="1";
+
+  }catch(e){}
+
+  if(!seen){
+
+    setTimeout(
+      ()=>openModal("joinModal"),
+      350
+    );
+
+    try{
+
+      sessionStorage.setItem(
+        "PIDZ_JOIN_PREMIUM",
+        "1"
+      );
+
+    }catch(e){}
+
+  }
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+function start(){
+
+  try{
+    renderCategories();
+    renderProducts();
+    updateBadge();
+  }catch(e){
+    console.error("PIDZ STORE INIT ERROR:", e);
+  }
+
+  const search = $("search");
+
+  if(search){
+    search.addEventListener("input", renderProducts);
+  }
+
+  /* voucher section hidden kalau tidak aktif */
+  const voucherSection = $("voucherSection");
+
+  if(voucherSection && !VOUCHER_CONFIG.enabled){
+    voucherSection.style.display="none";
+  }
+
+
+  /* intro */
+
+  setTimeout(()=>{
+
+    const intro=$("intro");
+
+    if(intro)
+      intro.classList.add("hide");
+
+    showJoin();
+
+  },2700);
+
+
+  /* emergency fallback */
+
+  setTimeout(()=>{
+
+    const intro=$("intro");
+
+    if(
+      intro &&
+      !intro.classList.contains("hide")
+    ){
+
+      intro.classList.add("hide");
+
+      showJoin();
+
+    }
+
+  },4500);
+}
+
+
+createParticles();
+
+start();
+
+</script>
+
+</body>
+  </html>
