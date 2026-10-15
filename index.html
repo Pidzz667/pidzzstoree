@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#edf5ff">
+<title>PIDZ STORE — UID Cantik Free Fire</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#2678f5;--dark:#1455cf;--ink:#19304e;--muted:#8193aa;--line:#e1ebf8;--bg:#f5f9ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.hidden{display:none!important}
+.glow{position:fixed;z-index:-1;width:260px;height:260px;filter:blur(90px);border-radius:50%;opacity:.35;pointer-events:none;animation:float 8s infinite alternate}
+.glow.one{background:#69a8ff;top:0;left:-130px}.glow.two{background:#a0caff;right:-130px;top:45%}
+@keyframes float{to{transform:translate(40px,-30px) scale(1.15)}}
+@keyframes enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shine{to{background-position:200% center}}
+@keyframes pulse{50%{box-shadow:0 0 0 13px #3185ff00}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@keyframes twinkle{50%{opacity:.25;transform:scale(.6)}}
+button{transition:transform .2s,box-shadow .2s}
+button:hover:not(:disabled){transform:translateY(-2px)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.btn{border:0;border-radius:12px;background:linear-gradient(120deg,#4198ff,#2165eb);color:white;font-size:12px;font-weight:800;padding:13px 17px;box-shadow:0 8px 22px #2878f526}
+.btn.secondary{background:#eaf3ff;color:#246de3;box-shadow:none;border:1px solid #d9e8ff}
+.btn.ghost{background:white;color:#60758f;border:1px solid var(--line);box-shadow:none}
+.btn.danger{background:#fff0f1;color:#c54c59;box-shadow:none}
+.full{width:100%}
+header{height:74px;max-width:1120px;margin:auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #e0ebf8}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.brand img{width:42px;height:42px;object-fit:cover;border-radius:13px;border:1px solid #dce9ff}
+.brand b{font-size:14px}.brand small{display:block;margin-top:4px;color:#8da0b7;font-size:9px;letter-spacing:1.5px}
+.head-right{display:flex;align-items:center;gap:8px}
+.online{font-size:10px;border:1px solid var(--line);border-radius:10px;background:white;padding:10px;color:#667c94;white-space:nowrap}
+.online strong{color:#13865d}
+#app{max-width:1120px;margin:auto;padding:0 20px 45px}
+.view{animation:enter .4s ease both}
+.welcome{min-height:calc(100svh - 74px);display:grid;place-items:center;position:relative;text-align:center;padding:30px 10px;overflow:hidden}
+.welcome-content{max-width:660px;position:relative;z-index:1}
+.logo-ring{width:115px;height:115px;display:grid;place-items:center;position:relative;margin:0 auto 27px}
+.logo-ring:before,.logo-ring:after{content:"";position:absolute;inset:-12px;border:1px solid #6ba9ff75;border-radius:34px;transform:rotate(30deg);animation:orbit 15s linear infinite}
+.logo-ring:after{inset:-21px;border-style:dashed;animation-direction:reverse;animation-duration:24s}
+.logo{width:94px;height:94px;border-radius:27px;object-fit:cover;border:3px solid white;box-shadow:0 18px 45px #2878f53c;animation:bob 4s ease-in-out infinite}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid #d8e8ff;background:#ffffffc9;border-radius:50px;color:#2874e8;font-size:9px;font-weight:800;letter-spacing:1px}
+.dot{width:7px;height:7px;border-radius:50%;background:#2ab987;box-shadow:0 0 9px #2ab987}
+h1{font-size:clamp(38px,8vw,68px);line-height:1.08;letter-spacing:-3px;margin:21px 0 16px}
+.gradient{background:linear-gradient(100deg,#1454d2,#57b3ff,#2169e9);background-size:200% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shine 6s linear infinite}
+.welcome p{max-width:450px;margin:auto;color:var(--muted);font-size:12px;line-height:2}
+#welcomeBtn{margin-top:25px;padding:16px 25px;animation:pulse 3s infinite}
+.footnote{margin-top:27px;font-size:9px;letter-spacing:2px;color:#9aabc0}
+.spark{position:absolute;color:#62a5ff;animation:twinkle 2s infinite}.sp1{top:22%;left:12%;font-size:27px}.sp2{right:12%;top:25%;font-size:23px}.sp3{bottom:20%;left:17%;font-size:20px}.sp4{right:15%;bottom:21%;font-size:30px}
+.hero{margin:24px 0 18px;padding:clamp(23px,5vw,42px);border:1px solid white;border-radius:25px;background:radial-gradient(circle at 95% 5%,#acd0ff,transparent 35%),linear-gradient(125deg,#fff,#eaf4ff);box-shadow:0 15px 45px #285b9510}
+.hero h2{font-size:clamp(30px,5vw,44px);letter-spacing:-2px;line-height:1.14;margin:17px 0 10px}
+.hero p{max-width:490px;color:#7c90a8;font-size:12px;line-height:1.9}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 30px}
+.stat{padding:15px 13px;border:1px solid var(--line);background:#ffffffc9;border-radius:15px}
+.stat small{color:#8295ad;font-size:10px}.stat strong{display:block;margin-top:7px;font-size:clamp(19px,4vw,26px)}
+.heading{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:30px 0 15px}
+.heading h3{font-size:19px;margin:0 0 5px}.heading p{margin:0;color:#8497ae;font-size:10px}
+.count{font-size:10px;color:var(--blue);font-weight:800;white-space:nowrap}
+.field{width:100%;padding:13px;border:1px solid var(--line);background:white;border-radius:12px;color:var(--ink);font-size:12px;outline:none}
+.field:focus{border-color:#85b8ff;box-shadow:0 0 0 3px #dcecff}
+.field::placeholder{color:#9aabc0}
+.search{position:relative;margin-bottom:12px}.search span{position:absolute;left:14px;top:12px;color:#7195c2}.search input{padding-left:39px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 12px}
+.filter{flex-shrink:0;border:1px solid var(--line);background:white;color:#7d90a8;border-radius:10px;padding:10px 13px;font-size:10px;font-weight:800}
+.filter.active{background:var(--blue);color:white;border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{min-width:0;background:linear-gradient(145deg,#fff,#fbfdff);border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:0 6px 20px #2d5e9608;animation:enter .35s ease both;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#b8d5ff;box-shadow:0 13px 25px #2d6cb216}
+.cardtop{display:flex;justify-content:space-between;align-items:center;gap:5px}
+.uidicon{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:#eaf3ff;color:#2878f5;font-size:18px}
+.badge{font-size:8px;font-weight:800;border-radius:7px;padding:6px 7px;background:#e6f8ef;color:#22865d}
+.badge.sold{background:#fff0f0;color:#c64e5b}
+.label{font-size:9px;letter-spacing:1.3px;color:#95a5b9;margin-top:16px}
+.uid{font-size:clamp(13px,2vw,17px);font-weight:800;margin-top:7px;overflow-wrap:anywhere}
+.cardbottom{display:flex;align-items:end;justify-content:space-between;gap:8px;border-top:1px solid #edf2fa;margin-top:15px;padding-top:13px}
+.price small{display:block;font-size:9px;color:#8a9db3}.price b{display:block;font-size:17px;color:#2169e8;margin-top:4px}
+.buy{border:0;background:#eaf3ff;color:#2169e8;padding:10px;border-radius:9px;font-size:10px;font-weight:800}
+.empty{text-align:center;grid-column:1/-1;padding:32px 14px;border:1px dashed #cadcf2;border-radius:16px;color:#8599b1;font-size:12px;line-height:2}
+footer{text-align:center;border-top:1px solid var(--line);margin-top:38px;padding-top:22px;color:#91a2b8;font-size:10px;line-height:2}
+.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 25px #305f9708}
+.panel h3{font-size:16px;margin:0 0 7px}.sub{color:#8496ad;font-size:11px;line-height:1.8}
+.page-title{margin:27px 0 20px}.page-title h2{font-size:clamp(27px,5vw,39px);letter-spacing:-1.5px;margin:12px 0 7px}.page-title p{font-size:12px;color:#8092a9;line-height:1.8}
+.paygrid{display:grid;grid-template-columns:1fr 1fr;gap:15px;align-items:start}
+.amount{background:#edf5ff;border-radius:13px;padding:15px;margin:15px 0}.amount small{display:block;color:#778ca8;font-size:10px}.amount b{display:block;color:#2169e8;font-size:25px;margin-top:6px}
+.qris{width:100%;max-width:340px;max-height:390px;object-fit:contain;display:block;margin:16px auto;border:1px solid var(--line);border-radius:12px}
+.notice{font-size:10px;line-height:1.8;background:#f4f8fd;color:#7e90a8;padding:12px;border-radius:11px}
+.paylogos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}
+.paylogo{border:1px solid var(--line);border-radius:11px;text-align:center;padding:13px 4px;background:#fbfdff}.paylogo b{font-size:11px;color:#276fe5}.paylogo small{display:block;font-size:9px;color:#899bb1;margin-top:5px}
+.steps{padding-left:24px;color:#6f8299;font-size:11px;line-height:2.1}
+.rowbuttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.reviewsummary{display:flex;gap:18px;align-items:center;background:linear-gradient(120deg,#fff,#eef6ff);border:1px solid var(--line);border-radius:17px;padding:20px;margin-bottom:14px}
+.avg{font-size:40px;font-weight:800}.stars{color:#f1ae2d;letter-spacing:2px;font-size:19px}
+.star-pick{display:flex;gap:5px;margin:12px 0}
+.star-pick button{background:none;border:0;padding:0 3px;color:#cbd5e1;font-size:30px}.star-pick button.selected{color:#f1ae2d}
+.review{border:1px solid var(--line);border-radius:15px;background:white;padding:16px;margin:10px 0}
+.reviewtop{display:flex;justify-content:space-between;gap:10px}.reviewname{font-size:12px;font-weight:800}.date{font-size:9px;color:#95a4b6}
+.reviewtext{font-size:12px;line-height:1.9;color:#657b94;white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0}
+.reply{border-left:3px solid #3886ff;background:#f0f6ff;padding:11px;border-radius:0 9px 9px 0;font-size:11px;line-height:1.8}
+.admin-tabs{display:flex;gap:7px;overflow-x:auto;margin:18px 0}
+.tab{flex-shrink:0;border:1px solid var(--line);border-radius:9px;background:white;color:#7587a0;padding:10px 13px;font-size:11px;font-weight:800}
+.tab.active{background:var(--blue);color:white}
+.adminitem{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:12px;background:white;padding:12px;margin:8px 0}
+.adminitem strong{font-size:12px;overflow-wrap:anywhere}.adminitem small{display:block;color:#8597ad;font-size:10px;margin-top:5px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.wide{grid-column:1/-1}
+.toast{position:fixed;bottom:20px;left:50%;z-index:100;transform:translate(-50%,20px);opacity:0;pointer-events:none;max-width:calc(100% - 30px);width:max-content;padding:13px 17px;border-radius:11px;background:#183551;color:white;font-size:11px;text-align:center;transition:.25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:720px){header{padding:0 13px;height:68px}#app{padding:0 13px 35px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card{padding:12px}.cardbottom{flex-wrap:wrap}.paygrid{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:12px 9px}.welcome h1{letter-spacing:-2px}.sp1{left:3%}.sp2{right:3%}.sp3{left:6%}.sp4{right:6%}}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.brand b{font-size:12px}.online{padding:8px;font-size:9px}.head-right{gap:4px}.formgrid{grid-template-columns:1fr}.wide{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="glow one"></div><div class="glow two"></div>
+<header>
+ <div class="brand" id="brand" title="Klik tiga kali untuk admin">
+  <img src="https://cdn.phototourl.com/member/2026-10-15-1b87b2c4-2a86-44cc-9efb-87469eeed529.jpg" alt="Logo">
+  <div><b>PIDZ STORE</b><small>UID COLLECTION</small></div>
+ </div>
+ <div class="head-right">
+  <div class="online">● Online <strong id="onlineCount">0</strong></div>
+  <button class="btn secondary" id="reviewNav">Ulasan ★</button>
+ </div>
+</header>
+
+<main id="app">
+<section id="welcome" class="welcome">
+ <span class="spark sp1">✦</span><span class="spark sp2">✧</span><span class="spark sp3">✦</span><span class="spark sp4">✧</span>
+ <div class="welcome-content">
+  <div class="logo-ring"><img class="logo" src="https://cdn.phototourl.com/member/2026-10-15-1b87b2c4-2a86-44cc-9efb-87469eeed529.jpg" alt="PIDZ STORE"></div>
+  <span class="pill"><span class="dot"></span> WELCOME TO PIDZ STORE</span>
+  <h1>Selamat Datang<br>di Website<br><span class="gradient">PIDZ STORE</span></h1>
+  <p>Cari UID cantik? Temukan pilihan nomor favoritmu, cek harga, dan pilih yang paling cocok untukmu.</p>
+  <button class="btn" id="welcomeBtn">Lihat Produk &nbsp; ↗</button>
+  <div class="footnote">UID COLLECTION · PILIH FAVORITMU</div>
+ </div>
+</section>
+
+<section id="catalog" class="hidden view">
+ <div class="hero"><span class="pill"><span class="dot"></span> UID COLLECTION</span><h2>Temukan UID<br><span class="gradient">Favoritmu.</span></h2><p>Pilih nomor favoritmu, cek harga, dan lanjutkan ke halaman pembayaran.</p></div>
+ <div class="stats">
+  <div class="stat"><small>Total UID</small><strong id="total">0</strong></div>
+  <div class="stat"><small>Tersedia</small><strong id="available">0</strong></div>
+  <div class="stat"><small>Mulai dari</small><strong id="starting">-</strong></div>
+ </div>
+ <div class="heading"><div><h3>Katalog UID</h3><p>Pilih kategori harga di bawah.</p></div><span class="count" id="productCount">0 produk</span></div>
+ <div class="search"><span>⌕</span><input id="search" class="field" placeholder="Cari nomor UID..." autocomplete="off"></div>
+ <div id="filters" class="filters"></div>
+ <div id="products" class="grid"></div>
+ <footer><b style="color:#2878f5">PIDZ STORE</b><br>UID Collection · <span id="year"></span><br><button class="btn ghost" id="goReviews" style="margin-top:12px">Beri Ulasan ★</button></footer>
+</section>
+
+<section id="payment" class="hidden view">
+ <div class="page-title"><span class="pill">HALAMAN PEMBAYARAN</span><h2>Selesaikan <span class="gradient">Pesananmu.</span></h2><p>Periksa UID dan harga sebelum melakukan pembayaran.</p></div>
+ <div class="paygrid">
+  <div class="panel">
+   <h3>Detail pesanan</h3><p class="sub">Pastikan informasi berikut sudah benar.</p>
+   <div class="amount"><small>UID pilihan</small><b id="payUID" style="font-size:19px;overflow-wrap:anywhere">-</b><small style="margin-top:14px">Total pembayaran</small><b id="payAmount">Rp0</b></div>
+   <h3>QRIS</h3><p class="sub">Pindai dengan aplikasi pembayaran yang mendukung QRIS.</p>
+   <img class="qris" src="https://cdn.phototourl.com/member/2026-10-15-7ee5cf83-8bfd-4f70-b074-f47a3f792911.jpg" alt="QRIS PIDZ STORE">
+   <div class="notice">Periksa nama penerima dan nominal di aplikasi sebelum menyelesaikan transaksi.</div>
+  </div>
+  <div class="panel">
+   <h3>Metode pembayaran</h3><p class="sub">Gunakan aplikasi yang mendukung pemindaian QRIS.</p>
+   <div class="paylogos">
+    <div class="paylogo"><b>DANA</b><small>E-wallet</small></div><div class="paylogo"><b>GoPay</b><small>E-wallet</small></div><div class="paylogo"><b>OVO</b><small>E-wallet</small></div><div class="paylogo"><b>LinkAja</b><small>E-wallet</small></div><div class="paylogo"><b>ShopeePay</b><small>E-wallet</small></div><div class="paylogo"><b>m-Banking</b><small>QRIS</small></div>
+   </div>
+   <h3>Cara pembayaran</h3>
+   <ol class="steps"><li>Buka aplikasi pembayaran yang mendukung QRIS.</li><li>Pilih menu pindai dan pindai kode QRIS.</li><li>Periksa penerima serta nominal pembayaran.</li><li>Simpan bukti transaksi untuk dikirim melalui WhatsApp.</li></ol>
+   <button class="btn full" id="confirmWA">Konfirmasi via WhatsApp ↗</button>
+   <div class="notice" style="margin-top:12px">WhatsApp akan terbuka dengan detail pesanan. Lampirkan bukti transaksi secara manual.</div>
+   <div class="rowbuttons"><button class="btn ghost" id="backCatalog">← Kembali ke produk</button></div>
+  </div>
+ </div>
+</section>
+
+<section id="reviewsPage" class="hidden view">
+ <div class="page-title"><span class="pill">KOMUNITAS PIDZ STORE</span><h2>Ulasan <span class="gradient">Pengunjung.</span></h2><p>Bagikan pengalaman dan masukanmu.</p></div>
+ <div class="reviewsummary"><div><div class="avg" id="avg">0.0</div><div class="stars" id="avgStars">☆☆☆☆☆</div><div class="sub" id="reviewTotal">0 ulasan</div></div><div class="sub">Terima kasih telah memberikan penilaian untuk PIDZ STORE.</div></div>
+ <div class="panel">
+  <h3>Tulis ulasan</h3><p class="sub">Pilih bintang dan tulis komentarmu.</p>
+  <div id="starPick" class="star-pick"><button type="button" data-star="1">★</button><button type="button" data-star="2">★</button><button type="button" data-star="3">★</button><button type="button" data-star="4">★</button><button type="button" data-star="5">★</button></div>
+  <input id="reviewName" class="field" maxlength="40" placeholder="Nama panggilan" style="margin-bottom:10px">
+  <textarea id="reviewText" class="field" maxlength="1000" placeholder="Tulis ulasanmu..." rows="4"></textarea>
+  <button id="submitReview" class="btn" style="margin-top:12px">Kirim Ulasan</button>
+  <div class="sub" id="reviewStatus" style="margin-top:9px"></div>
+ </div>
+ <div class="heading"><div><h3>Ulasan terbaru</h3><p>Data akan diperbarui otomatis.</p></div></div>
+ <div id="reviewList"><div class="empty">Menghubungkan ulasan...</div></div>
+ <div class="rowbuttons"><button class="btn ghost" id="reviewsBack">← Kembali</button></div>
+</section>
+
+<section id="loginPage" class="hidden view">
+ <div class="page-title"><span class="pill">AREA ADMIN</span><h2>Admin <span class="gradient">Login.</span></h2><p>Gunakan akun admin yang sudah diotorisasi.</p></div>
+ <div class="panel" style="max-width:450px;margin:auto">
+  <input id="adminEmail" class="field" type="email" autocomplete="username" placeholder="Email admin" style="margin:10px 0">
+  <input id="adminPassword" class="field" type="password" autocomplete="current-password" placeholder="Password admin" style="margin:0 0 12px">
+  <button id="loginBtn" class="btn full">Masuk Admin</button><button id="loginBack" class="btn ghost full" style="margin-top:9px">Kembali</button>
+  <p class="sub">Akun harus terdaftar di Firebase Authentication dan UID-nya terdaftar sebagai admin di database.</p>
+ </div>
+</section>
+
+<section id="adminPage" class="hidden view">
+ <div class="page-title"><span class="pill">CONTROL CENTER</span><h2>Admin <span class="gradient">Panel.</span></h2><p>Kelola UID dan moderasi ulasan.</p></div>
+ <div class="stats"><div class="stat"><small>Total UID</small><strong id="adminTotal">0</strong></div><div class="stat"><small>Ulasan</small><strong id="adminReviews">0</strong></div><div class="stat"><small>User online</small><strong id="adminOnline">0</strong></div></div>
+ <div class="admin-tabs"><button class="tab active" data-tab="productsAdmin">Kelola UID</button><button class="tab" data-tab="reviewsAdmin">Kelola ulasan</button></div>
+ <div id="productsAdmin">
+  <div class="panel"><h3>Tambah banyak UID</h3><p class="sub">Satu UID per baris: UID,harga,sold. Harga 2 = Rp2.000.</p><textarea id="bulk" class="field" rows="5" placeholder="18581111292,2,false&#10;18581455559,5,false"></textarea><button id="addBulk" class="btn" style="margin-top:10px">Tambah UID</button></div>
+  <div class="panel" style="margin-top:12px"><h3>Tambah / edit UID</h3><div class="formgrid" style="margin-top:12px"><input id="editUID" class="field" placeholder="Nomor UID"><input id="editPrice" class="field" type="number" min="2" step="1" placeholder="Harga (2 = 2K)"><select id="editSold" class="field wide"><option value="false">Tersedia</option><option value="true">Terjual</option></select><button id="saveUID" class="btn wide">Simpan UID</button></div></div>
+  <div class="heading"><div><h3>Daftar UID</h3><p>Data tersinkron dengan pengunjung.</p></div><span class="count" id="adminProductCount">0 UID</span></div><div id="adminProductList"></div>
+ </div>
+ <div id="reviewsAdmin" class="hidden"><div class="notice">Balasan admin akan tampil di bawah ulasan. Penghapusan ulasan berlaku untuk semua pengunjung.</div><div id="adminReviewList"></div></div>
+ <div class="rowbuttons"><button id="logoutBtn" class="btn ghost">Keluar Admin</button><button id="adminBack" class="btn ghost">Kembali ke website</button></div>
+</section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {getAuth,onAuthStateChanged,signInWithEmailAndPassword,signOut,signInAnonymously} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import {getDatabase,ref,onValue,get,set,update,remove,push,onDisconnect,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+/* Konfigurasi Firebase project pidzweb */
+const firebaseConfig={
+ apiKey: "AIzaSyC-JlSf8kM4NrbfAskRVr-spXgFM-EiRuE",
+ authDomain: "pidzweb.firebaseapp.com",
+ databaseURL: "https://pidzweb-default-rtdb.firebaseio.com",
+ projectId: "pidzweb",
+ storageBucket: "pidzweb.firebasestorage.app",
+ messagingSenderId: "628158069485",
+ appId: "1:628158069485:web:51786cbed9ea073abdeae4",
+ measurementId: "G-1MTZV2H95G"
+};
+
+/* UID manual: boleh ditambah sebanyak yang dibutuhkan. */
+const INITIAL_PRODUCTS=[
+{ uid: "1237282828", price: 10, sold: false },
+];
+const WA_NUMBER="6285141631493";
+const $=id=>document.getElementById(id);
+const views=["welcome","catalog","payment","reviewsPage","loginPage","adminPage"];
+let db=null,auth=null,currentUser=null,isAdmin=false;
+const manualProducts=INITIAL_PRODUCTS.map(p=>({...p,uid:String(p.uid).trim(),price:Number(p.price),sold:!!p.sold,source:"manual",key:String(p.uid).trim()})).filter(p=>/^\d+$/.test(p.uid)&&Number.isInteger(p.price)&&p.price>=2);
+let firebaseProducts=[];
+let products=manualProducts.map(p=>({...p}));
+let reviews=[],presenceCount=0,selectedProduct=null,rating=0,filterPrice="all",searchText="",currentView="welcome",returnView="catalog";
+let brandClicks=0,brandTimer=null,toastTimer=null;
+
+const money=n=>"Rp"+(Number(n)*1000).toLocaleString("id-ID");
+const priceLabel=n=>Number(n).toLocaleString("id-ID")+"K";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function mergeProducts(){
+ const merged=new Map();
+ for(const p of manualProducts)merged.set(String(p.uid),{...p});
+ for(const p of firebaseProducts)merged.set(String(p.uid),{...p});
+ products=[...merged.values()].filter(p=>/^\d+$/.test(String(p.uid))&&Number.isInteger(Number(p.price))&&Number(p.price)>=2).sort((a,b)=>Number(a.price)-Number(b.price)||String(a.uid).localeCompare(String(b.uid)));
+}
+function toast(s){$("toast").textContent=s;$("toast").classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2800)}
+function showView(id){views.forEach(v=>$(v).classList.toggle("hidden",v!==id));currentView=id;window.scrollTo({top:0,behavior:"smooth"})}
+function configured(){return /^https:\/\/[a-zA-Z0-9.-]+(?::\d+)?\/?$/.test(firebaseConfig.databaseURL||"")&&!firebaseConfig.databaseURL.includes("GANTI_DENGAN")}
+function goCatalog(){showView("catalog");renderProducts()}
+function goReviews(){returnView=currentView==="welcome"?"welcome":"catalog";showView("reviewsPage")}
+function needAdmin(){if(!db||!currentUser||!isAdmin){toast("Login admin atau koneksi database belum siap.");return false}return true}
+
+/* Navigasi */
+$("welcomeBtn").addEventListener("click",()=>goCatalog());
+$("brand").addEventListener("click",()=>{
+ brandClicks++;clearTimeout(brandTimer);brandTimer=setTimeout(()=>brandClicks=0,1200);
+ if(brandClicks>=3){brandClicks=0;returnView=currentView==="welcome"?"catalog":currentView;showView("loginPage")}
+ else if(currentView!=="welcome"&&currentView!=="adminPage"&&currentView!=="loginPage")goCatalog();
+});
+$("reviewNav").addEventListener("click",goReviews);
+$("goReviews").addEventListener("click",goReviews);
+$("reviewsBack").addEventListener("click",()=>showView(returnView==="welcome"?"welcome":"catalog"));
+$("backCatalog").addEventListener("click",goCatalog);
+$("loginBack").addEventListener("click",()=>showView(returnView==="welcome"?"welcome":"catalog"));
+$("adminBack").addEventListener("click",goCatalog);
+$("year").textContent=new Date().getFullYear();
+
+function renderProducts(){
+ $("total").textContent=products.length;
+ const available=products.filter(p=>!p.sold);
+ $("available").textContent=available.length;
+ $("starting").textContent=available.length?priceLabel(Math.min(...available.map(p=>+p.price))):"-";
+ const prices=[...new Set(products.map(p=>+p.price).filter(Number.isFinite))].sort((a,b)=>a-b);
+ const opts=[{v:"all",t:"Semua UID"},...prices.map(p=>({v:String(p),t:priceLabel(p)}))];
+ if(!opts.some(o=>o.v===filterPrice))filterPrice="all";
+ $("filters").innerHTML=opts.map(o=>`<button class="filter ${filterPrice===o.v?"active":""}" data-price="${esc(o.v)}">${esc(o.t)}</button>`).join("");
+ const list=products.filter(p=>(filterPrice==="all"||String(p.price)===filterPrice)&&String(p.uid).includes(searchText));
+ $("productCount").textContent=list.length+" produk";
+ $("products").innerHTML=list.length?list.map((p,i)=>`<article class="card" style="animation-delay:${Math.min(i*25,200)}ms">
+ <div class="cardtop"><div class="uidicon">✦</div><span class="badge ${p.sold?"sold":""}">${p.sold?"TERJUAL":"TERSEDIA"}</span></div>
+ <div class="label">UID NUMBER</div><div class="uid">${esc(p.uid)}</div>
+ <div class="cardbottom"><div class="price"><small>Harga UID</small><b>${money(p.price)}</b></div><button class="buy" data-buy="${esc(p.uid)}" ${p.sold?"disabled":""}>${p.sold?"Terjual":"Beli ↗"}</button></div>
+ </article>`).join(""):`<div class="empty">✦<br><b>Belum ada UID yang cocok.</b><br>Coba kata kunci atau kategori harga lain.</div>`;
+}
+$("search").addEventListener("input",e=>{searchText=e.target.value.trim();renderProducts()});
+$("filters").addEventListener("click",e=>{const b=e.target.closest("[data-price]");if(!b)return;filterPrice=b.dataset.price;renderProducts()});
+$("products").addEventListener("click",e=>{
+ const b=e.target.closest("[data-buy]");if(!b)return;
+ const p=products.find(x=>String(x.uid)===b.dataset.buy);
+ if(!p||p.sold)return;
+ selectedProduct={uid:String(p.uid),price:Number(p.price)};
+ $("payUID").textContent=selectedProduct.uid;
+ $("payAmount").textContent=money(selectedProduct.price);
+ showView("payment");
+});
+$("confirmWA").addEventListener("click",()=>{
+ if(!selectedProduct){toast("Pilih UID terlebih dahulu.");return}
+ const msg=["Halo PIDZ STORE, saya ingin konfirmasi pembayaran.","","UID: "+selectedProduct.uid,"Harga: "+money(selectedProduct.price),"","Saya akan melampirkan bukti transaksi pada chat ini. Terima kasih."].join("\n");
+ window.open("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
+
+/* Ulasan */
+function renderReviews(){
+ const n=reviews.length,avg=n?reviews.reduce((s,r)=>s+(+r.rating||0),0)/n:0;
+ $("avg").textContent=avg.toFixed(1);
+ $("avgStars").textContent="★".repeat(Math.round(avg))+"☆".repeat(5-Math.round(avg));
+ $("reviewTotal").textContent=n+" ulasan";
+ const sorted=[...reviews].sort((a,b)=>(+b.createdAt||0)-(+a.createdAt||0));
+ $("reviewList").innerHTML=sorted.length?sorted.map(r=>`<article class="review">
+ <div class="reviewtop"><div><div class="reviewname">${esc(r.name||"Pengunjung")}</div><div class="stars">${"★".repeat(Math.max(0,Math.min(5,+r.rating||0)))}<span style="color:#dce3ec">${"☆".repeat(5-Math.max(0,Math.min(5,+r.rating||0)))}</span></div></div><span class="date">${r.createdAt?new Date(+r.createdAt).toLocaleDateString("id-ID"):"Baru saja"}</span></div>
+ <div class="reviewtext">${esc(r.text||"")}</div>${r.reply?`<div class="reply"><b>Balasan PIDZ STORE</b><br>${esc(r.reply)}</div>`:""}</article>`).join(""):`<div class="empty">Belum ada ulasan.<br>Jadilah yang pertama memberikan penilaian.</div>`;
+ $("adminReviews").textContent=n;
+ $("adminReviewList").innerHTML=sorted.length?sorted.map(r=>`<article class="review">
+ <b>${esc(r.name||"Pengunjung")} · ${"★".repeat(+r.rating||0)}</b><div class="reviewtext">${esc(r.text||"")}</div>
+ <textarea class="field" id="reply-${esc(r.id)}" placeholder="Balas ulasan...">${esc(r.reply||"")}</textarea>
+ <div class="rowbuttons"><button class="btn secondary" data-reply="${esc(r.id)}">Simpan balasan</button><button class="btn danger" data-delete-review="${esc(r.id)}">Hapus</button></div>
+ </article>`).join(""):`<div class="empty">Belum ada ulasan.</div>`;
+}
+$("starPick").addEventListener("click",e=>{const b=e.target.closest("[data-star]");if(!b)return;rating=+b.dataset.star;$("starPick").querySelectorAll("button").forEach(x=>x.classList.toggle("selected",+x.dataset.star<=rating))});
+$("submitReview").addEventListener("click",async()=>{
+ const name=$("reviewName").value.trim(),text=$("reviewText").value.trim();
+ if(!rating)return toast("Pilih bintang terlebih dahulu.");
+ if(name.length<2)return toast("Masukkan nama panggilan.");
+ if(text.length<3)return toast("Tulis ulasan terlebih dahulu.");
+ if(!db)return toast("Realtime Database belum terhubung.");
+ const b=$("submitReview");b.disabled=true;
+ try{
+  if(!auth.currentUser)await signInAnonymously(auth);
+  const r=push(ref(db,"reviews"));
+  await set(r,{name:name.slice(0,40),text:text.slice(0,1000),rating,createdAt:Date.now()});
+  $("reviewName").value="";$("reviewText").value="";rating=0;
+  $("starPick").querySelectorAll("button").forEach(x=>x.classList.remove("selected"));
+  $("reviewStatus").textContent="Ulasan terkirim. Daftar ulasan diperbarui otomatis.";
+  toast("Ulasan berhasil dikirim.");
+ }catch(e){console.error(e);toast("Ulasan gagal dikirim. Periksa Authentication dan Rules Firebase.")}
+ finally{b.disabled=false}
+});
+
+/* Kelola UID */
+function renderAdminProducts(){
+ $("adminTotal").textContent=products.length;$("adminProductCount").textContent=products.length+" UID";
+ $("adminProductList").innerHTML=products.length?products.map(p=>`<div class="adminitem">
+ <div><strong>${esc(p.uid)}</strong><small>${money(p.price)} · ${p.sold?"Terjual":"Tersedia"} · ${p.source==="firebase"?"Firebase":"Manual HTML"}</small></div>
+ <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:end">${p.source==="firebase"?`<button class="btn secondary" data-edit="${esc(p.uid)}">Edit</button><button class="btn danger" data-delete="${esc(p.key||p.uid)}" data-uid="${esc(p.uid)}">Hapus</button>`:`<small style="align-self:center;color:var(--muted)">Edit di INITIAL_PRODUCTS</small>`}</div>
+ </div>`).join(""):`<div class="empty">Belum ada UID. Tambahkan manual di INITIAL_PRODUCTS atau lewat form admin.</div>`;
+}
+$("saveUID").addEventListener("click",async()=>{
+ if(!needAdmin())return;
+ const uid=$("editUID").value.trim(),price=Number($("editPrice").value),sold=$("editSold").value==="true";
+ if(!/^\d+$/.test(uid))return toast("UID harus berupa angka.");
+ if(!Number.isInteger(price)||price<2)return toast("Harga minimal 2 (Rp2.000).");
+ try{await set(ref(db,"products/"+uid),{uid,price,sold});$("editUID").value="";$("editPrice").value="";toast("UID berhasil disimpan.")}
+ catch(e){console.error(e);toast("Gagal menyimpan UID. Periksa Rules Firebase.")}
+});
+$("addBulk").addEventListener("click",async()=>{
+ if(!needAdmin())return;
+ const lines=$("bulk").value.split(/\r?\n/).map(s=>s.trim()).filter(Boolean),updates={};let valid=0,invalid=0;
+ for(const line of lines){
+  const [uid,rawPrice,rawSold]=line.split(",").map(s=>s.trim()),price=Number(rawPrice);
+  if(!/^\d+$/.test(uid||"")||!Number.isInteger(price)||price<2){invalid++;continue}
+  updates["products/"+uid]={uid,price,sold:rawSold==="true"};valid++;
+ }
+ if(!valid)return toast("Tidak ada baris UID valid.");
+ try{await update(ref(db),updates);$("bulk").value="";toast(valid+" UID tersimpan"+(invalid?", "+invalid+" baris dilewati":""))}
+ catch(e){console.error(e);toast("Gagal menyimpan. Periksa Rules Firebase.")}
+});
+$("adminProductList").addEventListener("click",async e=>{
+ const edit=e.target.closest("[data-edit]"),del=e.target.closest("[data-delete]");
+ if(edit){const p=products.find(x=>String(x.uid)===edit.dataset.edit);if(!p)return;$("editUID").value=p.uid;$("editPrice").value=p.price;$("editSold").value=String(!!p.sold);$("editUID").scrollIntoView({behavior:"smooth",block:"center"})}
+ if(del){if(!needAdmin())return;if(!confirm("Hapus UID "+(del.dataset.uid||del.dataset.delete)+"?"))return;try{await remove(ref(db,"products/"+del.dataset.delete));toast("UID dihapus.")}catch(e){console.error(e);toast("Gagal menghapus UID.")}}
+});
+$("adminReviewList").addEventListener("click",async e=>{
+ const reply=e.target.closest("[data-reply]"),del=e.target.closest("[data-delete-review]");
+ if(!needAdmin())return;
+ if(reply){const id=reply.dataset.reply;try{await update(ref(db,"reviews/"+id),{reply:$("reply-"+id).value.trim().slice(0,1000)});toast("Balasan tersimpan.")}catch(e){toast("Gagal menyimpan balasan.")}}
+ if(del){if(!confirm("Hapus ulasan ini?"))return;try{await remove(ref(db,"reviews/"+del.dataset.deleteReview));toast("Ulasan dihapus.")}catch(e){toast("Gagal menghapus ulasan.")}}
+});
+document.querySelector(".admin-tabs").addEventListener("click",e=>{
+ const b=e.target.closest("[data-tab]");if(!b)return;
+ document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));
+ $("productsAdmin").classList.toggle("hidden",b.dataset.tab!=="productsAdmin");
+ $("reviewsAdmin").classList.toggle("hidden",b.dataset.tab!=="reviewsAdmin");
+});
+
+/* Login admin: Authentication + admins/<uid> = true */
+$("loginBtn").addEventListener("click",async()=>{
+ if(!db)return toast("Isi databaseURL Firebase terlebih dahulu.");
+ const email=$("adminEmail").value.trim(),password=$("adminPassword").value;
+ if(!email||!password)return toast("Isi email dan password.");
+ const b=$("loginBtn");b.disabled=true;
+ try{
+  const cred=await signInWithEmailAndPassword(auth,email,password);
+  const snap=await get(ref(db,"admins/"+cred.user.uid));
+  if(snap.val()!==true){await signOut(auth);return toast("Akun belum memiliki izin admin.")}
+  currentUser=cred.user;isAdmin=true;showView("adminPage");renderAdminProducts();renderReviews();toast("Login admin berhasil.");
+ }catch(e){console.error(e);toast("Login gagal. Periksa akun, URL, dan Rules Firebase.")}
+ finally{b.disabled=false}
+});
+async function onAuthStateChangedSafe(){
+ if(!auth)return;
+ onAuthStateChanged(auth,user=>{
+  currentUser=user;
+  if(!user){isAdmin=false;return}
+  if(!db)return;
+  get(ref(db,"admins/"+user.uid)).then(s=>{
+   if(s.val()===true){isAdmin=true;if(currentView==="adminPage"){renderAdminProducts();renderReviews()}}
+  }).catch(()=>{});
+ });
+}
+$("logoutBtn").addEventListener("click",async()=>{try{await signOut(auth)}catch(e){}isAdmin=false;currentUser=null;showView("catalog");toast("Keluar dari admin.")});
+
+/* Listener realtime: data manual tidak akan hilang jika Firebase kosong/error */
+function connectRealtime(){
+ onValue(ref(db,"products"),snap=>{
+  const val=snap.val();
+  firebaseProducts=val&&typeof val==="object"?Object.entries(val).map(([key,p])=>({...p,uid:String(p?.uid??key).trim(),price:Number(p?.price),sold:!!p?.sold,key,source:"firebase"})).filter(p=>/^\d+$/.test(p.uid)&&Number.isInteger(p.price)&&p.price>=2):[];
+  mergeProducts();renderProducts();renderAdminProducts();
+ },err=>{console.error("Products:",err);firebaseProducts=[];mergeProducts();renderProducts();renderAdminProducts();toast("Database produk gagal dibaca. UID manual tetap ditampilkan.")});
+ onValue(ref(db,"reviews"),snap=>{
+  const val=snap.val();
+  reviews=val&&typeof val==="object"?Object.entries(val).map(([id,r])=>({...r,id})):[];renderReviews();
+ },err=>{console.error("Reviews:",err);$("reviewStatus").textContent="Tidak dapat membaca ulasan. Periksa Rules Firebase."});
+ onValue(ref(db,"presence"),snap=>{
+  const val=snap.val();
+  presenceCount=val&&typeof val==="object"?Object.keys(val).length:0;
+  $("onlineCount").textContent=presenceCount;$("adminOnline").textContent=presenceCount;
+ },err=>console.error("Presence:",err));
+}
+
+/* Presence: jumlah sesi pengunjung */
+async function setupPresence(){
+ onValue(ref(db,".info/connected"),async snap=>{
+  if(snap.val()!==true)return;
+  try{
+   const session=push(ref(db,"presence"));
+   await onDisconnect(session).remove();
+   await set(session,{active:true,connectedAt:serverTimestamp()});
+  }catch(e){console.error("Presence:",e)}
+ });
+}
+
+/* Inisialisasi: auth harus dibuat sebelum listener auth dijalankan */
+renderProducts();renderReviews();
+try{
+ const app=initializeApp(firebaseConfig);
+ auth=getAuth(app);
+ onAuthStateChangedSafe();
+ if(configured()){
+  db=getDatabase(app);
+  connectRealtime();
+  signInAnonymously(auth).then(setupPresence).catch(e=>{
+   console.error("Anonymous Auth:",e);
+   toast("Aktifkan Anonymous Authentication di Firebase.");
+  });
+ }else{
+  toast("Katalog siap. Isi databaseURL untuk mengaktifkan real-time.");
+  $("reviewStatus").textContent="Database belum dikonfigurasi; ulasan belum tersinkron.";
+ }
+}catch(e){
+ console.error("Firebase init:",e);
+ toast("Firebase belum siap. Katalog lokal tetap dapat dibuka.");
+}
+</script>
+</body>
+</html>
